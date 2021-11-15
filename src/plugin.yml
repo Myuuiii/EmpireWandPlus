@@ -1,0 +1,5 @@
+main: "mc.subsilence.empirewandplus.App"
+name: "EmpireWandPlus"
+version: "1.0"
+commands:
+  wand:
