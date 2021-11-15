@@ -1,15 +1,8 @@
 package mc.subsilence.empirewandplus.listeners.wandinteraction;
 
 import mc.subsilence.empirewandplus.Data;
-import mc.subsilence.empirewandplus.spells.SparkSpell;
 import mc.subsilence.empirewandplus.spells.BloodSparkSpell;
 import mc.subsilence.empirewandplus.spells.BloodWaveSpell;
-import mc.subsilence.empirewandplus.spells.CloudSpell;
-import mc.subsilence.empirewandplus.spells.EmpireCometSpell;
-import mc.subsilence.empirewandplus.spells.FireballSpell;
-import mc.subsilence.empirewandplus.spells.LaunchSpell;
-import mc.subsilence.empirewandplus.spells.LightningSpell;
-import mc.subsilence.empirewandplus.spells.PoisonWaveSpell;
 
 import java.util.HashSet;
 import org.bukkit.event.block.Action;
