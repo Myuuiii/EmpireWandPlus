@@ -1,7 +1,6 @@
 package mc.subsilence.empirewandplus.listeners.wandinteraction;
 
 import mc.subsilence.empirewandplus.Data;
-import mc.subsilence.empirewandplus.spells.SparkSpell;
 import mc.subsilence.empirewandplus.spells.CloudSpell;
 import mc.subsilence.empirewandplus.spells.EmpireCometSpell;
 import mc.subsilence.empirewandplus.spells.EmpireSparkSpell;
@@ -58,8 +57,8 @@ public class EmpireWandInteraction {
 				// Initial Spell Configuration
 				//
 				if (wand.getItemMeta().getDisplayName().equals(Data.empireWandName)) {
-					meta.setDisplayName(Data.empireWandName + ChatColor.GRAY + " (Spark)");
-					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Spark");
+					meta.setDisplayName(Data.empireWandName + ChatColor.GRAY + " (Lightning)");
+					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Lightning");
 					wand.setItemMeta(meta);
 					return;
 				}
@@ -67,12 +66,6 @@ public class EmpireWandInteraction {
 				//
 				// Spell cycle
 				//
-				if (wand.getItemMeta().getDisplayName().contains("Spark")) {
-					meta.setDisplayName(Data.empireWandName + ChatColor.GRAY + " (Lightning)");
-					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Lightning");
-					wand.setItemMeta(meta);
-					return;
-				}
 				if (wand.getItemMeta().getDisplayName().contains("Lightning")) {
 					meta.setDisplayName(Data.empireWandName + ChatColor.GRAY + " (Launch)");
 					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Launch");
@@ -120,8 +113,8 @@ public class EmpireWandInteraction {
 				// Reset cycle
 				//
 				if (wand.getItemMeta().getDisplayName().contains("Empire Spark")) {
-					meta.setDisplayName(Data.empireWandName + ChatColor.GRAY + " (Spark)");
-					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Spark");
+					meta.setDisplayName(Data.empireWandName + ChatColor.GRAY + " (Lightning)");
+					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Lightning");
 					wand.setItemMeta(meta);
 					return;
 				}
@@ -142,9 +135,6 @@ public class EmpireWandInteraction {
 				//
 				// Spell execution
 				//
-				if (wand.getItemMeta().getDisplayName().contains("Spark"))
-					SparkSpell.Execute(loc, p);
-
 				if (wand.getItemMeta().getDisplayName().contains("Lightning"))
 					LightningSpell.Execute(loc, p);
 
