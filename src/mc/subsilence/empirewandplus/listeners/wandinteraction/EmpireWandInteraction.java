@@ -8,6 +8,7 @@ import mc.subsilence.empirewandplus.spells.EmpireSparkSpell;
 import mc.subsilence.empirewandplus.spells.FireballSpell;
 import mc.subsilence.empirewandplus.spells.LaunchSpell;
 import mc.subsilence.empirewandplus.spells.LightningSpell;
+import mc.subsilence.empirewandplus.spells.PoisonSparkSpell;
 import mc.subsilence.empirewandplus.spells.PoisonWaveSpell;
 
 import java.util.HashSet;
@@ -103,6 +104,12 @@ public class EmpireWandInteraction {
 					return;
 				}
 				if (wand.getItemMeta().getDisplayName().contains("Poison Wave")) {
+					meta.setDisplayName(Data.empireWandName + ChatColor.GRAY + " (Poison Spark)");
+					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Poison Spark");
+					wand.setItemMeta(meta);
+					return;
+				}
+				if (wand.getItemMeta().getDisplayName().contains("Poison Spark")) {
 					meta.setDisplayName(Data.empireWandName + ChatColor.GRAY + " (Empire Spark)");
 					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Empire Spark");
 					wand.setItemMeta(meta);
@@ -155,6 +162,9 @@ public class EmpireWandInteraction {
 
 				if (wand.getItemMeta().getDisplayName().contains("Poison Wave"))
 					PoisonWaveSpell.Execute(loc, p);
+
+				if (wand.getItemMeta().getDisplayName().contains("Poison Spark"))
+					PoisonSparkSpell.Execute(loc, p);
 
 				if (wand.getItemMeta().getDisplayName().contains("Empire Spark"))
 					EmpireSparkSpell.Execute(loc, p);
