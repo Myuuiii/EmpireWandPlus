@@ -30,8 +30,8 @@ public class EmpireSparkSpell {
 		p.getWorld().spawnParticle(Particle.SPELL_WITCH, loc, 100, 0, 0, 0, 0.1);
 		p.getWorld().spawnParticle(Particle.REDSTONE, loc, 75, 0.5, 0.5, 0.5, 3,
 				new DustOptions(Color.fromRGB(255, 0, 233), 2));
-		p.getWorld().playSound(loc, Sound.ENTITY_FIREWORK_ROCKET_TWINKLE_FAR, 5, 0.85f);
-		p.getWorld().playSound(loc, Sound.ENTITY_FIREWORK_ROCKET_TWINKLE, 5, 0.85f);
+		p.getWorld().playSound(loc, Sound.ENTITY_ZOMBIE_INFECT, 5, 0.85f);
+		p.getWorld().playSound(loc, Sound.ENTITY_DRAGON_FIREBALL_EXPLODE, 5, 0.85f);
 
 		final List<Entity> near = (List<Entity>) loc.getWorld().getEntities();
 		for (final Entity en : near) {
