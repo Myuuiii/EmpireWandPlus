@@ -62,6 +62,54 @@ public class GetWandCommand implements CommandExecutor {
 								player.sendMessage(Data.prefix + ChatColor.RED + "You're not allowed to use that!");
 							}
 							break;
+						case "scythe":
+							if (player.hasPermission("scythe.get")) {
+								wand = new ItemStack(Material.IRON_HOE, 1);
+								wandMeta = wand.getItemMeta();
+								wandMeta.setDisplayName(Data.scytheWandName);
+								wand.setItemMeta(wandMeta);
+								if (player.getInventory().firstEmpty() == -1) {
+									player.sendMessage(ChatColor.RED + "Your inventory is full");
+									return false;
+								}
+
+								player.getInventory().addItem(new ItemStack[] { wand });
+								player.sendMessage(Data.prefix + ChatColor.GRAY + "You have been give a "
+										+ ChatColor.GREEN + "POISON SCYTHE" + ChatColor.GRAY + " wand");
+							} else {
+								player.sendMessage(Data.prefix + ChatColor.RED + "You're not allowed to use that!");
+							}
+							break;
+						case "celestial":
+							player.sendMessage(Data.prefix + ChatColor.GOLD + Data.wandNotImplementedYet);
+
+							if (player.hasPermission("celestial.get")) {
+								wand = new ItemStack(Material.AMETHYST_SHARD, 1);
+								wandMeta = wand.getItemMeta();
+								wandMeta.setDisplayName(Data.celestialWandName);
+								wand.setItemMeta(wandMeta);
+								if (player.getInventory().firstEmpty() == -1) {
+									player.sendMessage(ChatColor.RED + "Your inventory is full");
+									return false;
+								}
+								player.getInventory().addItem(new ItemStack[] { wand });
+								player.sendMessage(Data.prefix + ChatColor.GRAY + "You have been given a "
+										+ ChatColor.LIGHT_PURPLE + "CELESTIAL" + ChatColor.GRAY + " wand");
+							} else {
+								player.sendMessage(Data.prefix + ChatColor.RED + "You're not allowed to use that!");
+							}
+							break;
+						case "aqua":
+							player.sendMessage(Data.prefix + ChatColor.GOLD + Data.wandNotImplementedYet);
+							if (player.hasPermission("aqua.get")) {
+							}
+							break;
+						case "hell":
+							player.sendMessage(Data.prefix + ChatColor.GOLD + Data.wandNotImplementedYet);
+							if (player.hasPermission("hell.get")) {
+
+							}
+							break;
 					}
 				} else {
 					player.sendMessage(Data.prefix + ChatColor.RED + "This wand does not exist!");
