@@ -99,11 +99,6 @@ public class GetWandCommand implements CommandExecutor {
 								player.sendMessage(Data.prefix + ChatColor.RED + "You're not allowed to use that!");
 							}
 							break;
-						case "aqua":
-							player.sendMessage(Data.prefix + ChatColor.GOLD + Data.wandNotImplementedYet);
-							if (player.hasPermission("aqua.get")) {
-							}
-							break;
 						case "hell":
 							player.sendMessage(Data.prefix + ChatColor.GOLD + Data.wandNotImplementedYet);
 							if (player.hasPermission("hell.get")) {

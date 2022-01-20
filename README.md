@@ -24,7 +24,6 @@ All of the wands will constantly receive updates, especially during the main dev
 - [x] Blood Wand
 - [x] Poison Scythe 
 - [x] Celestial Wand
-- [ ] Aqua Wand
 - [ ] Hell Wand
 
 ## Currently Implemented Spells

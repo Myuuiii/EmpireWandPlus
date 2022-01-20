@@ -15,7 +15,7 @@ public class GetWandCompleter implements TabCompleter {
 	public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
 		if (args.length == 1) {
 			return StringUtil.copyPartialMatches(args[0],
-					Arrays.asList(new String[] { "Empire", "Blood", "Scythe", "Celestial", "Aqua", "Hell" }),
+					Arrays.asList(new String[] { "Empire", "Blood", "Scythe", "Celestial", "Hell" }),
 					new ArrayList<>());
 		}
 		return null;
