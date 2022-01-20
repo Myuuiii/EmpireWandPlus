@@ -63,9 +63,6 @@ public class EmpireWandInteraction {
 					loreItems = wand.getItemMeta().getLore();
 
 					switch (wand.getItemMeta().getLore().get(0)) {
-						case "Lightning":
-							loreItems.set(0, "Launch");
-							break;
 						case "Launch":
 							loreItems.set(0, "Fireball");
 							break;
@@ -88,7 +85,7 @@ public class EmpireWandInteraction {
 						// reset
 						case "Empire Spark":
 						default:
-							loreItems.set(0, "Lightning");
+							loreItems.set(0, "Launch");
 							break;
 					}
 				} else {

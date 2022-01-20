@@ -1,6 +1,7 @@
 package moe.myuuiii.empirewandplus.listeners.wandinteraction;
 
 import moe.myuuiii.empirewandplus.Data;
+import moe.myuuiii.empirewandplus.spells.LightningSpell;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -56,11 +57,11 @@ public class CelestialWandInteraction {
 
 					switch (wand.getItemMeta().getLore().get(0)) {
 						case "":
-							loreItems.set(0, "");
+							loreItems.set(0, "Lightning");
 							break;
 
 						// reset
-						// case "":
+						case "Lightning":
 						default:
 							loreItems.set(0, "");
 							break;
@@ -90,7 +91,9 @@ public class CelestialWandInteraction {
 				// Spell execution
 				//
 				switch (wand.getItemMeta().getLore().get(0)) {
-
+					case "Lightning":
+						LightningSpell.Execute(loc, p);
+						break;
 				}
 			}
 		}
