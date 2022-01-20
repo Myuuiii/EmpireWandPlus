@@ -4,7 +4,11 @@ import moe.myuuiii.empirewandplus.Data;
 import moe.myuuiii.empirewandplus.spells.BloodSparkSpell;
 import moe.myuuiii.empirewandplus.spells.BloodWaveSpell;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Vector;
+
 import org.bukkit.event.block.Action;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -44,38 +48,33 @@ public class BloodWandInteraction {
 				e.setCancelled(true);
 
 				final ItemMeta meta = wand.getItemMeta();
-
 				p.getWorld().spawnParticle(Particle.SMOKE_NORMAL, p.getLocation(), 250, 0.5, 0.0, 0.5, 0.05);
 
 				//
 				// Initial Spell Configuration
 				//
-				if (wand.getItemMeta().getDisplayName().equals(Data.bloodWandName)) {
-					meta.setDisplayName(Data.bloodWandName + ChatColor.GRAY + " (Blood Spark)");
-					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Blood Spark");
-					wand.setItemMeta(meta);
-					return;
-				}
+				List<String> loreItems = new ArrayList<>();
+				if (wand.getItemMeta().hasLore()) {
+					loreItems = wand.getItemMeta().getLore();
 
-				//
-				// Spell cycle
-				//
-				if (wand.getItemMeta().getDisplayName().contains("Blood Spark")) {
-					meta.setDisplayName(Data.bloodWandName + ChatColor.GRAY + " (Blood Wave)");
-					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Blood Wave");
-					wand.setItemMeta(meta);
-					return;
-				}
+					switch (wand.getItemMeta().getLore().get(0)) {
+						case "Blood Spark":
+							loreItems.set(0, "Blood Wave");
+							break;
 
-				//
-				// Reset cycle
-				//
-				if (wand.getItemMeta().getDisplayName().contains("Blood Wave")) {
-					meta.setDisplayName(Data.bloodWandName + ChatColor.GRAY + " (Blood Spark)");
-					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Blood Spark");
-					wand.setItemMeta(meta);
-					return;
+						// reset
+						case "Blood Wave":
+						default:
+							loreItems.set(0, "Blood Spark");
+							break;
+					}
+				} else {
+					loreItems.add("Blood Spark");
 				}
+				meta.setLore(loreItems);
+				wand.setItemMeta(meta);
+				p.sendMessage(Data.prefix + Data.currentSpellMessage + wand.getItemMeta().getLore().get(0));
+				return;
 			}
 
 			//
@@ -93,11 +92,15 @@ public class BloodWandInteraction {
 				//
 				// Spell execution
 				//
-				if (wand.getItemMeta().getDisplayName().contains("Blood Spark")) {
-					BloodSparkSpell.Execute(loc, p);
-				}
-				if (wand.getItemMeta().getDisplayName().contains("Blood Wave")) {
-					BloodWaveSpell.Execute(loc, p);
+				switch (wand.getItemMeta().getLore().get(0)) {
+					case "Blood Spark":
+						BloodSparkSpell.Execute(loc, p);
+						break;
+					case "Blood Wave":
+						BloodWaveSpell.Execute(loc, p);
+						break;
+					default:
+						p.sendMessage(Data.prefix + Data.unknownSpellMessage);
 				}
 			}
 		}
