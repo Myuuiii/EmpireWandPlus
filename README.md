@@ -18,10 +18,12 @@
 
 ## Wands Overview
 
+All of the wands will constantly receive updates, especially during the main development times
+
 - [x] Empire Wand
 - [x] Blood Wand
-- [ ] Poison Scythe
-- [ ] Celestial Wand
+- [x] Poison Scythe 
+- [x] Celestial Wand
 - [ ] Aqua Wand
 - [ ] Hell Wand
 
