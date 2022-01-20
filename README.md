@@ -14,25 +14,34 @@
 
 `bloodwand.use` Allows a player to change spells and cast them using the blood wand
 
-## Spells
 
-### Implemented
 
-- [x] Blood Spark
-- [x] Blood wave
-- [x] Cloud
-- [x] Empire Comet
-- [x] Empire Spark
-- [x] Fireball
-- [x] Launch
-- [x] Lightning
-- [x] Poison Spark
-- [x] Poison Wave
+## Wands Overview
 
-### Not yet implemented
+- [x] Empire Wand
+- [x] Blood Wand
+- [ ] Poison Scythe
+- [ ] Celestial Wand
+- [ ] Aqua Wand
+- [ ] Hell Wand
 
-- [ ] Empire Confuse
-- [ ] Smokescreen
-- [ ] Explosion wave
-- [ ] Empire Teleport
-- [ ] Lifesteal
+
+
+- [ ] Global wand
+
+## Currently Implemented Spells
+
+- Blood Spells
+  - [x] Blood Spark
+  - [x] Blood Wave
+- Empire Spells
+  - [x] Empire Comet
+  - [x] Empire Spark
+- Poison Spells
+  - [x] Poison Spark
+  - [x] Poison Wave
+- General
+  - [x] Cloud
+  - [x] Fireball
+  - [x] Launch
+  - [x] Lightning
