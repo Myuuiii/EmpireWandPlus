@@ -27,6 +27,8 @@
 
 
 
+
+
 - [ ] Global wand
 
 ## Currently Implemented Spells
