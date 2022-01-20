@@ -1,0 +1,7 @@
+name: EmpireWandPlus
+version: '${project.version}'
+main: moe.myuuiii.empirewandplus.App
+api-version: 1.18
+authors: [ Myuuiii ]
+commands:
+  wand:
