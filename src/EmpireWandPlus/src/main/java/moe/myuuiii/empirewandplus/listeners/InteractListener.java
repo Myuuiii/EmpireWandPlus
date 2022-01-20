@@ -3,7 +3,9 @@ package moe.myuuiii.empirewandplus.listeners;
 import org.bukkit.event.EventHandler;
 
 import moe.myuuiii.empirewandplus.listeners.wandinteraction.BloodWandInteraction;
+import moe.myuuiii.empirewandplus.listeners.wandinteraction.CelestialWandInteraction;
 import moe.myuuiii.empirewandplus.listeners.wandinteraction.EmpireWandInteraction;
+import moe.myuuiii.empirewandplus.listeners.wandinteraction.ScytheWandInteraction;
 
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
@@ -24,6 +26,8 @@ public class InteractListener implements Listener {
 		if (e.getHand().equals(EquipmentSlot.HAND)) {
 			EmpireWandInteraction.Handle(e);
 			BloodWandInteraction.Handle(e);
+			ScytheWandInteraction.Handle(e);
+			CelestialWandInteraction.Handle(e);
 		}
 	}
 }
