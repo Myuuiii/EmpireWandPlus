@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.bukkit.Color;
 import org.bukkit.Particle;
+import org.bukkit.Sound;
 import org.bukkit.Particle.DustOptions;
 import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
@@ -37,6 +38,10 @@ public class BloodWaveSpellEffect {
 					s.getWorld().spawnParticle(Particle.REDSTONE, s.getLocation(), 75, 0.5, 0.5, 0.5, 1,
 							new DustOptions(Color.fromRGB(255, 0, 0), 2));
 					s.getWorld().spawnParticle(Particle.SMOKE_LARGE, s.getLocation(), 75, 0.5, 0.5, 0.5, 0.05);
+
+					s.getWorld().playSound(s.getLocation(), Sound.BLOCK_AZALEA_BREAK, 1, 0.65f);
+					s.getWorld().playSound(s.getLocation(), Sound.BLOCK_AZALEA_LEAVES_BREAK, 1, 0.65f);
+					s.getWorld().playSound(s.getLocation(), Sound.ENTITY_SPIDER_HURT, 1, 0.10f);
 
 					final List<Entity> near = (List<Entity>) s.getLocation().getWorld().getEntities();
 					for (final Entity en : near) {
