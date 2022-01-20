@@ -19,6 +19,8 @@ public class Data {
 	public static String prefix = ChatColor.GRAY + "[" + ChatColor.LIGHT_PURPLE + "X" + ChatColor.GRAY + "] "
 			+ ChatColor.RESET;
 	public static String currentSpellMessage = ChatColor.GRAY + "Current Spell: " + ChatColor.LIGHT_PURPLE;
+	public static String unknownSpellMessage = ChatColor.GRAY
+			+ "The current spell was not recognized, maybe you have not selected one yet?";
 
 	public static ArrayList<Snowball> fireballs = new ArrayList<Snowball>();
 	public static ArrayList<Snowball> lightningBolts = new ArrayList<Snowball>();
