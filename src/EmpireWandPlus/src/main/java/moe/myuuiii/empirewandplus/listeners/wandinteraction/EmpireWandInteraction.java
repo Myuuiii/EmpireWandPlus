@@ -10,7 +10,10 @@ import moe.myuuiii.empirewandplus.spells.LightningSpell;
 import moe.myuuiii.empirewandplus.spells.PoisonSparkSpell;
 import moe.myuuiii.empirewandplus.spells.PoisonWaveSpell;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+
 import org.bukkit.event.block.Action;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -50,74 +53,51 @@ public class EmpireWandInteraction {
 				e.setCancelled(true);
 
 				final ItemMeta meta = wand.getItemMeta();
-
 				p.getWorld().spawnParticle(Particle.SMOKE_NORMAL, p.getLocation(), 250, 0.5, 0.0, 0.5, 0.05);
 
 				//
 				// Initial Spell Configuration
 				//
-				if (wand.getItemMeta().getDisplayName().equals(Data.empireWandName)) {
-					meta.setDisplayName(Data.empireWandName + ChatColor.GRAY + " (Lightning)");
-					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Lightning");
-					wand.setItemMeta(meta);
-					return;
-				}
+				List<String> loreItems = new ArrayList<>();
+				if (wand.getItemMeta().hasLore()) {
+					loreItems = wand.getItemMeta().getLore();
 
-				//
-				// Spell cycle
-				//
-				if (wand.getItemMeta().getDisplayName().contains("Lightning")) {
-					meta.setDisplayName(Data.empireWandName + ChatColor.GRAY + " (Launch)");
-					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Launch");
-					wand.setItemMeta(meta);
-					return;
-				}
-				if (wand.getItemMeta().getDisplayName().contains("Launch")) {
-					meta.setDisplayName(Data.empireWandName + ChatColor.GRAY + " (Fireball)");
-					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Fireball");
-					wand.setItemMeta(meta);
-					return;
-				}
-				if (wand.getItemMeta().getDisplayName().contains("Fireball")) {
-					meta.setDisplayName(Data.empireWandName + ChatColor.GRAY + " (Empire Comet)");
-					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Empire Comet");
-					wand.setItemMeta(meta);
-					return;
-				}
-				if (wand.getItemMeta().getDisplayName().contains("Empire Comet")) {
-					meta.setDisplayName(Data.empireWandName + ChatColor.GRAY + " (Cloud)");
-					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Cloud");
-					wand.setItemMeta(meta);
-					return;
-				}
-				if (wand.getItemMeta().getDisplayName().contains("Cloud")) {
-					meta.setDisplayName(Data.empireWandName + ChatColor.GRAY + " (Poison Wave)");
-					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Poison Wave");
-					wand.setItemMeta(meta);
-					return;
-				}
-				if (wand.getItemMeta().getDisplayName().contains("Poison Wave")) {
-					meta.setDisplayName(Data.empireWandName + ChatColor.GRAY + " (Poison Spark)");
-					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Poison Spark");
-					wand.setItemMeta(meta);
-					return;
-				}
-				if (wand.getItemMeta().getDisplayName().contains("Poison Spark")) {
-					meta.setDisplayName(Data.empireWandName + ChatColor.GRAY + " (Empire Spark)");
-					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Empire Spark");
-					wand.setItemMeta(meta);
-					return;
-				}
+					switch (wand.getItemMeta().getLore().get(0)) {
+						case "Lightning":
+							loreItems.set(0, "Launch");
+							break;
+						case "Launch":
+							loreItems.set(0, "Fireball");
+							break;
+						case "Fireball":
+							loreItems.set(0, "Empire Comet");
+							break;
+						case "Empire Comet":
+							loreItems.set(0, "Cloud");
+							break;
+						case "Cloud":
+							loreItems.set(0, "Poison Wave");
+							break;
+						case "Poison Wave":
+							loreItems.set(0, "Poison Spark");
+							break;
+						case "Poison Spark":
+							loreItems.set(0, "Empire Spark");
+							break;
 
-				//
-				// Reset cycle
-				//
-				if (wand.getItemMeta().getDisplayName().contains("Empire Spark")) {
-					meta.setDisplayName(Data.empireWandName + ChatColor.GRAY + " (Lightning)");
-					p.sendMessage(Data.prefix + Data.currentSpellMessage + "Lightning");
-					wand.setItemMeta(meta);
-					return;
+						// reset
+						case "Empire Spark":
+						default:
+							loreItems.set(0, "Lightning");
+							break;
+					}
+				} else {
+					loreItems.add("Lightning");
 				}
+				meta.setLore(loreItems);
+				wand.setItemMeta(meta);
+				p.sendMessage(Data.prefix + Data.currentSpellMessage + wand.getItemMeta().getLore().get(0));
+				return;
 			}
 
 			//
@@ -135,29 +115,32 @@ public class EmpireWandInteraction {
 				//
 				// Spell execution
 				//
-				if (wand.getItemMeta().getDisplayName().contains("Lightning"))
-					LightningSpell.Execute(loc, p);
-
-				if (wand.getItemMeta().getDisplayName().contains("Launch"))
-					LaunchSpell.Execute(loc, p);
-
-				if (wand.getItemMeta().getDisplayName().contains("Fireball"))
-					FireballSpell.Execute(loc, p);
-
-				if (wand.getItemMeta().getDisplayName().contains("Empire Comet"))
-					EmpireCometSpell.Execute(loc, p);
-
-				if (wand.getItemMeta().getDisplayName().contains("Cloud"))
-					CloudSpell.Execute(loc, p);
-
-				if (wand.getItemMeta().getDisplayName().contains("Poison Wave"))
-					PoisonWaveSpell.Execute(loc, p);
-
-				if (wand.getItemMeta().getDisplayName().contains("Poison Spark"))
-					PoisonSparkSpell.Execute(loc, p);
-
-				if (wand.getItemMeta().getDisplayName().contains("Empire Spark"))
-					EmpireSparkSpell.Execute(loc, p);
+				switch (wand.getItemMeta().getLore().get(0)) {
+					case "Lightning":
+						LightningSpell.Execute(loc, p);
+						break;
+					case "Launch":
+						LaunchSpell.Execute(loc, p);
+						break;
+					case "Fireball":
+						FireballSpell.Execute(loc, p);
+						break;
+					case "Empire Comet":
+						EmpireCometSpell.Execute(loc, p);
+						break;
+					case "Cloud":
+						CloudSpell.Execute(loc, p);
+						break;
+					case "Poison Wave":
+						PoisonWaveSpell.Execute(loc, p);
+						break;
+					case "Poison Spark":
+						PoisonSparkSpell.Execute(loc, p);
+						break;
+					case "Empire Spark":
+						EmpireSparkSpell.Execute(loc, p);
+						break;
+				}
 			}
 		}
 	}
