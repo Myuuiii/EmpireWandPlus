@@ -73,12 +73,6 @@ public class EmpireWandInteraction {
 							loreItems.set(0, "Cloud");
 							break;
 						case "Cloud":
-							loreItems.set(0, "Poison Wave");
-							break;
-						case "Poison Wave":
-							loreItems.set(0, "Poison Spark");
-							break;
-						case "Poison Spark":
 							loreItems.set(0, "Empire Spark");
 							break;
 
@@ -127,12 +121,6 @@ public class EmpireWandInteraction {
 						break;
 					case "Cloud":
 						CloudSpell.Execute(loc, p);
-						break;
-					case "Poison Wave":
-						PoisonWaveSpell.Execute(loc, p);
-						break;
-					case "Poison Spark":
-						PoisonSparkSpell.Execute(loc, p);
 						break;
 					case "Empire Spark":
 						EmpireSparkSpell.Execute(loc, p);

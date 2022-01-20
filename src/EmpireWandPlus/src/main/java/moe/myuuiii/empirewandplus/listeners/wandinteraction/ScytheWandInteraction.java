@@ -1,6 +1,8 @@
 package moe.myuuiii.empirewandplus.listeners.wandinteraction;
 
 import moe.myuuiii.empirewandplus.Data;
+import moe.myuuiii.empirewandplus.spells.PoisonSparkSpell;
+import moe.myuuiii.empirewandplus.spells.PoisonWaveSpell;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -55,14 +57,14 @@ public class ScytheWandInteraction {
 					loreItems = wand.getItemMeta().getLore();
 
 					switch (wand.getItemMeta().getLore().get(0)) {
-						case "":
-							loreItems.set(0, "");
+						case "Poison Wave":
+							loreItems.set(0, "Poison Spark");
 							break;
 
 						// reset
-						// case "":
+						case "Poison Spark":
 						default:
-							loreItems.set(0, "");
+							loreItems.set(0, "Poison Wave");
 							break;
 					}
 				} else {
@@ -90,7 +92,12 @@ public class ScytheWandInteraction {
 				// Spell execution
 				//
 				switch (wand.getItemMeta().getLore().get(0)) {
-
+					case "Poison Wave":
+						PoisonWaveSpell.Execute(loc, p);
+						break;
+					case "Poison Spark":
+						PoisonSparkSpell.Execute(loc, p);
+						break;
 				}
 			}
 		}
