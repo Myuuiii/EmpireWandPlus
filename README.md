@@ -25,10 +25,6 @@
 - [ ] Aqua Wand
 - [ ] Hell Wand
 
-
-
-- [ ] Global wand
-
 ## Currently Implemented Spells
 
 - Blood Spells
