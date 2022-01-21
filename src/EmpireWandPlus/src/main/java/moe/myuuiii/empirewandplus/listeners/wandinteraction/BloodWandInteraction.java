@@ -1,6 +1,8 @@
 package moe.myuuiii.empirewandplus.listeners.wandinteraction;
 
 import moe.myuuiii.empirewandplus.Data;
+import moe.myuuiii.empirewandplus.Spells;
+import moe.myuuiii.empirewandplus.WandSpellLists;
 import moe.myuuiii.empirewandplus.handlers.SpellHandler;
 import moe.myuuiii.empirewandplus.spells.BloodSparkSpell;
 import moe.myuuiii.empirewandplus.spells.BloodWaveSpell;
@@ -58,20 +60,19 @@ public class BloodWandInteraction {
 				if (wand.getItemMeta().hasLore()) {
 					loreItems = wand.getItemMeta().getLore();
 
-					switch (wand.getItemMeta().getLore().get(0)) {
-						case "Blood Spark":
-							loreItems.set(0, "Blood Wave");
-							break;
+					Integer currentSpellIndex = WandSpellLists.BloodWandSpells
+							.indexOf(wand.getItemMeta().getLore().get(0));
+					Integer nextSpellIndex = currentSpellIndex + 1;
 
-						// reset
-						case "Blood Wave":
-						default:
-							loreItems.set(0, "Blood Spark");
-							break;
+					if (nextSpellIndex >= WandSpellLists.BloodWandSpells.size()) {
+						nextSpellIndex = 0;
 					}
+
+					loreItems.set(0, WandSpellLists.BloodWandSpells.get(nextSpellIndex));
 				} else {
-					loreItems.add("Blood Spark");
+					loreItems.add(WandSpellLists.BloodWandSpells.get(0));
 				}
+
 				meta.setLore(loreItems);
 				wand.setItemMeta(meta);
 				p.sendMessage(Data.prefix + Data.currentSpellMessage + wand.getItemMeta().getLore().get(0));

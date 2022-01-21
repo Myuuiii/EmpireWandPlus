@@ -1,6 +1,7 @@
 package moe.myuuiii.empirewandplus.listeners.wandinteraction;
 
 import moe.myuuiii.empirewandplus.Data;
+import moe.myuuiii.empirewandplus.WandSpellLists;
 import moe.myuuiii.empirewandplus.handlers.SpellHandler;
 import moe.myuuiii.empirewandplus.spells.PoisonSparkSpell;
 import moe.myuuiii.empirewandplus.spells.PoisonWaveSpell;
@@ -54,23 +55,23 @@ public class ScytheWandInteraction {
 				// Initial Spell Configuration
 				//
 				List<String> loreItems = new ArrayList<>();
+
 				if (wand.getItemMeta().hasLore()) {
 					loreItems = wand.getItemMeta().getLore();
 
-					switch (wand.getItemMeta().getLore().get(0)) {
-						case "Poison Wave":
-							loreItems.set(0, "Poison Spark");
-							break;
+					Integer currentSpellIndex = WandSpellLists.PoisonScytheWandSpells
+							.indexOf(wand.getItemMeta().getLore().get(0));
+					Integer nextSpellIndex = currentSpellIndex + 1;
 
-						// reset
-						case "Poison Spark":
-						default:
-							loreItems.set(0, "Poison Wave");
-							break;
+					if (nextSpellIndex >= WandSpellLists.PoisonScytheWandSpells.size()) {
+						nextSpellIndex = 0;
 					}
+
+					loreItems.set(0, WandSpellLists.PoisonScytheWandSpells.get(nextSpellIndex));
 				} else {
-					loreItems.add("");
+					loreItems.add(WandSpellLists.PoisonScytheWandSpells.get(0));
 				}
+
 				meta.setLore(loreItems);
 				wand.setItemMeta(meta);
 				p.sendMessage(Data.prefix + Data.currentSpellMessage + wand.getItemMeta().getLore().get(0));

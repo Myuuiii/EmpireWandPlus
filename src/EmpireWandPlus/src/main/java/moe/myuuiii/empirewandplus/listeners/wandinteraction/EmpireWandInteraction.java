@@ -1,6 +1,7 @@
 package moe.myuuiii.empirewandplus.listeners.wandinteraction;
 
 import moe.myuuiii.empirewandplus.Data;
+import moe.myuuiii.empirewandplus.WandSpellLists;
 import moe.myuuiii.empirewandplus.handlers.SpellHandler;
 import moe.myuuiii.empirewandplus.spells.CloudSpell;
 import moe.myuuiii.empirewandplus.spells.EmpireCometSpell;
@@ -60,32 +61,23 @@ public class EmpireWandInteraction {
 				// Initial Spell Configuration
 				//
 				List<String> loreItems = new ArrayList<>();
+
 				if (wand.getItemMeta().hasLore()) {
 					loreItems = wand.getItemMeta().getLore();
 
-					switch (wand.getItemMeta().getLore().get(0)) {
-						case "Launch":
-							loreItems.set(0, "Fireball");
-							break;
-						case "Fireball":
-							loreItems.set(0, "Empire Comet");
-							break;
-						case "Empire Comet":
-							loreItems.set(0, "Cloud");
-							break;
-						case "Cloud":
-							loreItems.set(0, "Empire Spark");
-							break;
+					Integer currentSpellIndex = WandSpellLists.EmpireWandSpells
+							.indexOf(wand.getItemMeta().getLore().get(0));
+					Integer nextSpellIndex = currentSpellIndex + 1;
 
-						// reset
-						case "Empire Spark":
-						default:
-							loreItems.set(0, "Launch");
-							break;
+					if (nextSpellIndex >= WandSpellLists.EmpireWandSpells.size()) {
+						nextSpellIndex = 0;
 					}
+
+					loreItems.set(0, WandSpellLists.EmpireWandSpells.get(nextSpellIndex));
 				} else {
-					loreItems.add("Lightning");
+					loreItems.add(WandSpellLists.EmpireWandSpells.get(0));
 				}
+
 				meta.setLore(loreItems);
 				wand.setItemMeta(meta);
 				p.sendMessage(Data.prefix + Data.currentSpellMessage + wand.getItemMeta().getLore().get(0));
