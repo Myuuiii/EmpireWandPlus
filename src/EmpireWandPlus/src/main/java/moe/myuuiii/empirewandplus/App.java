@@ -38,7 +38,10 @@ public class App extends JavaPlugin {
 
     public void registerRunnables() {
 
-        // Cloud
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new CloudRunnable(), 10L, 0L);
+        // Cloud runnables
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new BloodCloudRunnable(), 10L, 0L);
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new CelestialCloudRunnable(), 10L, 0L);
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new EmpireCloudRunnable(), 10L, 0L);
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new PoisonCloudRunnable(), 10L, 0L);
     }
 }

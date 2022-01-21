@@ -1,13 +1,15 @@
 package moe.myuuiii.empirewandplus.spells;
 
+import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import moe.myuuiii.empirewandplus.Data;
-import net.md_5.bungee.api.ChatColor;
+import moe.myuuiii.empirewandplus.Spells;
+import moe.myuuiii.empirewandplus.handlers.CloudHandler;
 
-public class CloudSpell {
+public class BloodCloudSpell {
 	//
 	// Settings
 	//
@@ -15,18 +17,18 @@ public class CloudSpell {
 
 	public static void Execute(Location loc, Player p) {
 
-		if (Data.cloudUsers.contains(p.getUniqueId())) {
-			p.sendMessage(Data.prefix + ChatColor.GRAY + "Deactivated cloud flight");
+		if (Data.bloodCloudUsers.contains(p.getUniqueId())) {
+			p.sendMessage(Data.prefix + ChatColor.GRAY + "Deactivated " + Spells.BloodCloud);
 			if (!p.getGameMode().equals(GameMode.CREATIVE)) {
 				p.setAllowFlight(false);
 			}
-			Data.cloudUsers.remove(p.getUniqueId());
+			CloudHandler.DisableCloud(p.getUniqueId());
 		} else {
-			p.sendMessage(Data.prefix + ChatColor.GRAY + "Activated cloud flight");
+			p.sendMessage(Data.prefix + ChatColor.GRAY + "Activated " + Spells.BloodCloud);
 			if (!p.getGameMode().equals(GameMode.CREATIVE)) {
 				p.setAllowFlight(true);
 			}
-			Data.cloudUsers.add(p.getUniqueId());
+			Data.bloodCloudUsers.add(p.getUniqueId());
 		}
 	}
 }
