@@ -29,6 +29,7 @@ public class WandSpellLists {
 	});
 
 	public static final List<String> HellWandSpells = Arrays.asList(new String[] {
-			Spells.Fireball
+			Spells.Fireball,
+			Spells.FirePulse
 	});
 }

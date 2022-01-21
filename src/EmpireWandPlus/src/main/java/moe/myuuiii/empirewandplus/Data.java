@@ -27,18 +27,20 @@ public class Data {
 			+ "The current spell was not recognized, maybe you have not selected one yet?";
 	public static String wandNotImplementedYet = "This wand has not yet been implemented";
 
-	public static ArrayList<Snowball> fireballs = new ArrayList<Snowball>();
-	public static ArrayList<Snowball> lightningBolts = new ArrayList<Snowball>();
-	public static ArrayList<Snowball> empireComets = new ArrayList<Snowball>();
+	public static ArrayList<Snowball> fireballs = new ArrayList<>();
+	public static ArrayList<Snowball> firepulses = new ArrayList<>();
+
+	public static ArrayList<Snowball> lightningBolts = new ArrayList<>();
+	public static ArrayList<Snowball> empireComets = new ArrayList<>();
 
 	public static ArrayList<UUID> bloodCloudUsers = new ArrayList<>();
 	public static ArrayList<UUID> celestialCloudUsers = new ArrayList<>();
 	public static ArrayList<UUID> empireCloudUsers = new ArrayList<>();
 	public static ArrayList<UUID> poisonCloudUsers = new ArrayList<>();
 
-	public static ArrayList<Snowball> poisonWaves = new ArrayList<Snowball>();
-	public static ArrayList<UUID> poisonUsers = new ArrayList<UUID>();
+	public static ArrayList<Snowball> poisonWaves = new ArrayList<>();
+	public static ArrayList<UUID> poisonUsers = new ArrayList<>();
 
-	public static ArrayList<Snowball> bloodWaves = new ArrayList<Snowball>();
-	public static ArrayList<UUID> bloodUsers = new ArrayList<UUID>();
+	public static ArrayList<Snowball> bloodWaves = new ArrayList<>();
+	public static ArrayList<UUID> bloodUsers = new ArrayList<>();
 }
