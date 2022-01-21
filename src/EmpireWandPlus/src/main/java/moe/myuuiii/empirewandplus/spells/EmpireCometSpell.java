@@ -15,7 +15,7 @@ public class EmpireCometSpell {
 	private static int _rangeMultiplication = 3;
 
 	public static void Execute(Location loc, Player p) {
-		Snowball e = (Snowball) p.launchProjectile((Class) Snowball.class);
+		Snowball e = (Snowball) p.launchProjectile((Class<Snowball>) Snowball.class);
 
 		e.setVelocity(e.getVelocity().multiply(_rangeMultiplication));
 		e.setGravity(false);
