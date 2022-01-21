@@ -30,11 +30,14 @@ public class Data {
 	public static ArrayList<Snowball> lightningBolts = new ArrayList<Snowball>();
 	public static ArrayList<Snowball> empireComets = new ArrayList<Snowball>();
 
+	public static ArrayList<UUID> bloodCloudUsers = new ArrayList<>();
+	public static ArrayList<UUID> celestialCloudUsers = new ArrayList<>();
+	public static ArrayList<UUID> empireCloudUsers = new ArrayList<>();
+	public static ArrayList<UUID> poisonCloudUsers = new ArrayList<>();
+
 	public static ArrayList<Snowball> poisonWaves = new ArrayList<Snowball>();
 	public static ArrayList<UUID> poisonUsers = new ArrayList<UUID>();
 
 	public static ArrayList<Snowball> bloodWaves = new ArrayList<Snowball>();
 	public static ArrayList<UUID> bloodUsers = new ArrayList<UUID>();
-
-	public static ArrayList<UUID> cloudUsers = new ArrayList<UUID>();
 }

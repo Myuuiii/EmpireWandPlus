@@ -24,12 +24,18 @@ public class SpellHandler {
 			case Spells.BloodWave:
 				BloodWaveSpell.Execute(loc, p);
 				break;
+			case Spells.BloodCloud:
+				BloodCloudSpell.Execute(loc, p);
+				break;
 
 			//
 			// Celestial wand
 			//
 			case Spells.Lightning:
 				LightningSpell.Execute(loc, p);
+				break;
+			case Spells.CelestialCloud:
+				CelestialCloudSpell.Execute(loc, p);
 				break;
 
 			//
@@ -47,6 +53,9 @@ public class SpellHandler {
 			case Spells.EmpireSpark:
 				EmpireSparkSpell.Execute(loc, p);
 				break;
+			case Spells.EmpireCloud:
+				EmpireCloudSpell.Execute(loc, p);
+				break;
 
 			//
 			// Poison scythe wand
@@ -57,12 +66,8 @@ public class SpellHandler {
 			case Spells.PoisonSpark:
 				PoisonSparkSpell.Execute(loc, p);
 				break;
-
-			//
-			// Spells to be removed
-			//
-			case Spells.Cloud:
-				CloudSpell.Execute(loc, p);
+			case Spells.PoisonCloud:
+				PoisonCloudSpell.Execute(loc, p);
 				break;
 		}
 	}
