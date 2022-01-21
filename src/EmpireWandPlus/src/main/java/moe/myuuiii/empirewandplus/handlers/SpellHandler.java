@@ -44,9 +44,6 @@ public class SpellHandler {
 			case Spells.Launch:
 				LaunchSpell.Execute(loc, p);
 				break;
-			case Spells.Fireball:
-				FireballSpell.Execute(loc, p);
-				break;
 			case Spells.EmpireComet:
 				EmpireCometSpell.Execute(loc, p);
 				break;
@@ -55,6 +52,16 @@ public class SpellHandler {
 				break;
 			case Spells.EmpireCloud:
 				EmpireCloudSpell.Execute(loc, p);
+				break;
+
+			//
+			// Hell wand
+			//
+			case Spells.Fireball:
+				FireballSpell.Execute(loc, p);
+				break;
+			case Spells.FirePulse:
+				FirePulseSpell.Execute(loc, p);
 				break;
 
 			//

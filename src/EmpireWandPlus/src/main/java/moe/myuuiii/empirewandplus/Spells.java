@@ -9,7 +9,6 @@ public class Spells {
 	public static final String CelestialCloud = "Celestial Cloud";
 
 	public static final String Launch = "Launch";
-	public static final String Fireball = "Fireball";
 
 	public static final String EmpireComet = "Empire Comet";
 	public static final String EmpireSpark = "Empire Spark";
@@ -18,4 +17,7 @@ public class Spells {
 	public static final String PoisonWave = "Poison Wave";
 	public static final String PoisonSpark = "Poison Spark";
 	public static final String PoisonCloud = "Poison Cloud";
+
+	public static final String Fireball = "Fireball";
+	public static final String FirePulse = "Fire Pulse";
 }
