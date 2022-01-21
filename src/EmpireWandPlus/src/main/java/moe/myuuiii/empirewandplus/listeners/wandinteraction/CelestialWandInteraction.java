@@ -1,6 +1,7 @@
 package moe.myuuiii.empirewandplus.listeners.wandinteraction;
 
 import moe.myuuiii.empirewandplus.Data;
+import moe.myuuiii.empirewandplus.WandSpellLists;
 import moe.myuuiii.empirewandplus.handlers.SpellHandler;
 import moe.myuuiii.empirewandplus.spells.LightningSpell;
 
@@ -56,19 +57,17 @@ public class CelestialWandInteraction {
 				if (wand.getItemMeta().hasLore()) {
 					loreItems = wand.getItemMeta().getLore();
 
-					switch (wand.getItemMeta().getLore().get(0)) {
-						case "":
-							loreItems.set(0, "Lightning");
-							break;
+					Integer currentSpellIndex = WandSpellLists.CelestialWandSpells
+							.indexOf(wand.getItemMeta().getLore().get(0));
+					Integer nextSpellIndex = currentSpellIndex + 1;
 
-						// reset
-						case "Lightning":
-						default:
-							loreItems.set(0, "");
-							break;
+					if (nextSpellIndex >= WandSpellLists.CelestialWandSpells.size()) {
+						nextSpellIndex = 0;
 					}
+
+					loreItems.set(0, WandSpellLists.CelestialWandSpells.get(nextSpellIndex));
 				} else {
-					loreItems.add("");
+					loreItems.add(WandSpellLists.CelestialWandSpells.get(0));
 				}
 				meta.setLore(loreItems);
 				wand.setItemMeta(meta);
