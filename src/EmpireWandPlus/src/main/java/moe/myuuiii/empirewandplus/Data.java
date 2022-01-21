@@ -18,6 +18,7 @@ public class Data {
 	public static String bloodWandName = ChatColor.RED + "Blood wand";
 	public static String scytheWandName = ChatColor.GREEN + "Poison scythe wand";
 	public static String celestialWandName = ChatColor.LIGHT_PURPLE + "Celestial Wand";
+	public static String hellWandName = ChatColor.RED + "Hell Wand";
 
 	public static String prefix = ChatColor.GRAY + "[" + ChatColor.LIGHT_PURPLE + "X" + ChatColor.GRAY + "] "
 			+ ChatColor.RESET;

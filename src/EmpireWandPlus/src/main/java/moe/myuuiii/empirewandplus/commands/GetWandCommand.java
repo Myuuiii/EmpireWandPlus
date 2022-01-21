@@ -100,9 +100,20 @@ public class GetWandCommand implements CommandExecutor {
 							}
 							break;
 						case "hell":
-							player.sendMessage(Data.prefix + ChatColor.GOLD + Data.wandNotImplementedYet);
 							if (player.hasPermission("hell.get")) {
-
+								wand = new ItemStack(Material.BLAZE_POWDER, 1);
+								wandMeta = wand.getItemMeta();
+								wandMeta.setDisplayName(Data.hellWandName);
+								wand.setItemMeta(wandMeta);
+								if (player.getInventory().firstEmpty() == -1) {
+									player.sendMessage(ChatColor.RED + "Your inventory is full");
+									return false;
+								}
+								player.getInventory().addItem(new ItemStack[] { wand });
+								player.sendMessage(Data.prefix + ChatColor.GRAY + "You have been given a "
+										+ ChatColor.RED + "HELL" + ChatColor.GRAY + " wand");
+							} else {
+								player.sendMessage(Data.prefix + ChatColor.RED + "You're not allowed to use that!");
 							}
 							break;
 					}

@@ -6,7 +6,6 @@ import java.util.List;
 public class WandSpellLists {
 	public static final List<String> EmpireWandSpells = Arrays.asList(new String[] {
 			Spells.Launch,
-			Spells.Fireball,
 			Spells.EmpireComet,
 			Spells.EmpireSpark,
 			Spells.EmpireCloud
@@ -27,5 +26,9 @@ public class WandSpellLists {
 	public static final List<String> CelestialWandSpells = Arrays.asList(new String[] {
 			Spells.Lightning,
 			Spells.CelestialCloud
+	});
+
+	public static final List<String> HellWandSpells = Arrays.asList(new String[] {
+			Spells.Fireball
 	});
 }
