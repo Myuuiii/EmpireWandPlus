@@ -19,8 +19,9 @@ public class FireballSpellEffect {
 					}
 
 					// Executed while the entity is alive
-					s.getWorld().spawnParticle(Particle.FLAME, s.getLocation(), 250, 1, 1, 1, 0.2);
+					s.getWorld().spawnParticle(Particle.FLAME, s.getLocation(), 50, 1, 1, 1, 0.2);
 					s.getWorld().spawnParticle(Particle.SMOKE_LARGE, s.getLocation(), 75, 0.5, 0.5, 0.5, 0.05);
+					s.getWorld().spawnParticle(Particle.LAVA, s.getLocation(), 50, 1, 1, 1, 0.2);
 				}
 			}
 		}.runTaskTimer(App._app, 0L, 1L);
