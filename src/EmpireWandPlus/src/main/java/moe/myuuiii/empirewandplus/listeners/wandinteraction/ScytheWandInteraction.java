@@ -11,6 +11,7 @@ import java.util.List;
 import org.bukkit.event.block.Action;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -85,7 +86,7 @@ public class ScytheWandInteraction {
 			//
 			if (e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK) {
 				e.setCancelled(true);
-				final Location loc = p.getTargetBlock((HashSet) null, 200).getLocation();
+				final Location loc = p.getTargetBlock((HashSet<Material>) null, 200).getLocation();
 
 				//
 				// Spell execution
