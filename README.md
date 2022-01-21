@@ -44,7 +44,6 @@ All of the wands will constantly receive updates, especially during the main dev
 
 
 - Launch
-- Fireball
 
 
 
@@ -57,3 +56,8 @@ All of the wands will constantly receive updates, especially during the main dev
 - Poison Wave
 - Poison Spark
 - Poison Cloud
+
+
+
+- Fireball
+- Fire Pulse
