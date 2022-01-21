@@ -1,6 +1,7 @@
 package moe.myuuiii.empirewandplus.listeners.wandinteraction;
 
 import moe.myuuiii.empirewandplus.Data;
+import moe.myuuiii.empirewandplus.handlers.SpellHandler;
 import moe.myuuiii.empirewandplus.spells.LightningSpell;
 
 import java.util.ArrayList;
@@ -84,17 +85,12 @@ public class CelestialWandInteraction {
 			//
 			if (e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK) {
 				e.setCancelled(true);
-
 				final Location loc = p.getTargetBlock((HashSet) null, 200).getLocation();
 
 				//
 				// Spell execution
 				//
-				switch (wand.getItemMeta().getLore().get(0)) {
-					case "Lightning":
-						LightningSpell.Execute(loc, p);
-						break;
-				}
+				SpellHandler.HandleSpellByName(wand.getItemMeta().getLore().get(0), loc, p);
 			}
 		}
 	}

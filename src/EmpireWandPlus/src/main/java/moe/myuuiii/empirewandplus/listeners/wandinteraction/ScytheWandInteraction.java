@@ -1,6 +1,7 @@
 package moe.myuuiii.empirewandplus.listeners.wandinteraction;
 
 import moe.myuuiii.empirewandplus.Data;
+import moe.myuuiii.empirewandplus.handlers.SpellHandler;
 import moe.myuuiii.empirewandplus.spells.PoisonSparkSpell;
 import moe.myuuiii.empirewandplus.spells.PoisonWaveSpell;
 
@@ -85,20 +86,12 @@ public class ScytheWandInteraction {
 			//
 			if (e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK) {
 				e.setCancelled(true);
-
 				final Location loc = p.getTargetBlock((HashSet) null, 200).getLocation();
 
 				//
 				// Spell execution
 				//
-				switch (wand.getItemMeta().getLore().get(0)) {
-					case "Poison Wave":
-						PoisonWaveSpell.Execute(loc, p);
-						break;
-					case "Poison Spark":
-						PoisonSparkSpell.Execute(loc, p);
-						break;
-				}
+				SpellHandler.HandleSpellByName(wand.getItemMeta().getLore().get(0), loc, p);
 			}
 		}
 	}
