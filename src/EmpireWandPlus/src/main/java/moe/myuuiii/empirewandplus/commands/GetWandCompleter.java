@@ -20,5 +20,4 @@ public class GetWandCompleter implements TabCompleter {
 		}
 		return null;
 	}
-
 }
