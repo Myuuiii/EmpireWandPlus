@@ -1,6 +1,7 @@
 package moe.myuuiii.empirewandplus.listeners.wandinteraction;
 
 import moe.myuuiii.empirewandplus.Data;
+import moe.myuuiii.empirewandplus.handlers.SpellHandler;
 import moe.myuuiii.empirewandplus.spells.BloodSparkSpell;
 import moe.myuuiii.empirewandplus.spells.BloodWaveSpell;
 
@@ -86,22 +87,12 @@ public class BloodWandInteraction {
 			//
 			if (e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK) {
 				e.setCancelled(true);
-
 				final Location loc = p.getTargetBlock((HashSet) null, 200).getLocation();
 
 				//
 				// Spell execution
 				//
-				switch (wand.getItemMeta().getLore().get(0)) {
-					case "Blood Spark":
-						BloodSparkSpell.Execute(loc, p);
-						break;
-					case "Blood Wave":
-						BloodWaveSpell.Execute(loc, p);
-						break;
-					default:
-						p.sendMessage(Data.prefix + Data.unknownSpellMessage);
-				}
+				SpellHandler.HandleSpellByName(wand.getItemMeta().getLore().get(0), loc, p);
 			}
 		}
 	}
