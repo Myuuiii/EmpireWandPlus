@@ -3,7 +3,6 @@ package moe.myuuiii.empirewandplus.listeners.wandinteraction;
 import moe.myuuiii.empirewandplus.Data;
 import moe.myuuiii.empirewandplus.WandSpellLists;
 import moe.myuuiii.empirewandplus.handlers.SpellHandler;
-import moe.myuuiii.empirewandplus.spells.LightningSpell;
 
 import java.util.ArrayList;
 import java.util.HashSet;

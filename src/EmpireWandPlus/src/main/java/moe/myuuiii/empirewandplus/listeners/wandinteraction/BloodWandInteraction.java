@@ -1,16 +1,12 @@
 package moe.myuuiii.empirewandplus.listeners.wandinteraction;
 
 import moe.myuuiii.empirewandplus.Data;
-import moe.myuuiii.empirewandplus.Spells;
 import moe.myuuiii.empirewandplus.WandSpellLists;
 import moe.myuuiii.empirewandplus.handlers.SpellHandler;
-import moe.myuuiii.empirewandplus.spells.BloodSparkSpell;
-import moe.myuuiii.empirewandplus.spells.BloodWaveSpell;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Vector;
 
 import org.bukkit.event.block.Action;
 import org.bukkit.ChatColor;

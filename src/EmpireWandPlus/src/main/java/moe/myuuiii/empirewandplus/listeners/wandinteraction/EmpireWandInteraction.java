@@ -3,14 +3,6 @@ package moe.myuuiii.empirewandplus.listeners.wandinteraction;
 import moe.myuuiii.empirewandplus.Data;
 import moe.myuuiii.empirewandplus.WandSpellLists;
 import moe.myuuiii.empirewandplus.handlers.SpellHandler;
-import moe.myuuiii.empirewandplus.spells.CloudSpell;
-import moe.myuuiii.empirewandplus.spells.EmpireCometSpell;
-import moe.myuuiii.empirewandplus.spells.EmpireSparkSpell;
-import moe.myuuiii.empirewandplus.spells.FireballSpell;
-import moe.myuuiii.empirewandplus.spells.LaunchSpell;
-import moe.myuuiii.empirewandplus.spells.LightningSpell;
-import moe.myuuiii.empirewandplus.spells.PoisonSparkSpell;
-import moe.myuuiii.empirewandplus.spells.PoisonWaveSpell;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,12 +1,7 @@
 package moe.myuuiii.empirewandplus.spells;
 
 import org.bukkit.Location;
-import org.bukkit.Particle;
 
-import java.util.List;
-
-import org.bukkit.entity.Damageable;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowball;
 import org.bukkit.scheduler.BukkitRunnable;
