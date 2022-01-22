@@ -6,7 +6,6 @@ import org.bukkit.Particle;
 import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowball;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
