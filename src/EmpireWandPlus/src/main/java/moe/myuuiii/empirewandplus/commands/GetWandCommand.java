@@ -81,8 +81,6 @@ public class GetWandCommand implements CommandExecutor {
 							}
 							break;
 						case "celestial":
-							player.sendMessage(Data.prefix + ChatColor.GOLD + Data.wandNotImplementedYet);
-
 							if (player.hasPermission("celestial.get")) {
 								wand = new ItemStack(Material.AMETHYST_SHARD, 1);
 								wandMeta = wand.getItemMeta();
