@@ -41,6 +41,7 @@ All of the wands will constantly receive updates, especially during the main dev
 - Lightning
 - Celestial Cloud
 - Smite
+- Celestial Stun
 
 
 
@@ -51,6 +52,7 @@ All of the wands will constantly receive updates, especially during the main dev
 - Empire Comet
 - Empire Spark
 - Empire Cloud
+- Empire Stun
 
 
 
