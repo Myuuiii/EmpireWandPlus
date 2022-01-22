@@ -24,4 +24,6 @@ public class Spells {
 	public static final String Fireball = "Fireball";
 	public static final String FirePulse = "Fire Pulse";
 	public static final String Ignite = "Ignite";
+
+	public static final String Capture = "Capture";
 }

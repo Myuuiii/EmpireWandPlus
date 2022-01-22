@@ -9,7 +9,8 @@ public class WandSpellLists {
 			Spells.EmpireComet,
 			Spells.EmpireSpark,
 			Spells.EmpireCloud,
-			Spells.EmpireStun
+			Spells.EmpireStun,
+			Spells.Capture
 	});
 
 	public static final List<String> BloodWandSpells = Arrays.asList(new String[] {

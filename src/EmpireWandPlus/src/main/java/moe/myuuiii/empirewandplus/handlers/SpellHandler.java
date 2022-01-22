@@ -62,6 +62,9 @@ public class SpellHandler {
 			case Spells.EmpireStun:
 				EmpireStunSpell.Execute(loc, p);
 				break;
+			case Spells.Capture:
+				CaptureSpell.Execute(loc, p);
+				break;
 
 			//
 			// Hell wand
