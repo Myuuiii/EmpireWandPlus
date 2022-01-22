@@ -40,6 +40,9 @@ public class SpellHandler {
 			case Spells.Smite:
 				SmiteSpell.Execute(loc, p);
 				break;
+			case Spells.CelestialStun:
+				CelestialStunSpell.Execute(loc, p);
+				break;
 
 			//
 			// Empire wand
@@ -55,6 +58,9 @@ public class SpellHandler {
 				break;
 			case Spells.EmpireCloud:
 				EmpireCloudSpell.Execute(loc, p);
+				break;
+			case Spells.EmpireStun:
+				EmpireStunSpell.Execute(loc, p);
 				break;
 
 			//
