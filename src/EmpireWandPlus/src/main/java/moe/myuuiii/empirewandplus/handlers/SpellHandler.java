@@ -84,6 +84,9 @@ public class SpellHandler {
 			case Spells.Ignite:
 				IgniteSpell.Execute(loc, p);
 				break;
+			case Spells.FlameWave:
+				FlameWaveSpell.Execute(loc, p);
+				break;
 
 			//
 			// Poison scythe wand
