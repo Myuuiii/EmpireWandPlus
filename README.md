@@ -18,6 +18,10 @@
 
 `scythe.use` Allows a player to change spells and cast them using the poison scythe wand
 
+`hell.get` Allows a player to execute the /wand command to retrieve the hell wand
+
+`hell.use` Allows a player to change spells and cast them using the hell wand
+
 
 
 ## Wands Overview
