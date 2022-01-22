@@ -37,11 +37,14 @@ public class SpellHandler {
 			case Spells.CelestialCloud:
 				CelestialCloudSpell.Execute(loc, p);
 				break;
-			case Spells.Smite:
-				SmiteSpell.Execute(loc, p);
-				break;
 			case Spells.CelestialStun:
 				CelestialStunSpell.Execute(loc, p);
+				break;
+			case Spells.CelestialConfuse:
+				CelestialConfuseSpell.Execute(loc, p);
+				break;
+			case Spells.Smite:
+				SmiteSpell.Execute(loc, p);
 				break;
 
 			//

@@ -29,6 +29,7 @@ public class WandSpellLists {
 	public static final List<String> CelestialWandSpells = Arrays.asList(new String[] {
 			Spells.CelestialCloud,
 			Spells.CelestialStun,
+			Spells.CelestialConfuse,
 			Spells.Lightning,
 			Spells.Smite
 	});
