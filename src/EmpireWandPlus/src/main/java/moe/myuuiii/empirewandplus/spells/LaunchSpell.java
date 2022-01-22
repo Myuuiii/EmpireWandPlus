@@ -5,7 +5,6 @@ import org.bukkit.Particle;
 
 import java.util.List;
 
-import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
@@ -25,7 +24,7 @@ public class LaunchSpell {
 
 		final List<Entity> near = (List<Entity>) loc.getWorld().getEntities();
 		for (final Entity en : near) {
-			if (en.getLocation().distance(loc) <= _closeRange && en instanceof Damageable) {
+			if (en.getLocation().distance(loc) <= _closeRange && en instanceof Entity) {
 				en.setVelocity(new Vector(p.getVelocity().getX(), _launchHeightModifier, p.getVelocity().getZ()));
 			}
 		}

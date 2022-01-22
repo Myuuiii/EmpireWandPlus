@@ -35,7 +35,7 @@ public class EmpireStunSpell {
 
 		final List<Entity> near = (List<Entity>) loc.getWorld().getEntities();
 		for (final Entity en : near) {
-			if (en.getLocation().distance(loc) <= _closeRange && en instanceof Entity) {
+			if (en.getLocation().distance(loc) <= _closeRange && en instanceof LivingEntity) {
 				((LivingEntity) en)
 						.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, _slowDuration, 255, true, false));
 				((LivingEntity) en).addPotionEffect(

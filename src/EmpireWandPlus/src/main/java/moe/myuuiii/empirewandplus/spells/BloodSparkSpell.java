@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -36,13 +37,11 @@ public class BloodSparkSpell {
 
 		final List<Entity> near = (List<Entity>) loc.getWorld().getEntities();
 		for (final Entity en : near) {
-			if (en.getLocation().distance(loc) <= _closeRange && en instanceof Damageable) {
+			if (en.getLocation().distance(loc) <= _closeRange && en instanceof LivingEntity) {
 				((Damageable) en).damage(_damage);
-				if (en instanceof Player) {
-					Player targetPL = (Player) en;
-					targetPL.addPotionEffect(
-							new PotionEffect(PotionEffectType.WITHER, _witherDuration, 1, true, false));
-				}
+				LivingEntity targetEntity = (LivingEntity) en;
+				targetEntity.addPotionEffect(
+						new PotionEffect(PotionEffectType.WITHER, _witherDuration, 1, true, false));
 			}
 		}
 	}
