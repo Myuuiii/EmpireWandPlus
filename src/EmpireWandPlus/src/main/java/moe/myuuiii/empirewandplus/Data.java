@@ -45,4 +45,7 @@ public class Data {
 
 	public static ArrayList<Snowball> bloodWaves = new ArrayList<>();
 	public static ArrayList<UUID> bloodUsers = new ArrayList<>();
+
+	public static ArrayList<Snowball> flameWaves = new ArrayList<>();
+	public static ArrayList<UUID> flameUsers = new ArrayList<>();
 }
