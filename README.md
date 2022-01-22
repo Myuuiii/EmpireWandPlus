@@ -40,6 +40,7 @@ All of the wands will constantly receive updates, especially during the main dev
 
 - Lightning
 - Celestial Cloud
+- Smite
 
 
 
