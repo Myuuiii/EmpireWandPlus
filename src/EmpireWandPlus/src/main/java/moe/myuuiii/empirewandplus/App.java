@@ -39,9 +39,10 @@ public class App extends JavaPlugin {
     public void registerRunnables() {
 
         // Cloud runnables
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new BloodCloudRunnable(), 10L, 0L);
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new CelestialCloudRunnable(), 10L, 0L);
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new EmpireCloudRunnable(), 10L, 0L);
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new PoisonCloudRunnable(), 10L, 0L);
+        CloudRunnables cloudRunnables = new CloudRunnables();
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, cloudRunnables.new BloodCloudRunnable(), 10L, 0L);
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, cloudRunnables.new CelestialCloudRunnable(), 10L, 0L);
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, cloudRunnables.new EmpireCloudRunnable(), 10L, 0L);
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, cloudRunnables.new PoisonCloudRunnable(), 10L, 0L);
     }
 }
