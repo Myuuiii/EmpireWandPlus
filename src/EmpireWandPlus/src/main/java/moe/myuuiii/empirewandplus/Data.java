@@ -31,6 +31,8 @@ public class Data {
 	public static ArrayList<Snowball> firepulses = new ArrayList<>();
 
 	public static ArrayList<Snowball> lightningBolts = new ArrayList<>();
+	public static ArrayList<Snowball> smites = new ArrayList<>();
+
 	public static ArrayList<Snowball> empireComets = new ArrayList<>();
 
 	public static ArrayList<UUID> bloodCloudUsers = new ArrayList<>();

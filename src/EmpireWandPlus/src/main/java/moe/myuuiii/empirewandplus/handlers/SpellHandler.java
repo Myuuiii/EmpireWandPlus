@@ -37,6 +37,9 @@ public class SpellHandler {
 			case Spells.CelestialCloud:
 				CelestialCloudSpell.Execute(loc, p);
 				break;
+			case Spells.Smite:
+				SmiteSpell.Execute(loc, p);
+				break;
 
 			//
 			// Empire wand

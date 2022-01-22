@@ -20,6 +20,7 @@ public class ProjectileListener implements Listener {
 			LightningSpellEffect.Execute(s);
 			PoisonWaveSpellEffect.Execute(s);
 			BloodWaveSpellEffect.Execute(s);
+			SmiteSpellEffect.Execute(s);
 		}
 	}
 }
