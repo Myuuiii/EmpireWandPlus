@@ -7,8 +7,9 @@ public class Spells {
 
 	public static final String Lightning = "Lightning";
 	public static final String CelestialCloud = "Celestial Cloud";
-	public static final String Smite = "Smite";
 	public static final String CelestialStun = "Celestial Stun";
+	public static final String CelestialConfuse = "Celestial Confuse";
+	public static final String Smite = "Smite";
 
 	public static final String Launch = "Launch";
 
