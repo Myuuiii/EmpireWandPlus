@@ -25,9 +25,9 @@ public class EmpireStunSpell {
 	public static void Execute(Location loc, Player p) {
 		loc.add(0, 1, 0);
 
-		p.getWorld().spawnParticle(Particle.DRAGON_BREATH, loc, 100, 0, 0, 0, 0.1);
-		p.getWorld().spawnParticle(Particle.SPELL_WITCH, loc, 100, 0, 0, 0, 0.1);
-		p.getWorld().spawnParticle(Particle.REDSTONE, loc, 75, 0.5, 0.5, 0.5, 3,
+		p.getWorld().spawnParticle(Particle.DRAGON_BREATH, loc, 100, 0.5, 1, 0.5, 0.1);
+		p.getWorld().spawnParticle(Particle.SPELL_WITCH, loc, 100, 0.5, 1, 0.5, 0.1);
+		p.getWorld().spawnParticle(Particle.REDSTONE, loc, 75, 0.5, 1, 0.5, 3,
 				new DustOptions(Color.fromRGB(255, 0, 233), 2));
 
 		p.getWorld().playSound(loc, Sound.ENTITY_ENDERMAN_SCREAM, 5, 0.65f);
