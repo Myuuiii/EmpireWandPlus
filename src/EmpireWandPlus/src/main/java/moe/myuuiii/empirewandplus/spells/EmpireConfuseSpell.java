@@ -12,6 +12,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import moe.myuuiii.empirewandplus.CastRange;
+import moe.myuuiii.empirewandplus.Extensions;
+
 public class EmpireConfuseSpell {
 	//
 	// Settings
@@ -22,6 +25,9 @@ public class EmpireConfuseSpell {
 	private static int _closeRange = 3;
 
 	public static void Execute(Location loc, Player p) {
+		if (!Extensions.CheckIfInRange(CastRange.Medium, loc, p))
+			return;
+
 		loc.add(0, 1, 0);
 
 		p.getWorld().spawnParticle(Particle.REVERSE_PORTAL, loc, 250, 1, 1, 1, 0.1);
