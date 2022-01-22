@@ -6,8 +6,8 @@ import org.bukkit.Sound;
 
 import java.util.List;
 
-import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
 public class IgniteSpell {
@@ -29,7 +29,7 @@ public class IgniteSpell {
 
 		final List<Entity> near = (List<Entity>) loc.getWorld().getEntities();
 		for (final Entity en : near) {
-			if (en.getLocation().distance(loc) <= _closeRange && en instanceof Damageable) {
+			if (en.getLocation().distance(loc) <= _closeRange && en instanceof LivingEntity) {
 				en.setFireTicks(_fireDuration);
 			}
 		}

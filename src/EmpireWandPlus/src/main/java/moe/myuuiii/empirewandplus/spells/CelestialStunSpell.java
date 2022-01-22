@@ -33,10 +33,12 @@ public class CelestialStunSpell {
 		final List<Entity> near = (List<Entity>) loc.getWorld().getEntities();
 		for (final Entity en : near) {
 			if (en.getLocation().distance(loc) <= _closeRange && en instanceof Entity) {
-				((LivingEntity) en)
-						.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, _slowDuration, 255, true, false));
-				((LivingEntity) en).addPotionEffect(
-						new PotionEffect(PotionEffectType.BLINDNESS, _blindnessDuration, 1, true, false));
+				if (en instanceof LivingEntity) {
+					((LivingEntity) en)
+							.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, _slowDuration, 255, true, false));
+					((LivingEntity) en).addPotionEffect(
+							new PotionEffect(PotionEffectType.BLINDNESS, _blindnessDuration, 1, true, false));
+				}
 			}
 		}
 	}

@@ -5,6 +5,7 @@ import java.util.List;
 import org.bukkit.Particle;
 import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowball;
 import org.bukkit.potion.PotionEffect;
@@ -33,16 +34,20 @@ public class EmpireCometSpellEffect {
 
 						final List<Entity> near = (List<Entity>) s.getLocation().getWorld().getEntities();
 						for (final Entity en : near) {
+
 							if (en.getLocation().distance(s.getLocation()) <= _closeRange && en instanceof Damageable) {
+
 								((Damageable) en).damage(_damage);
-								if (en instanceof Player) {
-									Player p = (Player) en;
-									p.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, _blindnessDuration,
-											1, true, false));
+
+								if (en instanceof LivingEntity) {
+									LivingEntity targetEntity = (LivingEntity) en;
+
+									targetEntity.addPotionEffect(
+											new PotionEffect(PotionEffectType.BLINDNESS, _blindnessDuration, 1, true,
+													false));
 								}
 							}
 						}
-
 						this.cancel();
 					}
 

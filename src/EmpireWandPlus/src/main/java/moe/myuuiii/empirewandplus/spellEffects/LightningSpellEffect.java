@@ -5,6 +5,7 @@ import java.util.List;
 import org.bukkit.Particle;
 import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Snowball;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -30,7 +31,8 @@ public class LightningSpellEffect {
 						s.getWorld().createExplosion(s.getLocation(), _explosionSize);
 						final List<Entity> near = (List<Entity>) s.getLocation().getWorld().getEntities();
 						for (final Entity en : near) {
-							if (en.getLocation().distance(s.getLocation()) <= _closeRange && en instanceof Damageable) {
+							if (en.getLocation().distance(s.getLocation()) <= _closeRange
+									&& en instanceof Damageable) {
 								((Damageable) en).damage(_damage);
 							}
 						}

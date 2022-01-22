@@ -8,6 +8,7 @@ import org.bukkit.Sound;
 import org.bukkit.Particle.DustOptions;
 import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowball;
 import org.bukkit.potion.PotionEffect;
@@ -43,12 +44,19 @@ public class PoisonWaveSpellEffect {
 					final List<Entity> near = (List<Entity>) s.getLocation().getWorld().getEntities();
 					for (final Entity en : near) {
 						if (en.getLocation().distance(s.getLocation()) <= _closeRange && en instanceof Damageable) {
-							if (en instanceof Player) {
-								Player p = (Player) en;
-								if (!Data.poisonUsers.contains(p.getUniqueId())) {
-									p.addPotionEffect(
-											new PotionEffect(PotionEffectType.POISON, _poisonDuration, 1, true, false));
+
+							if (en instanceof LivingEntity) {
+								LivingEntity targetEntity = (LivingEntity) en;
+
+								if (en instanceof Player) {
+									Player p = (Player) en;
+									if (Data.poisonUsers.contains(p.getUniqueId())) {
+										continue;
+									}
 								}
+
+								targetEntity.addPotionEffect(
+										new PotionEffect(PotionEffectType.POISON, _poisonDuration, 1, true, false));
 							}
 						}
 					}
