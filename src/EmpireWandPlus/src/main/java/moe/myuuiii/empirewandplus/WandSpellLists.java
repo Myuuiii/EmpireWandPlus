@@ -8,7 +8,8 @@ public class WandSpellLists {
 			Spells.Launch,
 			Spells.EmpireComet,
 			Spells.EmpireSpark,
-			Spells.EmpireCloud
+			Spells.EmpireCloud,
+			Spells.EmpireStun
 	});
 
 	public static final List<String> BloodWandSpells = Arrays.asList(new String[] {
