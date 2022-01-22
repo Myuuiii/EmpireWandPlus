@@ -1,10 +1,8 @@
 package moe.myuuiii.empirewandplus.spells;
 
-import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
-import org.bukkit.Particle.DustOptions;
 
 import java.util.List;
 
