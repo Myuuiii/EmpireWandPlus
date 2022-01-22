@@ -1,6 +1,7 @@
 package moe.myuuiii.empirewandplus.spellEffects;
 
 import org.bukkit.Particle;
+import org.bukkit.Sound;
 import org.bukkit.entity.Snowball;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -22,6 +23,8 @@ public class FireballSpellEffect {
 					s.getWorld().spawnParticle(Particle.FLAME, s.getLocation(), 50, 1, 1, 1, 0.2);
 					s.getWorld().spawnParticle(Particle.SMOKE_LARGE, s.getLocation(), 75, 0.5, 0.5, 0.5, 0.05);
 					s.getWorld().spawnParticle(Particle.LAVA, s.getLocation(), 50, 1, 1, 1, 0.2);
+
+					s.getWorld().playSound(s.getLocation(), Sound.ENTITY_DROWNED_DEATH_WATER, 1, 0.85f);
 				}
 			}
 		}.runTaskTimer(App._app, 0L, 1L);
