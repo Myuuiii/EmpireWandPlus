@@ -8,17 +8,19 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
+import moe.myuuiii.empirewandplus.CastRange;
+import moe.myuuiii.empirewandplus.Extensions;
+
 public class CaptureSpell {
 
 	//
 	// Settings
 	//
 	private static double _closeRange = 3.0;
-	private static double _captureRange = 15.0;
 
 	public static void Execute(Location loc, Player p) {
 
-		if (loc.distance(p.getLocation()) > _captureRange)
+		if (!Extensions.CheckIfInRange(CastRange.Medium, loc, p))
 			return;
 
 		loc.add(0, 1, 0);

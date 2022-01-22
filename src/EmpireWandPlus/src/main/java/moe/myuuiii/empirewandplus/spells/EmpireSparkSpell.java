@@ -15,6 +15,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import moe.myuuiii.empirewandplus.CastRange;
+import moe.myuuiii.empirewandplus.Extensions;
+
 public class EmpireSparkSpell {
 
 	//
@@ -25,6 +28,9 @@ public class EmpireSparkSpell {
 	private static int _blindnessDuration = 100;
 
 	public static void Execute(Location loc, Player p) {
+		if (!Extensions.CheckIfInRange(CastRange.Medium, loc, p))
+			return;
+
 		loc.add(0, 1, 0);
 
 		p.getWorld().spawnParticle(Particle.DRAGON_BREATH, loc, 100, 0, 0, 0, 0.1);
