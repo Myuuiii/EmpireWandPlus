@@ -16,9 +16,9 @@ public class LightningSpellEffect {
 	//
 	// Settings
 	//
-	private static double _closeRange = 10;
-	private static double _damage = 10;
-	private static int _explosionSize = 10;
+	private static double _closeRange = 6;
+	private static double _damage = 6;
+	private static int _explosionSize = 3;
 
 	public static void Execute(Snowball s) {
 		new BukkitRunnable() {
