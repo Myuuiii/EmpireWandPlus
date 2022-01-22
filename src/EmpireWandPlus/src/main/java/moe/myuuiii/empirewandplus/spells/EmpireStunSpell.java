@@ -8,7 +8,6 @@ import org.bukkit.Particle.DustOptions;
 
 import java.util.List;
 
-import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -20,7 +19,6 @@ public class EmpireStunSpell {
 	// Settings
 	//
 	private static double _closeRange = 3.0;
-	private static double _damage = 7.5;
 	private static int _slowDuration = 100;
 	public static int _blindnessDuration = 100;
 
