@@ -10,6 +10,7 @@ public class WandSpellLists {
 			Spells.EmpireSpark,
 			Spells.EmpireCloud,
 			Spells.EmpireStun,
+			Spells.EmpireConfuse,
 			Spells.Capture
 	});
 

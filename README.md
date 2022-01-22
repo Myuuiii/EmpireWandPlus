@@ -58,6 +58,7 @@ All of the wands will constantly receive updates, especially during the main dev
 - Empire Spark
 - Empire Cloud
 - Empire Stun
+- Empire Confuse
 
 
 
