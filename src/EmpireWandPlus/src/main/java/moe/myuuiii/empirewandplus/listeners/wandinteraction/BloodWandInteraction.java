@@ -1,6 +1,7 @@
 package moe.myuuiii.empirewandplus.listeners.wandinteraction;
 
 import moe.myuuiii.empirewandplus.Data;
+import moe.myuuiii.empirewandplus.Extensions;
 import moe.myuuiii.empirewandplus.WandSpellLists;
 import moe.myuuiii.empirewandplus.handlers.SpellHandler;
 
@@ -51,21 +52,13 @@ public class BloodWandInteraction {
 				p.getWorld().spawnParticle(Particle.SMOKE_NORMAL, p.getLocation(), 250, 0.5, 0.0, 0.5, 0.05);
 
 				//
-				// Initial Spell Configuration
+				// Spell cycling
 				//
 				List<String> loreItems = new ArrayList<>();
 				if (wand.getItemMeta().hasLore()) {
 					loreItems = wand.getItemMeta().getLore();
 
-					Integer currentSpellIndex = WandSpellLists.BloodWandSpells
-							.indexOf(wand.getItemMeta().getLore().get(0));
-					Integer nextSpellIndex = currentSpellIndex + 1;
-
-					if (nextSpellIndex >= WandSpellLists.BloodWandSpells.size()) {
-						nextSpellIndex = 0;
-					}
-
-					loreItems.set(0, WandSpellLists.BloodWandSpells.get(nextSpellIndex));
+					loreItems.set(0, Extensions.GetNextSpell(WandSpellLists.BloodWandSpells, wand, p));
 				} else {
 					loreItems.add(WandSpellLists.BloodWandSpells.get(0));
 				}
