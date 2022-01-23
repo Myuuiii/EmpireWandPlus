@@ -18,6 +18,7 @@ public class Spells {
 	public static final String EmpireCloud = "Empire Cloud";
 	public static final String EmpireStun = "Empire Stun";
 	public static final String EmpireConfuse = "Empire Confuse";
+	public static final String EmpireBlink = "Empire Blink";
 
 	public static final String PoisonWave = "Poison Wave";
 	public static final String PoisonSpark = "Poison Spark";
