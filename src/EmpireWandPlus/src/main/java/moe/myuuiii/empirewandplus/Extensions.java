@@ -2,8 +2,6 @@ package moe.myuuiii.empirewandplus;
 
 import java.util.List;
 
-import javax.naming.directory.ModificationItem;
-
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
