@@ -68,6 +68,9 @@ public class SpellHandler {
 			case Spells.EmpireConfuse:
 				EmpireConfuseSpell.Execute(loc, p);
 				break;
+			case Spells.EmpireBlink:
+				EmpireBlinkSpell.Execute(loc, p);
+				break;
 			case Spells.Capture:
 				CaptureSpell.Execute(loc, p);
 				break;

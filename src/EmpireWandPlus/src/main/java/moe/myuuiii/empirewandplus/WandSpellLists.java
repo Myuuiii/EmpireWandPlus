@@ -11,6 +11,7 @@ public class WandSpellLists {
 			Spells.EmpireCloud,
 			Spells.EmpireStun,
 			Spells.EmpireConfuse,
+			Spells.EmpireBlink,
 			Spells.Capture
 	});
 
