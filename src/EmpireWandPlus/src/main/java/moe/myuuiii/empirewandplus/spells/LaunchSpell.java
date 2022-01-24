@@ -9,8 +9,9 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
-import moe.myuuiii.empirewandplus.CastRange;
 import moe.myuuiii.empirewandplus.Extensions;
+import moe.myuuiii.empirewandplus.Spells;
+import moe.myuuiii.empirewandplus.managers.ConfigManager;
 
 public class LaunchSpell {
 
@@ -21,7 +22,7 @@ public class LaunchSpell {
 	private static double _launchHeightModifier = 2;
 
 	public static void Execute(Location loc, Player p) {
-		if (!Extensions.CheckIfInRange(CastRange.Long, loc, p))
+		if (!Extensions.CheckIfInRange(ConfigManager.getSpellRange(Spells.Launch), loc, p))
 			return;
 
 		loc.add(0, 1, 0);

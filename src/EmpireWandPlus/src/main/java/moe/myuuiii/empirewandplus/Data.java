@@ -15,10 +15,19 @@ public class Data {
 			.asList(new String[] { "empire", "blood", "scythe", "celestial", "hell" });
 
 	public static String empireWandName = ChatColor.GOLD + "Empire wand";
+	public static String empireWandConfigurationName = "EmpireWand";
+
 	public static String bloodWandName = ChatColor.RED + "Blood wand";
+	public static String bloodWandConfigurationName = "BloodWand";
+
 	public static String scytheWandName = ChatColor.GREEN + "Poison scythe wand";
+	public static String scytheWandConfigurationName = "ScytheWand";
+
 	public static String celestialWandName = ChatColor.LIGHT_PURPLE + "Celestial Wand";
+	public static String celestialWandConfigurationName = "CelestialWand";
+
 	public static String hellWandName = ChatColor.RED + "Hell Wand";
+	public static String hellWandConfigurationName = "HellWand";
 
 	public static String prefix = ChatColor.GRAY + "[" + ChatColor.LIGHT_PURPLE + "X" + ChatColor.GRAY + "] "
 			+ ChatColor.RESET;

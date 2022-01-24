@@ -16,7 +16,8 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import moe.myuuiii.empirewandplus.Extensions;
-import moe.myuuiii.empirewandplus.CastRange;
+import moe.myuuiii.empirewandplus.Spells;
+import moe.myuuiii.empirewandplus.managers.ConfigManager;
 
 public class BloodSparkSpell {
 	//
@@ -27,7 +28,7 @@ public class BloodSparkSpell {
 	private static int _witherDuration = 100;
 
 	public static void Execute(Location loc, Player p) {
-		if (!Extensions.CheckIfInRange(CastRange.Medium, loc, p))
+		if (!Extensions.CheckIfInRange(ConfigManager.getSpellRange(Spells.BloodSpark), loc, p))
 			return;
 
 		loc.add(0, 1, 0);

@@ -12,8 +12,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import moe.myuuiii.empirewandplus.CastRange;
 import moe.myuuiii.empirewandplus.Extensions;
+import moe.myuuiii.empirewandplus.Spells;
+import moe.myuuiii.empirewandplus.managers.ConfigManager;
 
 public class CelestialConfuseSpell {
 	//
@@ -26,7 +27,7 @@ public class CelestialConfuseSpell {
 
 	public static void Execute(Location loc, Player p) {
 
-		if (!Extensions.CheckIfInRange(CastRange.Medium, loc, p))
+		if (!Extensions.CheckIfInRange(ConfigManager.getSpellRange(Spells.CelestialConfuse), loc, p))
 			return;
 
 		loc.add(0, 1, 0);

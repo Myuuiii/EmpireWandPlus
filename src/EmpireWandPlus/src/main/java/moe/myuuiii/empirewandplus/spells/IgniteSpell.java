@@ -10,8 +10,9 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
-import moe.myuuiii.empirewandplus.CastRange;
 import moe.myuuiii.empirewandplus.Extensions;
+import moe.myuuiii.empirewandplus.Spells;
+import moe.myuuiii.empirewandplus.managers.ConfigManager;
 
 public class IgniteSpell {
 	//
@@ -21,7 +22,7 @@ public class IgniteSpell {
 	private static int _fireDuration = 150;
 
 	public static void Execute(Location loc, Player p) {
-		if (!Extensions.CheckIfInRange(CastRange.Medium, loc, p))
+		if (!Extensions.CheckIfInRange(ConfigManager.getSpellRange(Spells.Ignite), loc, p))
 			return;
 
 		loc.add(0, 1, 0);

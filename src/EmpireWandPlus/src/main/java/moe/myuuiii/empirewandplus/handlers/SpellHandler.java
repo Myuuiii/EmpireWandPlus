@@ -4,6 +4,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import moe.myuuiii.empirewandplus.Spells;
+import moe.myuuiii.empirewandplus.managers.ConfigManager;
 import moe.myuuiii.empirewandplus.spells.*;
 
 public class SpellHandler {
@@ -19,89 +20,112 @@ public class SpellHandler {
 			// Blood wand
 			//
 			case Spells.BloodSpark:
-				BloodSparkSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.BloodSpark, p))
+					BloodSparkSpell.Execute(loc, p);
 				break;
 			case Spells.BloodWave:
-				BloodWaveSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.BloodWave, p))
+					BloodWaveSpell.Execute(loc, p);
 				break;
 			case Spells.BloodCloud:
-				BloodCloudSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.BloodCloud, p))
+					BloodCloudSpell.Execute(loc, p);
 				break;
 
 			//
 			// Celestial wand
 			//
 			case Spells.Lightning:
-				LightningSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.Lightning, p))
+					LightningSpell.Execute(loc, p);
 				break;
 			case Spells.CelestialCloud:
-				CelestialCloudSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.CelestialCloud, p))
+					CelestialCloudSpell.Execute(loc, p);
 				break;
 			case Spells.CelestialStun:
-				CelestialStunSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.CelestialStun, p))
+					CelestialStunSpell.Execute(loc, p);
 				break;
 			case Spells.CelestialConfuse:
-				CelestialConfuseSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.CelestialConfuse, p))
+					CelestialConfuseSpell.Execute(loc, p);
 				break;
 			case Spells.Smite:
-				SmiteSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.Smite, p))
+					SmiteSpell.Execute(loc, p);
 				break;
 
 			//
 			// Empire wand
 			//
 			case Spells.Launch:
-				LaunchSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.Launch, p))
+					LaunchSpell.Execute(loc, p);
 				break;
 			case Spells.EmpireComet:
-				EmpireCometSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.EmpireComet, p))
+					EmpireCometSpell.Execute(loc, p);
 				break;
 			case Spells.EmpireSpark:
-				EmpireSparkSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.EmpireSpark, p))
+					EmpireSparkSpell.Execute(loc, p);
 				break;
 			case Spells.EmpireCloud:
-				EmpireCloudSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.EmpireCloud, p))
+					EmpireCloudSpell.Execute(loc, p);
 				break;
 			case Spells.EmpireStun:
-				EmpireStunSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.EmpireStun, p))
+					EmpireStunSpell.Execute(loc, p);
 				break;
 			case Spells.EmpireConfuse:
-				EmpireConfuseSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.EmpireConfuse, p))
+					EmpireConfuseSpell.Execute(loc, p);
 				break;
 			case Spells.EmpireBlink:
-				EmpireBlinkSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.EmpireBlink, p))
+					EmpireBlinkSpell.Execute(loc, p);
 				break;
 			case Spells.Capture:
-				CaptureSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.Capture, p))
+					CaptureSpell.Execute(loc, p);
 				break;
 
 			//
 			// Hell wand
 			//
 			case Spells.Fireball:
-				FireballSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.Fireball, p))
+					FireballSpell.Execute(loc, p);
 				break;
 			case Spells.FirePulse:
-				FirePulseSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.FirePulse, p))
+					FirePulseSpell.Execute(loc, p);
 				break;
 			case Spells.Ignite:
-				IgniteSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.Ignite, p))
+					IgniteSpell.Execute(loc, p);
 				break;
 			case Spells.FlameWave:
-				FlameWaveSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.FlameWave, p))
+					FlameWaveSpell.Execute(loc, p);
 				break;
 
 			//
 			// Poison scythe wand
 			//
 			case Spells.PoisonWave:
-				PoisonWaveSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.PoisonWave, p))
+					PoisonWaveSpell.Execute(loc, p);
 				break;
 			case Spells.PoisonSpark:
-				PoisonSparkSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.PoisonSpark, p))
+					PoisonSparkSpell.Execute(loc, p);
 				break;
 			case Spells.PoisonCloud:
-				PoisonCloudSpell.Execute(loc, p);
+				if (ConfigManager.getSpellEnabled(Spells.PoisonCloud, p))
+					PoisonCloudSpell.Execute(loc, p);
 				break;
 		}
 	}
