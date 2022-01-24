@@ -11,9 +11,6 @@ import moe.myuuiii.empirewandplus.managers.ConfigManager;
 
 public class EmpireBlinkSpell {
 	public static void Execute(Location loc, Player p) {
-		if (!Extensions.CheckIfInRange(ConfigManager.getSpellRange(Spells.EmpireBlink), loc, p))
-			return;
-
 		loc.add(0, 1, 0);
 
 		p.getWorld().spawnParticle(Particle.REVERSE_PORTAL, p.getLocation(), 200, 0.5, 0.5, 0.5, 0.2);

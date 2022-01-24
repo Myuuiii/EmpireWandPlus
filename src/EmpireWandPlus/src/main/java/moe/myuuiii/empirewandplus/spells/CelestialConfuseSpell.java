@@ -12,10 +12,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import moe.myuuiii.empirewandplus.Extensions;
-import moe.myuuiii.empirewandplus.Spells;
-import moe.myuuiii.empirewandplus.managers.ConfigManager;
-
 public class CelestialConfuseSpell {
 	//
 	// Settings
@@ -26,10 +22,6 @@ public class CelestialConfuseSpell {
 	private static int _closeRange = 3;
 
 	public static void Execute(Location loc, Player p) {
-
-		if (!Extensions.CheckIfInRange(ConfigManager.getSpellRange(Spells.CelestialConfuse), loc, p))
-			return;
-
 		loc.add(0, 1, 0);
 
 		p.getWorld().spawnParticle(Particle.CLOUD, loc, 125, 1, 1, 1, 0.1);

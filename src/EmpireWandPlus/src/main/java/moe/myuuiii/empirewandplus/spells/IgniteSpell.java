@@ -10,10 +10,6 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
-import moe.myuuiii.empirewandplus.Extensions;
-import moe.myuuiii.empirewandplus.Spells;
-import moe.myuuiii.empirewandplus.managers.ConfigManager;
-
 public class IgniteSpell {
 	//
 	// Settings
@@ -22,9 +18,6 @@ public class IgniteSpell {
 	private static int _fireDuration = 150;
 
 	public static void Execute(Location loc, Player p) {
-		if (!Extensions.CheckIfInRange(ConfigManager.getSpellRange(Spells.Ignite), loc, p))
-			return;
-
 		loc.add(0, 1, 0);
 
 		p.getWorld().spawnParticle(Particle.SMOKE_LARGE, loc, 100, 1, 1, 1, 0.1);

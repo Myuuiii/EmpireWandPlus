@@ -26,9 +26,6 @@ public class EmpireConfuseSpell {
 	private static int _closeRange = 3;
 
 	public static void Execute(Location loc, Player p) {
-		if (!Extensions.CheckIfInRange(ConfigManager.getSpellRange(Spells.EmpireConfuse), loc, p))
-			return;
-
 		loc.add(0, 1, 0);
 
 		p.getWorld().spawnParticle(Particle.REVERSE_PORTAL, loc, 250, 1, 1, 1, 0.1);

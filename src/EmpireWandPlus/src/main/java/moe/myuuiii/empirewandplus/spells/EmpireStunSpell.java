@@ -14,10 +14,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import moe.myuuiii.empirewandplus.Extensions;
-import moe.myuuiii.empirewandplus.Spells;
-import moe.myuuiii.empirewandplus.managers.ConfigManager;
-
 public class EmpireStunSpell {
 	//
 	// Settings
@@ -27,9 +23,6 @@ public class EmpireStunSpell {
 	public static int _blindnessDuration = 100;
 
 	public static void Execute(Location loc, Player p) {
-		if (!Extensions.CheckIfInRange(ConfigManager.getSpellRange(Spells.EmpireStun), loc, p))
-			return;
-
 		loc.add(0, 1, 0);
 
 		p.getWorld().spawnParticle(Particle.DRAGON_BREATH, loc, 100, 0.5, 1, 0.5, 0.1);

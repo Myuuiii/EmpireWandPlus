@@ -8,10 +8,6 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
-import moe.myuuiii.empirewandplus.Extensions;
-import moe.myuuiii.empirewandplus.Spells;
-import moe.myuuiii.empirewandplus.managers.ConfigManager;
-
 public class CaptureSpell {
 
 	//
@@ -20,10 +16,6 @@ public class CaptureSpell {
 	private static double _closeRange = 3.0;
 
 	public static void Execute(Location loc, Player p) {
-
-		if (!Extensions.CheckIfInRange(ConfigManager.getSpellRange(Spells.Capture), loc, p))
-			return;
-
 		loc.add(0, 1, 0);
 
 		p.getWorld().spawnParticle(Particle.REVERSE_PORTAL, loc, 250, 1, 1, 1, 0.1);

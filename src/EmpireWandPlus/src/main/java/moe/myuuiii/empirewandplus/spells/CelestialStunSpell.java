@@ -12,10 +12,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import moe.myuuiii.empirewandplus.Extensions;
-import moe.myuuiii.empirewandplus.Spells;
-import moe.myuuiii.empirewandplus.managers.ConfigManager;
-
 public class CelestialStunSpell {
 	//
 	// Settings
@@ -25,10 +21,6 @@ public class CelestialStunSpell {
 	public static int _blindnessDuration = 100;
 
 	public static void Execute(Location loc, Player p) {
-
-		if (!Extensions.CheckIfInRange(ConfigManager.getSpellRange(Spells.CelestialStun), loc, p))
-			return;
-
 		loc.add(0, 1, 0);
 
 		p.getWorld().spawnParticle(Particle.FIREWORKS_SPARK, loc, 100, 0.5, 1, 0.5, 0.5);
