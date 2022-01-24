@@ -33,7 +33,7 @@ public class ScytheWandInteraction {
 		if (p.getInventory().getItemInMainHand() != null && p.getInventory().getItemInMainHand().hasItemMeta()
 				&& p.getInventory().getItemInMainHand().getItemMeta().hasDisplayName() && p.getInventory()
 						.getItemInMainHand().getItemMeta().getDisplayName().startsWith(Data.scytheWandName)) {
-			if (!p.hasPermission("scythe.use")) {
+			if (!p.hasPermission("scythewand.use")) {
 				p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
 				return;
 			}

@@ -33,7 +33,7 @@ public class CelestialWandInteraction {
 		if (p.getInventory().getItemInMainHand() != null && p.getInventory().getItemInMainHand().hasItemMeta()
 				&& p.getInventory().getItemInMainHand().getItemMeta().hasDisplayName() && p.getInventory()
 						.getItemInMainHand().getItemMeta().getDisplayName().startsWith(Data.celestialWandName)) {
-			if (!p.hasPermission("celestial.use")) {
+			if (!p.hasPermission("celestialwand.use")) {
 				p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
 				return;
 			}

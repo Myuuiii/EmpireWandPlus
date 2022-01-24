@@ -33,7 +33,7 @@ public class HellWandInteraction {
 		if (p.getInventory().getItemInMainHand() != null && p.getInventory().getItemInMainHand().hasItemMeta()
 				&& p.getInventory().getItemInMainHand().getItemMeta().hasDisplayName()
 				&& p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().startsWith(Data.hellWandName)) {
-			if (!p.hasPermission("hell.use")) {
+			if (!p.hasPermission("hellwand.use")) {
 				p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
 				return;
 			}

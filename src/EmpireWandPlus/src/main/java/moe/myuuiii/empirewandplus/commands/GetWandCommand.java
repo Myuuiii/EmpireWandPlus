@@ -63,7 +63,7 @@ public class GetWandCommand implements CommandExecutor {
 							}
 							break;
 						case "scythe":
-							if (player.hasPermission("scythe.get")) {
+							if (player.hasPermission("scythewand.get")) {
 								wand = new ItemStack(Material.IRON_HOE, 1);
 								wandMeta = wand.getItemMeta();
 								wandMeta.setDisplayName(Data.scytheWandName);
@@ -81,7 +81,7 @@ public class GetWandCommand implements CommandExecutor {
 							}
 							break;
 						case "celestial":
-							if (player.hasPermission("celestial.get")) {
+							if (player.hasPermission("celestialwand.get")) {
 								wand = new ItemStack(Material.AMETHYST_SHARD, 1);
 								wandMeta = wand.getItemMeta();
 								wandMeta.setDisplayName(Data.celestialWandName);
@@ -98,7 +98,7 @@ public class GetWandCommand implements CommandExecutor {
 							}
 							break;
 						case "hell":
-							if (player.hasPermission("hell.get")) {
+							if (player.hasPermission("hellwand.get")) {
 								wand = new ItemStack(Material.BLAZE_POWDER, 1);
 								wandMeta = wand.getItemMeta();
 								wandMeta.setDisplayName(Data.hellWandName);
