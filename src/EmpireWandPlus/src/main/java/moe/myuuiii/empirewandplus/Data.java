@@ -27,6 +27,8 @@ public class Data {
 			+ "The current spell was not recognized, maybe you have not selected one yet?";
 	public static String wandNotImplementedYet = "This wand has not yet been implemented";
 
+	public static String wandDisabled = ChatColor.RED + "This wand has been disabled";
+
 	public static ArrayList<Snowball> fireballs = new ArrayList<>();
 	public static ArrayList<Snowball> firepulses = new ArrayList<>();
 

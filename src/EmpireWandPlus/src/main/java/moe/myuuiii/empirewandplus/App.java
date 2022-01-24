@@ -5,6 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import moe.myuuiii.empirewandplus.commands.*;
 import moe.myuuiii.empirewandplus.listeners.*;
+import moe.myuuiii.empirewandplus.managers.ConfigManager;
 import moe.myuuiii.empirewandplus.runnables.*;
 
 public class App extends JavaPlugin {
@@ -19,6 +20,9 @@ public class App extends JavaPlugin {
     public void onEnable() {
         App._app = this;
         System.out.println("Empire wand plus plugin was enabled!");
+
+        // Set up general configuration
+        ConfigManager.setupConfig(this);
 
         registerCommands();
         registerEvents();
