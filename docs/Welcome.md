@@ -23,8 +23,8 @@ To get started using this plugin you can download the latest release from the [G
 
 ### Permissions
 
-- [Wand Obtain Permissions](./Permissions/Obtain Wand.md)
-- [Wand Use Permissions](./Permissions/Wand Use.md)
+- [Wand Obtain Permissions](./Permissions/ObtainWand.md)
+- [Wand Use Permissions](./Permissions/WandUse.md)
 
 ### Spells
 
