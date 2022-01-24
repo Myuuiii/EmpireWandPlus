@@ -7,7 +7,6 @@ import moe.myuuiii.empirewandplus.commands.*;
 import moe.myuuiii.empirewandplus.listeners.*;
 import moe.myuuiii.empirewandplus.managers.ConfigManager;
 import moe.myuuiii.empirewandplus.runnables.*;
-import net.md_5.bungee.api.ChatColor;
 
 public class App extends JavaPlugin {
 
