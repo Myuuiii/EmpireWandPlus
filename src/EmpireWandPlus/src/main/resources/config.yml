@@ -1,0 +1,11 @@
+Wands:
+  EmpireWand:
+    Enabled: true
+  BloodWand:
+    Enabled: true
+  CelestialWand:
+    Enabled: true
+  ScytheWand:
+    Enabled: true
+  HellWand:
+    Enabled: true

@@ -4,6 +4,7 @@ import moe.myuuiii.empirewandplus.Data;
 import moe.myuuiii.empirewandplus.Extensions;
 import moe.myuuiii.empirewandplus.WandSpellLists;
 import moe.myuuiii.empirewandplus.handlers.SpellHandler;
+import moe.myuuiii.empirewandplus.managers.ConfigManager;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -36,6 +37,13 @@ public class BloodWandInteraction {
 				p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
 				return;
 			}
+
+			// Check if the wand is enabled in the configuration
+			if (!ConfigManager.getWandEnabled("BloodWand")) {
+				p.sendMessage(Data.prefix + Data.wandDisabled);
+				return;
+			}
+
 			final ItemStack wand = p.getInventory().getItemInMainHand();
 
 			//
