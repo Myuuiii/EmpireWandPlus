@@ -6,6 +6,8 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import net.md_5.bungee.api.ChatColor;
+
 public class Extensions {
 	public static boolean CheckIfInRange(int range, Location loc, Player player) {
 		if (loc.distance(player.getLocation()) <= range)
@@ -33,5 +35,9 @@ public class Extensions {
 		}
 
 		return spellList.get(nextSpellIndex);
+	}
+
+	public static String colorText(String text) {
+		return ChatColor.translateAlternateColorCodes('&', text);
 	}
 }
