@@ -1,6 +1,7 @@
 package moe.myuuiii.empirewandplus;
 
 import org.bukkit.Bukkit;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import moe.myuuiii.empirewandplus.commands.*;
@@ -29,8 +30,8 @@ public class App extends JavaPlugin {
         System.out.println("Spell sets loaded");
 
         registerCommands();
-        registerEvents();
         registerRunnables();
+        registerListeners();
     }
 
     public void registerCommands() {
@@ -39,19 +40,32 @@ public class App extends JavaPlugin {
         getCommand("wand").setTabCompleter(new GetWandCompleter());
     }
 
-    public void registerEvents() {
-        Bukkit.getPluginManager().registerEvents(new InteractListener(), this);
-        Bukkit.getPluginManager().registerEvents(new ProjectileListener(), this);
+    public void registerListeners() {
+        registerListeners(
+                new InteractListener(),
+                new ProjectileListener());
     }
 
     public void registerRunnables() {
-
         // Cloud runnables
         CloudRunnables cloudRunnables = new CloudRunnables();
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, cloudRunnables.new BloodCloudRunnable(), 10L, 0L);
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, cloudRunnables.new CelestialCloudRunnable(), 10L, 0L);
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, cloudRunnables.new EmpireCloudRunnable(), 10L, 0L);
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, cloudRunnables.new PoisonCloudRunnable(), 10L, 0L);
+        registerRunnables(
+                cloudRunnables.new BloodCloudRunnable(),
+                cloudRunnables.new CelestialCloudRunnable(),
+                cloudRunnables.new EmpireCloudRunnable(),
+                cloudRunnables.new PoisonCloudRunnable());
+    }
+
+    private static void registerListeners(Listener... listeners) {
+        for (Listener listener : listeners) {
+            Bukkit.getServer().getPluginManager().registerEvents(listener, _app);
+        }
+    }
+
+    private static void registerRunnables(Runnable... runnables) {
+        for (Runnable runnable : runnables) {
+            Bukkit.getScheduler().scheduleSyncRepeatingTask(_app, runnable, 0L, 0L);
+        }
     }
 
     public void registerCustomSpellSets() {
