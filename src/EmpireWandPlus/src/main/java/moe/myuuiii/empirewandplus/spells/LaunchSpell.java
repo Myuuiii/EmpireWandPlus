@@ -22,9 +22,10 @@ public class LaunchSpell {
 
 		p.getWorld().spawnParticle(Particle.CLOUD, loc, 250, 1.5, 0, 1.5, 0.1);
 
-		final List<Entity> near = (List<Entity>) loc.getWorld().getEntities();
+		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange,
+				_closeRange);
 		for (final Entity en : near) {
-			if (en.getLocation().distance(loc) <= _closeRange && en instanceof Entity) {
+			if (en instanceof Entity) {
 				en.setVelocity(new Vector(p.getVelocity().getX(), _launchHeightModifier, p.getVelocity().getZ()));
 			}
 		}
