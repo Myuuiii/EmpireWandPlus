@@ -11,115 +11,103 @@ import org.bukkit.inventory.meta.ItemMeta;
 import moe.myuuiii.empirewandplus.Data;
 import net.md_5.bungee.api.ChatColor;
 
+import static moe.myuuiii.empirewandplus.Extensions.colorText;
+
 public class GetWandCommand implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		if (sender instanceof Player) {
-			Player player = (Player) sender;
-			if (args.length >= 1) {
-				if (Data.wandTypes.contains(args[0].toLowerCase())) {
 
-					ItemStack wand;
-					ItemMeta wandMeta;
+		if(!(sender instanceof Player player)) return false;
 
-					switch (args[0].toLowerCase()) {
-						case "blood":
-							if (player.hasPermission("bloodwand.get")) {
-								wand = new ItemStack(Material.BONE, 1);
-								wandMeta = wand.getItemMeta();
-								wandMeta.setDisplayName(Data.bloodWandName);
-								wand.setItemMeta(wandMeta);
-								if (player.getInventory().firstEmpty() == -1) {
-									player.sendMessage(ChatColor.RED + "Your inventory is full!");
-									return false;
-								}
-								player.getInventory().addItem(new ItemStack[] { wand });
+		if(args.length != 1) {
+			player.sendMessage(Data.prefix + colorText("&cUsage: /wand [wand type]"));
+			return false;
+		}
 
-								player.sendMessage(
-										Data.prefix + ChatColor.GRAY + "You have been given a " + ChatColor.RED
-												+ "BLOOD" + ChatColor.GRAY + " wand");
-							} else {
-								player.sendMessage(Data.prefix + ChatColor.RED + "You're not allowed to use that!");
-							}
-							break;
-						case "empire":
-							if (player.hasPermission("empirewand.get")) {
-								wand = new ItemStack(Material.BLAZE_ROD, 1);
-								wandMeta = wand.getItemMeta();
-								wandMeta.setDisplayName(Data.empireWandName);
-								wand.setItemMeta(wandMeta);
-								if (player.getInventory().firstEmpty() == -1) {
-									player.sendMessage(ChatColor.RED + "Your inventory is full!");
-									return false;
-								}
-								player.getInventory().addItem(new ItemStack[] { wand });
+		if(!Data.wandTypes.contains(args[0].toLowerCase())) {
+			player.sendMessage(Data.prefix + colorText("&cInvalid wand type!"));
+			return false;
+		}
 
-								player.sendMessage(
-										Data.prefix + ChatColor.GRAY + "You have been given an " + ChatColor.GOLD
-												+ "EMPIRE" + ChatColor.GRAY + " wand");
-							} else {
-								player.sendMessage(Data.prefix + ChatColor.RED + "You're not allowed to use that!");
-							}
-							break;
-						case "scythe":
-							if (player.hasPermission("scythewand.get")) {
-								wand = new ItemStack(Material.IRON_HOE, 1);
-								wandMeta = wand.getItemMeta();
-								wandMeta.setDisplayName(Data.scytheWandName);
-								wand.setItemMeta(wandMeta);
-								if (player.getInventory().firstEmpty() == -1) {
-									player.sendMessage(ChatColor.RED + "Your inventory is full");
-									return false;
-								}
+		if (player.getInventory().firstEmpty() == -1) {
+			player.sendMessage(Data.prefix + colorText("Your inventory is full!"));
+			return false;
+		}
 
-								player.getInventory().addItem(new ItemStack[] { wand });
-								player.sendMessage(Data.prefix + ChatColor.GRAY + "You have been give a "
-										+ ChatColor.GREEN + "POISON SCYTHE" + ChatColor.GRAY + " wand");
-							} else {
-								player.sendMessage(Data.prefix + ChatColor.RED + "You're not allowed to use that!");
-							}
-							break;
-						case "celestial":
-							if (player.hasPermission("celestialwand.get")) {
-								wand = new ItemStack(Material.AMETHYST_SHARD, 1);
-								wandMeta = wand.getItemMeta();
-								wandMeta.setDisplayName(Data.celestialWandName);
-								wand.setItemMeta(wandMeta);
-								if (player.getInventory().firstEmpty() == -1) {
-									player.sendMessage(ChatColor.RED + "Your inventory is full");
-									return false;
-								}
-								player.getInventory().addItem(new ItemStack[] { wand });
-								player.sendMessage(Data.prefix + ChatColor.GRAY + "You have been given a "
-										+ ChatColor.LIGHT_PURPLE + "CELESTIAL" + ChatColor.GRAY + " wand");
-							} else {
-								player.sendMessage(Data.prefix + ChatColor.RED + "You're not allowed to use that!");
-							}
-							break;
-						case "hell":
-							if (player.hasPermission("hellwand.get")) {
-								wand = new ItemStack(Material.BLAZE_POWDER, 1);
-								wandMeta = wand.getItemMeta();
-								wandMeta.setDisplayName(Data.hellWandName);
-								wand.setItemMeta(wandMeta);
-								if (player.getInventory().firstEmpty() == -1) {
-									player.sendMessage(ChatColor.RED + "Your inventory is full");
-									return false;
-								}
-								player.getInventory().addItem(new ItemStack[] { wand });
-								player.sendMessage(Data.prefix + ChatColor.GRAY + "You have been given a "
-										+ ChatColor.RED + "HELL" + ChatColor.GRAY + " wand");
-							} else {
-								player.sendMessage(Data.prefix + ChatColor.RED + "You're not allowed to use that!");
-							}
-							break;
-					}
-				} else {
-					player.sendMessage(Data.prefix + ChatColor.RED + "This wand does not exist!");
+		ItemStack wand;
+		ItemMeta wandMeta;
+
+		switch (args[0].toLowerCase()) {
+			case "blood" -> {
+
+				if(!player.hasPermission("bloodwand.get")) {
+					player.sendMessage(Data.prefix + colorText("&cYou're not allowed to use that!"));
+					return false;
 				}
-			} else {
-				player.sendMessage(Data.prefix + "You have to provide the wand type");
+
+				wand = new ItemStack(Material.BONE, 1);
+				wandMeta = wand.getItemMeta();
+				wandMeta.setDisplayName(Data.bloodWandName);
+				wand.setItemMeta(wandMeta);
+				player.getInventory().addItem(wand);
+				player.sendMessage(Data.prefix + colorText("&7You have been given a &cBLOOD &7wand!"));
+			}
+			case "empire" -> {
+
+				if(!player.hasPermission("empirewand.get")) {
+					player.sendMessage(Data.prefix + colorText("&cYou're not allowed to use that!"));
+					return false;
+				}
+
+				wand = new ItemStack(Material.BLAZE_ROD, 1);
+				wandMeta = wand.getItemMeta();
+				wandMeta.setDisplayName(Data.empireWandName);
+				wand.setItemMeta(wandMeta);
+				player.getInventory().addItem(wand);
+				player.sendMessage(Data.prefix + colorText("&7You have been given an &6EMPIRE &7wand!"));
+			}
+			case "scythe" -> {
+
+				if(!player.hasPermission("scythewand.get")) {
+					player.sendMessage(Data.prefix + colorText("&cYou're not allowed to use that!"));
+					return false;
+				}
+
+				wand = new ItemStack(Material.IRON_HOE, 1);
+				wandMeta = wand.getItemMeta();
+				wandMeta.setDisplayName(Data.scytheWandName);
+				wand.setItemMeta(wandMeta);
+				player.getInventory().addItem(wand);
+				player.sendMessage(Data.prefix + colorText("&7You have been given a &aPOISON SCYTHE &7wand!"));
+			}
+			case "celestial" -> {
+
+				if(!player.hasPermission("celestialwand.get")) {
+					player.sendMessage(Data.prefix + colorText("&cYou're not allowed to use that!"));
+					return false;
+				}
+
+				wand = new ItemStack(Material.AMETHYST_SHARD, 1);
+				wandMeta = wand.getItemMeta();
+				wandMeta.setDisplayName(Data.celestialWandName);
+				wand.setItemMeta(wandMeta);
+				player.getInventory().addItem(wand);
+				player.sendMessage(Data.prefix + colorText("&7You have been given a &dCELESTIAL &7wand!"));
+			}
+			case "hell" -> {
+
+				if(!player.hasPermission("hellwand.get")) {
+					player.sendMessage(Data.prefix + colorText("&cYou're not allowed to use that!"));
+					return false;
+				}
+
+				wand = new ItemStack(Material.BLAZE_POWDER, 1);
+				wandMeta = wand.getItemMeta();
+				wandMeta.setDisplayName(Data.hellWandName);
+				wand.setItemMeta(wandMeta);
+				player.getInventory().addItem(wand);
+				player.sendMessage(Data.prefix + colorText("&7You have been given a &cHELL &7wand!"));
 			}
 		}
 

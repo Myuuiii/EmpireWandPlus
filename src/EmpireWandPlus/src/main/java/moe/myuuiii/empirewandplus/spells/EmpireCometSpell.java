@@ -24,12 +24,9 @@ public class EmpireCometSpell {
 
 		new BukkitRunnable() {
 			public void run() {
-				if (!e.isDead()) {
-					e.remove();
-				}
-				if (Data.empireComets.contains(e)) {
-					Data.empireComets.remove(e);
-				}
+				if (!e.isDead()) e.remove();
+
+				Data.empireComets.remove(e);
 			}
 		}.runTaskLater(App._app, 200L);
 	}

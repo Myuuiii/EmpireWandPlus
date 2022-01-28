@@ -28,12 +28,11 @@ public class LightningSpellEffect {
 						// Executed when the entity is destroyed
 						s.getWorld().strikeLightning(s.getLocation());
 						s.getWorld().createExplosion(s.getLocation(), _explosionSize);
-						final List<Entity> near = (List<Entity>) s.getWorld().getNearbyEntities(s.getLocation(),
-								_closeRange, _closeRange, _closeRange);
+						final List<Entity> near = (List<Entity>) s.getWorld().getNearbyEntities(s.getLocation(), _closeRange, _closeRange, _closeRange);
 						for (final Entity en : near) {
-							if (en instanceof Damageable) {
-								((Damageable) en).damage(_damage);
-							}
+
+							if (en instanceof Damageable targetEntity) targetEntity.damage(_damage);
+
 						}
 						this.cancel();
 					}

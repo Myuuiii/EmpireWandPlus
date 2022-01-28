@@ -25,9 +25,7 @@ public class LaunchSpell {
 		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange,
 				_closeRange);
 		for (final Entity en : near) {
-			if (en instanceof Entity) {
-				en.setVelocity(new Vector(p.getVelocity().getX(), _launchHeightModifier, p.getVelocity().getZ()));
-			}
+			en.setVelocity(new Vector(p.getVelocity().getX(), _launchHeightModifier, p.getVelocity().getZ()));
 		}
 	}
 

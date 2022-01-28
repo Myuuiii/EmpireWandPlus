@@ -35,15 +35,14 @@ public class EmpireSparkSpell {
 		p.getWorld().playSound(loc, Sound.ENTITY_FIREWORK_ROCKET_TWINKLE_FAR, 5, 0.85f);
 		p.getWorld().playSound(loc, Sound.ENTITY_FIREWORK_ROCKET_TWINKLE_FAR, 5, 0.65f);
 
-		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange,
-				_closeRange);
+		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange, _closeRange);
 		for (final Entity en : near) {
-			if (en instanceof LivingEntity) {
-				((Damageable) en).damage(_damage);
-				LivingEntity targetEntity = (LivingEntity) en;
-				targetEntity.addPotionEffect(
-						new PotionEffect(PotionEffectType.BLINDNESS, _blindnessDuration, 1, true, false));
-			}
+
+			if(!(en instanceof LivingEntity targetEntity)) return;
+
+			targetEntity.damage(_damage);
+			targetEntity.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, _blindnessDuration, 1, true, false));
+
 		}
 	}
 }

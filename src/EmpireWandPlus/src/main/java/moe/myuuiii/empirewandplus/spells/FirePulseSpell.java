@@ -23,12 +23,9 @@ public class FirePulseSpell {
 
 		new BukkitRunnable() {
 			public void run() {
-				if (!e.isDead()) {
-					e.remove();
-				}
-				if (Data.firepulses.contains(e)) {
-					Data.firepulses.remove(e);
-				}
+				if (!e.isDead()) e.remove();
+
+				Data.firepulses.remove(e);
 			}
 		}.runTaskLater(App._app, 200L);
 	}

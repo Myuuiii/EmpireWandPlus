@@ -20,14 +20,14 @@ public class App extends JavaPlugin {
     @Override
     public void onEnable() {
         App._app = this;
-        System.out.println("Empire wand plus plugin was enabled!");
+        getLogger().info("Empire wand plus plugin was enabled!");
 
         // Set up general configuration
         ConfigManager.setupConfig(this);
 
         // If enabled, load custom spell sets
         registerCustomSpellSets();
-        System.out.println("Spell sets loaded");
+        getLogger().info("Spell sets loaded");
 
         registerCommands();
         registerRunnables();
@@ -53,7 +53,8 @@ public class App extends JavaPlugin {
                 cloudRunnables.new BloodCloudRunnable(),
                 cloudRunnables.new CelestialCloudRunnable(),
                 cloudRunnables.new EmpireCloudRunnable(),
-                cloudRunnables.new PoisonCloudRunnable());
+                cloudRunnables.new PoisonCloudRunnable()
+        );
     }
 
     private static void registerListeners(Listener... listeners) {
@@ -71,27 +72,27 @@ public class App extends JavaPlugin {
     public void registerCustomSpellSets() {
         if (ConfigManager.getUseCustomSpellSet(Data.empireWandConfigurationName)) {
             WandSpellLists.EmpireWandSpells = ConfigManager.getCustomWandSpells(Data.empireWandConfigurationName);
-            System.out.println(Data.prefix + "Empire wand uses a custom spell set");
+            getLogger().info(Data.prefix + "Empire wand uses a custom spell set");
 
         }
         if (ConfigManager.getUseCustomSpellSet(Data.bloodWandConfigurationName)) {
             WandSpellLists.BloodWandSpells = ConfigManager.getCustomWandSpells(Data.bloodWandConfigurationName);
-            System.out.println(Data.prefix + "Blood wand uses a custom spell set");
+            getLogger().info(Data.prefix + "Blood wand uses a custom spell set");
 
         }
         if (ConfigManager.getUseCustomSpellSet(Data.celestialWandConfigurationName)) {
             WandSpellLists.CelestialWandSpells = ConfigManager.getCustomWandSpells(Data.celestialWandConfigurationName);
-            System.out.println(Data.prefix + "Celestial wand uses a custom spell set");
+            getLogger().info(Data.prefix + "Celestial wand uses a custom spell set");
 
         }
         if (ConfigManager.getUseCustomSpellSet(Data.scytheWandConfigurationName)) {
             WandSpellLists.PoisonScytheWandSpells = ConfigManager.getCustomWandSpells(Data.scytheWandConfigurationName);
-            System.out.println(Data.prefix + "Scythe wand uses a custom spell set");
+            getLogger().info(Data.prefix + "Scythe wand uses a custom spell set");
 
         }
         if (ConfigManager.getUseCustomSpellSet(Data.hellWandConfigurationName)) {
             WandSpellLists.HellWandSpells = ConfigManager.getCustomWandSpells(Data.hellWandConfigurationName);
-            System.out.println(Data.prefix + "Hell wand uses a custom spell set");
+            getLogger().info(Data.prefix + "Hell wand uses a custom spell set");
 
         }
     }

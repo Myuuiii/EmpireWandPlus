@@ -26,12 +26,9 @@ public class LightningSpell {
 
 		new BukkitRunnable() {
 			public void run() {
-				if (!e.isDead()) {
-					e.remove();
-				}
-				if (Data.lightningBolts.contains(e)) {
-					Data.lightningBolts.remove(e);
-				}
+				if (!e.isDead()) e.remove();
+
+				Data.lightningBolts.remove(e);
 			}
 		}.runTaskLater(App._app, 200L);
 	}

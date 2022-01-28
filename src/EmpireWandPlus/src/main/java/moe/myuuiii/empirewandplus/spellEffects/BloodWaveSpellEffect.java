@@ -44,23 +44,15 @@ public class BloodWaveSpellEffect {
 					s.getWorld().playSound(s.getLocation(), Sound.BLOCK_AZALEA_LEAVES_BREAK, 1, 0.65f);
 					s.getWorld().playSound(s.getLocation(), Sound.ENTITY_SPIDER_HURT, 1, 0.10f);
 
-					final List<Entity> near = (List<Entity>) s.getWorld().getNearbyEntities(s.getLocation(),
-							_closeRange, _closeRange, _closeRange);
+					final List<Entity> near = (List<Entity>) s.getWorld().getNearbyEntities(s.getLocation(), _closeRange, _closeRange, _closeRange);
 					for (final Entity en : near) {
-						if (en instanceof Damageable) {
-							if (en instanceof LivingEntity) {
-								LivingEntity targetEntity = (LivingEntity) en;
+						if(!(en instanceof LivingEntity targetEntity)) return;
 
-								if (en instanceof Player) {
-									Player p = (Player) en;
-									if (Data.bloodUsers.contains(p.getUniqueId())) {
-										continue;
-									}
-								}
-								targetEntity.addPotionEffect(
-										new PotionEffect(PotionEffectType.WITHER, _witherDuration, 1, true, false));
+							if(targetEntity instanceof Player player) {
+								if(Data.bloodUsers.contains(player.getUniqueId())) continue;
 							}
-						}
+
+							targetEntity.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, _witherDuration, 1, true, false));
 					}
 				}
 			}
