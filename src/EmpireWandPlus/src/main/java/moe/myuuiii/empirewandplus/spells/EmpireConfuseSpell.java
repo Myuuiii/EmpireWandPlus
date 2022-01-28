@@ -30,9 +30,10 @@ public class EmpireConfuseSpell {
 		p.getWorld().playSound(loc, Sound.ENTITY_BLAZE_DEATH, 2, 0.85f);
 		p.getWorld().playSound(loc, Sound.ENTITY_CREEPER_DEATH, 2, 0.85f);
 
-		final List<Entity> near = (List<Entity>) loc.getWorld().getEntities();
+		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange,
+				_closeRange);
 		for (final Entity en : near) {
-			if (en.getLocation().distance(loc) <= _closeRange && en instanceof LivingEntity) {
+			if (en instanceof LivingEntity) {
 				LivingEntity targetEntity = (LivingEntity) en;
 				targetEntity.addPotionEffect(
 						new PotionEffect(PotionEffectType.CONFUSION, _confusionDuration, 1, true, false));

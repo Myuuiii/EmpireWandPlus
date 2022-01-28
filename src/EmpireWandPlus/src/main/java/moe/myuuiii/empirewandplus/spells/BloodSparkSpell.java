@@ -35,14 +35,13 @@ public class BloodSparkSpell {
 		p.getWorld().playSound(loc, Sound.BLOCK_AZALEA_LEAVES_BREAK, 5, 0.65f);
 		p.getWorld().playSound(loc, Sound.ENTITY_SPIDER_HURT, 5, 0.65f);
 
-		final List<Entity> near = (List<Entity>) loc.getWorld().getEntities();
+		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange,
+				_closeRange);
 		for (final Entity en : near) {
-			if (en.getLocation().distance(loc) <= _closeRange && en instanceof LivingEntity) {
-				((Damageable) en).damage(_damage);
-				LivingEntity targetEntity = (LivingEntity) en;
-				targetEntity.addPotionEffect(
-						new PotionEffect(PotionEffectType.WITHER, _witherDuration, 1, true, false));
-			}
+			((Damageable) en).damage(_damage);
+			LivingEntity targetEntity = (LivingEntity) en;
+			targetEntity.addPotionEffect(
+					new PotionEffect(PotionEffectType.WITHER, _witherDuration, 1, true, false));
 		}
 	}
 }
