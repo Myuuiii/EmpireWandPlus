@@ -37,10 +37,10 @@ public class FlameWaveSpellEffect {
 
 					s.getWorld().playSound(s.getLocation(), Sound.ENTITY_DROWNED_DEATH, 1, 0.65f);
 
-					final List<Entity> near = (List<Entity>) s.getLocation().getWorld().getEntities();
+					final List<Entity> near = (List<Entity>) s.getWorld().getNearbyEntities(s.getLocation(),
+							_closeRange, _closeRange, _closeRange);
 					for (final Entity en : near) {
-						if (en.getLocation().distance(s.getLocation()) <= _closeRange && en instanceof Damageable) {
-
+						if (en instanceof Damageable) {
 							if (en instanceof LivingEntity) {
 								LivingEntity targetEntity = (LivingEntity) en;
 

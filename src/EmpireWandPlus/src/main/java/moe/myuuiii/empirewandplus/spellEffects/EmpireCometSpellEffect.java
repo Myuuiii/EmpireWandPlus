@@ -31,11 +31,10 @@ public class EmpireCometSpellEffect {
 						// Executed when the entity is destroyed
 						s.getWorld().createExplosion(s.getLocation(), 10, false);
 
-						final List<Entity> near = (List<Entity>) s.getLocation().getWorld().getEntities();
+						final List<Entity> near = (List<Entity>) s.getWorld().getNearbyEntities(s.getLocation(),
+								_closeRange, _closeRange, _closeRange);
 						for (final Entity en : near) {
-
-							if (en.getLocation().distance(s.getLocation()) <= _closeRange && en instanceof Damageable) {
-
+							if (en instanceof Damageable) {
 								((Damageable) en).damage(_damage);
 
 								if (en instanceof LivingEntity) {
