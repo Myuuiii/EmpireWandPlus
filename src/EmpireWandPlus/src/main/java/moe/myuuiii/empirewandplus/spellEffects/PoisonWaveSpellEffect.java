@@ -44,21 +44,17 @@ public class PoisonWaveSpellEffect {
 					final List<Entity> near = (List<Entity>) s.getWorld().getNearbyEntities(s.getLocation(),
 							_closeRange, _closeRange, _closeRange);
 					for (final Entity en : near) {
-						if (en instanceof Damageable) {
-							if (en instanceof LivingEntity) {
-								LivingEntity targetEntity = (LivingEntity) en;
 
-								if (en instanceof Player) {
-									Player p = (Player) en;
-									if (Data.poisonUsers.contains(p.getUniqueId())) {
-										continue;
-									}
-								}
+						if (!(en instanceof LivingEntity targetEntity))
+							return;
 
-								targetEntity.addPotionEffect(
-										new PotionEffect(PotionEffectType.POISON, _poisonDuration, 1, true, false));
-							}
+						if (targetEntity instanceof Player p) {
+							if (Data.poisonUsers.contains(p.getUniqueId()))
+								continue;
 						}
+
+						targetEntity.addPotionEffect(
+								new PotionEffect(PotionEffectType.POISON, _poisonDuration, 1, true, false));
 					}
 				}
 			}

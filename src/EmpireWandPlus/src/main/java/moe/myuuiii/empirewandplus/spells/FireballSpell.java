@@ -24,13 +24,12 @@ public class FireballSpell {
 
 		new BukkitRunnable() {
 			public void run() {
-				if (!e.isDead()) {
 
+				if (!e.isDead())
 					e.remove();
-				}
-				if (Data.fireballs.contains(e)) {
+
+				if (Data.fireballs.contains(e))
 					Data.fireballs.remove(e);
-				}
 			}
 		}.runTaskLater(App._app, 200L);
 	}

@@ -17,7 +17,7 @@ public class SmiteSpell {
 	private static int _rangeMultiplication = 2;
 
 	public static void Execute(Location loc, Player p) {
-		Snowball e = (Snowball) p.launchProjectile((Class<Snowball>) Snowball.class);
+		Snowball e = p.launchProjectile(Snowball.class);
 
 		e.setVelocity(e.getVelocity().multiply(_rangeMultiplication));
 		e.setGravity(false);
@@ -26,12 +26,11 @@ public class SmiteSpell {
 
 		new BukkitRunnable() {
 			public void run() {
-				if (!e.isDead()) {
+				if (!e.isDead())
 					e.remove();
-				}
-				if (Data.smites.contains(e)) {
+
+				if (Data.smites.contains(e))
 					Data.smites.remove(e);
-				}
 			}
 		}.runTaskLater(App._app, 200L);
 	}

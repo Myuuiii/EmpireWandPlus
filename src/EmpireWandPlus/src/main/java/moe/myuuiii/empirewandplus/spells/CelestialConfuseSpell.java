@@ -34,15 +34,14 @@ public class CelestialConfuseSpell {
 		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange,
 				_closeRange);
 		for (final Entity en : near) {
-			if (en instanceof LivingEntity) {
-				LivingEntity targetEntity = (LivingEntity) en;
-				targetEntity.addPotionEffect(
-						new PotionEffect(PotionEffectType.CONFUSION, _confusionDuration, 1, true, false));
-				targetEntity.addPotionEffect(
-						new PotionEffect(PotionEffectType.BLINDNESS, _blindnessDuration, 1, true, false));
-				targetEntity.addPotionEffect(
-						new PotionEffect(PotionEffectType.SLOW, _slownessDuration, 1, true, false));
-			}
+			if (!(en instanceof LivingEntity targetEntity))
+				return;
+
+			targetEntity
+					.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, _confusionDuration, 1, true, false));
+			targetEntity
+					.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, _blindnessDuration, 1, true, false));
+			targetEntity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, _slownessDuration, 1, true, false));
 		}
 	}
 }
