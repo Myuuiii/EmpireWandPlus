@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class Data {
 	public static final List<String> wandTypes = Arrays
-			.asList(new String[] { "empire", "blood", "scythe", "celestial", "hell" });
+			.asList("empire", "blood", "scythe", "celestial", "hell");
 
 	public static final String empireWandName = ChatColor.GOLD + "Empire wand";
 	public static final String empireWandConfigurationName = "EmpireWand";

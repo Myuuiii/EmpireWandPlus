@@ -31,9 +31,10 @@ public class LightningSpellEffect {
 						final List<Entity> near = (List<Entity>) s.getWorld().getNearbyEntities(s.getLocation(),
 								_closeRange, _closeRange, _closeRange);
 						for (final Entity en : near) {
-							if (en instanceof Damageable) {
-								((Damageable) en).damage(_damage);
-							}
+
+							if (en instanceof Damageable targetEntity)
+								targetEntity.damage(_damage);
+
 						}
 						this.cancel();
 					}

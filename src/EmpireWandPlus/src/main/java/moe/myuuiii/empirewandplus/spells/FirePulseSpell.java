@@ -23,12 +23,11 @@ public class FirePulseSpell {
 
 		new BukkitRunnable() {
 			public void run() {
-				if (!e.isDead()) {
+				if (!e.isDead())
 					e.remove();
-				}
-				if (Data.firepulses.contains(e)) {
+
+				if (Data.firepulses.contains(e))
 					Data.firepulses.remove(e);
-				}
 			}
 		}.runTaskLater(App._app, 200L);
 	}

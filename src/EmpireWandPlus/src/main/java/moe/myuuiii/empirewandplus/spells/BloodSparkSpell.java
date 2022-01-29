@@ -38,10 +38,11 @@ public class BloodSparkSpell {
 		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange,
 				_closeRange);
 		for (final Entity en : near) {
-			((Damageable) en).damage(_damage);
-			LivingEntity targetEntity = (LivingEntity) en;
-			targetEntity.addPotionEffect(
-					new PotionEffect(PotionEffectType.WITHER, _witherDuration, 1, true, false));
+			if (!(en instanceof LivingEntity targetEntity))
+				return;
+
+			targetEntity.damage(_damage);
+			targetEntity.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, _witherDuration, 1, true, false));
 		}
 	}
 }

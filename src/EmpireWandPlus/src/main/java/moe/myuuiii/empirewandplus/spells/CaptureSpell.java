@@ -29,11 +29,13 @@ public class CaptureSpell {
 		for (final Entity en : near) {
 
 			if (en.getLocation().distance(loc) <= _closeRange) {
-				if (en instanceof Player) {
-					if (!((Player) en).equals(p)) {
-						p.addPassenger(en);
-					}
-				}
+				if (!(en instanceof Player player))
+					return;
+
+				if (player.equals(p))
+					return;
+
+				p.addPassenger(player);
 			}
 		}
 	}
