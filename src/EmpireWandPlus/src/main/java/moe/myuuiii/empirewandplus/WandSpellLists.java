@@ -12,33 +12,30 @@ public class WandSpellLists {
 			Spells.EmpireStun,
 			Spells.EmpireConfuse,
 			Spells.EmpireBlink,
-			Spells.Capture
-	);
+			Spells.Capture);
 
 	public static List<String> BloodWandSpells = Arrays.asList(
 			Spells.BloodSpark,
 			Spells.BloodWave,
-			Spells.BloodCloud
-	);
+			Spells.BloodCloud);
 
 	public static List<String> PoisonScytheWandSpells = Arrays.asList(
 			Spells.PoisonSpark,
 			Spells.PoisonWave,
-			Spells.PoisonCloud
-	);
+			Spells.PoisonCloud);
 
 	public static List<String> CelestialWandSpells = Arrays.asList(
 			Spells.CelestialCloud,
 			Spells.CelestialStun,
 			Spells.CelestialConfuse,
 			Spells.Lightning,
-			Spells.Smite
-	);
+			Spells.Smite);
 
 	public static List<String> HellWandSpells = Arrays.asList(
 			Spells.Fireball,
 			Spells.FirePulse,
 			Spells.Ignite,
-			Spells.FlameWave
-	);
+			Spells.FlameWave);
+
+	public static List<String> DreambenderSpells = Arrays.asList();
 }

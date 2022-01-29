@@ -110,6 +110,19 @@ public class GetWandCommand implements CommandExecutor {
 				player.getInventory().addItem(wand);
 				player.sendMessage(Data.prefix + colorText("&7You have been given a &cHELL &7wand!"));
 			}
+			case "dreambender" -> {
+				if (!player.hasPermission("dreambenderwand.get")) {
+					player.sendMessage(Data.prefix + colorText("&cYou're not allowed to use that!"));
+					return false;
+				}
+
+				wand = new ItemStack(Material.BAMBOO, 1);
+				wandMeta = wand.getItemMeta();
+				wandMeta.setDisplayName(Data.dreambenderWandName);
+				wand.setItemMeta(wandMeta);
+				player.getInventory().addItem(wand);
+				player.sendMessage(Data.prefix + colorText("&7You have been given a &eDREAMBENDER &7wand!"));
+			}
 		}
 
 		return false;
