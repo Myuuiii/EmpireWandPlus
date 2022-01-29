@@ -1,4 +1,4 @@
-![ReadmeBanner](./media/repo/readmeBanner.png)
+<img src="./media/repo/readmeBanner.png" />
 
 # Documents
 
