@@ -4,6 +4,7 @@ import org.bukkit.event.EventHandler;
 
 import moe.myuuiii.empirewandplus.listeners.wandinteraction.BloodWandInteraction;
 import moe.myuuiii.empirewandplus.listeners.wandinteraction.CelestialWandInteraction;
+import moe.myuuiii.empirewandplus.listeners.wandinteraction.DreambenderWandInteraction;
 import moe.myuuiii.empirewandplus.listeners.wandinteraction.EmpireWandInteraction;
 import moe.myuuiii.empirewandplus.listeners.wandinteraction.HellWandInteraction;
 import moe.myuuiii.empirewandplus.listeners.wandinteraction.ScytheWandInteraction;
@@ -30,6 +31,7 @@ public class InteractListener implements Listener {
 			ScytheWandInteraction.Handle(e);
 			CelestialWandInteraction.Handle(e);
 			HellWandInteraction.Handle(e);
+			DreambenderWandInteraction.Handle(e);
 		}
 	}
 }
