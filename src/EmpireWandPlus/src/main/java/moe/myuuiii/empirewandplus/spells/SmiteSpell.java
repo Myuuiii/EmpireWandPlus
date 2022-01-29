@@ -26,7 +26,8 @@ public class SmiteSpell {
 
 		new BukkitRunnable() {
 			public void run() {
-				if (!e.isDead()) e.remove();
+				if (!e.isDead())
+					e.remove();
 
 				Data.smites.remove(e);
 			}

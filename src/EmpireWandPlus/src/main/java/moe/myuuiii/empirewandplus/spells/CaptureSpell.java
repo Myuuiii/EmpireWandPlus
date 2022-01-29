@@ -24,13 +24,16 @@ public class CaptureSpell {
 		p.getWorld().playSound(loc, Sound.ENTITY_PIG_SADDLE, 5, 0.85f);
 		p.getWorld().playSound(loc, Sound.ENTITY_SHULKER_TELEPORT, 5, 1f);
 
-		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange, _closeRange);
+		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange,
+				_closeRange);
 		for (final Entity en : near) {
 
 			if (en.getLocation().distance(loc) <= _closeRange) {
-				if(!(en instanceof Player player)) return;
+				if (!(en instanceof Player player))
+					return;
 
-				if(player.equals(p)) return;
+				if (player.equals(p))
+					return;
 
 				p.addPassenger(player);
 			}

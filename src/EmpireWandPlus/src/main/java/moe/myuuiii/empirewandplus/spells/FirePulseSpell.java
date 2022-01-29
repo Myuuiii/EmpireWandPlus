@@ -23,7 +23,8 @@ public class FirePulseSpell {
 
 		new BukkitRunnable() {
 			public void run() {
-				if (!e.isDead()) e.remove();
+				if (!e.isDead())
+					e.remove();
 
 				Data.firepulses.remove(e);
 			}

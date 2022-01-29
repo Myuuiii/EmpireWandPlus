@@ -30,14 +30,17 @@ public class CelestialStunSpell {
 		p.getWorld().playSound(loc, Sound.ENTITY_ILLUSIONER_PREPARE_BLINDNESS, 2, 0.65f);
 		p.getWorld().playSound(loc, Sound.ITEM_TOTEM_USE, 2, 0.65f);
 
-		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange, _closeRange);
+		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange,
+				_closeRange);
 
 		for (final Entity en : near) {
 
-			if(!(en instanceof LivingEntity targetEntity)) return;
+			if (!(en instanceof LivingEntity targetEntity))
+				return;
 
 			targetEntity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, _slowDuration, 255, true, false));
-			targetEntity.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, _blindnessDuration, 1, true, false));
+			targetEntity
+					.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, _blindnessDuration, 1, true, false));
 		}
 	}
 }

@@ -33,9 +33,11 @@ public class PoisonSparkSpell {
 		p.getWorld().playSound(loc, Sound.ENTITY_ZOMBIE_INFECT, 5, 0.85f);
 		p.getWorld().playSound(loc, Sound.BLOCK_AZALEA_LEAVES_BREAK, 5, 0.85f);
 
-		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange, _closeRange);
+		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange,
+				_closeRange);
 		for (final Entity en : near) {
-			if(!(en instanceof LivingEntity targetEntity)) return;
+			if (!(en instanceof LivingEntity targetEntity))
+				return;
 
 			targetEntity.damage(_damage);
 			targetEntity.addPotionEffect(new PotionEffect(PotionEffectType.POISON, _poisonDuration, 1, true, false));

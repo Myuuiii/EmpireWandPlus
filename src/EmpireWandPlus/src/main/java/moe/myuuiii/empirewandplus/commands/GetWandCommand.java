@@ -18,14 +18,15 @@ public class GetWandCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 
-		if(!(sender instanceof Player player)) return false;
+		if (!(sender instanceof Player player))
+			return false;
 
-		if(args.length != 1) {
+		if (args.length != 1) {
 			player.sendMessage(Data.prefix + colorText("&cUsage: /wand [wand type]"));
 			return false;
 		}
 
-		if(!Data.wandTypes.contains(args[0].toLowerCase())) {
+		if (!Data.wandTypes.contains(args[0].toLowerCase())) {
 			player.sendMessage(Data.prefix + colorText("&cInvalid wand type!"));
 			return false;
 		}
@@ -41,7 +42,7 @@ public class GetWandCommand implements CommandExecutor {
 		switch (args[0].toLowerCase()) {
 			case "blood" -> {
 
-				if(!player.hasPermission("bloodwand.get")) {
+				if (!player.hasPermission("bloodwand.get")) {
 					player.sendMessage(Data.prefix + colorText("&cYou're not allowed to use that!"));
 					return false;
 				}
@@ -55,7 +56,7 @@ public class GetWandCommand implements CommandExecutor {
 			}
 			case "empire" -> {
 
-				if(!player.hasPermission("empirewand.get")) {
+				if (!player.hasPermission("empirewand.get")) {
 					player.sendMessage(Data.prefix + colorText("&cYou're not allowed to use that!"));
 					return false;
 				}
@@ -69,7 +70,7 @@ public class GetWandCommand implements CommandExecutor {
 			}
 			case "scythe" -> {
 
-				if(!player.hasPermission("scythewand.get")) {
+				if (!player.hasPermission("scythewand.get")) {
 					player.sendMessage(Data.prefix + colorText("&cYou're not allowed to use that!"));
 					return false;
 				}
@@ -83,7 +84,7 @@ public class GetWandCommand implements CommandExecutor {
 			}
 			case "celestial" -> {
 
-				if(!player.hasPermission("celestialwand.get")) {
+				if (!player.hasPermission("celestialwand.get")) {
 					player.sendMessage(Data.prefix + colorText("&cYou're not allowed to use that!"));
 					return false;
 				}
@@ -97,7 +98,7 @@ public class GetWandCommand implements CommandExecutor {
 			}
 			case "hell" -> {
 
-				if(!player.hasPermission("hellwand.get")) {
+				if (!player.hasPermission("hellwand.get")) {
 					player.sendMessage(Data.prefix + colorText("&cYou're not allowed to use that!"));
 					return false;
 				}
