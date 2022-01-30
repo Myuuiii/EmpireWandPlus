@@ -123,6 +123,19 @@ public class GetWandCommand implements CommandExecutor {
 				player.getInventory().addItem(wand);
 				player.sendMessage(Data.prefix + colorText("&7You have been given a &eDREAMBENDER &7wand!"));
 			}
+			case "reaper" -> {
+				if (!player.hasPermission("reaperwand.get")) {
+					player.sendMessage(Data.prefix + colorText("&cYou're not allowed to use that!"));
+					return false;
+				}
+
+				wand = new ItemStack(Material.NETHERITE_HOE, 1);
+				wandMeta = wand.getItemMeta();
+				wandMeta.setDisplayName(Data.reaperWandName);
+				wand.setItemMeta(wandMeta);
+				player.getInventory().addItem(wand);
+				player.sendMessage(Data.prefix + colorText("&7You have been given a &8REAPER &7wand!"));
+			}
 		}
 
 		return false;
