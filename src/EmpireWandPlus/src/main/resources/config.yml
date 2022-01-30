@@ -23,6 +23,11 @@ Wands:
     Enabled: true
     UseCustomSpellSet: false
     Spells:
+  ReaperWand:
+    Enabled: true
+    UseCustomSpellSet: false
+    Spells:
+
 
 Spells:
   Blood Cloud:
