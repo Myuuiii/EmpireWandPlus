@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class Data {
 	public static final List<String> wandTypes = Arrays
-			.asList("empire", "blood", "scythe", "celestial", "hell", "dreambender", "reaper");
+			.asList("empire", "blood", "scythe", "celestial", "hell");
 
 	public static final String empireWandName = ChatColor.GOLD + "Empire wand";
 	public static final String empireWandConfigurationName = "EmpireWand";
@@ -28,12 +28,6 @@ public class Data {
 
 	public static final String hellWandName = ChatColor.RED + "Hell Wand";
 	public static final String hellWandConfigurationName = "HellWand";
-
-	public static final String dreambenderWandName = ChatColor.YELLOW + "Dreambender Wand";
-	public static final String dreambenderWandConfigurationName = "DreambenderWand";
-
-	public static final String reaperWandName = ChatColor.DARK_GRAY + "Reaper Wand";
-	public static final String reaperWandConfigurationName = "ReaperWand";
 
 	public static final String prefix = Extensions.colorText("&7[&dX&7]&r ");
 	public static final String currentSpellMessage = Extensions.colorText("&7Current Spell: &d");

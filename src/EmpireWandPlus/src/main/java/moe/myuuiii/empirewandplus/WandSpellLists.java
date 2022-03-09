@@ -36,8 +36,4 @@ public class WandSpellLists {
 			Spells.FirePulse,
 			Spells.Ignite,
 			Spells.FlameWave);
-
-	public static List<String> DreambenderSpells = Arrays.asList();
-
-	public static List<String> ReaperWandSpells = Arrays.asList();
 }
