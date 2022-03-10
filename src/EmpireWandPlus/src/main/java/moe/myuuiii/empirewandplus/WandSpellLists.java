@@ -12,7 +12,8 @@ public class WandSpellLists {
 			Spells.EmpireStun,
 			Spells.EmpireConfuse,
 			Spells.EmpireBlink,
-			Spells.Capture);
+			Spells.Capture,
+			Spells.Leap);
 
 	public static List<String> BloodWandSpells = Arrays.asList(
 			Spells.BloodSpark,
@@ -35,5 +36,6 @@ public class WandSpellLists {
 			Spells.Fireball,
 			Spells.FirePulse,
 			Spells.Ignite,
-			Spells.FlameWave);
+			Spells.FlameWave,
+			Spells.FireComet);
 }

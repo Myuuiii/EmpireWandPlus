@@ -28,8 +28,7 @@ public class FireballSpell {
 				if (!e.isDead())
 					e.remove();
 
-				if (Data.fireballs.contains(e))
-					Data.fireballs.remove(e);
+				Data.fireballs.remove(e);
 			}
 		}.runTaskLater(App._app, 200L);
 	}

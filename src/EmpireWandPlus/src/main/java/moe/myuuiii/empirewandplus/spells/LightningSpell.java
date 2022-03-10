@@ -29,8 +29,7 @@ public class LightningSpell {
 				if (!e.isDead())
 					e.remove();
 
-				if (Data.lightningBolts.contains(e))
-					Data.lightningBolts.remove(e);
+				Data.lightningBolts.remove(e);
 			}
 		}.runTaskLater(App._app, 200L);
 	}

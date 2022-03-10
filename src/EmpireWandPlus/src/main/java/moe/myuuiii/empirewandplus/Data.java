@@ -39,6 +39,7 @@ public class Data {
 
 	public static final ArrayList<Snowball> fireballs = new ArrayList<>();
 	public static final ArrayList<Snowball> firepulses = new ArrayList<>();
+	public static final ArrayList<Snowball> firecomets = new ArrayList<>();
 
 	public static final ArrayList<Snowball> lightningBolts = new ArrayList<>();
 	public static final ArrayList<Snowball> smites = new ArrayList<>();
@@ -58,4 +59,5 @@ public class Data {
 
 	public static final ArrayList<Snowball> flameWaves = new ArrayList<>();
 	public static final ArrayList<UUID> flameUsers = new ArrayList<>();
+
 }

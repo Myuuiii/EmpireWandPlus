@@ -6,7 +6,6 @@ import org.bukkit.Color;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.Particle.DustOptions;
-import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;

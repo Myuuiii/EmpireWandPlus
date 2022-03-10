@@ -27,8 +27,7 @@ public class EmpireCometSpell {
 				if (!e.isDead())
 					e.remove();
 
-				if (Data.empireComets.contains(e))
-					Data.empireComets.remove(e);
+				Data.empireComets.remove(e);
 			}
 		}.runTaskLater(App._app, 200L);
 	}

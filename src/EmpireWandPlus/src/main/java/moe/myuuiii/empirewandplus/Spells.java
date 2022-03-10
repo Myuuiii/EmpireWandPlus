@@ -28,6 +28,8 @@ public class Spells {
 	public static final String FirePulse = "Fire Pulse";
 	public static final String Ignite = "Ignite";
 	public static final String FlameWave = "Flame Wave";
+	public static final String FireComet = "Fire Comet";
 
 	public static final String Capture = "Capture";
+	public static final String Leap = "Leap";
 }
