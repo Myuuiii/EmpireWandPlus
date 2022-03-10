@@ -27,7 +27,8 @@ public class IgniteSpell {
 		p.getWorld().playSound(loc, Sound.ENTITY_BLAZE_SHOOT, 5, 0.85f);
 		p.getWorld().playSound(loc, Sound.BLOCK_FURNACE_FIRE_CRACKLE, 5, 0.85f);
 
-		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange, _closeRange);
+		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange,
+				_closeRange);
 		for (final Entity en : near) {
 			if (en instanceof LivingEntity) {
 				en.setFireTicks(_fireDuration);

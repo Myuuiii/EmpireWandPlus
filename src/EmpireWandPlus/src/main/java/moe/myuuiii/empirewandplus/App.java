@@ -53,8 +53,7 @@ public class App extends JavaPlugin {
                 cloudRunnables.new BloodCloudRunnable(),
                 cloudRunnables.new CelestialCloudRunnable(),
                 cloudRunnables.new EmpireCloudRunnable(),
-                cloudRunnables.new PoisonCloudRunnable()
-        );
+                cloudRunnables.new PoisonCloudRunnable());
     }
 
     private static void registerListeners(Listener... listeners) {
