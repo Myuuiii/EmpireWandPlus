@@ -6,7 +6,6 @@ import org.bukkit.Color;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.Particle.DustOptions;
-import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -41,16 +40,20 @@ public class PoisonWaveSpellEffect {
 
 					s.getWorld().playSound(s.getLocation(), Sound.BLOCK_AZALEA_BREAK, 1, 0.65f);
 
-					final List<Entity> near = (List<Entity>) s.getWorld().getNearbyEntities(s.getLocation(), _closeRange, _closeRange, _closeRange);
+					final List<Entity> near = (List<Entity>) s.getWorld().getNearbyEntities(s.getLocation(),
+							_closeRange, _closeRange, _closeRange);
 					for (final Entity en : near) {
 
-						if(!(en instanceof LivingEntity targetEntity)) return;
+						if (!(en instanceof LivingEntity targetEntity))
+							return;
 
-						if(targetEntity instanceof Player p) {
-							if(Data.poisonUsers.contains(p.getUniqueId())) continue;
+						if (targetEntity instanceof Player p) {
+							if (Data.poisonUsers.contains(p.getUniqueId()))
+								continue;
 						}
 
-						targetEntity.addPotionEffect(new PotionEffect(PotionEffectType.POISON, _poisonDuration, 1, true, false));
+						targetEntity.addPotionEffect(
+								new PotionEffect(PotionEffectType.POISON, _poisonDuration, 1, true, false));
 					}
 				}
 			}

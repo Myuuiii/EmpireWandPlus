@@ -78,3 +78,5 @@ Spells:
     Enabled: true
   Smite:
     Enabled: true
+  Fire Comet:
+    Enabled: true
