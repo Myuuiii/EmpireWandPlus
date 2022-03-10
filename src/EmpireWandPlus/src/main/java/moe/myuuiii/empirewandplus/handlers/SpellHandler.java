@@ -100,6 +100,10 @@ public class SpellHandler {
 					if (Extensions.CheckIfInRange(ConfigManager.getSpellRange(Spells.Capture), loc, p))
 						CaptureSpell.Execute(loc, p);
 				break;
+			case Spells.Leap:
+				if (ConfigManager.getSpellEnabled(Spells.Leap, p))
+					LeapSpell.Execute(loc, p);
+				break;
 
 			//
 			// Hell wand
@@ -120,6 +124,10 @@ public class SpellHandler {
 			case Spells.FlameWave:
 				if (ConfigManager.getSpellEnabled(Spells.FlameWave, p))
 					FlameWaveSpell.Execute(loc, p);
+				break;
+			case Spells.FireComet:
+				if (ConfigManager.getSpellEnabled(Spells.FireComet, p))
+					FireCometSpell.Execute(loc, p);
 				break;
 
 			//

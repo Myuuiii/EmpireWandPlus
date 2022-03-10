@@ -26,7 +26,7 @@ public class FireCometSpellEffect {
 				if (Data.firecomets.contains(s)) {
 					if (s.isDead()) {
 						// Executed when the entity is destroyed
-						s.getWorld().createExplosion(s.getLocation(), 10, false);
+						s.getWorld().createExplosion(s.getLocation(), 3, false);
 
 						final List<Entity> near = (List<Entity>) s.getWorld().getNearbyEntities(s.getLocation(),
 								_closeRange, _closeRange, _closeRange);
