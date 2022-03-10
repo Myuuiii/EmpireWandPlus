@@ -80,3 +80,5 @@ Spells:
     Enabled: true
   Fire Comet:
     Enabled: true
+  Leap: 
+    Enabled: true
