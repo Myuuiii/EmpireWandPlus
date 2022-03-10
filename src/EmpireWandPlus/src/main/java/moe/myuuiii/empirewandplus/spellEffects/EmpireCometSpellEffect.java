@@ -3,7 +3,6 @@ package moe.myuuiii.empirewandplus.spellEffects;
 import java.util.List;
 
 import org.bukkit.Particle;
-import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Snowball;

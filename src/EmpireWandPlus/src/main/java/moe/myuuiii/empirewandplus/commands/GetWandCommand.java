@@ -9,7 +9,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import moe.myuuiii.empirewandplus.Data;
-import net.md_5.bungee.api.ChatColor;
 
 import static moe.myuuiii.empirewandplus.Extensions.colorText;
 
