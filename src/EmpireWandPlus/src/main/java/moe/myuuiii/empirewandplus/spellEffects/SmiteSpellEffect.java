@@ -36,10 +36,12 @@ public class SmiteSpellEffect {
 
 						s.getWorld().createExplosion(s.getLocation(), _explosionSize, true);
 
-						final List<Entity> near = (List<Entity>) s.getWorld().getNearbyEntities(s.getLocation(), _closeRange, _closeRange, _closeRange);
+						final List<Entity> near = (List<Entity>) s.getWorld().getNearbyEntities(s.getLocation(),
+								_closeRange, _closeRange, _closeRange);
 						for (final Entity en : near) {
 
-							if(en instanceof Damageable targetEntity) targetEntity.damage(_damage);
+							if (en instanceof Damageable targetEntity)
+								targetEntity.damage(_damage);
 
 						}
 						this.cancel();

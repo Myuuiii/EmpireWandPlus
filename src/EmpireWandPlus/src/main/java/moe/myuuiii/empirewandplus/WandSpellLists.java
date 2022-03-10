@@ -38,4 +38,3 @@ public class WandSpellLists {
 			Spells.Ignite,
 			Spells.FlameWave,
 			Spells.FireComet);
-}

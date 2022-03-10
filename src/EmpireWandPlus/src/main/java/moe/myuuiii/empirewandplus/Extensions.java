@@ -18,13 +18,17 @@ public class Extensions {
 
 		int modifier;
 
-		if (player.isSneaking()) modifier = -1;
-		else modifier = 1;
+		if (player.isSneaking())
+			modifier = -1;
+		else
+			modifier = 1;
 
 		int nextSpellIndex = currentSpellIndex + modifier;
 
-		if(nextSpellIndex >= spellList.size()) nextSpellIndex = 0;
-		else if (nextSpellIndex < 0) nextSpellIndex = spellList.size() -1;
+		if (nextSpellIndex >= spellList.size())
+			nextSpellIndex = 0;
+		else if (nextSpellIndex < 0)
+			nextSpellIndex = spellList.size() - 1;
 
 		return spellList.get(nextSpellIndex);
 	}
