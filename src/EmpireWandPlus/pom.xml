@@ -4,7 +4,7 @@
 
     <groupId>moe.myuuiii</groupId>
     <artifactId>empirewandplus</artifactId>
-    <version>0.1.10b-SNAPSHOT</version>
+    <version>0.1.11b-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>EmpireWandPlus</name>
