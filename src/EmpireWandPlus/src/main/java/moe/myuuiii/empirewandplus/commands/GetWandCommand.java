@@ -31,7 +31,7 @@ public class GetWandCommand implements CommandExecutor {
 		}
 
 		if (player.getInventory().firstEmpty() == -1) {
-			player.sendMessage(Data.prefix + colorText("Your inventory is full!"));
+			player.sendMessage(Data.prefix + colorText("&cYour inventory is full!"));
 			return false;
 		}
 
