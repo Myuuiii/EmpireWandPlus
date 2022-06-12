@@ -1,6 +1,6 @@
 # Change Spell Casting Range
 
-You can change the amount of blocks of range a spell has when casting. When a blokc outside of this range is targeted, the spell will not execute. 
+You can change the amount of blocks of range a spell has when casting. When a block outside of this range is targeted, the spell will not execute. 
 
 ```yaml
   Blood Spark:
