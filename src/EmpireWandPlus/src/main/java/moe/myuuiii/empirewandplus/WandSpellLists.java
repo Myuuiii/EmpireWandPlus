@@ -13,7 +13,8 @@ public class WandSpellLists {
 			Spells.EmpireConfuse,
 			Spells.EmpireBlink,
 			Spells.Capture,
-			Spells.Leap);
+			Spells.Leap,
+			Spells.FireworkTest);
 
 	public static List<String> BloodWandSpells = Arrays.asList(
 			Spells.BloodSpark,

@@ -43,7 +43,8 @@ public class App extends JavaPlugin {
     public void registerListeners() {
         registerListeners(
                 new InteractListener(),
-                new ProjectileListener());
+                new ProjectileListener(),
+                new DamageListener());
     }
 
     public void registerRunnables() {

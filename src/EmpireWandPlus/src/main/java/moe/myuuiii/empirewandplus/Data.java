@@ -60,4 +60,7 @@ public class Data {
 	public static final ArrayList<Snowball> flameWaves = new ArrayList<>();
 	public static final ArrayList<UUID> flameUsers = new ArrayList<>();
 
+	public static final ArrayList<Snowball> fireworkTest = new ArrayList<>();
+
+
 }

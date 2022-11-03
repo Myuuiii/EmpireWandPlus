@@ -104,6 +104,10 @@ public class SpellHandler {
 				if (ConfigManager.getSpellEnabled(Spells.Leap, p))
 					LeapSpell.Execute(loc, p);
 				break;
+			case Spells.FireworkTest:
+				if(ConfigManager.getSpellEnabled(Spells.FireworkTest, p))
+					FireworkTest.Execute(loc, p);
+				break;
 
 			//
 			// Hell wand

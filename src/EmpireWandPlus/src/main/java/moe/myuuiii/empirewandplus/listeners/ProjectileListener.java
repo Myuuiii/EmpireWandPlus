@@ -23,6 +23,7 @@ public class ProjectileListener implements Listener {
 			SmiteSpellEffect.Execute(s);
 			FlameWaveSpellEffect.Execute(s);
 			FireCometSpellEffect.Execute(s);
+			FireworkTestEffect.Execute(s);
 		}
 	}
 }

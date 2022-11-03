@@ -82,3 +82,5 @@ Spells:
     Enabled: true
   Leap: 
     Enabled: true
+  Firework Test:
+    Enabled: true
