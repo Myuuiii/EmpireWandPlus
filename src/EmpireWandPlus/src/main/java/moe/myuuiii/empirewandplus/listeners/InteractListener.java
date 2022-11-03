@@ -1,18 +1,12 @@
 package moe.myuuiii.empirewandplus.listeners;
 
+import moe.myuuiii.empirewandplus.listeners.wandinteraction.*;
 import org.bukkit.event.EventHandler;
-
-import moe.myuuiii.empirewandplus.listeners.wandinteraction.BloodWandInteraction;
-import moe.myuuiii.empirewandplus.listeners.wandinteraction.CelestialWandInteraction;
-import moe.myuuiii.empirewandplus.listeners.wandinteraction.EmpireWandInteraction;
-import moe.myuuiii.empirewandplus.listeners.wandinteraction.HellWandInteraction;
-import moe.myuuiii.empirewandplus.listeners.wandinteraction.ScytheWandInteraction;
-
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 
 import java.util.HashMap;
-import org.bukkit.event.Listener;
 
 public class InteractListener implements Listener {
 	HashMap<String, Long> wandCooldown;

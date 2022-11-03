@@ -1,7 +1,7 @@
 package moe.myuuiii.empirewandplus.spellEffects;
 
-import java.util.List;
-
+import moe.myuuiii.empirewandplus.App;
+import moe.myuuiii.empirewandplus.Data;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Particle;
@@ -12,10 +12,9 @@ import org.bukkit.entity.Snowball;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import moe.myuuiii.empirewandplus.App;
-import moe.myuuiii.empirewandplus.Data;
+import java.util.List;
 
-import static moe.myuuiii.empirewandplus.Extensions.GetNearbyEntities;
+import static moe.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 import static moe.myuuiii.empirewandplus.generators.FireworkGenerator.getFirework;
 
 public class LightningSpellEffect {
@@ -35,12 +34,10 @@ public class LightningSpellEffect {
                         // Executed when the entity is destroyed
                         s.getWorld().strikeLightning(s.getLocation());
                         s.getWorld().createExplosion(s.getLocation(), _explosionSize);
-                        final List<Entity> near = GetNearbyEntities(_closeRange, s);;
+                        final List<Entity> near = getNearbyEntities(_closeRange, s);;
                         for (final Entity en : near) {
-
                             if (en instanceof Damageable targetEntity)
                                 targetEntity.damage(_damage);
-
                         }
                         this.cancel();
                     }

@@ -32,6 +32,4 @@ public class Spells {
 
 	public static final String Capture = "Capture";
 	public static final String Leap = "Leap";
-
-	public static final String FireworkTest = "Firework Test";
 }

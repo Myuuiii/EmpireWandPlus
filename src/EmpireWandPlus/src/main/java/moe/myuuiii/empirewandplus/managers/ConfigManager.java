@@ -1,13 +1,12 @@
 package moe.myuuiii.empirewandplus.managers;
 
-import java.util.List;
-
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Player;
-
 import moe.myuuiii.empirewandplus.App;
 import moe.myuuiii.empirewandplus.Data;
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
+
+import java.util.List;
 
 public class ConfigManager {
 

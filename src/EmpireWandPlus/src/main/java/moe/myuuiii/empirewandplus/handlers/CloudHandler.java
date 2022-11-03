@@ -1,8 +1,8 @@
 package moe.myuuiii.empirewandplus.handlers;
 
-import java.util.UUID;
-
 import moe.myuuiii.empirewandplus.Data;
+
+import java.util.UUID;
 
 public class CloudHandler {
 	public static void DisableCloud(UUID uniqueId) {

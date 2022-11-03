@@ -1,18 +1,15 @@
 package moe.myuuiii.empirewandplus.spells;
 
 import org.bukkit.*;
-import org.bukkit.Particle.DustOptions;
-
-import java.util.List;
-
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.meta.FireworkEffectMeta;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+
+import java.util.List;
 
 import static moe.myuuiii.empirewandplus.generators.FireworkGenerator.getFirework;
 

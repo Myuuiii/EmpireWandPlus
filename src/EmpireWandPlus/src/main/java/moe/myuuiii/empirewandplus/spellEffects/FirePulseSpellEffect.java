@@ -1,16 +1,20 @@
 package moe.myuuiii.empirewandplus.spellEffects;
 
+import moe.myuuiii.empirewandplus.App;
+import moe.myuuiii.empirewandplus.Data;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Particle;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Firework;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Snowball;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import moe.myuuiii.empirewandplus.App;
-import moe.myuuiii.empirewandplus.Data;
+import java.util.List;
 
+import static moe.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 import static moe.myuuiii.empirewandplus.generators.FireworkGenerator.getFirework;
 
 public class FirePulseSpellEffect {
@@ -20,7 +24,10 @@ public class FirePulseSpellEffect {
                 if (Data.firepulses.contains(s)) {
                     if (s.isDead()) {
                         // Executed when the entity is destroyed
-                        s.getWorld().createExplosion(s.getLocation(), 2, true);
+                        final List<Entity> near = getNearbyEntities(2.0, s);
+                        for (final Entity en : near)
+                            if (en instanceof LivingEntity targetEntity)
+                                targetEntity.damage(4);
                         this.cancel();
                     }
 

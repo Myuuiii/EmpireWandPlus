@@ -1,13 +1,12 @@
 package moe.myuuiii.empirewandplus.spells;
 
+import moe.myuuiii.empirewandplus.Data;
+import moe.myuuiii.empirewandplus.Spells;
+import moe.myuuiii.empirewandplus.handlers.CloudHandler;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
-
-import moe.myuuiii.empirewandplus.Data;
-import moe.myuuiii.empirewandplus.Spells;
-import moe.myuuiii.empirewandplus.handlers.CloudHandler;
 
 public class PoisonCloudSpell {
 	//

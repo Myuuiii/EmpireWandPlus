@@ -1,12 +1,12 @@
 package moe.myuuiii.empirewandplus.spells;
 
-import java.util.List;
-
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+
+import java.util.List;
 
 import static moe.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 

@@ -1,12 +1,11 @@
 package moe.myuuiii.empirewandplus.handlers;
 
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
-
 import moe.myuuiii.empirewandplus.Extensions;
 import moe.myuuiii.empirewandplus.Spells;
 import moe.myuuiii.empirewandplus.managers.ConfigManager;
 import moe.myuuiii.empirewandplus.spells.*;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
 
 public class SpellHandler {
 	public static void HandleSpellByName(String spellName, Location loc, Player p) {
@@ -103,10 +102,6 @@ public class SpellHandler {
 			case Spells.Leap:
 				if (ConfigManager.getSpellEnabled(Spells.Leap, p))
 					LeapSpell.Execute(loc, p);
-				break;
-			case Spells.FireworkTest:
-				if(ConfigManager.getSpellEnabled(Spells.FireworkTest, p))
-					FireworkTest.Execute(loc, p);
 				break;
 
 			//

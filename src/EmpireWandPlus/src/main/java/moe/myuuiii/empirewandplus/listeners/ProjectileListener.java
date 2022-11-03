@@ -1,11 +1,10 @@
 package moe.myuuiii.empirewandplus.listeners;
 
+import moe.myuuiii.empirewandplus.spellEffects.*;
 import org.bukkit.entity.Snowball;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
-
-import moe.myuuiii.empirewandplus.spellEffects.*;
 
 public class ProjectileListener implements Listener {
 
@@ -23,7 +22,6 @@ public class ProjectileListener implements Listener {
 			SmiteSpellEffect.Execute(s);
 			FlameWaveSpellEffect.Execute(s);
 			FireCometSpellEffect.Execute(s);
-			FireworkTestEffect.Execute(s);
 		}
 	}
 }

@@ -1,12 +1,11 @@
 package moe.myuuiii.empirewandplus.spellEffects;
 
+import moe.myuuiii.empirewandplus.App;
+import moe.myuuiii.empirewandplus.Data;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.entity.Snowball;
 import org.bukkit.scheduler.BukkitRunnable;
-
-import moe.myuuiii.empirewandplus.App;
-import moe.myuuiii.empirewandplus.Data;
 
 public class FireballSpellEffect {
 	public static void Execute(Snowball s) {

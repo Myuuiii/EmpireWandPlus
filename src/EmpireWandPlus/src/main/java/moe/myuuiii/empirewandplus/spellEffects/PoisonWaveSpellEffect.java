@@ -1,22 +1,19 @@
 package moe.myuuiii.empirewandplus.spellEffects;
 
-import java.util.List;
-
+import moe.myuuiii.empirewandplus.App;
+import moe.myuuiii.empirewandplus.Data;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
-import org.bukkit.Particle;
 import org.bukkit.Sound;
-import org.bukkit.Particle.DustOptions;
 import org.bukkit.entity.*;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import moe.myuuiii.empirewandplus.App;
-import moe.myuuiii.empirewandplus.Data;
+import java.util.List;
 
-import static moe.myuuiii.empirewandplus.Extensions.GetNearbyEntities;
+import static moe.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 import static moe.myuuiii.empirewandplus.generators.FireworkGenerator.getFirework;
 
 public class PoisonWaveSpellEffect {
@@ -37,20 +34,16 @@ public class PoisonWaveSpellEffect {
 
                     // Executed while the entity is alive
                     launchFirework(s);
-
                     s.getWorld().playSound(s.getLocation(), Sound.BLOCK_AZALEA_BREAK, 1, 0.65f);
 
-                    final List<Entity> near = GetNearbyEntities(_closeRange, s);;
+                    final List<Entity> near = getNearbyEntities(_closeRange, s);;
                     for (final Entity en : near) {
-
                         if (!(en instanceof LivingEntity targetEntity))
                             return;
-
                         if (targetEntity instanceof Player p) {
                             if (Data.poisonUsers.contains(p.getUniqueId()))
                                 continue;
                         }
-
                         targetEntity.addPotionEffect(
                                 new PotionEffect(PotionEffectType.POISON, _poisonDuration, 1, true, false));
                     }
