@@ -3,16 +3,17 @@ package moe.myuuiii.empirewandplus.spells;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Particle;
-import org.bukkit.Sound;
 import org.bukkit.Particle.DustOptions;
-
-import java.util.List;
-
+import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+
+import java.util.List;
+
+import static moe.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
 public class EmpireStunSpell {
 	//
@@ -33,8 +34,7 @@ public class EmpireStunSpell {
 		p.getWorld().playSound(loc, Sound.ENTITY_ENDERMAN_SCREAM, 5, 0.65f);
 		p.getWorld().playSound(loc, Sound.ITEM_TOTEM_USE, 5, 0.65f);
 
-		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange,
-				_closeRange);
+		final List<Entity> near = getNearbyEntities(_closeRange, loc);
 		for (final Entity en : near) {
 			if (!(en instanceof LivingEntity targetEntity))
 				return;

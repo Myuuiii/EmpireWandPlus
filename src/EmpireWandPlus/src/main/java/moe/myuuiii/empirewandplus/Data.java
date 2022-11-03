@@ -1,14 +1,12 @@
 package moe.myuuiii.empirewandplus;
 
-import java.util.List;
-import java.util.UUID;
-
-import org.bukkit.entity.*;
-
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.entity.Snowball;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
 
 public class Data {
 	public static final List<String> wandTypes = Arrays
@@ -60,4 +58,5 @@ public class Data {
 	public static final ArrayList<Snowball> flameWaves = new ArrayList<>();
 	public static final ArrayList<UUID> flameUsers = new ArrayList<>();
 
+	public static final ArrayList<Snowball> fireworkTest = new ArrayList<>();
 }

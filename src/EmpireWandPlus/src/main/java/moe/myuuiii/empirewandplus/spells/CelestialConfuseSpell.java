@@ -3,14 +3,15 @@ package moe.myuuiii.empirewandplus.spells;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
-
-import java.util.List;
-
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+
+import java.util.List;
+
+import static moe.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
 public class CelestialConfuseSpell {
 	//
@@ -31,8 +32,7 @@ public class CelestialConfuseSpell {
 		p.getWorld().playSound(loc, Sound.ENTITY_VEX_CHARGE, 2, 0.85f);
 		p.getWorld().playSound(loc, Sound.ENTITY_CREEPER_DEATH, 2, 0.85f);
 
-		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange,
-				_closeRange);
+		final List<Entity> near = getNearbyEntities(_closeRange, loc);
 		for (final Entity en : near) {
 			if (!(en instanceof LivingEntity targetEntity))
 				return;

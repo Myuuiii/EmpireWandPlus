@@ -2,12 +2,13 @@ package moe.myuuiii.empirewandplus.spells;
 
 import org.bukkit.Location;
 import org.bukkit.Particle;
-
-import java.util.List;
-
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
+
+import java.util.List;
+
+import static moe.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
 public class LaunchSpell {
 
@@ -22,8 +23,7 @@ public class LaunchSpell {
 
 		p.getWorld().spawnParticle(Particle.CLOUD, loc, 250, 1.5, 0, 1.5, 0.1);
 
-		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange,
-				_closeRange);
+		final List<Entity> near = getNearbyEntities(_closeRange, loc);
 		for (final Entity en : near) {
 			en.setVelocity(new Vector(p.getVelocity().getX(), _launchHeightModifier, p.getVelocity().getZ()));
 		}

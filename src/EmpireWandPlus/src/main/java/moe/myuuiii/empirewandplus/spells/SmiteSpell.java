@@ -1,20 +1,18 @@
 package moe.myuuiii.empirewandplus.spells;
 
+import moe.myuuiii.empirewandplus.App;
+import moe.myuuiii.empirewandplus.Data;
 import org.bukkit.Location;
-
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowball;
 import org.bukkit.scheduler.BukkitRunnable;
-
-import moe.myuuiii.empirewandplus.App;
-import moe.myuuiii.empirewandplus.Data;
 
 public class SmiteSpell {
 
 	//
 	// Settings
 	//
-	private static int _rangeMultiplication = 2;
+	private static int _rangeMultiplication = 1;
 
 	public static void Execute(Location loc, Player p) {
 		Snowball e = p.launchProjectile(Snowball.class);

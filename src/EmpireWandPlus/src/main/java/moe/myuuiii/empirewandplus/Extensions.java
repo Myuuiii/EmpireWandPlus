@@ -1,12 +1,12 @@
 package moe.myuuiii.empirewandplus;
 
-import java.util.List;
-
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import net.md_5.bungee.api.ChatColor;
+import java.util.List;
 
 public class Extensions {
 	public static boolean CheckIfInRange(int range, Location loc, Player player) {
@@ -35,5 +35,14 @@ public class Extensions {
 
 	public static String colorText(String text) {
 		return ChatColor.translateAlternateColorCodes('&', text);
+	}
+
+	public static List<Entity> getNearbyEntities(double _closeRange, Entity e) {
+		return (List<Entity>) e.getWorld().getNearbyEntities(e.getLocation(),
+				_closeRange, _closeRange, _closeRange);
+	}
+	public static List<Entity> getNearbyEntities(double _closeRange, Location loc) {
+		return (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange,
+				_closeRange);
 	}
 }

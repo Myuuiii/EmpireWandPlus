@@ -1,7 +1,6 @@
 package moe.myuuiii.empirewandplus.runnables;
 
-import java.util.UUID;
-
+import moe.myuuiii.empirewandplus.Data;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Location;
@@ -9,7 +8,7 @@ import org.bukkit.Particle;
 import org.bukkit.Particle.DustOptions;
 import org.bukkit.entity.Player;
 
-import moe.myuuiii.empirewandplus.Data;
+import java.util.UUID;
 
 public class CloudRunnables {
 	public class BloodCloudRunnable implements Runnable {

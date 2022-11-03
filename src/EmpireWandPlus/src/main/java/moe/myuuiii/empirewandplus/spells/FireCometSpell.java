@@ -1,11 +1,11 @@
 package moe.myuuiii.empirewandplus.spells;
 
-import org.bukkit.entity.Snowball;
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
 import moe.myuuiii.empirewandplus.App;
 import moe.myuuiii.empirewandplus.Data;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+import org.bukkit.entity.Snowball;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class FireCometSpell {
 

@@ -1,12 +1,11 @@
 package moe.myuuiii.empirewandplus.handlers;
 
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
-
 import moe.myuuiii.empirewandplus.Extensions;
 import moe.myuuiii.empirewandplus.Spells;
 import moe.myuuiii.empirewandplus.managers.ConfigManager;
 import moe.myuuiii.empirewandplus.spells.*;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
 
 public class SpellHandler {
 	public static void HandleSpellByName(String spellName, Location loc, Player p) {

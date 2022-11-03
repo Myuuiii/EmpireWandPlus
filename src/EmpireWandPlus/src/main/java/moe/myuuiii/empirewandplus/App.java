@@ -1,13 +1,15 @@
 package moe.myuuiii.empirewandplus;
 
+import moe.myuuiii.empirewandplus.commands.GetWandCommand;
+import moe.myuuiii.empirewandplus.commands.GetWandCompleter;
+import moe.myuuiii.empirewandplus.listeners.DamageListener;
+import moe.myuuiii.empirewandplus.listeners.InteractListener;
+import moe.myuuiii.empirewandplus.listeners.ProjectileListener;
+import moe.myuuiii.empirewandplus.managers.ConfigManager;
+import moe.myuuiii.empirewandplus.runnables.CloudRunnables;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import moe.myuuiii.empirewandplus.commands.*;
-import moe.myuuiii.empirewandplus.listeners.*;
-import moe.myuuiii.empirewandplus.managers.ConfigManager;
-import moe.myuuiii.empirewandplus.runnables.*;
 
 public class App extends JavaPlugin {
 
@@ -43,7 +45,8 @@ public class App extends JavaPlugin {
     public void registerListeners() {
         registerListeners(
                 new InteractListener(),
-                new ProjectileListener());
+                new ProjectileListener(),
+                new DamageListener());
     }
 
     public void registerRunnables() {

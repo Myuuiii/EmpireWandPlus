@@ -5,20 +5,19 @@ import moe.myuuiii.empirewandplus.Extensions;
 import moe.myuuiii.empirewandplus.WandSpellLists;
 import moe.myuuiii.empirewandplus.handlers.SpellHandler;
 import moe.myuuiii.empirewandplus.managers.ConfigManager;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-
-import org.bukkit.event.block.Action;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 
 public class EmpireWandInteraction {
 	public static void Handle(final PlayerInteractEvent e) {
