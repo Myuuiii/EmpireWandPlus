@@ -12,6 +12,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import static moe.myuuiii.empirewandplus.Extensions.getNearbyEntities;
+
 public class CelestialStunSpell {
 	//
 	// Settings
@@ -30,8 +32,7 @@ public class CelestialStunSpell {
 		p.getWorld().playSound(loc, Sound.ENTITY_ILLUSIONER_PREPARE_BLINDNESS, 2, 0.65f);
 		p.getWorld().playSound(loc, Sound.ITEM_TOTEM_USE, 2, 0.65f);
 
-		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange,
-				_closeRange);
+		final List<Entity> near = getNearbyEntities(_closeRange, loc);
 
 		for (final Entity en : near) {
 

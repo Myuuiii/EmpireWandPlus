@@ -2,16 +2,23 @@ package moe.myuuiii.empirewandplus.spellEffects;
 
 import java.util.List;
 
+import org.bukkit.Color;
+import org.bukkit.FireworkEffect;
 import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Firework;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Snowball;
+import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import moe.myuuiii.empirewandplus.App;
 import moe.myuuiii.empirewandplus.Data;
+
+import static moe.myuuiii.empirewandplus.Extensions.GetNearbyEntities;
+import static moe.myuuiii.empirewandplus.generators.FireworkGenerator.getFirework;
 
 public class EmpireCometSpellEffect {
 
@@ -30,8 +37,7 @@ public class EmpireCometSpellEffect {
 						// Executed when the entity is destroyed
 						s.getWorld().createExplosion(s.getLocation(), 10, false);
 
-						final List<Entity> near = (List<Entity>) s.getWorld().getNearbyEntities(s.getLocation(),
-								_closeRange, _closeRange, _closeRange);
+						final List<Entity> near = GetNearbyEntities(_closeRange, s);
 						for (final Entity en : near) {
 							if (en instanceof LivingEntity targetEntity) {
 
@@ -45,10 +51,25 @@ public class EmpireCometSpellEffect {
 					}
 
 					// Executed while the entity is alive
+
+					launchFirework(s);
+
 					s.getWorld().spawnParticle(Particle.SPELL_WITCH, s.getLocation(), 250, 1, 1, 1, 0.2);
 					s.getWorld().spawnParticle(Particle.SMOKE_LARGE, s.getLocation(), 75, 0.5, 0.5, 0.5, 0.05);
 				}
 			}
 		}.runTaskTimer(App._app, 0L, 1L);
+	}
+
+	private static void launchFirework(Snowball s) {
+		Firework fw = getFirework(s);
+		FireworkMeta fwMeta = fw.getFireworkMeta();
+		fwMeta.addEffect(FireworkEffect.builder()
+				.withColor(Color.fromRGB(200,0,230))
+				.withFade(Color.fromRGB(0,0,0))
+				.with(FireworkEffect.Type.STAR)
+				.build());
+		fw.setFireworkMeta(fwMeta);
+		fw.detonate();
 	}
 }

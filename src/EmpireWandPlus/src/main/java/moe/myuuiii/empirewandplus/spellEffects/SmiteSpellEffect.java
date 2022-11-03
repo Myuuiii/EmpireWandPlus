@@ -11,6 +11,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 import moe.myuuiii.empirewandplus.App;
 import moe.myuuiii.empirewandplus.Data;
 
+import static moe.myuuiii.empirewandplus.Extensions.GetNearbyEntities;
+
 public class SmiteSpellEffect {
 
 	//
@@ -36,8 +38,7 @@ public class SmiteSpellEffect {
 
 						s.getWorld().createExplosion(s.getLocation(), _explosionSize, true);
 
-						final List<Entity> near = (List<Entity>) s.getWorld().getNearbyEntities(s.getLocation(),
-								_closeRange, _closeRange, _closeRange);
+						final List<Entity> near = GetNearbyEntities(_closeRange, s);
 						for (final Entity en : near) {
 
 							if (en instanceof Damageable targetEntity)
@@ -50,7 +51,7 @@ public class SmiteSpellEffect {
 					// Executed while the entity is alive
 					s.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME, s.getLocation(), 75, 0.1, 0.1, 0.1, 0.1);
 					s.getWorld().spawnParticle(Particle.CLOUD, s.getLocation(), 75, 0.1, 0.1, 0.1, 0.2);
-					s.getWorld().spawnParticle(Particle.FIREWORKS_SPARK, s.getLocation(), 75, 0.1, 0.1, 0.1, 0.1);
+					s.getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, s.getLocation(), 75, 0.1, 0.1, 0.1, 0.1);
 				}
 			}
 		}.runTaskTimer(App._app, 0L, 1L);

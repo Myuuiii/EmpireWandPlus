@@ -13,6 +13,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 import moe.myuuiii.empirewandplus.App;
 import moe.myuuiii.empirewandplus.Data;
 
+import static moe.myuuiii.empirewandplus.Extensions.GetNearbyEntities;
+
 public class FlameWaveSpellEffect {
 
 	//
@@ -36,8 +38,7 @@ public class FlameWaveSpellEffect {
 
 					s.getWorld().playSound(s.getLocation(), Sound.ENTITY_DROWNED_DEATH, 1, 0.65f);
 
-					final List<Entity> near = (List<Entity>) s.getWorld().getNearbyEntities(s.getLocation(),
-							_closeRange, _closeRange, _closeRange);
+					final List<Entity> near = GetNearbyEntities(_closeRange, s);
 					for (final Entity en : near) {
 						if (!(en instanceof LivingEntity targetEntity))
 							return;

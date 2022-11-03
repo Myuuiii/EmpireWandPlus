@@ -17,6 +17,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.List;
 
+import static moe.myuuiii.empirewandplus.Extensions.GetNearbyEntities;
 import static moe.myuuiii.empirewandplus.generators.FireworkGenerator.getFirework;
 
 public class FireworkTestEffect {
@@ -35,8 +36,7 @@ public class FireworkTestEffect {
 						// Executed when the entity is destroyed
 						//s.getWorld().createExplosion(s.getLocation(), 10, false);
 
-						final List<Entity> near = (List<Entity>) s.getWorld().getNearbyEntities(s.getLocation(),
-								_closeRange, _closeRange, _closeRange);
+						final List<Entity> near = GetNearbyEntities(_closeRange, s);;
 						for (final Entity en : near) {
 							if (en instanceof LivingEntity targetEntity) {
 								targetEntity.damage(_damage);

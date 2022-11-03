@@ -14,7 +14,7 @@ public class SmiteSpell {
 	//
 	// Settings
 	//
-	private static int _rangeMultiplication = 2;
+	private static int _rangeMultiplication = 1;
 
 	public static void Execute(Location loc, Player p) {
 		Snowball e = p.launchProjectile(Snowball.class);

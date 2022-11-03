@@ -3,19 +3,21 @@ package moe.myuuiii.empirewandplus.spellEffects;
 import java.util.List;
 
 import org.bukkit.Color;
+import org.bukkit.FireworkEffect;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.Particle.DustOptions;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Snowball;
+import org.bukkit.entity.*;
+import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import moe.myuuiii.empirewandplus.App;
 import moe.myuuiii.empirewandplus.Data;
+
+import static moe.myuuiii.empirewandplus.Extensions.GetNearbyEntities;
+import static moe.myuuiii.empirewandplus.generators.FireworkGenerator.getFirework;
 
 public class BloodWaveSpellEffect {
 
@@ -35,16 +37,12 @@ public class BloodWaveSpellEffect {
 					}
 
 					// Executed while the entity is alive
-					s.getWorld().spawnParticle(Particle.REDSTONE, s.getLocation(), 75, 0.5, 0.5, 0.5, 1,
-							new DustOptions(Color.fromRGB(255, 0, 0), 2));
-					s.getWorld().spawnParticle(Particle.SMOKE_LARGE, s.getLocation(), 75, 0.5, 0.5, 0.5, 0.05);
+					launchFirework(s);
 
 					s.getWorld().playSound(s.getLocation(), Sound.BLOCK_AZALEA_BREAK, 1, 0.65f);
 					s.getWorld().playSound(s.getLocation(), Sound.BLOCK_AZALEA_LEAVES_BREAK, 1, 0.65f);
-					s.getWorld().playSound(s.getLocation(), Sound.ENTITY_SPIDER_HURT, 1, 0.10f);
 
-					final List<Entity> near = (List<Entity>) s.getWorld().getNearbyEntities(s.getLocation(),
-							_closeRange, _closeRange, _closeRange);
+					final List<Entity> near = GetNearbyEntities(_closeRange, s);
 					for (final Entity en : near) {
 						if (!(en instanceof LivingEntity targetEntity))
 							return;
@@ -60,5 +58,24 @@ public class BloodWaveSpellEffect {
 				}
 			}
 		}.runTaskTimer(App._app, 0L, 1L);
+	}
+
+	private static void launchFirework(Snowball s) {
+		Firework fw = getFirework(s);
+		FireworkMeta fwMeta = fw.getFireworkMeta();
+		fwMeta.addEffect(FireworkEffect.builder()
+				.withColor(Color.fromRGB(255,0,0))
+				.withFade(Color.BLACK)
+				.with(FireworkEffect.Type.BALL)
+				.build()
+		);
+		fwMeta.addEffect(FireworkEffect.builder()
+				.withColor(Color.fromRGB(75,0,0))
+				.withFade(Color.fromRGB(255,0,0))
+				.with(FireworkEffect.Type.BALL)
+				.build()
+		);
+		fw.setFireworkMeta(fwMeta);
+		fw.detonate();
 	}
 }

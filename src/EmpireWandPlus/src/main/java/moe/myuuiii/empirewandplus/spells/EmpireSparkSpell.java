@@ -13,6 +13,7 @@ import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import static moe.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 import static moe.myuuiii.empirewandplus.generators.FireworkGenerator.getFirework;
 
 public class EmpireSparkSpell {
@@ -29,8 +30,7 @@ public class EmpireSparkSpell {
 
         launchSpellFirework(loc, p);
 
-        final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange,
-                _closeRange);
+        final List<Entity> near = getNearbyEntities(_closeRange, loc);
         for (final Entity en : near) {
 
             if (!(en instanceof LivingEntity targetEntity))

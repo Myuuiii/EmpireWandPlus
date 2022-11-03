@@ -12,6 +12,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import static moe.myuuiii.empirewandplus.Extensions.getNearbyEntities;
+
 public class CelestialConfuseSpell {
 	//
 	// Settings
@@ -31,8 +33,7 @@ public class CelestialConfuseSpell {
 		p.getWorld().playSound(loc, Sound.ENTITY_VEX_CHARGE, 2, 0.85f);
 		p.getWorld().playSound(loc, Sound.ENTITY_CREEPER_DEATH, 2, 0.85f);
 
-		final List<Entity> near = (List<Entity>) loc.getWorld().getNearbyEntities(loc, _closeRange, _closeRange,
-				_closeRange);
+		final List<Entity> near = getNearbyEntities(_closeRange, loc);
 		for (final Entity en : near) {
 			if (!(en instanceof LivingEntity targetEntity))
 				return;
