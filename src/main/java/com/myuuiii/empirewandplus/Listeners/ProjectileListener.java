@@ -16,19 +16,5 @@ public class ProjectileListener implements Listener {
         for (SpellEffect effect : EmpireWandPlus.spellEffectHashMap.values()) {
             effect.Execute(eventEntity);
         }
-
-//        PoisonWaveEffect.Execute(eventEntity);
-//        FlameWaveEffect.Execute(eventEntity);
-//
-//        EmpireCometEffect.Execute(eventEntity);
-//        FireCometEffect.Execute(eventEntity);
-//
-//        FirePulseEffect.Execute(eventEntity);
-//        EmpirePulseEffect.Execute(eventEntity);
-//
-//        FireballEffect.Execute(eventEntity);
-//
-//        LightningEffect.Execute(eventEntity);
-//        SmiteEffect.Execute(eventEntity);
     }
 }

@@ -9,10 +9,7 @@ import java.util.ArrayList;
 
 public abstract class SpellEffect {
     public void Execute(Entity entity) {
-
         Spell spell = getSpell();
-        System.out.println("Running Spell Effect: " + spell.getClass().getSimpleName());
-
         new BukkitRunnable() {
             public void run() {
                 if (getSpellEntityList().contains(entity)) {
