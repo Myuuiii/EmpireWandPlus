@@ -26,5 +26,6 @@ public class SpellEntityLists {
     public static final ArrayList<Entity> FLAME_WAVE_ENTITIES = new ArrayList<>();
     public static final ArrayList<UUID> FLAME_WAVE_PLAYERS = new ArrayList<>();
 
-
+    // Leap Spell
+    public static final ArrayList<UUID> LEAP_PLAYERS = new ArrayList<>();
 }

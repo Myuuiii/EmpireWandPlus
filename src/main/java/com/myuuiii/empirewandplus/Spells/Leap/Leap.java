@@ -1,11 +1,14 @@
 package com.myuuiii.empirewandplus.Spells.Leap;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
+import com.myuuiii.empirewandplus.EmpireWandPlus;
+import com.myuuiii.empirewandplus.SpellEntityLists;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class Leap extends Spell {
 
@@ -38,5 +41,9 @@ public class Leap extends Spell {
         p.getWorld().spawnParticle(Particle.CLOUD, p.getLocation(), cloudParticleCount, 0, 0, 0, 0.1);
 
         p.setVelocity(p.getLocation().getDirection().multiply(velocityMultiplication));
+
+        if (!SpellEntityLists.LEAP_PLAYERS.contains(p.getUniqueId())) {
+            SpellEntityLists.LEAP_PLAYERS.add(p.getUniqueId());
+        }
     }
 }

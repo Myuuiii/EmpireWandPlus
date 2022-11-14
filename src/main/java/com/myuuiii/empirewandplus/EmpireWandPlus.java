@@ -4,6 +4,8 @@ import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.Abstracts.Wand;
 import com.myuuiii.empirewandplus.Commands.WandCommand;
 import com.myuuiii.empirewandplus.Commands.WandCommandCompleter;
+import com.myuuiii.empirewandplus.Listeners.EntityDamagedByEntityEvent;
+import com.myuuiii.empirewandplus.Listeners.FallDamageListener;
 import com.myuuiii.empirewandplus.Listeners.InteractionListener;
 import com.myuuiii.empirewandplus.Listeners.ProjectileListener;
 import com.myuuiii.empirewandplus.Spells.Capture.Capture;
@@ -113,7 +115,9 @@ public final class EmpireWandPlus extends JavaPlugin {
         registerCommands();
         registerListeners(
                 new InteractionListener(),
-                new ProjectileListener()
+                new ProjectileListener(),
+                new FallDamageListener(),
+                new EntityDamagedByEntityEvent()
         );
     }
 
