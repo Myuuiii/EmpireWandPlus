@@ -2,7 +2,7 @@ package com.myuuiii.empirewandplus.SpellEffects.Wave;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.SpellEffects.SpellEffect;
+import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
 import com.myuuiii.empirewandplus.Data.SpellNames;
 import org.bukkit.Particle;

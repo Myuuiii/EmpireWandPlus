@@ -8,7 +8,7 @@ import com.myuuiii.empirewandplus.Listeners.EntityDamagedByEntityEvent;
 import com.myuuiii.empirewandplus.Listeners.FallDamageListener;
 import com.myuuiii.empirewandplus.Listeners.InteractionListener;
 import com.myuuiii.empirewandplus.Listeners.ProjectileListener;
-import com.myuuiii.empirewandplus.SpellEffects.SpellEffect;
+import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
 import com.myuuiii.empirewandplus.Wands.BloodWand;
 import com.myuuiii.empirewandplus.Wands.ElementosWand;
 import com.myuuiii.empirewandplus.Wands.EmpireWand;

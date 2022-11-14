@@ -1,7 +1,7 @@
 package com.myuuiii.empirewandplus.Listeners;
 
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.SpellEffects.SpellEffect;
+import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Firework;
 import org.bukkit.event.EventHandler;

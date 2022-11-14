@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus.SpellEffects;
+package com.myuuiii.empirewandplus.Abstracts;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
