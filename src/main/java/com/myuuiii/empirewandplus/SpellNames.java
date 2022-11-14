@@ -30,6 +30,7 @@ public class SpellNames {
 
     // Pulse
     public static final String FirePulse = "Fire Pulse";
+    public static final String EmpirePulse = "Empire Pulse";
 
     // Fireball
     public static final String Fireball = "Fireball";

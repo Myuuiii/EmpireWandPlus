@@ -15,6 +15,7 @@ public class SpellEntityLists {
     public static final ArrayList<Entity> FIRE_COMET_ENTITIES = new ArrayList<>();
     public static final ArrayList<Entity> FIRE_PULSE_ENTITIES = new ArrayList<>();
     public static final ArrayList<Entity> FIREBALL_ENTITIES = new ArrayList<>();
+    public static final ArrayList<Entity> EMPIRE_PULSE_ENTITIES = new ArrayList<>();
 
     // Ranged - With User Lists
     public static final ArrayList<Entity> BLOOD_WAVE_ENTITIES = new ArrayList<>();

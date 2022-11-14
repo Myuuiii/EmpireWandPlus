@@ -7,20 +7,20 @@ import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
-public class FirePulse extends RangedSpell {
+public class EmpirePulse extends RangedSpell {
     @Override
     public int getRangeMultiplication() {
-        return 2;
+        return 3;
     }
 
     @Override
     public void AddProjectileToList(Entity e) {
-        SpellEntityLists.FIRE_PULSE_ENTITIES.add(e);
+        SpellEntityLists.EMPIRE_PULSE_ENTITIES.add(e);
     }
 
     @Override
     public void RemoveProjectileFromList(Entity e) {
-        SpellEntityLists.FIRE_PULSE_ENTITIES.remove(e);
+        SpellEntityLists.EMPIRE_PULSE_ENTITIES.remove(e);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class FirePulse extends RangedSpell {
 
     @Override
     public double getDamage() {
-        return 5;
+        return 6;
     }
 
     @Override

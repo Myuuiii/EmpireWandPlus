@@ -18,6 +18,7 @@ import com.myuuiii.empirewandplus.Spells.Ignite.Ignite;
 import com.myuuiii.empirewandplus.Spells.Launch.Launch;
 import com.myuuiii.empirewandplus.Spells.Leap.Leap;
 import com.myuuiii.empirewandplus.Spells.Lightning.Lightning;
+import com.myuuiii.empirewandplus.Spells.Pulse.EmpirePulse;
 import com.myuuiii.empirewandplus.Spells.Pulse.FirePulse;
 import com.myuuiii.empirewandplus.Spells.Smite.Smite;
 import com.myuuiii.empirewandplus.Spells.Spark.BloodSpark;
@@ -72,6 +73,7 @@ public final class EmpireWandPlus extends JavaPlugin {
 
         // Pulse
         put(SpellNames.FirePulse, new FirePulse());
+        put(SpellNames.EmpirePulse, new EmpirePulse());
 
         // Fireball
         put(SpellNames.Fireball, new Fireball());

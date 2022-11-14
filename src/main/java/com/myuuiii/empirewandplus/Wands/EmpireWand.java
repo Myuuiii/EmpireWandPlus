@@ -42,6 +42,7 @@ public class EmpireWand extends Wand {
         add(SpellNames.FireComet);
 
         add(SpellNames.FirePulse);
+        add(SpellNames.EmpirePulse);
 
         add(SpellNames.Fireball);
 

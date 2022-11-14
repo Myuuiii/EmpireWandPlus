@@ -4,11 +4,13 @@ import com.myuuiii.empirewandplus.SpellEffects.Comet.EmpireCometEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Comet.FireCometEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Fireball.FireballEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Lightning.LightningEffect;
+import com.myuuiii.empirewandplus.SpellEffects.Pulse.EmpirePulseEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Pulse.FirePulseEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Smite.SmiteEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Wave.BloodWaveEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Wave.FlameWaveEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Wave.PoisonWaveEffect;
+import com.myuuiii.empirewandplus.Spells.Pulse.EmpirePulse;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -35,6 +37,7 @@ public class ProjectileListener implements Listener {
         FireCometEffect.Execute(eventEntity);
 
         FirePulseEffect.Execute(eventEntity);
+        EmpirePulseEffect.Execute(eventEntity);
 
         FireballEffect.Execute(eventEntity);
 

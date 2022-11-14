@@ -57,6 +57,7 @@ Empire Cloud, Blood Cloud and Poison Cloud have permanently been removed from th
 ### Pulse
 
 - [x] Fire Pulse
+- [x] Empire Pulse `NEW`
 
 ### Fireball
 
