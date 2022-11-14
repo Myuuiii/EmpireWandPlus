@@ -74,7 +74,7 @@ Empire Cloud, Blood Cloud and Poison Cloud have permanently been removed from th
 ### Leap
 
 - [x] Leap
-  - [ ] No fall damage when landing after using spell
+  - [x] No fall damage when landing after using spell
 
 ### Lightning
 
