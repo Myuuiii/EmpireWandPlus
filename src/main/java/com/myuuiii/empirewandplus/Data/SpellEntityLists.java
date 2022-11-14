@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus;
+package com.myuuiii.empirewandplus.Data;
 
 import org.bukkit.entity.Entity;
 

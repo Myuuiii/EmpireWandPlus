@@ -1,7 +1,7 @@
 package com.myuuiii.empirewandplus.Listeners;
 
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.SpellEntityLists;
+import com.myuuiii.empirewandplus.Data.SpellEntityLists;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

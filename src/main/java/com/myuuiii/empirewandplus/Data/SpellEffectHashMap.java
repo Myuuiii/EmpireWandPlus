@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus.HashMaps;
+package com.myuuiii.empirewandplus.Data;
 
 import com.myuuiii.empirewandplus.SpellEffects.Comet.EmpireCometEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Comet.FireCometEffect;
@@ -11,7 +11,6 @@ import com.myuuiii.empirewandplus.SpellEffects.SpellEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Wave.BloodWaveEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Wave.FlameWaveEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Wave.PoisonWaveEffect;
-import com.myuuiii.empirewandplus.SpellNames;
 
 import java.util.HashMap;
 

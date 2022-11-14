@@ -2,7 +2,7 @@ package com.myuuiii.empirewandplus.Wands;
 
 import com.myuuiii.empirewandplus.Abstracts.Wand;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.SpellNames;
+import com.myuuiii.empirewandplus.Data.SpellNames;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Particle;

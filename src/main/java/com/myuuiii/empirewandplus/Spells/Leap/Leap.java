@@ -1,7 +1,7 @@
 package com.myuuiii.empirewandplus.Spells.Leap;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
-import com.myuuiii.empirewandplus.SpellEntityLists;
+import com.myuuiii.empirewandplus.Data.SpellEntityLists;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;

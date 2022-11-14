@@ -1,7 +1,7 @@
 package com.myuuiii.empirewandplus.Spells.Confuse;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
-import com.myuuiii.empirewandplus.SpellValues;
+import com.myuuiii.empirewandplus.Data.SpellValues;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;

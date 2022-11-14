@@ -1,7 +1,6 @@
-package com.myuuiii.empirewandplus.HashMaps;
+package com.myuuiii.empirewandplus.Data;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
-import com.myuuiii.empirewandplus.SpellNames;
 import com.myuuiii.empirewandplus.Spells.Capture.Capture;
 import com.myuuiii.empirewandplus.Spells.Comet.EmpireComet;
 import com.myuuiii.empirewandplus.Spells.Comet.FireComet;

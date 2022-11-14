@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus;
+package com.myuuiii.empirewandplus.Data;
 
 public class SpellNames {
 

@@ -19,8 +19,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.HashMap;
 
 import static com.myuuiii.empirewandplus.Extensions.colorText;
-import static com.myuuiii.empirewandplus.HashMaps.SpellEffectHashMap.getSpellEffectHashMap;
-import static com.myuuiii.empirewandplus.HashMaps.SpellHashMap.getSpellHashMap;
+import static com.myuuiii.empirewandplus.Data.SpellEffectHashMap.getSpellEffectHashMap;
+import static com.myuuiii.empirewandplus.Data.SpellHashMap.getSpellHashMap;
 
 public final class EmpireWandPlus extends JavaPlugin {
 

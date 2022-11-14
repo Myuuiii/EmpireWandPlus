@@ -1,7 +1,7 @@
 package com.myuuiii.empirewandplus.Spells.Spark;
 
 import com.myuuiii.empirewandplus.Abstracts.FireworksSpell;
-import com.myuuiii.empirewandplus.SpellValues;
+import com.myuuiii.empirewandplus.Data.SpellValues;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Location;

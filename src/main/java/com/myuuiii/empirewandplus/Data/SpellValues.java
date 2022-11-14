@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus;
+package com.myuuiii.empirewandplus.Data;
 
 public class SpellValues {
     public static final int SPARK_REACH = 30;
