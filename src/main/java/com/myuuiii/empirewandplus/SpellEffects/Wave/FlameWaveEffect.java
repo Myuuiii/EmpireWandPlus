@@ -2,6 +2,7 @@ package com.myuuiii.empirewandplus.SpellEffects.Wave;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
+import com.myuuiii.empirewandplus.SpellEffects.SpellEffect;
 import com.myuuiii.empirewandplus.SpellEntityLists;
 import com.myuuiii.empirewandplus.SpellNames;
 import org.bukkit.Particle;
@@ -9,51 +10,50 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
-public class FlameWaveEffect {
+public class FlameWaveEffect extends SpellEffect {
     //
     // Settings
     //
     private static int _fireTickDuration = 300;
 
-    public static void Execute(Entity s) {
+    @Override
+    public Spell getSpell() {
+        return EmpireWandPlus.spellHashMap.get(SpellNames.FlameWave);
+    }
 
-        Spell spell = EmpireWandPlus.spellHashMap.get(SpellNames.FlameWave);
+    @Override
+    public void WhileAlive(Entity entity, Spell spell) {
+        entity.getWorld().spawnParticle(Particle.FLAME, entity.getLocation(), 125, 0.5, 0.5, 0.5, 0.1);
+        entity.getWorld().spawnParticle(Particle.SMOKE_LARGE, entity.getLocation(), 125, 0.5, 0.5, 0.5, 0.1);
 
-        new BukkitRunnable() {
-            public void run() {
-                if (SpellEntityLists.FLAME_WAVE_ENTITIES.contains(s)) {
-                    if (s.isDead()) {
-                        // Executed when the entity is destroyed
-                        this.cancel();
-                    }
+        entity.getWorld().playSound(entity.getLocation(), Sound.ENTITY_DROWNED_DEATH, 1, 0.65f);
 
-                    // Executed while the entity is alive
-                    s.getWorld().spawnParticle(Particle.FLAME, s.getLocation(), 125, 0.5, 0.5, 0.5, 0.1);
-                    s.getWorld().spawnParticle(Particle.SMOKE_LARGE, s.getLocation(), 125, 0.5, 0.5, 0.5, 0.1);
+        final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
+        for (final Entity en : near) {
+            if (!(en instanceof LivingEntity targetEntity))
+                return;
 
-                    s.getWorld().playSound(s.getLocation(), Sound.ENTITY_DROWNED_DEATH, 1, 0.65f);
-
-                    final List<Entity> near = getNearbyEntities(spell.getCloseRange(), s);
-                    for (final Entity en : near) {
-                        if (!(en instanceof LivingEntity targetEntity))
-                            return;
-
-                        if (targetEntity instanceof Player p) {
-                            if (SpellEntityLists.FLAME_WAVE_PLAYERS.contains(p.getUniqueId()))
-                                continue;
-                        }
-
-                        targetEntity.setFireTicks(_fireTickDuration);
-
-                    }
-                }
+            if (targetEntity instanceof Player p) {
+                if (SpellEntityLists.FLAME_WAVE_PLAYERS.contains(p.getUniqueId()))
+                    continue;
             }
-        }.runTaskTimer(EmpireWandPlus._plugin, 0L, 1L);
+            targetEntity.setFireTicks(_fireTickDuration);
+        }
+    }
+
+    @Override
+    public void OnDeath(Entity entity, Spell spell) {
+
+    }
+
+    @Override
+    public ArrayList<Entity> getSpellEntityList() {
+        return SpellEntityLists.FLAME_WAVE_ENTITIES;
     }
 }

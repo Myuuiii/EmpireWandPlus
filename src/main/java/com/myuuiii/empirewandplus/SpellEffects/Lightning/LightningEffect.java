@@ -2,6 +2,7 @@ package com.myuuiii.empirewandplus.SpellEffects.Lightning;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
+import com.myuuiii.empirewandplus.SpellEffects.SpellEffect;
 import com.myuuiii.empirewandplus.SpellEntityLists;
 import com.myuuiii.empirewandplus.SpellNames;
 import org.bukkit.Color;
@@ -11,46 +12,44 @@ import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Firework;
 import org.bukkit.inventory.meta.FireworkMeta;
-import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.myuuiii.empirewandplus.Extensions.getFirework;
 import static com.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
-public class LightningEffect {
+public class LightningEffect extends SpellEffect {
     //
     // Settings
     //
     private static int _explosionSize = 3;
 
-    public static void Execute(Entity s) {
+    @Override
+    public Spell getSpell() {
+        return EmpireWandPlus.spellHashMap.get(SpellNames.Lightning);
+    }
 
-        Spell spell = EmpireWandPlus.spellHashMap.get(SpellNames.Lightning);
+    @Override
+    public void WhileAlive(Entity entity, Spell spell) {
+        launchFirework(entity);
+        entity.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME, entity.getLocation(), 250, 0.1, 0.1, 0.1, 0.1);
+    }
 
-        new BukkitRunnable() {
-            public void run() {
-                if (SpellEntityLists.LIGHTNING_ENTITIES.contains(s)) {
-                    if (s.isDead()) {
-                        // Executed when the entity is destroyed
-                        s.getWorld().strikeLightning(s.getLocation());
-                        s.getWorld().createExplosion(s.getLocation(), _explosionSize);
-                        final List<Entity> near = getNearbyEntities(spell.getCloseRange(), s);
-                        ;
-                        for (final Entity en : near) {
-                            if (en instanceof Damageable targetEntity)
-                                targetEntity.damage(spell.getDamage());
-                        }
-                        this.cancel();
-                    }
+    @Override
+    public void OnDeath(Entity entity, Spell spell) {
+        entity.getWorld().strikeLightning(entity.getLocation());
+        entity.getWorld().createExplosion(entity.getLocation(), _explosionSize);
+        final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
+        for (final Entity en : near) {
+            if (en instanceof Damageable targetEntity)
+                targetEntity.damage(spell.getDamage());
+        }
+    }
 
-                    // Executed while the entity is alive
-                    launchFirework(s);
-                    s.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME, s.getLocation(), 250, 0.1, 0.1, 0.1, 0.1);
-                }
-            }
-        }.runTaskTimer(EmpireWandPlus._plugin, 0L, 1L);
-
+    @Override
+    public ArrayList<Entity> getSpellEntityList() {
+        return SpellEntityLists.LIGHTNING_ENTITIES;
     }
 
     private static void launchFirework(Entity e) {

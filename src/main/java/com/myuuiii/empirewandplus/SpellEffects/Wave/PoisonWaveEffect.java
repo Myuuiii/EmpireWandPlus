@@ -2,6 +2,7 @@ package com.myuuiii.empirewandplus.SpellEffects.Wave;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
+import com.myuuiii.empirewandplus.SpellEffects.SpellEffect;
 import com.myuuiii.empirewandplus.SpellEntityLists;
 import com.myuuiii.empirewandplus.SpellNames;
 import org.bukkit.Color;
@@ -14,50 +15,51 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.myuuiii.empirewandplus.Extensions.getFirework;
 import static com.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
-public class PoisonWaveEffect {
+public class PoisonWaveEffect extends SpellEffect {
     //
     // Settings
     //
     private static int _poisonDuration = 100;
 
-    public static void Execute(Entity e) {
+    @Override
+    public Spell getSpell() {
+        return EmpireWandPlus.spellHashMap.get(SpellNames.PoisonWave);
+    }
 
-        Spell spell = EmpireWandPlus.spellHashMap.get(SpellNames.PoisonWave);
+    @Override
+    public void WhileAlive(Entity entity, Spell spell) {
+        launchFirework(entity);
+        entity.getWorld().playSound(entity.getLocation(), Sound.BLOCK_AZALEA_BREAK, 1, 0.65f);
 
-        new BukkitRunnable() {
-            public void run() {
-                if (SpellEntityLists.POISON_WAVE_ENTITIES.contains(e)) {
-                    if (e.isDead()) {
-                        // Executed when the entity is destroyed
-                        this.cancel();
-                    }
-
-                    // Executed while the entity is alive
-                    launchFirework(e);
-                    e.getWorld().playSound(e.getLocation(), Sound.BLOCK_AZALEA_BREAK, 1, 0.65f);
-
-                    final List<Entity> near = getNearbyEntities(spell.getCloseRange(), e);
-                    ;
-                    for (final Entity en : near) {
-                        if (!(en instanceof LivingEntity targetEntity))
-                            return;
-                        if (targetEntity instanceof Player p) {
-                            if (SpellEntityLists.POISON_WAVE_PLAYERS.contains(p.getUniqueId()))
-                                continue;
-                        }
-                        targetEntity.addPotionEffect(
-                                new PotionEffect(PotionEffectType.POISON, _poisonDuration, 1, true, false));
-                    }
-                }
+        final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
+        ;
+        for (final Entity en : near) {
+            if (!(en instanceof LivingEntity targetEntity))
+                return;
+            if (targetEntity instanceof Player p) {
+                if (SpellEntityLists.POISON_WAVE_PLAYERS.contains(p.getUniqueId()))
+                    continue;
             }
-        }.runTaskTimer(EmpireWandPlus._plugin, 0L, 1L);
+            targetEntity.addPotionEffect(
+                    new PotionEffect(PotionEffectType.POISON, _poisonDuration, 1, true, false));
+        }
+    }
+
+    @Override
+    public void OnDeath(Entity entity, Spell spell) {
+
+    }
+
+    @Override
+    public ArrayList<Entity> getSpellEntityList() {
+        return SpellEntityLists.POISON_WAVE_ENTITIES;
     }
 
     private static void launchFirework(Entity e) {

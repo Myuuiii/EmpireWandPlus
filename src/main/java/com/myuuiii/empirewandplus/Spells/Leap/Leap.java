@@ -1,14 +1,12 @@
 package com.myuuiii.empirewandplus.Spells.Leap;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
-import com.myuuiii.empirewandplus.EmpireWandPlus;
 import com.myuuiii.empirewandplus.SpellEntityLists;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
 
 public class Leap extends Spell {
 

@@ -2,6 +2,7 @@ package com.myuuiii.empirewandplus.SpellEffects.Comet;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
+import com.myuuiii.empirewandplus.SpellEffects.SpellEffect;
 import com.myuuiii.empirewandplus.SpellEntityLists;
 import com.myuuiii.empirewandplus.SpellNames;
 import org.bukkit.Color;
@@ -10,45 +11,45 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.meta.FireworkMeta;
-import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.myuuiii.empirewandplus.Extensions.getFirework;
 import static com.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
-public class FireCometEffect {
+public class FireCometEffect extends SpellEffect {
     //
     // Settings
     //
     private static int _fireTicks = 50;
 
-    public static void Execute(Entity s) {
+    @Override
+    public Spell getSpell() {
+        return EmpireWandPlus.spellHashMap.get(SpellNames.FireComet);
+    }
 
-        Spell spell = EmpireWandPlus.spellHashMap.get(SpellNames.FireComet);
+    @Override
+    public void WhileAlive(Entity entity, Spell spell) {
+        launchFirework(entity);
+    }
 
-        new BukkitRunnable() {
-            public void run() {
-                if (SpellEntityLists.FIRE_COMET_ENTITIES.contains(s)) {
-                    if (s.isDead()) {
-                        // Executed when the entity is destroyed
-                        s.getWorld().createExplosion(s.getLocation(), 3, false);
+    @Override
+    public void OnDeath(Entity entity, Spell spell) {
+        entity.getWorld().createExplosion(entity.getLocation(), 3, false);
 
-                        final List<Entity> near = getNearbyEntities(spell.getCloseRange(), s);
-                        for (final Entity en : near) {
-                            if (en instanceof LivingEntity targetEntity) {
-                                targetEntity.damage(spell.getDamage());
-                                targetEntity.setFireTicks(_fireTicks);
-                            }
-                        }
-                        this.cancel();
-                    }
-
-                    // Executed while the entity is alive
-                    launchFirework(s);
-                }
+        final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
+        for (final Entity en : near) {
+            if (en instanceof LivingEntity targetEntity) {
+                targetEntity.damage(spell.getDamage());
+                targetEntity.setFireTicks(_fireTicks);
             }
-        }.runTaskTimer(EmpireWandPlus._plugin, 0L, 1L);
+        }
+    }
+
+    @Override
+    public ArrayList<Entity> getSpellEntityList() {
+        return SpellEntityLists.FIRE_COMET_ENTITIES;
     }
 
     private static void launchFirework(Entity s) {

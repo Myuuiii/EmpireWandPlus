@@ -2,6 +2,7 @@ package com.myuuiii.empirewandplus.SpellEffects.Pulse;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
+import com.myuuiii.empirewandplus.SpellEffects.SpellEffect;
 import com.myuuiii.empirewandplus.SpellEntityLists;
 import com.myuuiii.empirewandplus.SpellNames;
 import org.bukkit.Color;
@@ -11,37 +12,37 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.meta.FireworkMeta;
-import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.myuuiii.empirewandplus.Extensions.getFirework;
 import static com.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
-public class FirePulseEffect {
+public class FirePulseEffect extends SpellEffect {
 
-    public static void Execute(Entity s) {
+    @Override
+    public Spell getSpell() {
+        return EmpireWandPlus.spellHashMap.get(SpellNames.FirePulse);
+    }
 
-        Spell spell = EmpireWandPlus.spellHashMap.get(SpellNames.FirePulse);
+    @Override
+    public void WhileAlive(Entity entity, Spell spell) {
+        launchFirework(entity);
+        entity.getWorld().spawnParticle(Particle.FLAME, entity.getLocation(), 50, 1, 1, 1, 0.1);
+    }
 
-        new BukkitRunnable() {
-            public void run() {
-                if (SpellEntityLists.FIRE_PULSE_ENTITIES.contains(s)) {
-                    if (s.isDead()) {
-                        // Executed when the entity is destroyed
-                        final List<Entity> near = getNearbyEntities(spell.getCloseRange(), s);
-                        for (final Entity en : near)
-                            if (en instanceof LivingEntity targetEntity)
-                                targetEntity.damage(spell.getDamage());
-                        this.cancel();
-                    }
+    @Override
+    public void OnDeath(Entity entity, Spell spell) {
+        final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
+        for (final Entity en : near)
+            if (en instanceof LivingEntity targetEntity)
+                targetEntity.damage(spell.getDamage());
+    }
 
-                    // Executed while the entity is alive
-                    launchFirework(s);
-                    s.getWorld().spawnParticle(Particle.FLAME, s.getLocation(), 50, 1, 1, 1, 0.1);
-                }
-            }
-        }.runTaskTimer(EmpireWandPlus._plugin, 0L, 1L);
+    @Override
+    public ArrayList<Entity> getSpellEntityList() {
+        return SpellEntityLists.FIRE_PULSE_ENTITIES;
     }
 
     private static void launchFirework(Entity s) {
