@@ -77,7 +77,7 @@ public class EmpireWand extends Wand {
     @Override
     public void Handle(PlayerInteractEvent e) {
         final Player p = e.getPlayer();
-        final EmpireWand eWand = (EmpireWand) EmpireWandPlus.wandHashMap.get("empire");
+        final EmpireWand empireWand = (EmpireWand) EmpireWandPlus.wandHashMap.get("empire");
         //
         //
         //
@@ -87,8 +87,8 @@ public class EmpireWand extends Wand {
         //
         p.getInventory().getItemInMainHand();
         if (p.getInventory().getItemInMainHand().hasItemMeta() && p.getInventory().getItemInMainHand().getItemMeta().hasDisplayName() && p.getInventory()
-                .getItemInMainHand().getItemMeta().getDisplayName().equals(eWand.getDisplayName())) {
-            if (!p.hasPermission(eWand.getUsePermissionName())) {
+                .getItemInMainHand().getItemMeta().getDisplayName().equals(empireWand.getDisplayName())) {
+            if (!p.hasPermission(empireWand.getUsePermissionName())) {
                 p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
                 return;
             }
@@ -107,7 +107,7 @@ public class EmpireWand extends Wand {
                 //
                 // Spell cycling
                 //
-                CycleSpell(p, wand, meta, eWand.Spells, eWand);
+                CycleSpell(p, wand, meta, empireWand.Spells, empireWand);
                 return;
             }
 

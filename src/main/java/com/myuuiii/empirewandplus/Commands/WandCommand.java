@@ -2,6 +2,7 @@ package com.myuuiii.empirewandplus.Commands;
 
 import com.myuuiii.empirewandplus.EmpireWandPlus;
 import com.myuuiii.empirewandplus.Wands.BloodWand;
+import com.myuuiii.empirewandplus.Wands.ElementosWand;
 import com.myuuiii.empirewandplus.Wands.EmpireWand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -34,9 +35,6 @@ public class WandCommand implements CommandExecutor {
             return false;
         }
 
-        ItemStack wand;
-        ItemMeta wandMeta;
-
         switch (args[0].toLowerCase()) {
             case "blood" -> {
                 BloodWand bWand = (BloodWand) EmpireWandPlus.wandHashMap.get(args[0].toLowerCase());
@@ -60,48 +58,17 @@ public class WandCommand implements CommandExecutor {
                 player.getInventory().addItem(eWand.getItem());
                 player.sendMessage(EmpireWandPlus.Prefix + colorText("&7You have been given an " + eWand.getDisplayName()));
             }
-//            case "scythe" -> {
-//
-//                if (!player.hasPermission("scythewand.get")) {
-//                    player.sendMessage(Data.prefix + colorText("&cYou're not allowed to use that!"));
-//                    return false;
-//                }
-//
-//                wand = new ItemStack(Material.IRON_HOE, 1);
-//                wandMeta = wand.getItemMeta();
-//                wandMeta.setDisplayName(Data.scytheWandName);
-//                wand.setItemMeta(wandMeta);
-//                player.getInventory().addItem(wand);
-//                player.sendMessage(Data.prefix + colorText("&7You have been given a &aPOISON SCYTHE &7wand!"));
-//            }
-//            case "celestial" -> {
-//
-//                if (!player.hasPermission("celestialwand.get")) {
-//                    player.sendMessage(Data.prefix + colorText("&cYou're not allowed to use that!"));
-//                    return false;
-//                }
-//
-//                wand = new ItemStack(Material.AMETHYST_SHARD, 1);
-//                wandMeta = wand.getItemMeta();
-//                wandMeta.setDisplayName(Data.celestialWandName);
-//                wand.setItemMeta(wandMeta);
-//                player.getInventory().addItem(wand);
-//                player.sendMessage(Data.prefix + colorText("&7You have been given a &dCELESTIAL &7wand!"));
-//            }
-//            case "hell" -> {
-//
-//                if (!player.hasPermission("hellwand.get")) {
-//                    player.sendMessage(Data.prefix + colorText("&cYou're not allowed to use that!"));
-//                    return false;
-//                }
-//
-//                wand = new ItemStack(Material.BLAZE_POWDER, 1);
-//                wandMeta = wand.getItemMeta();
-//                wandMeta.setDisplayName(Data.hellWandName);
-//                wand.setItemMeta(wandMeta);
-//                player.getInventory().addItem(wand);
-//                player.sendMessage(Data.prefix + colorText("&7You have been given a &cHELL &7wand!"));
-//            }
+            case "elementos" -> {
+                ElementosWand elementosWand = (ElementosWand) EmpireWandPlus.wandHashMap.get(args[0].toLowerCase());
+
+                if (!player.hasPermission(elementosWand.getObtainPermissionName())) {
+                    player.sendMessage(EmpireWandPlus.Prefix + colorText("&cYou're not allowed to use that!"));
+                    return false;
+                }
+
+                player.getInventory().addItem(elementosWand.getItem());
+                player.sendMessage(EmpireWandPlus.Prefix + colorText("&7You have been given an " + elementosWand.getDisplayName()));
+            }
         }
 
         return false;

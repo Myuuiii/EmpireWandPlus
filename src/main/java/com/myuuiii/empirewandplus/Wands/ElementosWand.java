@@ -12,29 +12,33 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.myuuiii.empirewandplus.Wands.WandMethods.CycleSpell;
 import static com.myuuiii.empirewandplus.Wands.WandMethods.ExecuteSpellOnLeftClick;
 
-public class BloodWand extends Wand {
+public class ElementosWand extends Wand {
+
     public List<String> Spells = new ArrayList<>() {{
         add(SpellNames.Spark);
-        add(SpellNames.BloodSpark);
-        add(SpellNames.BloodWave);
+        add(SpellNames.CelestialConfuse);
+        add(SpellNames.CelestialStun);
+        add(SpellNames.Lightning);
+        add(SpellNames.Smite);
     }};
 
-    private String permissionBase = EmpireWandPlus.PermissionPrefix + "bloodwand.";
+    private String permissionBase = EmpireWandPlus.PermissionPrefix + "elementoswand.";
 
     @Override
     public String getDisplayName() {
-        return ChatColor.RED + "Blood Wand";
+        return ChatColor.AQUA + "Elementos Wand";
     }
 
     @Override
     public ItemStack getItem() {
-        ItemStack wand = new ItemStack(Material.NETHER_WART, 1);
+        ItemStack wand = new ItemStack(Material.ECHO_SHARD, 1);
         ItemMeta wandMeta = wand.getItemMeta();
         wandMeta.setDisplayName(getDisplayName());
         wandMeta.setLore(new ArrayList<>() {{
@@ -47,18 +51,18 @@ public class BloodWand extends Wand {
     @Override
     public void Handle(PlayerInteractEvent e) {
         final Player p = e.getPlayer();
-        final BloodWand bloodWand = (BloodWand) EmpireWandPlus.wandHashMap.get("blood");
+        final ElementosWand elementosWand = (ElementosWand) EmpireWandPlus.wandHashMap.get("elementos");
         //
         //
         //
-        // Blood wand
+        // Elementos wand
         //
         //
         //
         p.getInventory().getItemInMainHand();
         if (p.getInventory().getItemInMainHand().hasItemMeta() && p.getInventory().getItemInMainHand().getItemMeta().hasDisplayName() && p.getInventory()
-                .getItemInMainHand().getItemMeta().getDisplayName().equals(bloodWand.getDisplayName())) {
-            if (!p.hasPermission(bloodWand.getUsePermissionName())) {
+                .getItemInMainHand().getItemMeta().getDisplayName().equals(elementosWand.getDisplayName())) {
+            if (!p.hasPermission(elementosWand.getUsePermissionName())) {
                 p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
                 return;
             }
@@ -72,12 +76,12 @@ public class BloodWand extends Wand {
                 e.setCancelled(true);
 
                 final ItemMeta meta = wand.getItemMeta();
-                p.getWorld().spawnParticle(Particle.HEART, p.getLocation(), 250, 0.5, 0.0, 0.5, 0.05);
+                p.getWorld().spawnParticle(Particle.CLOUD, p.getLocation(), 250, 0.5, 0.0, 0.5, 0.05);
 
                 //
                 // Spell cycling
                 //
-                CycleSpell(p, wand, meta, bloodWand.Spells, bloodWand);
+                CycleSpell(p, wand, meta, elementosWand.Spells, elementosWand);
                 return;
             }
 
@@ -87,6 +91,4 @@ public class BloodWand extends Wand {
             ExecuteSpellOnLeftClick(e, p, wand);
         }
     }
-
-
 }

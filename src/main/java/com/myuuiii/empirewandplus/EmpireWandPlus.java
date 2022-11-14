@@ -28,6 +28,7 @@ import com.myuuiii.empirewandplus.Spells.Wave.BloodWave;
 import com.myuuiii.empirewandplus.Spells.Wave.FlameWave;
 import com.myuuiii.empirewandplus.Spells.Wave.PoisonWave;
 import com.myuuiii.empirewandplus.Wands.BloodWand;
+import com.myuuiii.empirewandplus.Wands.ElementosWand;
 import com.myuuiii.empirewandplus.Wands.EmpireWand;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -95,6 +96,7 @@ public final class EmpireWandPlus extends JavaPlugin {
     public static HashMap<String, Wand> wandHashMap = new HashMap<>() {{
         put("empire", new EmpireWand());
         put("blood", new BloodWand());
+        put("elementos", new ElementosWand());
     }};
 
     private static void registerListeners(Listener... listeners) {
