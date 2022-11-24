@@ -19,7 +19,7 @@ public class SpellEntityLists {
 
     // Ranged - With User Lists
     public static final ArrayList<Entity> BLOOD_WAVE_ENTITIES = new ArrayList<>();
-    public static final ArrayList<UUID> BLOOD_WAVE_PLAYERS = new ArrayList<UUID>();
+    public static final ArrayList<UUID> BLOOD_WAVE_PLAYERS = new ArrayList<>();
 
     public static final ArrayList<Entity> POISON_WAVE_ENTITIES = new ArrayList<>();
     public static final ArrayList<UUID> POISON_WAVE_PLAYERS = new ArrayList<>();
@@ -29,4 +29,7 @@ public class SpellEntityLists {
 
     // Leap Spell
     public static final ArrayList<UUID> LEAP_PLAYERS = new ArrayList<>();
+
+    // Cloud
+    public static final ArrayList<UUID> KAJ_CLOUD_PLAYERS = new ArrayList<>();
 }

@@ -1,5 +1,6 @@
 package com.myuuiii.empirewandplus.Data;
 
+import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Comet.EmpireCometEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Comet.FireCometEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Fireball.FireballEffect;
@@ -7,7 +8,6 @@ import com.myuuiii.empirewandplus.SpellEffects.Lightning.LightningEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Pulse.EmpirePulseEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Pulse.FirePulseEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Smite.SmiteEffect;
-import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Wave.BloodWaveEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Wave.FlameWaveEffect;
 import com.myuuiii.empirewandplus.SpellEffects.Wave.PoisonWaveEffect;

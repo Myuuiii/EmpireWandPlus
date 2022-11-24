@@ -1,6 +1,7 @@
 package com.myuuiii.empirewandplus;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
+import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
 import com.myuuiii.empirewandplus.Abstracts.Wand;
 import com.myuuiii.empirewandplus.Commands.WandCommand;
 import com.myuuiii.empirewandplus.Commands.WandCommandCompleter;
@@ -8,7 +9,7 @@ import com.myuuiii.empirewandplus.Listeners.EntityDamagedByEntityEvent;
 import com.myuuiii.empirewandplus.Listeners.FallDamageListener;
 import com.myuuiii.empirewandplus.Listeners.InteractionListener;
 import com.myuuiii.empirewandplus.Listeners.ProjectileListener;
-import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
+import com.myuuiii.empirewandplus.SpellEffects.Cloud.KajCloudEffect;
 import com.myuuiii.empirewandplus.Wands.BloodWand;
 import com.myuuiii.empirewandplus.Wands.ElementosWand;
 import com.myuuiii.empirewandplus.Wands.EmpireWand;
@@ -17,17 +18,17 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
+import java.util.Objects;
 
-import static com.myuuiii.empirewandplus.Extensions.colorText;
 import static com.myuuiii.empirewandplus.Data.SpellEffectHashMap.getSpellEffectHashMap;
 import static com.myuuiii.empirewandplus.Data.SpellHashMap.getSpellHashMap;
+import static com.myuuiii.empirewandplus.Extensions.colorText;
 
 public final class EmpireWandPlus extends JavaPlugin {
 
     public static EmpireWandPlus _plugin;
     public static HashMap<String, Spell> spellHashMap = getSpellHashMap();
     public static HashMap<String, SpellEffect> spellEffectHashMap = getSpellEffectHashMap();
-
     public static String Prefix = colorText("&8[&6EmpireWand&8]&r ");
     public static String PermissionPrefix = "empirewandplus.";
 
@@ -46,7 +47,7 @@ public final class EmpireWandPlus extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-        this._plugin = this;
+        _plugin = this;
 
         registerCommands();
         registerListeners(
@@ -55,11 +56,20 @@ public final class EmpireWandPlus extends JavaPlugin {
                 new FallDamageListener(),
                 new EntityDamagedByEntityEvent()
         );
+        registerRunnables(
+                new KajCloudEffect()
+        );
     }
 
     public void registerCommands() {
-        getCommand("wand").setExecutor(new WandCommand());
-        getCommand("wand").setTabCompleter(new WandCommandCompleter());
+        Objects.requireNonNull(getCommand("wand")).setExecutor(new WandCommand());
+        Objects.requireNonNull(getCommand("wand")).setTabCompleter(new WandCommandCompleter());
+    }
+
+    private static void registerRunnables(Runnable... runnables) {
+        for (Runnable runnable : runnables) {
+            Bukkit.getScheduler().scheduleSyncRepeatingTask(_plugin, runnable, 0L, 0L);
+        }
     }
 
     @Override
