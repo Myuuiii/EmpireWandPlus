@@ -31,7 +31,7 @@ If you happen to find bugs, please report them and we will get them fixed as soo
 
 ### Clouds
 
-- [ ] Celestial Cloud -> KajCloud
+- [x] Celestial Cloud -> KajCloud
 
 Empire Cloud, Blood Cloud and Poison Cloud have permanently been removed from the plugin as they did not fit into the theme of these wands. 
 
@@ -86,7 +86,6 @@ Empire Cloud, Blood Cloud and Poison Cloud have permanently been removed from th
 
 ## Features
 
-- [ ] Dynamic binding of spells per wand (non global)
 - [ ] Command for binding spells
 - [ ] Command for unbinding spells
 - [ ] Disable explosions coming from wands
