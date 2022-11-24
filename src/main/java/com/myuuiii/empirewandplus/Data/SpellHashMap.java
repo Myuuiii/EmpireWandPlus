@@ -2,6 +2,7 @@ package com.myuuiii.empirewandplus.Data;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.Spells.Capture.Capture;
+import com.myuuiii.empirewandplus.Spells.Cloud.KajCloud;
 import com.myuuiii.empirewandplus.Spells.Comet.EmpireComet;
 import com.myuuiii.empirewandplus.Spells.Comet.FireComet;
 import com.myuuiii.empirewandplus.Spells.Confuse.CelestialConfuse;
@@ -77,6 +78,9 @@ public class SpellHashMap {
 
             // Smite
             put(SpellNames.Smite, new Smite());
+
+            // CLoud
+            put(SpellNames.KajCloud, new KajCloud());
         }};
     }
 }

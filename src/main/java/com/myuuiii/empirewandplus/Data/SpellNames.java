@@ -49,4 +49,7 @@ public class SpellNames {
 
     // Smite
     public static final String Smite = "Smite";
+
+    // Cloud
+    public static final String KajCloud = "Kaj Cloud";
 }

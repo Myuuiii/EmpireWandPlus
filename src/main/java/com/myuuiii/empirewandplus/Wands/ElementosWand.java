@@ -26,9 +26,10 @@ public class ElementosWand extends Wand {
         add(SpellNames.CelestialStun);
         add(SpellNames.Lightning);
         add(SpellNames.Smite);
+        add(SpellNames.KajCloud);
     }};
 
-    private String permissionBase = EmpireWandPlus.PermissionPrefix + "elementoswand.";
+    private final String permissionBase = EmpireWandPlus.PermissionPrefix + "elementoswand.";
 
     @Override
     public String getDisplayName() {
