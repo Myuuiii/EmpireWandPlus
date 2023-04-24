@@ -55,6 +55,7 @@ public class LightningEffect extends SpellEffect {
     private static void launchFirework(Entity e) {
         Firework fw = getFirework(e);
         FireworkMeta fwMeta = fw.getFireworkMeta();
+        fwMeta.setPower(0);
         fwMeta.addEffect(FireworkEffect.builder()
                 .withColor(Color.fromBGR(255, 255, 255))
                 .withTrail()

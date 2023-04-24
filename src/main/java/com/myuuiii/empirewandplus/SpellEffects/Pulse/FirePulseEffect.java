@@ -48,6 +48,7 @@ public class FirePulseEffect extends SpellEffect {
     private static void launchFirework(Entity s) {
         Firework fw = getFirework(s);
         FireworkMeta fwMeta = fw.getFireworkMeta();
+        fwMeta.setPower(0);
         fwMeta.addEffect(FireworkEffect.builder()
                 .withColor(Color.fromRGB(244, 150, 0))
                 .withFlicker()

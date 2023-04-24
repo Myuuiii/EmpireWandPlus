@@ -35,6 +35,7 @@ public class EmpireSpark extends FireworksSpell {
     public void LaunchSpellFirework(Location loc, Player p) {
         Firework fw = getFirework(p, loc);
         FireworkMeta fwMeta = fw.getFireworkMeta();
+        fwMeta.setPower(0);
         fwMeta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(150, 0, 150)).with(FireworkEffect.Type.BURST).withFlicker().build());
         fwMeta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(0, 0, 0)).with(FireworkEffect.Type.BURST).withTrail().build());
         fw.setFireworkMeta(fwMeta);

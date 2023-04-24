@@ -18,6 +18,7 @@ public class Spark extends FireworksSpell {
     public void LaunchSpellFirework(Location loc, Player p) {
         Firework fw = getFirework(p, loc);
         FireworkMeta fwMeta = fw.getFireworkMeta();
+        fwMeta.setPower(0);
         fwMeta.addEffect(FireworkEffect.builder()
                 .withColor(Color.fromRGB(255, 255, 255))
                 .with(FireworkEffect.Type.BURST)

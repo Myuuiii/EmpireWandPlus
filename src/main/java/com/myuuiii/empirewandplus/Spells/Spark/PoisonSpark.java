@@ -24,6 +24,7 @@ public class PoisonSpark extends FireworksSpell {
     public void LaunchSpellFirework(Location loc, Player p) {
         Firework fw = getFirework(p, loc);
         FireworkMeta fwMeta = fw.getFireworkMeta();
+        fwMeta.setPower(0);
         fwMeta.addEffect(FireworkEffect.builder()
                 .withColor(Color.fromRGB(0, 255, 0))
                 .withFade(Color.fromRGB(0, 2, 0))
