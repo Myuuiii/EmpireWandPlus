@@ -7,4 +7,3 @@ We're slowly adding more and more wands. Some are from the good old days, others
 - Empire Wand
 - Blood Wand
 - Elementos Wand (was Celestial Wand in previous releases)
-

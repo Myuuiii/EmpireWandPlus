@@ -54,3 +54,19 @@ We try to stay as accurate as possible with the spells and their effects to the 
 - Fireball
 - Capture
 - Leap
+
+## To be implemented
+
+- [ ] Arrow Rain
+- [ ] Big Spark
+- [ ] Blood Block
+- [ ] Blood Explosive
+- [ ] Blood Spam
+- [ ] Empire Aura
+- [ ] Empire Explosive
+- [ ] Blood Explosive
+- [ ] Flamethrower
+- [ ] Lightning arrow
+- [ ] Lightning storm
+- [ ] Spark wave
+
