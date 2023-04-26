@@ -6,6 +6,8 @@ import com.myuuiii.empirewandplus.Data.SpellNames;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Particle;
+import org.bukkit.Sound;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -103,7 +105,10 @@ public class EmpireWand extends Wand {
                 e.setCancelled(true);
 
                 final ItemMeta meta = wand.getItemMeta();
-                p.getWorld().spawnParticle(Particle.SMOKE_NORMAL, p.getLocation(), 250, 0.5, 0.0, 0.5, 0.05);
+
+                p.getWorld().playSound(p.getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_OFF, 10.0f, 1.0f);
+                p.getWorld().spawnParticle(Particle.SPELL_WITCH, p.getLocation(), 100, 0.4, 0.7, 0.4, 0.01);
+                p.getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, p.getLocation(), 100, 0.4, 1, 0.4, 0.0);
 
                 //
                 // Spell cycling

@@ -6,6 +6,7 @@ import com.myuuiii.empirewandplus.Data.SpellNames;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Particle;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -76,6 +77,8 @@ public class ElementosWand extends Wand {
                 e.setCancelled(true);
 
                 final ItemMeta meta = wand.getItemMeta();
+                
+                p.getWorld().playSound(p.getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_OFF, 10.0f, 1.0f);
                 p.getWorld().spawnParticle(Particle.CLOUD, p.getLocation(), 250, 0.5, 0.0, 0.5, 0.05);
 
                 //
