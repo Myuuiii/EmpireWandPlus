@@ -9,10 +9,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.metadata.FixedMetadataValue;
-
-import com.myuuiii.empirewandplus.Wands.EmpireWand;
 
 import java.util.List;
 
@@ -56,9 +53,7 @@ public class Extensions {
     }
 
     public static Firework getFirework(Entity entity) {
-        Firework fw = entity.getWorld().spawn(entity.getLocation(), Firework.class);
-        fw.setMetadata("nodamage", new FixedMetadataValue(EmpireWandPlus._plugin, true));
-        return fw;
+        return getFirework(entity, entity.getLocation());
     }
 
     public static Firework getFirework(Entity entity, Location loc) {
