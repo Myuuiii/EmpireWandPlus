@@ -1,6 +1,7 @@
 package com.myuuiii.empirewandplus.Listeners;
 
 import com.myuuiii.empirewandplus.EmpireWandPlus;
+import com.myuuiii.empirewandplus.Extensions;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
@@ -26,7 +27,7 @@ public class FallDamageListener implements Listener {
 
     @EventHandler
     public void move(PlayerMoveEvent moveEvent){
-        if (SpellEntityLists.LEAP_PLAYERS.contains(moveEvent.getPlayer().getUniqueId()) && moveEvent.getPlayer().isOnGround()) {
+        if (SpellEntityLists.LEAP_PLAYERS.contains(moveEvent.getPlayer().getUniqueId()) && Extensions.PlayerIsOnGround(moveEvent.getPlayer())) {
             new BukkitRunnable() {
                 @Override
                 public void run() {
