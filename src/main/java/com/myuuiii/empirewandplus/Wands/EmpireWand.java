@@ -22,42 +22,44 @@ import static com.myuuiii.empirewandplus.Wands.WandMethods.ExecuteSpellOnLeftCli
 
 public class EmpireWand extends Wand {
 
-    public List<String> Spells = new ArrayList<>() {{
-        add(SpellNames.Spark);
-        add(SpellNames.EmpireSpark);
-        add(SpellNames.BloodSpark);
-        add(SpellNames.PoisonSpark);
+    public List<String> Spells = new ArrayList<>() {
+        {
+            add(SpellNames.Spark);
+            add(SpellNames.EmpireSpark);
+            add(SpellNames.BloodSpark);
+            add(SpellNames.PoisonSpark);
 
-        add(SpellNames.BloodWave);
-        add(SpellNames.PoisonWave);
-        add(SpellNames.FlameWave);
+            add(SpellNames.BloodWave);
+            add(SpellNames.PoisonWave);
+            add(SpellNames.FlameWave);
 
-        add(SpellNames.EmpireConfuse);
-        add(SpellNames.CelestialConfuse);
+            add(SpellNames.EmpireConfuse);
+            add(SpellNames.CelestialConfuse);
 
-        add(SpellNames.EmpireStun);
-        add(SpellNames.CelestialStun);
+            add(SpellNames.EmpireStun);
+            add(SpellNames.CelestialStun);
 
-        add(SpellNames.Capture);
+            add(SpellNames.Capture);
 
-        add(SpellNames.EmpireComet);
-        add(SpellNames.FireComet);
+            add(SpellNames.EmpireComet);
+            add(SpellNames.FireComet);
 
-        add(SpellNames.FirePulse);
-        add(SpellNames.EmpirePulse);
+            add(SpellNames.FirePulse);
+            add(SpellNames.EmpirePulse);
 
-        add(SpellNames.Fireball);
+            add(SpellNames.Fireball);
 
-        add(SpellNames.Ignite);
+            add(SpellNames.Ignite);
 
-        add(SpellNames.Launch);
+            add(SpellNames.Launch);
 
-        add(SpellNames.Leap);
+            add(SpellNames.Leap);
 
-        add(SpellNames.Lightning);
+            add(SpellNames.Lightning);
 
-        add(SpellNames.Smite);
-    }};
+            add(SpellNames.Smite);
+        }
+    };
     private String permissionBase = EmpireWandPlus.PermissionPrefix + "empirewand.";
 
     @Override
@@ -70,9 +72,11 @@ public class EmpireWand extends Wand {
         ItemStack wand = new ItemStack(Material.BLAZE_ROD, 1);
         ItemMeta wandMeta = wand.getItemMeta();
         wandMeta.setDisplayName(getDisplayName());
-        wandMeta.setLore(new ArrayList<>() {{
-            add(Spells.get(0));
-        }});
+        wandMeta.setLore(new ArrayList<>() {
+            {
+                add(Spells.get(0));
+            }
+        });
         wand.setItemMeta(wandMeta);
         return wand;
     }
@@ -89,8 +93,9 @@ public class EmpireWand extends Wand {
         //
         //
         p.getInventory().getItemInMainHand();
-        if (p.getInventory().getItemInMainHand().hasItemMeta() && p.getInventory().getItemInMainHand().getItemMeta().hasDisplayName() && p.getInventory()
-                .getItemInMainHand().getItemMeta().getDisplayName().equals(empireWand.getDisplayName())) {
+        if (p.getInventory().getItemInMainHand().hasItemMeta()
+                && p.getInventory().getItemInMainHand().getItemMeta().hasDisplayName() && p.getInventory()
+                        .getItemInMainHand().getItemMeta().getDisplayName().equals(empireWand.getDisplayName())) {
             if (!p.hasPermission(empireWand.getUsePermissionName())) {
                 p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
                 return;
@@ -106,12 +111,7 @@ public class EmpireWand extends Wand {
 
                 final ItemMeta meta = wand.getItemMeta();
 
-                // 
-                // Spell switching effects
-                //
-                p.getWorld().playSound(p.getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_OFF, 10.0f, 1.0f);
-                p.getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, p.getLocation(), 50, 0.4, 0.5, 0.4, 0.0);
-                p.getWorld().spawnParticle(Particle.SPELL_WITCH, p.getLocation(), 100, 0, 0.7, 0, 0.01);
+                SwitchEffects(e);
 
                 //
                 // Spell cycling
@@ -127,5 +127,15 @@ public class EmpireWand extends Wand {
         }
     }
 
+    @Override
+    public void SwitchEffects(final PlayerInteractEvent e) {
+        final Player p = e.getPlayer();
+        //
+        // Spell switching effects
+        //
+        p.getWorld().playSound(p.getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_OFF, 10.0f, 1.0f);
+        p.getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, p.getLocation(), 50, 0.4, 0.5, 0.4, 0.0);
+        p.getWorld().spawnParticle(Particle.SPELL_WITCH, p.getLocation(), 100, 0, 0.7, 0, 0.01);
+    }
 
 }

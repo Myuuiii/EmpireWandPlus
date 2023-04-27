@@ -20,11 +20,13 @@ import static com.myuuiii.empirewandplus.Wands.WandMethods.CycleSpell;
 import static com.myuuiii.empirewandplus.Wands.WandMethods.ExecuteSpellOnLeftClick;
 
 public class BloodWand extends Wand {
-    public List<String> Spells = new ArrayList<>() {{
-        add(SpellNames.Spark);
-        add(SpellNames.BloodSpark);
-        add(SpellNames.BloodWave);
-    }};
+    public List<String> Spells = new ArrayList<>() {
+        {
+            add(SpellNames.Spark);
+            add(SpellNames.BloodSpark);
+            add(SpellNames.BloodWave);
+        }
+    };
 
     private String permissionBase = EmpireWandPlus.PermissionPrefix + "bloodwand.";
 
@@ -38,9 +40,11 @@ public class BloodWand extends Wand {
         ItemStack wand = new ItemStack(Material.NETHER_WART, 1);
         ItemMeta wandMeta = wand.getItemMeta();
         wandMeta.setDisplayName(getDisplayName());
-        wandMeta.setLore(new ArrayList<>() {{
-            add(Spells.get(0));
-        }});
+        wandMeta.setLore(new ArrayList<>() {
+            {
+                add(Spells.get(0));
+            }
+        });
         wand.setItemMeta(wandMeta);
         return wand;
     }
@@ -57,8 +61,9 @@ public class BloodWand extends Wand {
         //
         //
         p.getInventory().getItemInMainHand();
-        if (p.getInventory().getItemInMainHand().hasItemMeta() && p.getInventory().getItemInMainHand().getItemMeta().hasDisplayName() && p.getInventory()
-                .getItemInMainHand().getItemMeta().getDisplayName().equals(bloodWand.getDisplayName())) {
+        if (p.getInventory().getItemInMainHand().hasItemMeta()
+                && p.getInventory().getItemInMainHand().getItemMeta().hasDisplayName() && p.getInventory()
+                        .getItemInMainHand().getItemMeta().getDisplayName().equals(bloodWand.getDisplayName())) {
             if (!p.hasPermission(bloodWand.getUsePermissionName())) {
                 p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
                 return;
@@ -73,13 +78,14 @@ public class BloodWand extends Wand {
                 e.setCancelled(true);
 
                 final ItemMeta meta = wand.getItemMeta();
-                
-                // 
+
+                //
                 // Spell switching effects
                 //
                 p.getWorld().playSound(p.getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_OFF, 10.0f, 1.0f);
                 p.getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, p.getLocation(), 50, 0.4, 0.5, 0.4, 0.0);
-                p.getWorld().spawnParticle(Particle.BLOCK_DUST, p.getLocation().add(0, 0.3, 0), 50, 0.3, 0.6, 0.3, 0.1, Material.REDSTONE_BLOCK.createBlockData());
+                p.getWorld().spawnParticle(Particle.BLOCK_DUST, p.getLocation().add(0, 0.3, 0), 50, 0.3, 0.6, 0.3, 0.1,
+                        Material.REDSTONE_BLOCK.createBlockData());
 
                 //
                 // Spell cycling
@@ -95,5 +101,16 @@ public class BloodWand extends Wand {
         }
     }
 
+    @Override
+    public void SwitchEffects(PlayerInteractEvent e) {
+        final Player p = e.getPlayer();
+        //
+        // Spell switching effects
+        //
+        p.getWorld().playSound(p.getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_OFF, 10.0f, 1.0f);
+        p.getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, p.getLocation(), 50, 0.4, 0.5, 0.4, 0.0);
+        p.getWorld().spawnParticle(Particle.BLOCK_DUST, p.getLocation().add(0, 0.3, 0), 50, 0.3, 0.6, 0.3, 0.1,
+                Material.REDSTONE_BLOCK.createBlockData());
+    }
 
 }

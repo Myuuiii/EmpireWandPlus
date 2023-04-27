@@ -27,5 +27,6 @@ public abstract class Wand {
     }
 
     public abstract void Handle(final PlayerInteractEvent e);
+    public abstract void SwitchEffects(final PlayerInteractEvent e);
 }
 
