@@ -6,6 +6,7 @@ import com.myuuiii.empirewandplus.Data.SpellNames;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Particle;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -72,7 +73,13 @@ public class BloodWand extends Wand {
                 e.setCancelled(true);
 
                 final ItemMeta meta = wand.getItemMeta();
-                p.getWorld().spawnParticle(Particle.HEART, p.getLocation(), 250, 0.5, 0.0, 0.5, 0.05);
+                
+                // 
+                // Spell switching effects
+                //
+                p.getWorld().playSound(p.getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_OFF, 10.0f, 1.0f);
+                p.getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, p.getLocation(), 50, 0.4, 0.5, 0.4, 0.0);
+                p.getWorld().spawnParticle(Particle.BLOCK_DUST, p.getLocation().add(0, 0.3, 0), 50, 0.3, 0.6, 0.3, 0.1, Material.REDSTONE_BLOCK.createBlockData());
 
                 //
                 // Spell cycling
