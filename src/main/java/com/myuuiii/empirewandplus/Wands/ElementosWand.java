@@ -78,8 +78,7 @@ public class ElementosWand extends Wand {
             //
             // Right Click Handling
             //
-            if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-                e.setCancelled(true);
+            if (IsRightClickInteraction(e)) {
 
                 SwitchEffects(e);
                 CycleSpell(p, wandItemStack, wandMeta, elementosWand.Spells, elementosWand);

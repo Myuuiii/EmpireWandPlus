@@ -1,6 +1,7 @@
 package com.myuuiii.empirewandplus.Abstracts;
 
 import org.bukkit.entity.Player;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -32,6 +33,13 @@ public abstract class Wand {
         return p.getInventory().getItemInMainHand().hasItemMeta()
                 && p.getInventory().getItemInMainHand().getItemMeta().hasDisplayName() && p.getInventory()
                         .getItemInMainHand().getItemMeta().getDisplayName().equals(wand.getDisplayName());
+    }
+
+    public boolean IsRightClickInteraction(final PlayerInteractEvent e) {
+        var state = e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK;
+        if (state)
+            e.setCancelled(true);
+        return state;
     }
 
     public abstract void Handle(final PlayerInteractEvent e);
