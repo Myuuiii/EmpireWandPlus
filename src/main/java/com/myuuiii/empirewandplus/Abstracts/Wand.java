@@ -1,15 +1,25 @@
 package com.myuuiii.empirewandplus.Abstracts;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
+import static com.myuuiii.empirewandplus.Wands.WandMethods.CycleSpell;
+import static com.myuuiii.empirewandplus.Wands.WandMethods.ExecuteSpellOnLeftClick;
+
+import com.myuuiii.empirewandplus.Wands.BloodWand;
+import com.myuuiii.empirewandplus.Wands.ElementosWand;
+import com.myuuiii.empirewandplus.Wands.EmpireWand;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Wand {
     public List<String> Spells;
-    private String permissionBase = "";
+    public String permissionBase = "";
 
     public abstract String getDisplayName();
 
@@ -40,6 +50,38 @@ public abstract class Wand {
         if (state)
             playerInteractionEvent.setCancelled(true);
         return state;
+    }
+
+    public void HandleInteraction(PlayerInteractEvent e, final Wand wand) {
+        final Player p = e.getPlayer();
+        p.getInventory().getItemInMainHand();
+
+        if (!checkWandHeldState(e, wand))
+            return;
+
+        if (!p.hasPermission(wand.getUsePermissionName())) {
+            p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
+            return;
+        }
+
+        final ItemStack wandItemStack = p.getInventory().getItemInMainHand();
+        final ItemMeta wandMeta = wandItemStack.getItemMeta();
+
+        if (IsRightClickInteraction(e)) {
+
+            SwitchEffects(e);
+
+            List<String> spells = new ArrayList<String>();
+            if (wand instanceof EmpireWand) spells = new EmpireWand().Spells;
+            else if (wand instanceof BloodWand) spells = new BloodWand().Spells;
+            else if (wand instanceof ElementosWand) spells = new ElementosWand().Spells;
+
+            CycleSpell(p, wandItemStack, wandMeta, spells, wand);
+
+            return;
+        }
+
+        ExecuteSpellOnLeftClick(e, p, wandItemStack);
     }
 
     public abstract void Handle(final PlayerInteractEvent e);
