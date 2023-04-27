@@ -61,32 +61,32 @@ public class BloodWand extends Wand {
         //
         //
         p.getInventory().getItemInMainHand();
-        if (checkWandHeldState(e, bloodWand)) {
+        if (!checkWandHeldState(e, bloodWand))
+            return;
 
-            if (!p.hasPermission(bloodWand.getUsePermissionName())) {
-                p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
-                return;
-            }
-
-            final ItemStack wandItemStack = p.getInventory().getItemInMainHand();
-            final ItemMeta wandMeta = wandItemStack.getItemMeta();
-
-            //
-            // Right Click Handling
-            //
-            if (IsRightClickInteraction(e)) {
-
-                SwitchEffects(e);
-                CycleSpell(p, wandItemStack, wandMeta, bloodWand.Spells, bloodWand);
-                
-                return;
-            }
-
-            //
-            // LEFT CLICK HANDLING
-            //
-            ExecuteSpellOnLeftClick(e, p, wandItemStack);
+        if (!p.hasPermission(bloodWand.getUsePermissionName())) {
+            p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
+            return;
         }
+
+        final ItemStack wandItemStack = p.getInventory().getItemInMainHand();
+        final ItemMeta wandMeta = wandItemStack.getItemMeta();
+
+        //
+        // Right Click Handling
+        //
+        if (IsRightClickInteraction(e)) {
+
+            SwitchEffects(e);
+            CycleSpell(p, wandItemStack, wandMeta, bloodWand.Spells, bloodWand);
+
+            return;
+        }
+
+        //
+        // LEFT CLICK HANDLING
+        //
+        ExecuteSpellOnLeftClick(e, p, wandItemStack);
     }
 
     @Override

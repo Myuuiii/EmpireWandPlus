@@ -93,32 +93,32 @@ public class EmpireWand extends Wand {
         //
         //
         p.getInventory().getItemInMainHand();
-        if (checkWandHeldState(e, empireWand)) {
+        if (!checkWandHeldState(e, empireWand))
+            return;
 
-            if (!p.hasPermission(empireWand.getUsePermissionName())) {
-                p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
-                return;
-            }
-
-            final ItemStack wandItemStack = p.getInventory().getItemInMainHand();
-            final ItemMeta wandMeta = wandItemStack.getItemMeta();
-
-            //
-            // Right Click Handling
-            //
-            if (IsRightClickInteraction(e)) {
-                
-                SwitchEffects(e);
-                CycleSpell(p, wandItemStack, wandMeta, empireWand.Spells, empireWand);
-                
-                return;
-            }
-
-            //
-            // LEFT CLICK HANDLING
-            //
-            ExecuteSpellOnLeftClick(e, p, wandItemStack);
+        if (!p.hasPermission(empireWand.getUsePermissionName())) {
+            p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
+            return;
         }
+
+        final ItemStack wandItemStack = p.getInventory().getItemInMainHand();
+        final ItemMeta wandMeta = wandItemStack.getItemMeta();
+
+        //
+        // Right Click Handling
+        //
+        if (IsRightClickInteraction(e)) {
+
+            SwitchEffects(e);
+            CycleSpell(p, wandItemStack, wandMeta, empireWand.Spells, empireWand);
+
+            return;
+        }
+
+        //
+        // LEFT CLICK HANDLING
+        //
+        ExecuteSpellOnLeftClick(e, p, wandItemStack);
     }
 
     @Override

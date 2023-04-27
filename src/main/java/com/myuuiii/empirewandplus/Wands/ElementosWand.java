@@ -65,32 +65,32 @@ public class ElementosWand extends Wand {
         //
         //
         p.getInventory().getItemInMainHand();
-        if (checkWandHeldState(e, elementosWand)) {
-
-            if (!p.hasPermission(elementosWand.getUsePermissionName())) {
-                p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
-                return;
-            }
-
-            final ItemStack wandItemStack = p.getInventory().getItemInMainHand();
-            final ItemMeta wandMeta = wandItemStack.getItemMeta();
-
-            //
-            // Right Click Handling
-            //
-            if (IsRightClickInteraction(e)) {
-
-                SwitchEffects(e);
-                CycleSpell(p, wandItemStack, wandMeta, elementosWand.Spells, elementosWand);
-
-                return;
-            }
-
-            //
-            // LEFT CLICK HANDLING
-            //
-            ExecuteSpellOnLeftClick(e, p, wandItemStack);
+        if (!checkWandHeldState(e, elementosWand))
+            return;
+            
+        if (!p.hasPermission(elementosWand.getUsePermissionName())) {
+            p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
+            return;
         }
+
+        final ItemStack wandItemStack = p.getInventory().getItemInMainHand();
+        final ItemMeta wandMeta = wandItemStack.getItemMeta();
+
+        //
+        // Right Click Handling
+        //
+        if (IsRightClickInteraction(e)) {
+
+            SwitchEffects(e);
+            CycleSpell(p, wandItemStack, wandMeta, elementosWand.Spells, elementosWand);
+
+            return;
+        }
+
+        //
+        // LEFT CLICK HANDLING
+        //
+        ExecuteSpellOnLeftClick(e, p, wandItemStack);
     }
 
     @Override
