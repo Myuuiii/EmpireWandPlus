@@ -5,6 +5,7 @@ import com.myuuiii.empirewandplus.Data.SpellValues;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.LivingEntity;
@@ -21,14 +22,17 @@ public class EmpireSpark extends FireworksSpell {
 
     @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
-        if (!(entity instanceof LivingEntity livingEntity)) return;
+        if (!(entity instanceof LivingEntity livingEntity))
+            return;
         livingEntity.damage(getDamage());
         livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, _blindnessDuration, 1, true, false));
     }
 
     @Override
     public void atExecutingLocation(Location loc, Player p) {
-
+        loc = loc.add(0, 1, 0);
+        loc.getWorld().spawnParticle(Particle.SMOKE_LARGE, loc, 100, 0.8, 0.8, 0.8, 0.01);
+        loc.getWorld().spawnParticle(Particle.SPELL_WITCH, loc, 100, 0.8, 0.8, 0.8, 0.05);
     }
 
     @Override
@@ -36,8 +40,13 @@ public class EmpireSpark extends FireworksSpell {
         Firework fw = getFirework(p, loc);
         FireworkMeta fwMeta = fw.getFireworkMeta();
         fwMeta.setPower(0);
-        fwMeta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(150, 0, 150)).with(FireworkEffect.Type.BURST).withFlicker().build());
-        fwMeta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(0, 0, 0)).with(FireworkEffect.Type.BURST).withTrail().build());
+
+        fwMeta.addEffect(FireworkEffect.builder()
+                .withColor(Color.fromRGB(150, 0, 150))
+                .withFade(Color.fromRGB(228, 0, 120))
+                .with(FireworkEffect.Type.BURST)
+                .build());
+
         fw.setFireworkMeta(fwMeta);
         fw.detonate();
     }
