@@ -78,8 +78,13 @@ public class ElementosWand extends Wand {
 
                 final ItemMeta meta = wand.getItemMeta();
                 
+                // 
+                // Spell switching effects
+                //
                 p.getWorld().playSound(p.getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_OFF, 10.0f, 1.0f);
-                p.getWorld().spawnParticle(Particle.CLOUD, p.getLocation(), 250, 0.5, 0.0, 0.5, 0.05);
+                p.getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, p.getLocation(), 50, 0.4, 0.5, 0.4, 0.0);
+                p.getWorld().spawnParticle(Particle.CRIT_MAGIC, p.getLocation().add(0, 0.3, 0), 50, 0.4, 0.5, 0.4, 0);
+                p.getWorld().spawnParticle(Particle.FIREWORKS_SPARK, p.getLocation().add(0, 0.3, 0), 50, 0.4, 0.5, 0.4, 0);
 
                 //
                 // Spell cycling

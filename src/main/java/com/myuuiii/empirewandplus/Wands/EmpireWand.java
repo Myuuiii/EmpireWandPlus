@@ -106,9 +106,12 @@ public class EmpireWand extends Wand {
 
                 final ItemMeta meta = wand.getItemMeta();
 
+                // 
+                // Spell switching effects
+                //
                 p.getWorld().playSound(p.getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_OFF, 10.0f, 1.0f);
-                p.getWorld().spawnParticle(Particle.SPELL_WITCH, p.getLocation(), 100, 0.4, 0.7, 0.4, 0.01);
-                p.getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, p.getLocation(), 100, 0.4, 1, 0.4, 0.0);
+                p.getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, p.getLocation(), 50, 0.4, 0.5, 0.4, 0.0);
+                p.getWorld().spawnParticle(Particle.SPELL_WITCH, p.getLocation(), 100, 0, 0.7, 0, 0.01);
 
                 //
                 // Spell cycling

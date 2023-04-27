@@ -74,8 +74,12 @@ public class BloodWand extends Wand {
 
                 final ItemMeta meta = wand.getItemMeta();
                 
+                // 
+                // Spell switching effects
+                //
                 p.getWorld().playSound(p.getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_OFF, 10.0f, 1.0f);
-                p.getWorld().spawnParticle(Particle.HEART, p.getLocation(), 250, 0.5, 0.0, 0.5, 0.05);
+                p.getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, p.getLocation(), 50, 0.4, 0.5, 0.4, 0.0);
+                p.getWorld().spawnParticle(Particle.BLOCK_DUST, p.getLocation().add(0, 0.3, 0), 50, 0.3, 0.6, 0.3, 0.1, Material.REDSTONE_BLOCK.createBlockData());
 
                 //
                 // Spell cycling
