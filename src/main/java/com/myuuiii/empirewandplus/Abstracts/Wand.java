@@ -28,17 +28,17 @@ public abstract class Wand {
         return permissionBase + "switch";
     }
 
-    public boolean checkWandHeldState(final PlayerInteractEvent e, final Wand wand) {
-        final Player p = e.getPlayer();
+    public boolean checkWandHeldState(final PlayerInteractEvent playerInteractionEvent, final Wand wand) {
+        final Player p = playerInteractionEvent.getPlayer();
         return p.getInventory().getItemInMainHand().hasItemMeta()
                 && p.getInventory().getItemInMainHand().getItemMeta().hasDisplayName() && p.getInventory()
                         .getItemInMainHand().getItemMeta().getDisplayName().equals(wand.getDisplayName());
     }
 
-    public boolean IsRightClickInteraction(final PlayerInteractEvent e) {
-        var state = e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK;
+    public boolean IsRightClickInteraction(final PlayerInteractEvent playerInteractionEvent) {
+        var state = playerInteractionEvent.getAction() == Action.RIGHT_CLICK_AIR || playerInteractionEvent.getAction() == Action.RIGHT_CLICK_BLOCK;
         if (state)
-            e.setCancelled(true);
+            playerInteractionEvent.setCancelled(true);
         return state;
     }
 
