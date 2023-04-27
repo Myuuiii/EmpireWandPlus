@@ -93,15 +93,15 @@ public class EmpireWand extends Wand {
         //
         //
         p.getInventory().getItemInMainHand();
-        if (p.getInventory().getItemInMainHand().hasItemMeta()
-                && p.getInventory().getItemInMainHand().getItemMeta().hasDisplayName() && p.getInventory()
-                        .getItemInMainHand().getItemMeta().getDisplayName().equals(empireWand.getDisplayName())) {
+        if (checkWandHeldState(e, empireWand)) {
+
             if (!p.hasPermission(empireWand.getUsePermissionName())) {
                 p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
                 return;
             }
 
-            final ItemStack wand = p.getInventory().getItemInMainHand();
+            final ItemStack wandItemStack = p.getInventory().getItemInMainHand();
+            final ItemMeta wandMeta = wandItemStack.getItemMeta();
 
             //
             // Right Click Handling
@@ -109,21 +109,16 @@ public class EmpireWand extends Wand {
             if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
                 e.setCancelled(true);
 
-                final ItemMeta meta = wand.getItemMeta();
-
                 SwitchEffects(e);
-
-                //
-                // Spell cycling
-                //
-                CycleSpell(p, wand, meta, empireWand.Spells, empireWand);
+                CycleSpell(p, wandItemStack, wandMeta, empireWand.Spells, empireWand);
+                
                 return;
             }
 
             //
             // LEFT CLICK HANDLING
             //
-            ExecuteSpellOnLeftClick(e, p, wand);
+            ExecuteSpellOnLeftClick(e, p, wandItemStack);
         }
     }
 

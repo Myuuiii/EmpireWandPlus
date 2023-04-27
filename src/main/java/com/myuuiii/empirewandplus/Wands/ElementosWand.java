@@ -65,15 +65,15 @@ public class ElementosWand extends Wand {
         //
         //
         p.getInventory().getItemInMainHand();
-        if (p.getInventory().getItemInMainHand().hasItemMeta()
-                && p.getInventory().getItemInMainHand().getItemMeta().hasDisplayName() && p.getInventory()
-                        .getItemInMainHand().getItemMeta().getDisplayName().equals(elementosWand.getDisplayName())) {
+        if (checkWandHeldState(e, elementosWand)) {
+
             if (!p.hasPermission(elementosWand.getUsePermissionName())) {
                 p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
                 return;
             }
 
-            final ItemStack wand = p.getInventory().getItemInMainHand();
+            final ItemStack wandItemStack = p.getInventory().getItemInMainHand();
+            final ItemMeta wandMeta = wandItemStack.getItemMeta();
 
             //
             // Right Click Handling
@@ -81,19 +81,16 @@ public class ElementosWand extends Wand {
             if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
                 e.setCancelled(true);
 
-                final ItemMeta meta = wand.getItemMeta();
+                SwitchEffects(e);
+                CycleSpell(p, wandItemStack, wandMeta, elementosWand.Spells, elementosWand);
 
-                //
-                // Spell cycling
-                //
-                CycleSpell(p, wand, meta, elementosWand.Spells, elementosWand);
                 return;
             }
 
             //
             // LEFT CLICK HANDLING
             //
-            ExecuteSpellOnLeftClick(e, p, wand);
+            ExecuteSpellOnLeftClick(e, p, wandItemStack);
         }
     }
 

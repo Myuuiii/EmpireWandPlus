@@ -1,5 +1,6 @@
 package com.myuuiii.empirewandplus.Abstracts;
 
+import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -26,7 +27,14 @@ public abstract class Wand {
         return permissionBase + "switch";
     }
 
+    public boolean checkWandHeldState(final PlayerInteractEvent e, final Wand wand) {
+        final Player p = e.getPlayer();
+        return p.getInventory().getItemInMainHand().hasItemMeta()
+                && p.getInventory().getItemInMainHand().getItemMeta().hasDisplayName() && p.getInventory()
+                        .getItemInMainHand().getItemMeta().getDisplayName().equals(wand.getDisplayName());
+    }
+
     public abstract void Handle(final PlayerInteractEvent e);
+
     public abstract void SwitchEffects(final PlayerInteractEvent e);
 }
-

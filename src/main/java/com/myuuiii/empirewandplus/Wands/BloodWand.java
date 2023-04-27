@@ -61,15 +61,15 @@ public class BloodWand extends Wand {
         //
         //
         p.getInventory().getItemInMainHand();
-        if (p.getInventory().getItemInMainHand().hasItemMeta()
-                && p.getInventory().getItemInMainHand().getItemMeta().hasDisplayName() && p.getInventory()
-                        .getItemInMainHand().getItemMeta().getDisplayName().equals(bloodWand.getDisplayName())) {
+        if (checkWandHeldState(e, bloodWand)) {
+            
             if (!p.hasPermission(bloodWand.getUsePermissionName())) {
                 p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
                 return;
             }
 
-            final ItemStack wand = p.getInventory().getItemInMainHand();
+            final ItemStack wandItemStack = p.getInventory().getItemInMainHand();
+            final ItemMeta wandMeta = wandItemStack.getItemMeta();
 
             //
             // Right Click Handling
@@ -77,27 +77,16 @@ public class BloodWand extends Wand {
             if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
                 e.setCancelled(true);
 
-                final ItemMeta meta = wand.getItemMeta();
-
-                //
-                // Spell switching effects
-                //
-                p.getWorld().playSound(p.getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_OFF, 10.0f, 1.0f);
-                p.getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, p.getLocation(), 50, 0.4, 0.5, 0.4, 0.0);
-                p.getWorld().spawnParticle(Particle.BLOCK_DUST, p.getLocation().add(0, 0.3, 0), 50, 0.3, 0.6, 0.3, 0.1,
-                        Material.REDSTONE_BLOCK.createBlockData());
-
-                //
-                // Spell cycling
-                //
-                CycleSpell(p, wand, meta, bloodWand.Spells, bloodWand);
+                SwitchEffects(e);
+                CycleSpell(p, wandItemStack, wandMeta, bloodWand.Spells, bloodWand);
+                
                 return;
             }
 
             //
             // LEFT CLICK HANDLING
             //
-            ExecuteSpellOnLeftClick(e, p, wand);
+            ExecuteSpellOnLeftClick(e, p, wandItemStack);
         }
     }
 
