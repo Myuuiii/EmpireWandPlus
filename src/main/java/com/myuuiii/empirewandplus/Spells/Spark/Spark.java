@@ -21,11 +21,7 @@ public class Spark extends FireworksSpell {
         fwMeta.setPower(0);
         fwMeta.addEffect(FireworkEffect.builder()
                 .withColor(Color.fromRGB(255, 255, 255))
-                .with(FireworkEffect.Type.BURST)
-                .build()
-        );
-        fwMeta.addEffect(FireworkEffect.builder()
-                .withColor(Color.fromRGB(255, 0, 0))
+                .withFade(Color.fromRGB(255, 0, 0))
                 .with(FireworkEffect.Type.BURST)
                 .build()
         );
