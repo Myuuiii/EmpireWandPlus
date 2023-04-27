@@ -2,14 +2,14 @@ package com.myuuiii.empirewandplus;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.metadata.FixedMetadataValue;
-
-import com.myuuiii.empirewandplus.Wands.EmpireWand;
 
 import java.util.List;
 
@@ -53,14 +53,18 @@ public class Extensions {
     }
 
     public static Firework getFirework(Entity entity) {
-        Firework fw = entity.getWorld().spawn(entity.getLocation(), Firework.class);
-        fw.setMetadata("nodamage", new FixedMetadataValue(EmpireWandPlus._plugin, true));
-        return fw;
+        return getFirework(entity, entity.getLocation());
     }
 
     public static Firework getFirework(Entity entity, Location loc) {
         Firework fw = entity.getWorld().spawn(loc, Firework.class);
         fw.setMetadata("nodamage", new FixedMetadataValue(EmpireWandPlus._plugin, true));
         return fw;
+    }
+
+    public static boolean PlayerIsOnGround(final Player player) {
+        Location location = player.getLocation();
+        Block blockBelow = location.getBlock().getRelative(BlockFace.DOWN);
+        return (blockBelow.getType() == Material.LADDER || blockBelow.getType() == Material.VINE);
     }
 }
