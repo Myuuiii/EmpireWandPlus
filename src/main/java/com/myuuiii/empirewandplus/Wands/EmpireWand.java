@@ -12,6 +12,8 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import static com.myuuiii.empirewandplus.Extensions.colorText;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,6 +65,11 @@ public class EmpireWand extends Wand {
     public String getDisplayName() {
         return ChatColor.GOLD + "Empire Wand";
     }
+    
+    @Override
+    public String getPrefix() {
+        return colorText("&8[&6Empire Wand&8]&r ");
+    }
 
     @Override
     public ItemStack getItem() {
@@ -91,5 +98,4 @@ public class EmpireWand extends Wand {
         p.getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, p.getLocation(), 50, 0.4, 0.5, 0.4, 0.0);
         p.getWorld().spawnParticle(Particle.SPELL_WITCH, p.getLocation(), 100, 0, 0.7, 0, 0.01);
     }
-
 }

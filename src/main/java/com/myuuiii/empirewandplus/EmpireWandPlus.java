@@ -29,7 +29,7 @@ public final class EmpireWandPlus extends JavaPlugin {
     public static EmpireWandPlus _plugin;
     public static HashMap<String, Spell> spellHashMap = getSpellHashMap();
     public static HashMap<String, SpellEffect> spellEffectHashMap = getSpellEffectHashMap();
-    public static String Prefix = colorText("&8[&6EmpireWand&8]&r ");
+    public static String Prefix = colorText("&8[&6EmpireWandPlus&8]&r ");
     public static String PermissionPrefix = "empirewandplus.";
 
     public static HashMap<String, Wand> wandHashMap = new HashMap<>() {{

@@ -12,6 +12,8 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import static com.myuuiii.empirewandplus.Extensions.colorText;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +36,12 @@ public class ElementosWand extends Wand {
     @Override
     public String getDisplayName() {
         return ChatColor.AQUA + "Elementos Wand";
+    }
+
+    
+    @Override
+    public String getPrefix() {
+        return colorText("&8[&3Elementos Wand&8]&r ");
     }
 
     @Override

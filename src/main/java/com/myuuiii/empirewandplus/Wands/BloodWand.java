@@ -12,6 +12,8 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import static com.myuuiii.empirewandplus.Extensions.colorText;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +32,11 @@ public class BloodWand extends Wand {
     @Override
     public String getDisplayName() {
         return ChatColor.RED + "Blood Wand";
+    }
+
+    @Override
+    public String getPrefix() {
+        return colorText("&8[&cBlood Wand&8]&r ");
     }
 
     @Override
@@ -60,5 +67,4 @@ public class BloodWand extends Wand {
         p.getWorld().spawnParticle(Particle.BLOCK_DUST, p.getLocation().add(0, 0.3, 0), 50, 0.3, 0.6, 0.3, 0.1,
                 Material.REDSTONE_BLOCK.createBlockData());
     }
-
 }

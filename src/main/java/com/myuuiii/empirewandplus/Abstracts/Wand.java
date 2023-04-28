@@ -23,6 +23,8 @@ public abstract class Wand {
 
     public abstract String getDisplayName();
 
+    public abstract String getPrefix();
+
     public abstract ItemStack getItem();
 
     // Permission Names
