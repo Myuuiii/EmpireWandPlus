@@ -16,7 +16,7 @@ I've recently started working on this plugin again, you can expect a lot of upda
 - [ ] Allow for spell binding to wands, instead of having a set list
 - [ ] Adding more complex spells such as Mephidantes Aura (name might change), Empire Aura and Lightning Storm
 - [ ] Chat messages showing up in the old style
-- [ ] Wand switching showing the right wand as a prefix, instead of it always being [EmpireWand]
+- [x] Wand switching showing the right wand as a prefix, instead of it always being [EmpireWand]
 
 ~ Myuuiii, 27th of April 2023
 
