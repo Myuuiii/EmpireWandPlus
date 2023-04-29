@@ -30,7 +30,7 @@ public class WandMethods {
 
         meta.setLore(loreItems);
         wandItem.setItemMeta(meta);
-        p.sendMessage(EmpireWandPlus.Prefix + wandItem.getItemMeta().getLore().get(0));
+        p.sendMessage(wand.getPrefix() + wandItem.getItemMeta().getLore().get(0));
     }
 
     public static void ExecuteSpellOnLeftClick(PlayerInteractEvent e, Player p, ItemStack wand) {
