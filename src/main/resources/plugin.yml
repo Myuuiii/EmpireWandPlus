@@ -1,7 +1,7 @@
 name: EmpireWandPlus
 version: '${project.version}'
 main: com.myuuiii.empirewandplus.EmpireWandPlus
-api-version: 1.19
+api-version: 1.21.3
 authors: [ Myuuiii ]
 commands:
   wand:
