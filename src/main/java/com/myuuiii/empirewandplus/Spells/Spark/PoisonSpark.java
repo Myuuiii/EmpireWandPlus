@@ -69,7 +69,7 @@ public class PoisonSpark extends FireworksSpell {
     public void atExecutingLocation(Location loc, Player p) {
         p.getWorld().playSound(loc, Sound.ENTITY_ZOMBIE_INFECT, 5, 0.85f);
         p.getWorld().playSound(loc, Sound.BLOCK_AZALEA_LEAVES_BREAK, 5, 0.85f);
-        p.getWorld().spawnParticle(Particle.REDSTONE, loc.add(0, 1, 0), 100, 0.7, 0.7, 0.7, 1, new Particle.DustOptions(Color.fromRGB(0, 255, 0), 1));
-        p.getWorld().spawnParticle(Particle.SMOKE_NORMAL, loc.add(0, 1, 0), 150, 0.7, 0.7, 0.7, 0.1);
+        p.getWorld().spawnParticle(Particle.DUST, loc.add(0, 1, 0), 100, 0.7, 0.7, 0.7, 1, new Particle.DustOptions(Color.fromRGB(0, 255, 0), 1));
+        p.getWorld().spawnParticle(Particle.SMOKE, loc.add(0, 1, 0), 150, 0.7, 0.7, 0.7, 0.1);
     }
 }

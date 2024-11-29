@@ -35,7 +35,7 @@ public class Ignite extends Spell {
 
     @Override
     public void atExecutingLocation(Location loc, Player p) {
-        p.getWorld().spawnParticle(Particle.SMOKE_LARGE, loc, 100, 1, 1, 1, 0.1);
+        p.getWorld().spawnParticle(Particle.LARGE_SMOKE, loc, 100, 1, 1, 1, 0.1);
         p.getWorld().spawnParticle(Particle.FLAME, loc, 75, 1, 1, 1, 0.3);
         p.getWorld().spawnParticle(Particle.LAVA, loc, 75, 1, 1, 1, 1);
 

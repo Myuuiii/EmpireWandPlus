@@ -30,7 +30,7 @@ public class FlameWaveEffect extends SpellEffect {
     @Override
     public void WhileAlive(Entity entity, Spell spell) {
         entity.getWorld().spawnParticle(Particle.FLAME, entity.getLocation(), 125, 0.5, 0.5, 0.5, 0.1);
-        entity.getWorld().spawnParticle(Particle.SMOKE_LARGE, entity.getLocation(), 125, 0.5, 0.5, 0.5, 0.1);
+        entity.getWorld().spawnParticle(Particle.LARGE_SMOKE, entity.getLocation(), 125, 0.5, 0.5, 0.5, 0.1);
 
         entity.getWorld().playSound(entity.getLocation(), Sound.ENTITY_DROWNED_DEATH, 1, 0.65f);
 

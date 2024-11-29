@@ -35,15 +35,15 @@ public class EmpireStun extends Spell {
     @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
         if (!(entity instanceof LivingEntity livingEntity)) return;
-        livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, _slowDuration, 255, true, false));
+        livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, _slowDuration, 255, true, false));
         livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, _blindnessDuration, 1, true, false));
     }
 
     @Override
     public void atExecutingLocation(Location loc, Player p) {
         p.getWorld().spawnParticle(Particle.DRAGON_BREATH, loc, 100, 0.5, 1, 0.5, 0.1);
-        p.getWorld().spawnParticle(Particle.SPELL_WITCH, loc, 100, 0.5, 1, 0.5, 0.1);
-        p.getWorld().spawnParticle(Particle.REDSTONE, loc, 75, 0.5, 1, 0.5, 3, new Particle.DustOptions(Color.fromRGB(255, 0, 233), 2));
+        p.getWorld().spawnParticle(Particle.WITCH, loc, 100, 0.5, 1, 0.5, 0.1);
+        p.getWorld().spawnParticle(Particle.DUST, loc, 75, 0.5, 1, 0.5, 3, new Particle.DustOptions(Color.fromRGB(255, 0, 233), 2));
 
         p.getWorld().playSound(loc, Sound.ENTITY_ENDERMAN_SCREAM, 5, 0.65f);
         p.getWorld().playSound(loc, Sound.ITEM_TOTEM_USE, 5, 0.65f);
