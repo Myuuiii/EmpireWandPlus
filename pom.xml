@@ -6,7 +6,7 @@
 
     <groupId>com.myuuiii</groupId>
     <artifactId>EmpireWandPlus</artifactId>
-    <version>beta-2.2.1</version>
+    <version>beta-2.2.2</version>
     <packaging>jar</packaging>
 
     <name>EmpireWandPlus</name>

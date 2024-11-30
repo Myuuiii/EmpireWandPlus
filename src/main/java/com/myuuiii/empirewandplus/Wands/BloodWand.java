@@ -64,7 +64,7 @@ public class BloodWand extends Wand {
         final Player p = e.getPlayer();
         p.getWorld().playSound(p.getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_OFF, 10.0f, 1.0f);
         p.getWorld().spawnParticle(Particle.ENCHANT, p.getLocation(), 50, 0.4, 0.5, 0.4, 0.0);
-        p.getWorld().spawnParticle(Particle.DUST, p.getLocation().add(0, 0.3, 0), 50, 0.3, 0.6, 0.3, 0.1,
+        p.getWorld().spawnParticle(Particle.BLOCK_CRUMBLE, p.getLocation().add(0, 0.3, 0), 50, 0.3, 0.6, 0.3, 0.1,
                 Material.REDSTONE_BLOCK.createBlockData());
     }
 }
