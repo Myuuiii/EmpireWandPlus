@@ -30,7 +30,7 @@ public class SmiteEffect extends SpellEffect {
     public void WhileAlive(Entity entity, Spell spell) {
         entity.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME, entity.getLocation(), 75, 0.1, 0.1, 0.1, 0.1);
         entity.getWorld().spawnParticle(Particle.CLOUD, entity.getLocation(), 75, 0.1, 0.1, 0.1, 0.2);
-        entity.getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, entity.getLocation(), 75, 0.1, 0.1, 0.1, 0.1);
+        entity.getWorld().spawnParticle(Particle.ENCHANT, entity.getLocation(), 75, 0.1, 0.1, 0.1, 0.1);
     }
 
     @Override

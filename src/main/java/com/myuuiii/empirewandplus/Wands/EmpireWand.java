@@ -95,7 +95,7 @@ public class EmpireWand extends Wand {
     public void SwitchEffects(final PlayerInteractEvent e) {
         final Player p = e.getPlayer();
         p.getWorld().playSound(p.getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_OFF, 10.0f, 1.0f);
-        p.getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, p.getLocation(), 50, 0.4, 0.5, 0.4, 0.0);
-        p.getWorld().spawnParticle(Particle.SPELL_WITCH, p.getLocation(), 100, 0, 0.7, 0, 0.01);
+        p.getWorld().spawnParticle(Particle.ENCHANT, p.getLocation(), 50, 0.4, 0.5, 0.4, 0.0);
+        p.getWorld().spawnParticle(Particle.WITCH, p.getLocation(), 100, 0, 0.7, 0, 0.01);
     }
 }

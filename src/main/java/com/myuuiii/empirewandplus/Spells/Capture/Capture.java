@@ -33,7 +33,7 @@ public class Capture extends Spell {
     @Override
     public void atExecutingLocation(Location loc, Player p) {
         p.getWorld().spawnParticle(Particle.REVERSE_PORTAL, loc, 250, 1, 1, 1, 0.1);
-        p.getWorld().spawnParticle(Particle.SMOKE_LARGE, loc, 100, 1, 1, 1, 0);
+        p.getWorld().spawnParticle(Particle.LARGE_SMOKE, loc, 100, 1, 1, 1, 0);
 
         p.getWorld().playSound(loc, Sound.ENTITY_PIG_SADDLE, 5, 0.85f);
         p.getWorld().playSound(loc, Sound.ENTITY_SHULKER_TELEPORT, 5, 1f);

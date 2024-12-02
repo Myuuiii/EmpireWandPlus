@@ -21,7 +21,7 @@ public class FireballEffect extends SpellEffect {
     @Override
     public void WhileAlive(Entity entity, Spell spell) {
         entity.getWorld().spawnParticle(Particle.FLAME, entity.getLocation(), 50, 1, 1, 1, 0.2);
-        entity.getWorld().spawnParticle(Particle.SMOKE_LARGE, entity.getLocation(), 75, 0.5, 0.5, 0.5, 0.05);
+        entity.getWorld().spawnParticle(Particle.LARGE_SMOKE, entity.getLocation(), 75, 0.5, 0.5, 0.5, 0.05);
         entity.getWorld().spawnParticle(Particle.LAVA, entity.getLocation(), 50, 1, 1, 1, 0.2);
 
         entity.getWorld().playSound(entity.getLocation(), Sound.ENTITY_DROWNED_DEATH_WATER, 1, 0.85f);

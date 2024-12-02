@@ -29,8 +29,8 @@ public class EmpirePulseEffect extends SpellEffect {
     @Override
     public void WhileAlive(Entity entity, Spell spell) {
         launchFirework(entity);
-        entity.getWorld().spawnParticle(Particle.SPELL_WITCH, entity.getLocation(), 250, 1, 1, 1, 0.2);
-        entity.getWorld().spawnParticle(Particle.SMOKE_LARGE, entity.getLocation(), 75, 0.5, 0.5, 0.5, 0.05);
+        entity.getWorld().spawnParticle(Particle.WITCH, entity.getLocation(), 250, 1, 1, 1, 0.2);
+        entity.getWorld().spawnParticle(Particle.LARGE_SMOKE, entity.getLocation(), 75, 0.5, 0.5, 0.5, 0.05);
     }
 
     @Override
