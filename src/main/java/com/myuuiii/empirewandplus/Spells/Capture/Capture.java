@@ -1,11 +1,14 @@
 package com.myuuiii.empirewandplus.Spells.Capture;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
+import com.myuuiii.empirewandplus.EmpireWandPlus;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+import org.bukkit.util.Vector;
 
 public class Capture extends Spell {
     @Override
@@ -26,14 +29,7 @@ public class Capture extends Spell {
     @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
         if (entity.equals(executingPlayer)) return;
-
-        if (!executingPlayer.getPassengers().isEmpty()) {
-            Entity passenger = executingPlayer.getPassengers().get(0);
-            passenger.leaveVehicle();
-            passenger.setVelocity(executingPlayer.getLocation().getDirection().multiply(1.5));
-        } else {
-            executingPlayer.addPassenger(entity);
-        }
+        executingPlayer.addPassenger(entity);
     }
 
     @Override
@@ -43,5 +39,16 @@ public class Capture extends Spell {
 
         p.getWorld().playSound(loc, Sound.ENTITY_PIG_SADDLE, 5, 0.85f);
         p.getWorld().playSound(loc, Sound.ENTITY_SHULKER_TELEPORT, 5, 1f);
+
+        // TODO: This doesn't work with players for some reason?
+        if (!p.getPassengers().isEmpty()) {
+            for (Entity passenger : p.getPassengers()) {
+                passenger.leaveVehicle();
+                Bukkit.getScheduler().runTaskLater(EmpireWandPlus._plugin, () -> {
+                    Vector direction = p.getLocation().getDirection().normalize().multiply(2);
+                    passenger.setVelocity(direction);
+                }, 1L); // Delay by 1 tick
+            }
+        }
     }
 }
