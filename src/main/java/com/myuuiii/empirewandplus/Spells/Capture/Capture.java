@@ -42,8 +42,8 @@ public class Capture extends Spell {
 
         if (!p.getPassengers().isEmpty()) {
             for (Entity passenger : p.getPassengers()) {
+                passenger.leaveVehicle();
                 if (passenger instanceof Player) {
-                    passenger.leaveVehicle();
 
                     // Apply velocity with a progressive scaling factor to ensure proper application
                     Bukkit.getScheduler().runTaskTimer(EmpireWandPlus._plugin, new Runnable() {
@@ -60,6 +60,12 @@ public class Capture extends Spell {
                             count++;
                         }
                     }, 1L, 1L);
+                }
+                else {
+                    Bukkit.getScheduler().runTaskLater(EmpireWandPlus._plugin, () -> {
+                        Vector direction = p.getLocation().getDirection().normalize().multiply(2);
+                        passenger.setVelocity(direction);
+                    }, 1L); // Delay by 1 tick by 1 tick
                 }
             }
         }
