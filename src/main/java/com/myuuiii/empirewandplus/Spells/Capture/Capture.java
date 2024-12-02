@@ -27,7 +27,13 @@ public class Capture extends Spell {
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
         if (entity.equals(executingPlayer)) return;
 
-        executingPlayer.addPassenger(entity);
+        if (!executingPlayer.getPassengers().isEmpty()) {
+            Entity passenger = executingPlayer.getPassengers().get(0);
+            passenger.leaveVehicle();
+            passenger.setVelocity(executingPlayer.getLocation().getDirection().multiply(1.5));
+        } else {
+            executingPlayer.addPassenger(entity);
+        }
     }
 
     @Override
