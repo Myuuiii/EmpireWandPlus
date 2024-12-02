@@ -31,8 +31,8 @@ public class EmpireSpark extends FireworksSpell {
     @Override
     public void atExecutingLocation(Location loc, Player p) {
         loc = loc.add(0, 1, 0);
-        loc.getWorld().spawnParticle(Particle.SMOKE_LARGE, loc, 100, 0.8, 0.8, 0.8, 0.01);
-        loc.getWorld().spawnParticle(Particle.SPELL_WITCH, loc, 100, 0.8, 0.8, 0.8, 0.05);
+        loc.getWorld().spawnParticle(Particle.LARGE_SMOKE, loc, 100, 0.8, 0.8, 0.8, 0.01);
+        loc.getWorld().spawnParticle(Particle.EFFECT, loc, 100, 0.8, 0.8, 0.8, 0.05);
     }
 
     @Override

@@ -23,7 +23,7 @@ public class KajCloudEffect extends BukkitRunnable {
                 // Settings
                 //
                 int _particleDensityModifier = 3;
-                p.getWorld().spawnParticle(Particle.FIREWORKS_SPARK, l, 10 * _particleDensityModifier, 0.3, 0.0,
+                p.getWorld().spawnParticle(Particle.FIREWORK, l, 10 * _particleDensityModifier, 0.3, 0.0,
                         0.3,
                         0);
                 p.getWorld().spawnParticle(Particle.CLOUD, l, 10 * _particleDensityModifier, 0.3, 0.0, 0.3, 0);

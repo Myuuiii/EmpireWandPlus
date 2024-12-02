@@ -68,8 +68,8 @@ public class ElementosWand extends Wand {
     public void SwitchEffects(PlayerInteractEvent e) {
         final Player p = e.getPlayer();
         p.getWorld().playSound(p.getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_OFF, 10.0f, 1.0f);
-        p.getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, p.getLocation(), 50, 0.4, 0.5, 0.4, 0.0);
-        p.getWorld().spawnParticle(Particle.CRIT_MAGIC, p.getLocation().add(0, 0.3, 0), 50, 0.4, 0.5, 0.4, 0);
-        p.getWorld().spawnParticle(Particle.FIREWORKS_SPARK, p.getLocation().add(0, 0.3, 0), 50, 0.4, 0.5, 0.4, 0);
+        p.getWorld().spawnParticle(Particle.ENCHANT, p.getLocation(), 50, 0.4, 0.5, 0.4, 0.0);
+        p.getWorld().spawnParticle(Particle.ENCHANTED_HIT, p.getLocation().add(0, 0.3, 0), 50, 0.4, 0.5, 0.4, 0);
+        p.getWorld().spawnParticle(Particle.FIREWORK, p.getLocation().add(0, 0.3, 0), 50, 0.4, 0.5, 0.4, 0);
     }
 }
