@@ -26,3 +26,6 @@ A big thank you goes out to these individuals for helping work on the code, or r
 
 - Northy-017, for reporting a breaking issue!
 - DronkenEend1, for contributing to the code!
+- krakkrak101, for reporting an issue with the `Capture` spell
+- julianvdhogen, for helping contribute to fixing a possible compatibility issue
+
