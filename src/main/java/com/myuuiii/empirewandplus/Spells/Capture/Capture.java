@@ -40,14 +40,27 @@ public class Capture extends Spell {
         p.getWorld().playSound(loc, Sound.ENTITY_PIG_SADDLE, 5, 0.85f);
         p.getWorld().playSound(loc, Sound.ENTITY_SHULKER_TELEPORT, 5, 1f);
 
-        // TODO: This doesn't work with players for some reason?
         if (!p.getPassengers().isEmpty()) {
             for (Entity passenger : p.getPassengers()) {
-                passenger.leaveVehicle();
-                Bukkit.getScheduler().runTaskLater(EmpireWandPlus._plugin, () -> {
-                    Vector direction = p.getLocation().getDirection().normalize().multiply(2);
-                    passenger.setVelocity(direction);
-                }, 1L); // Delay by 1 tick
+                if (passenger instanceof Player) {
+                    passenger.leaveVehicle();
+
+                    // Apply velocity with a progressive scaling factor to ensure proper application
+                    Bukkit.getScheduler().runTaskTimer(EmpireWandPlus._plugin, new Runnable() {
+                        int count = 0;
+
+                        @Override
+                        public void run() {
+                            if (count >= 5) { // Adjust velocity application over several ticks
+                                Bukkit.getScheduler().cancelTask(this.hashCode());
+                                return;
+                            }
+                            Vector direction = p.getLocation().getDirection().normalize().multiply(0.4 * (count + 1));
+                            passenger.setVelocity(direction);
+                            count++;
+                        }
+                    }, 1L, 1L);
+                }
             }
         }
     }
