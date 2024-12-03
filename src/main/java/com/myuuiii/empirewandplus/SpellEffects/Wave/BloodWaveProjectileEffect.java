@@ -2,7 +2,7 @@ package com.myuuiii.empirewandplus.SpellEffects.Wave;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
+import com.myuuiii.empirewandplus.Abstracts.ProjectileSpellEffect;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
 import com.myuuiii.empirewandplus.Data.SpellNames;
 import org.bukkit.Color;
@@ -22,7 +22,7 @@ import java.util.List;
 import static com.myuuiii.empirewandplus.Extensions.getFirework;
 import static com.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
-public class BloodWaveEffect extends SpellEffect {
+public class BloodWaveProjectileEffect extends ProjectileSpellEffect {
     //
     // Settings
     //
@@ -40,7 +40,7 @@ public class BloodWaveEffect extends SpellEffect {
         entity.getWorld().playSound(entity.getLocation(), Sound.BLOCK_AZALEA_BREAK, 1, 0.65f);
         entity.getWorld().playSound(entity.getLocation(), Sound.BLOCK_AZALEA_LEAVES_BREAK, 1, 0.65f);
 
-        final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
+        final List<Entity> near = getNearbyEntities(spell.getInRangeDistance(), entity);
         for (final Entity en : near) {
             if (!(en instanceof LivingEntity targetEntity))
                 return;

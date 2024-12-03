@@ -13,12 +13,12 @@ public class Ignite extends Spell {
     private static int _fireDuration = 150;
 
     @Override
-    public int getReach() {
+    public int getMaxReach() {
         return 10;
     }
 
     @Override
-    public double getCloseRange() {
+    public double getInRangeDistance() {
         return 4;
     }
 

@@ -12,12 +12,12 @@ import org.bukkit.util.Vector;
 
 public class Capture extends Spell {
     @Override
-    public int getReach() {
+    public int getMaxReach() {
         return 8;
     }
 
     @Override
-    public double getCloseRange() {
+    public double getInRangeDistance() {
         return 3;
     }
 

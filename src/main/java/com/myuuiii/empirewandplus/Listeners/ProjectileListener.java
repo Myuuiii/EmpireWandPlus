@@ -1,7 +1,7 @@
 package com.myuuiii.empirewandplus.Listeners;
 
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
+import com.myuuiii.empirewandplus.Abstracts.ProjectileSpellEffect;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Firework;
 import org.bukkit.event.EventHandler;
@@ -13,7 +13,7 @@ public class ProjectileListener implements Listener {
     public void onProjectileLaunch(final ProjectileLaunchEvent e) {
         Entity eventEntity = e.getEntity();
         if (eventEntity instanceof Firework) return;
-        for (SpellEffect effect : EmpireWandPlus.spellEffectHashMap.values()) {
+        for (ProjectileSpellEffect effect : EmpireWandPlus.spellEffectHashMap.values()) {
             effect.Execute(eventEntity);
         }
     }

@@ -2,7 +2,7 @@ package com.myuuiii.empirewandplus.SpellEffects.Comet;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
+import com.myuuiii.empirewandplus.Abstracts.ProjectileSpellEffect;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
 import com.myuuiii.empirewandplus.Data.SpellNames;
 import org.bukkit.Color;
@@ -18,7 +18,7 @@ import java.util.List;
 import static com.myuuiii.empirewandplus.Extensions.getFirework;
 import static com.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
-public class FireCometEffect extends SpellEffect {
+public class FireCometProjectileEffect extends ProjectileSpellEffect {
     //
     // Settings
     //
@@ -38,7 +38,7 @@ public class FireCometEffect extends SpellEffect {
     public void OnDeath(Entity entity, Spell spell) {
         entity.getWorld().createExplosion(entity.getLocation(), 3, false);
 
-        final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
+        final List<Entity> near = getNearbyEntities(spell.getInRangeDistance(), entity);
         for (final Entity en : near) {
             if (en instanceof LivingEntity targetEntity) {
                 targetEntity.damage(spell.getDamage());

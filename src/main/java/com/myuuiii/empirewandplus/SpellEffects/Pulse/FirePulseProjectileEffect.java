@@ -2,7 +2,7 @@ package com.myuuiii.empirewandplus.SpellEffects.Pulse;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
+import com.myuuiii.empirewandplus.Abstracts.ProjectileSpellEffect;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
 import com.myuuiii.empirewandplus.Data.SpellNames;
 import org.bukkit.Color;
@@ -19,7 +19,7 @@ import java.util.List;
 import static com.myuuiii.empirewandplus.Extensions.getFirework;
 import static com.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
-public class FirePulseEffect extends SpellEffect {
+public class FirePulseProjectileEffect extends ProjectileSpellEffect {
 
     @Override
     public Spell getSpell() {
@@ -34,10 +34,11 @@ public class FirePulseEffect extends SpellEffect {
 
     @Override
     public void OnDeath(Entity entity, Spell spell) {
-        final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
+        final List<Entity> near = getNearbyEntities(spell.getInRangeDistance(), entity);
         for (final Entity en : near)
             if (en instanceof LivingEntity targetEntity)
                 targetEntity.damage(spell.getDamage());
+        entity.getWorld().createExplosion(entity.getLocation(), 5, true, false);
     }
 
     @Override

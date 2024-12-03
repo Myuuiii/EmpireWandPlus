@@ -20,7 +20,7 @@ import java.util.List;
 
 public class ElementosWand extends Wand {
 
-    public List<String> Spells = new ArrayList<>() {
+    public static List<String> Spells = new ArrayList<>() {
         {
             add(SpellNames.Spark);
             add(SpellNames.CelestialConfuse);

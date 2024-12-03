@@ -1,6 +1,6 @@
 package com.myuuiii.empirewandplus.Spells.Spark;
 
-import com.myuuiii.empirewandplus.Abstracts.FireworksSpell;
+import com.myuuiii.empirewandplus.Abstracts.SparkSpellBase;
 import com.myuuiii.empirewandplus.Data.SpellValues;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
@@ -16,7 +16,7 @@ import org.bukkit.potion.PotionEffectType;
 
 import static com.myuuiii.empirewandplus.Extensions.getFirework;
 
-public class EmpireSpark extends FireworksSpell {
+public class EmpireSpark extends SparkSpellBase {
 
     private int _blindnessDuration = 100;
 
@@ -52,12 +52,12 @@ public class EmpireSpark extends FireworksSpell {
     }
 
     @Override
-    public int getReach() {
+    public int getMaxReach() {
         return SpellValues.SPARK_REACH;
     }
 
     @Override
-    public double getCloseRange() {
+    public double getInRangeDistance() {
         return 3.0;
     }
 

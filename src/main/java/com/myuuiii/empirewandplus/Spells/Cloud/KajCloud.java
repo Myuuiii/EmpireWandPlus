@@ -13,12 +13,12 @@ import java.util.UUID;
 public class KajCloud extends Spell {
 
     @Override
-    public int getReach() {
+    public int getMaxReach() {
         return 0;
     }
 
     @Override
-    public double getCloseRange() {
+    public double getInRangeDistance() {
         return 0;
     }
 

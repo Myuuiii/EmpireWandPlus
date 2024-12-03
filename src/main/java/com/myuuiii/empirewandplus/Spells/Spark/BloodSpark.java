@@ -1,6 +1,6 @@
 package com.myuuiii.empirewandplus.Spells.Spark;
 
-import com.myuuiii.empirewandplus.Abstracts.FireworksSpell;
+import com.myuuiii.empirewandplus.Abstracts.SparkSpellBase;
 import com.myuuiii.empirewandplus.Data.SpellValues;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
@@ -16,7 +16,7 @@ import org.bukkit.potion.PotionEffectType;
 
 import static com.myuuiii.empirewandplus.Extensions.getFirework;
 
-public class BloodSpark extends FireworksSpell {
+public class BloodSpark extends SparkSpellBase {
 
     private static int _witherDuration = 100;
 
@@ -31,12 +31,12 @@ public class BloodSpark extends FireworksSpell {
     }
 
     @Override
-    public int getReach() {
+    public int getMaxReach() {
         return SpellValues.SPARK_REACH;
     }
 
     @Override
-    public double getCloseRange() {
+    public double getInRangeDistance() {
         return 3.0;
     }
 
