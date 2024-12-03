@@ -38,6 +38,7 @@ public class FirePulseProjectileEffect extends ProjectileSpellEffect {
         for (final Entity en : near)
             if (en instanceof LivingEntity targetEntity)
                 targetEntity.damage(spell.getDamage());
+        entity.getWorld().createExplosion(entity.getLocation(), 5, true, false);
     }
 
     @Override
