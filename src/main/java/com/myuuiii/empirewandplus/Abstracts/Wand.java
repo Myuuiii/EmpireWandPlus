@@ -82,6 +82,11 @@ public abstract class Wand {
                 return;
             }
 
+            if (!p.hasPermission(wand.getSwitchSpellPermissionName())) {
+                p.sendMessage(ChatColor.RED + "You're not allowed to switch spells!");
+                return;
+            }
+            
             CycleSpell(p, wandItemStack, wandMeta, spells, wand);
 
             return;
