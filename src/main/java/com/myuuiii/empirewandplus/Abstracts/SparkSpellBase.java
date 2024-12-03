@@ -19,7 +19,7 @@ public abstract class SparkSpellBase extends Spell {
 
         atExecutingLocation(loc, p);
 
-        final List<Entity> nearbyEntities = getNearbyEntities(getCloseRange(), loc);
+        final List<Entity> nearbyEntities = getNearbyEntities(getInRangeDistance(), loc);
         for (Entity e : nearbyEntities) {
             forAllNearbyEntities(e, loc, p);
         }

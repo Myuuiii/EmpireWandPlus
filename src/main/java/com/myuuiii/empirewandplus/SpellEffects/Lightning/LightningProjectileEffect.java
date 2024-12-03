@@ -40,7 +40,7 @@ public class LightningProjectileEffect extends ProjectileSpellEffect {
     public void OnDeath(Entity entity, Spell spell) {
         entity.getWorld().strikeLightning(entity.getLocation());
         entity.getWorld().createExplosion(entity.getLocation(), _explosionSize);
-        final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
+        final List<Entity> near = getNearbyEntities(spell.getInRangeDistance(), entity);
         for (final Entity en : near) {
             if (en instanceof Damageable targetEntity)
                 targetEntity.damage(spell.getDamage());

@@ -43,7 +43,7 @@ public class SmiteEffect extends ProjectileSpellEffect {
 
         entity.getWorld().createExplosion(entity.getLocation(), _explosionSize, true);
 
-        final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
+        final List<Entity> near = getNearbyEntities(spell.getInRangeDistance(), entity);
         for (final Entity en : near) {
             if (en instanceof Damageable targetEntity)
                 targetEntity.damage(spell.getDamage());

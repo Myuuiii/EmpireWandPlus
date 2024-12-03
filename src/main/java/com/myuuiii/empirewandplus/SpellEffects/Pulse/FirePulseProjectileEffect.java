@@ -34,7 +34,7 @@ public class FirePulseProjectileEffect extends ProjectileSpellEffect {
 
     @Override
     public void OnDeath(Entity entity, Spell spell) {
-        final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
+        final List<Entity> near = getNearbyEntities(spell.getInRangeDistance(), entity);
         for (final Entity en : near)
             if (en instanceof LivingEntity targetEntity)
                 targetEntity.damage(spell.getDamage());

@@ -12,12 +12,12 @@ public class Launch extends Spell {
     private static double _launchHeightModifier = 1.5;
 
     @Override
-    public int getReach() {
+    public int getMaxReach() {
         return 10;
     }
 
     @Override
-    public double getCloseRange() {
+    public double getInRangeDistance() {
         return 3;
     }
 

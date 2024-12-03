@@ -18,12 +18,12 @@ public class CelestialConfuse extends Spell {
     private static int _slownessDuration = 175;
 
     @Override
-    public int getReach() {
+    public int getMaxReach() {
         return SpellValues.CONFUSE_REACH;
     }
 
     @Override
-    public double getCloseRange() {
+    public double getInRangeDistance() {
         return 3;
     }
 

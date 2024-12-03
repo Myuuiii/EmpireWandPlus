@@ -38,7 +38,7 @@ public class PoisonWaveProjectileEffect extends ProjectileSpellEffect {
         launchFirework(entity);
         entity.getWorld().playSound(entity.getLocation(), Sound.BLOCK_AZALEA_BREAK, 1, 0.65f);
 
-        final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
+        final List<Entity> near = getNearbyEntities(spell.getInRangeDistance(), entity);
         ;
         for (final Entity en : near) {
             if (!(en instanceof LivingEntity targetEntity))

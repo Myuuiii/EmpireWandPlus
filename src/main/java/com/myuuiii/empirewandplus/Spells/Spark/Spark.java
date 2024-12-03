@@ -30,12 +30,12 @@ public class Spark extends SparkSpellBase {
     }
 
     @Override
-    public int getReach() {
+    public int getMaxReach() {
         return SpellValues.SPARK_REACH;
     }
 
     @Override
-    public double getCloseRange() {
+    public double getInRangeDistance() {
         return 3;
     }
 

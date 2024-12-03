@@ -34,7 +34,7 @@ public class FlameWaveProjectileEffect extends ProjectileSpellEffect {
 
         entity.getWorld().playSound(entity.getLocation(), Sound.ENTITY_DROWNED_DEATH, 1, 0.65f);
 
-        final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
+        final List<Entity> near = getNearbyEntities(spell.getInRangeDistance(), entity);
         for (final Entity en : near) {
             if (!(en instanceof LivingEntity targetEntity))
                 return;

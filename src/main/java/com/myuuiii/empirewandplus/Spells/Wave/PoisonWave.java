@@ -34,12 +34,12 @@ public class PoisonWave extends ProjectileSpell {
     }
 
     @Override
-    public int getReach() {
+    public int getMaxReach() {
         return SpellValues.RANGED_REACH;
     }
 
     @Override
-    public double getCloseRange() {
+    public double getInRangeDistance() {
         return 3;
     }
 
