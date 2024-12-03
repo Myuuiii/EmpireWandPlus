@@ -1,8 +1,8 @@
-package com.myuuiii.empirewandplus.SpellEffects.Pulse;
+package com.myuuiii.empirewandplus.SpellEffects.Comet;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
+import com.myuuiii.empirewandplus.Abstracts.ProjectileSpellEffect;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
 import com.myuuiii.empirewandplus.Data.SpellNames;
 import org.bukkit.Color;
@@ -12,6 +12,8 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.meta.FireworkMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,11 +21,15 @@ import java.util.List;
 import static com.myuuiii.empirewandplus.Extensions.getFirework;
 import static com.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
-public class EmpirePulseEffect extends SpellEffect {
+public class EmpireCometProjectileEffect extends ProjectileSpellEffect {
+    //
+    // Settings
+    //
+    private static int _blindnessDuration = 50;
 
     @Override
     public Spell getSpell() {
-        return EmpireWandPlus.spellHashMap.get(SpellNames.EmpirePulse);
+        return EmpireWandPlus.spellHashMap.get(SpellNames.EmpireComet);
     }
 
     @Override
@@ -35,15 +41,21 @@ public class EmpirePulseEffect extends SpellEffect {
 
     @Override
     public void OnDeath(Entity entity, Spell spell) {
+        entity.getWorld().createExplosion(entity.getLocation(), 10, false);
+
         final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
-        for (final Entity en : near)
-            if (en instanceof LivingEntity targetEntity)
+        for (final Entity en : near) {
+            if (en instanceof LivingEntity targetEntity) {
                 targetEntity.damage(spell.getDamage());
+                targetEntity.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS,
+                        _blindnessDuration, 1, true, false));
+            }
+        }
     }
 
     @Override
     public ArrayList<Entity> getSpellEntityList() {
-        return SpellEntityLists.EMPIRE_PULSE_ENTITIES;
+        return SpellEntityLists.EMPIRE_COMET_ENTITIES;
     }
 
     private static void launchFirework(Entity e) {
@@ -53,7 +65,7 @@ public class EmpirePulseEffect extends SpellEffect {
         fwMeta.addEffect(FireworkEffect.builder()
                 .withColor(Color.fromRGB(200, 0, 230))
                 .withFade(Color.fromRGB(0, 0, 0))
-                .with(FireworkEffect.Type.BALL)
+                .with(FireworkEffect.Type.STAR)
                 .build());
         fw.setFireworkMeta(fwMeta);
         fw.detonate();

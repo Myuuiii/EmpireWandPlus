@@ -1,12 +1,13 @@
-package com.myuuiii.empirewandplus.SpellEffects.Comet;
+package com.myuuiii.empirewandplus.SpellEffects.Pulse;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
+import com.myuuiii.empirewandplus.Abstracts.ProjectileSpellEffect;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
 import com.myuuiii.empirewandplus.Data.SpellNames;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
+import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.LivingEntity;
@@ -18,38 +19,30 @@ import java.util.List;
 import static com.myuuiii.empirewandplus.Extensions.getFirework;
 import static com.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
-public class FireCometEffect extends SpellEffect {
-    //
-    // Settings
-    //
-    private static int _fireTicks = 50;
+public class FirePulseProjectileEffect extends ProjectileSpellEffect {
 
     @Override
     public Spell getSpell() {
-        return EmpireWandPlus.spellHashMap.get(SpellNames.FireComet);
+        return EmpireWandPlus.spellHashMap.get(SpellNames.FirePulse);
     }
 
     @Override
     public void WhileAlive(Entity entity, Spell spell) {
         launchFirework(entity);
+        entity.getWorld().spawnParticle(Particle.FLAME, entity.getLocation(), 50, 1, 1, 1, 0.1);
     }
 
     @Override
     public void OnDeath(Entity entity, Spell spell) {
-        entity.getWorld().createExplosion(entity.getLocation(), 3, false);
-
         final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
-        for (final Entity en : near) {
-            if (en instanceof LivingEntity targetEntity) {
+        for (final Entity en : near)
+            if (en instanceof LivingEntity targetEntity)
                 targetEntity.damage(spell.getDamage());
-                targetEntity.setFireTicks(_fireTicks);
-            }
-        }
     }
 
     @Override
     public ArrayList<Entity> getSpellEntityList() {
-        return SpellEntityLists.FIRE_COMET_ENTITIES;
+        return SpellEntityLists.FIRE_PULSE_ENTITIES;
     }
 
     private static void launchFirework(Entity s) {
@@ -59,11 +52,9 @@ public class FireCometEffect extends SpellEffect {
         fwMeta.addEffect(FireworkEffect.builder()
                 .withColor(Color.fromRGB(244, 150, 0))
                 .withFlicker()
-                .with(FireworkEffect.Type.BALL_LARGE)
                 .build());
         fwMeta.addEffect(FireworkEffect.builder()
                 .withColor(Color.fromRGB(0, 0, 0))
-                .with(FireworkEffect.Type.BALL_LARGE)
                 .build());
         fw.setFireworkMeta(fwMeta);
         fw.detonate();

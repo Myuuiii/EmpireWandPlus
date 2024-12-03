@@ -1,16 +1,17 @@
-package com.myuuiii.empirewandplus.SpellEffects.Comet;
+package com.myuuiii.empirewandplus.SpellEffects.Wave;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
+import com.myuuiii.empirewandplus.Abstracts.ProjectileSpellEffect;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
 import com.myuuiii.empirewandplus.Data.SpellNames;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
-import org.bukkit.Particle;
+import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -21,41 +22,44 @@ import java.util.List;
 import static com.myuuiii.empirewandplus.Extensions.getFirework;
 import static com.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
-public class EmpireCometEffect extends SpellEffect {
+public class PoisonWaveProjectileEffect extends ProjectileSpellEffect {
     //
     // Settings
     //
-    private static int _blindnessDuration = 50;
+    private static int _poisonDuration = 100;
 
     @Override
     public Spell getSpell() {
-        return EmpireWandPlus.spellHashMap.get(SpellNames.EmpireComet);
+        return EmpireWandPlus.spellHashMap.get(SpellNames.PoisonWave);
     }
 
     @Override
     public void WhileAlive(Entity entity, Spell spell) {
         launchFirework(entity);
-        entity.getWorld().spawnParticle(Particle.WITCH, entity.getLocation(), 250, 1, 1, 1, 0.2);
-        entity.getWorld().spawnParticle(Particle.LARGE_SMOKE, entity.getLocation(), 75, 0.5, 0.5, 0.5, 0.05);
-    }
-
-    @Override
-    public void OnDeath(Entity entity, Spell spell) {
-        entity.getWorld().createExplosion(entity.getLocation(), 10, false);
+        entity.getWorld().playSound(entity.getLocation(), Sound.BLOCK_AZALEA_BREAK, 1, 0.65f);
 
         final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
+        ;
         for (final Entity en : near) {
-            if (en instanceof LivingEntity targetEntity) {
-                targetEntity.damage(spell.getDamage());
-                targetEntity.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS,
-                        _blindnessDuration, 1, true, false));
+            if (!(en instanceof LivingEntity targetEntity))
+                return;
+            if (targetEntity instanceof Player p) {
+                if (SpellEntityLists.POISON_WAVE_PLAYERS.contains(p.getUniqueId()))
+                    continue;
             }
+            targetEntity.addPotionEffect(
+                    new PotionEffect(PotionEffectType.POISON, _poisonDuration, 1, true, false));
         }
     }
 
     @Override
+    public void OnDeath(Entity entity, Spell spell) {
+
+    }
+
+    @Override
     public ArrayList<Entity> getSpellEntityList() {
-        return SpellEntityLists.EMPIRE_COMET_ENTITIES;
+        return SpellEntityLists.POISON_WAVE_ENTITIES;
     }
 
     private static void launchFirework(Entity e) {
@@ -63,10 +67,15 @@ public class EmpireCometEffect extends SpellEffect {
         FireworkMeta fwMeta = fw.getFireworkMeta();
         fwMeta.setPower(0);
         fwMeta.addEffect(FireworkEffect.builder()
-                .withColor(Color.fromRGB(200, 0, 230))
+                .withColor(Color.fromRGB(20, 150, 0))
                 .withFade(Color.fromRGB(0, 0, 0))
-                .with(FireworkEffect.Type.STAR)
-                .build());
+                .build()
+        );
+        fwMeta.addEffect(FireworkEffect.builder()
+                .withColor(Color.fromRGB(0, 0, 0))
+                .withFade(Color.fromRGB(20, 150, 0))
+                .build()
+        );
         fw.setFireworkMeta(fwMeta);
         fw.detonate();
     }

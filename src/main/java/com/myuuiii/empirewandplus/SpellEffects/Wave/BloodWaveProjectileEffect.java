@@ -2,7 +2,7 @@ package com.myuuiii.empirewandplus.SpellEffects.Wave;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
+import com.myuuiii.empirewandplus.Abstracts.ProjectileSpellEffect;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
 import com.myuuiii.empirewandplus.Data.SpellNames;
 import org.bukkit.Color;
@@ -22,33 +22,36 @@ import java.util.List;
 import static com.myuuiii.empirewandplus.Extensions.getFirework;
 import static com.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
-public class PoisonWaveEffect extends SpellEffect {
+public class BloodWaveProjectileEffect extends ProjectileSpellEffect {
     //
     // Settings
     //
-    private static int _poisonDuration = 100;
+    private static int _witherDuration = 100;
 
     @Override
     public Spell getSpell() {
-        return EmpireWandPlus.spellHashMap.get(SpellNames.PoisonWave);
+        return EmpireWandPlus.spellHashMap.get(SpellNames.BloodWave);
     }
 
     @Override
     public void WhileAlive(Entity entity, Spell spell) {
         launchFirework(entity);
+
         entity.getWorld().playSound(entity.getLocation(), Sound.BLOCK_AZALEA_BREAK, 1, 0.65f);
+        entity.getWorld().playSound(entity.getLocation(), Sound.BLOCK_AZALEA_LEAVES_BREAK, 1, 0.65f);
 
         final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
-        ;
         for (final Entity en : near) {
             if (!(en instanceof LivingEntity targetEntity))
                 return;
-            if (targetEntity instanceof Player p) {
-                if (SpellEntityLists.POISON_WAVE_PLAYERS.contains(p.getUniqueId()))
+
+            if (targetEntity instanceof Player player) {
+                if (SpellEntityLists.BLOOD_WAVE_PLAYERS.contains(player.getUniqueId()))
                     continue;
             }
+
             targetEntity.addPotionEffect(
-                    new PotionEffect(PotionEffectType.POISON, _poisonDuration, 1, true, false));
+                    new PotionEffect(PotionEffectType.WITHER, _witherDuration, 1, true, false));
         }
     }
 
@@ -59,21 +62,23 @@ public class PoisonWaveEffect extends SpellEffect {
 
     @Override
     public ArrayList<Entity> getSpellEntityList() {
-        return SpellEntityLists.POISON_WAVE_ENTITIES;
+        return SpellEntityLists.BLOOD_WAVE_ENTITIES;
     }
 
-    private static void launchFirework(Entity e) {
-        Firework fw = getFirework(e);
+    private static void launchFirework(Entity s) {
+        Firework fw = getFirework(s);
         FireworkMeta fwMeta = fw.getFireworkMeta();
         fwMeta.setPower(0);
         fwMeta.addEffect(FireworkEffect.builder()
-                .withColor(Color.fromRGB(20, 150, 0))
-                .withFade(Color.fromRGB(0, 0, 0))
+                .withColor(Color.fromRGB(255, 0, 0))
+                .withFade(Color.BLACK)
+                .with(FireworkEffect.Type.BALL)
                 .build()
         );
         fwMeta.addEffect(FireworkEffect.builder()
-                .withColor(Color.fromRGB(0, 0, 0))
-                .withFade(Color.fromRGB(20, 150, 0))
+                .withColor(Color.fromRGB(75, 0, 0))
+                .withFade(Color.fromRGB(255, 0, 0))
+                .with(FireworkEffect.Type.BALL)
                 .build()
         );
         fw.setFireworkMeta(fwMeta);

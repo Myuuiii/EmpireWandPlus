@@ -2,7 +2,7 @@ package com.myuuiii.empirewandplus.SpellEffects.Fireball;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
+import com.myuuiii.empirewandplus.Abstracts.ProjectileSpellEffect;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
 import com.myuuiii.empirewandplus.Data.SpellNames;
 import org.bukkit.Particle;
@@ -11,7 +11,7 @@ import org.bukkit.entity.Entity;
 
 import java.util.ArrayList;
 
-public class FireballEffect extends SpellEffect {
+public class FireballEffect extends ProjectileSpellEffect {
 
     @Override
     public Spell getSpell() {

@@ -1,13 +1,13 @@
 package com.myuuiii.empirewandplus.Spells.Lightning;
 
-import com.myuuiii.empirewandplus.Abstracts.RangedSpell;
+import com.myuuiii.empirewandplus.Abstracts.ProjectileSpell;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
 import com.myuuiii.empirewandplus.Data.SpellValues;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
-public class Lightning extends RangedSpell {
+public class Lightning extends ProjectileSpell {
     @Override
     public int getRangeMultiplication() {
         return 3;

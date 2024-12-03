@@ -2,7 +2,7 @@ package com.myuuiii.empirewandplus.SpellEffects.Pulse;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
+import com.myuuiii.empirewandplus.Abstracts.ProjectileSpellEffect;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
 import com.myuuiii.empirewandplus.Data.SpellNames;
 import org.bukkit.Color;
@@ -19,17 +19,18 @@ import java.util.List;
 import static com.myuuiii.empirewandplus.Extensions.getFirework;
 import static com.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
-public class FirePulseEffect extends SpellEffect {
+public class EmpirePulseProjectileEffect extends ProjectileSpellEffect {
 
     @Override
     public Spell getSpell() {
-        return EmpireWandPlus.spellHashMap.get(SpellNames.FirePulse);
+        return EmpireWandPlus.spellHashMap.get(SpellNames.EmpirePulse);
     }
 
     @Override
     public void WhileAlive(Entity entity, Spell spell) {
         launchFirework(entity);
-        entity.getWorld().spawnParticle(Particle.FLAME, entity.getLocation(), 50, 1, 1, 1, 0.1);
+        entity.getWorld().spawnParticle(Particle.WITCH, entity.getLocation(), 250, 1, 1, 1, 0.2);
+        entity.getWorld().spawnParticle(Particle.LARGE_SMOKE, entity.getLocation(), 75, 0.5, 0.5, 0.5, 0.05);
     }
 
     @Override
@@ -42,19 +43,17 @@ public class FirePulseEffect extends SpellEffect {
 
     @Override
     public ArrayList<Entity> getSpellEntityList() {
-        return SpellEntityLists.FIRE_PULSE_ENTITIES;
+        return SpellEntityLists.EMPIRE_PULSE_ENTITIES;
     }
 
-    private static void launchFirework(Entity s) {
-        Firework fw = getFirework(s);
+    private static void launchFirework(Entity e) {
+        Firework fw = getFirework(e);
         FireworkMeta fwMeta = fw.getFireworkMeta();
         fwMeta.setPower(0);
         fwMeta.addEffect(FireworkEffect.builder()
-                .withColor(Color.fromRGB(244, 150, 0))
-                .withFlicker()
-                .build());
-        fwMeta.addEffect(FireworkEffect.builder()
-                .withColor(Color.fromRGB(0, 0, 0))
+                .withColor(Color.fromRGB(200, 0, 230))
+                .withFade(Color.fromRGB(0, 0, 0))
+                .with(FireworkEffect.Type.BALL)
                 .build());
         fw.setFireworkMeta(fwMeta);
         fw.detonate();

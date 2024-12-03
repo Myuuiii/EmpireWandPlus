@@ -1,14 +1,14 @@
 package com.myuuiii.empirewandplus.Abstracts;
 
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.Interfaces.IRangedSpell;
+import com.myuuiii.empirewandplus.Interfaces.IProjectileSpell;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowball;
 import org.bukkit.scheduler.BukkitRunnable;
 
-public abstract class RangedSpell extends Spell implements IRangedSpell {
+public abstract class ProjectileSpell extends Spell implements IProjectileSpell {
 
     public abstract int getRangeMultiplication();
 
