@@ -16,15 +16,15 @@ public abstract class Spell implements ISpell {
 
         atExecutingLocation(loc, p);
 
-        final List<Entity> nearbyEntities = getNearbyEntities(getCloseRange(), loc);
+        final List<Entity> nearbyEntities = getNearbyEntities(getInRangeDistance(), loc);
         for (Entity e : nearbyEntities) {
             forAllNearbyEntities(e, loc, p);
         }
     }
 
-    public abstract int getReach();
+    public abstract int getMaxReach();
 
-    public abstract double getCloseRange();
+    public abstract double getInRangeDistance();
 
     public abstract double getDamage();
 }

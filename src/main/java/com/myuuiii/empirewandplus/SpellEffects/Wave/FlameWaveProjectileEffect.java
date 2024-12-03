@@ -2,7 +2,7 @@ package com.myuuiii.empirewandplus.SpellEffects.Wave;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
+import com.myuuiii.empirewandplus.Abstracts.ProjectileSpellEffect;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
 import com.myuuiii.empirewandplus.Data.SpellNames;
 import org.bukkit.Particle;
@@ -16,7 +16,7 @@ import java.util.List;
 
 import static com.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
-public class FlameWaveEffect extends SpellEffect {
+public class FlameWaveProjectileEffect extends ProjectileSpellEffect {
     //
     // Settings
     //
@@ -34,7 +34,7 @@ public class FlameWaveEffect extends SpellEffect {
 
         entity.getWorld().playSound(entity.getLocation(), Sound.ENTITY_DROWNED_DEATH, 1, 0.65f);
 
-        final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
+        final List<Entity> near = getNearbyEntities(spell.getInRangeDistance(), entity);
         for (final Entity en : near) {
             if (!(en instanceof LivingEntity targetEntity))
                 return;

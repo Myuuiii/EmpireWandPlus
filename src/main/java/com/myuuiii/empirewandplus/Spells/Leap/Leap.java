@@ -14,12 +14,12 @@ public class Leap extends Spell {
     private int cloudParticleCount = 100;
 
     @Override
-    public int getReach() {
+    public int getMaxReach() {
         return 10;
     }
 
     @Override
-    public double getCloseRange() {
+    public double getInRangeDistance() {
         return 10;
     }
 

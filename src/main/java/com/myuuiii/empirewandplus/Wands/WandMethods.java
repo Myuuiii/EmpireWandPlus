@@ -41,7 +41,7 @@ public class WandMethods {
             Spell spell = EmpireWandPlus.spellHashMap.get(wand.getItemMeta().getLore().get(0));
 
             // Get the target location
-            final Location loc = p.getTargetBlock(null, spell.getReach()).getLocation();
+            final Location loc = p.getTargetBlock(null, spell.getMaxReach()).getLocation();
 
             // Execute the spell given the targeted location and player
             spell.Execute(loc, p);

@@ -1,13 +1,12 @@
 package com.myuuiii.empirewandplus.Abstracts;
 
-import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
 import org.bukkit.entity.Entity;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 
-public abstract class SpellEffect {
+public abstract class ProjectileSpellEffect {
     public void Execute(Entity entity) {
         Spell spell = getSpell();
         new BukkitRunnable() {

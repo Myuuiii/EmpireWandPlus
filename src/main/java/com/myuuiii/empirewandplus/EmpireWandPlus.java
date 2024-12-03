@@ -1,7 +1,7 @@
 package com.myuuiii.empirewandplus;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
-import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
+import com.myuuiii.empirewandplus.Abstracts.ProjectileSpellEffect;
 import com.myuuiii.empirewandplus.Abstracts.Wand;
 import com.myuuiii.empirewandplus.Commands.WandCommand;
 import com.myuuiii.empirewandplus.Commands.WandCommandCompleter;
@@ -28,7 +28,7 @@ public final class EmpireWandPlus extends JavaPlugin {
 
     public static EmpireWandPlus _plugin;
     public static HashMap<String, Spell> spellHashMap = getSpellHashMap();
-    public static HashMap<String, SpellEffect> spellEffectHashMap = getSpellEffectHashMap();
+    public static HashMap<String, ProjectileSpellEffect> spellEffectHashMap = getSpellEffectHashMap();
     public static String Prefix = colorText("&8[&6EmpireWandPlus&8]&r ");
     public static String PermissionPrefix = "empirewandplus.";
 

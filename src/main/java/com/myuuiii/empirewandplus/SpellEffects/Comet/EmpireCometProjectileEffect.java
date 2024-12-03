@@ -1,17 +1,19 @@
-package com.myuuiii.empirewandplus.SpellEffects.Lightning;
+package com.myuuiii.empirewandplus.SpellEffects.Comet;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.Abstracts.SpellEffect;
+import com.myuuiii.empirewandplus.Abstracts.ProjectileSpellEffect;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
 import com.myuuiii.empirewandplus.Data.SpellNames;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Particle;
-import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Firework;
+import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.meta.FireworkMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,37 +21,41 @@ import java.util.List;
 import static com.myuuiii.empirewandplus.Extensions.getFirework;
 import static com.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
-public class LightningEffect extends SpellEffect {
+public class EmpireCometProjectileEffect extends ProjectileSpellEffect {
     //
     // Settings
     //
-    private static int _explosionSize = 3;
+    private static int _blindnessDuration = 50;
 
     @Override
     public Spell getSpell() {
-        return EmpireWandPlus.spellHashMap.get(SpellNames.Lightning);
+        return EmpireWandPlus.spellHashMap.get(SpellNames.EmpireComet);
     }
 
     @Override
     public void WhileAlive(Entity entity, Spell spell) {
         launchFirework(entity);
-        entity.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME, entity.getLocation(), 250, 0.1, 0.1, 0.1, 0.1);
+        entity.getWorld().spawnParticle(Particle.WITCH, entity.getLocation(), 250, 1, 1, 1, 0.2);
+        entity.getWorld().spawnParticle(Particle.LARGE_SMOKE, entity.getLocation(), 75, 0.5, 0.5, 0.5, 0.05);
     }
 
     @Override
     public void OnDeath(Entity entity, Spell spell) {
-        entity.getWorld().strikeLightning(entity.getLocation());
-        entity.getWorld().createExplosion(entity.getLocation(), _explosionSize);
-        final List<Entity> near = getNearbyEntities(spell.getCloseRange(), entity);
+        entity.getWorld().createExplosion(entity.getLocation(), 10, false);
+
+        final List<Entity> near = getNearbyEntities(spell.getInRangeDistance(), entity);
         for (final Entity en : near) {
-            if (en instanceof Damageable targetEntity)
+            if (en instanceof LivingEntity targetEntity) {
                 targetEntity.damage(spell.getDamage());
+                targetEntity.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS,
+                        _blindnessDuration, 1, true, false));
+            }
         }
     }
 
     @Override
     public ArrayList<Entity> getSpellEntityList() {
-        return SpellEntityLists.LIGHTNING_ENTITIES;
+        return SpellEntityLists.EMPIRE_COMET_ENTITIES;
     }
 
     private static void launchFirework(Entity e) {
@@ -57,8 +63,9 @@ public class LightningEffect extends SpellEffect {
         FireworkMeta fwMeta = fw.getFireworkMeta();
         fwMeta.setPower(0);
         fwMeta.addEffect(FireworkEffect.builder()
-                .withColor(Color.fromBGR(255, 255, 255))
-                .withTrail()
+                .withColor(Color.fromRGB(200, 0, 230))
+                .withFade(Color.fromRGB(0, 0, 0))
+                .with(FireworkEffect.Type.STAR)
                 .build());
         fw.setFireworkMeta(fwMeta);
         fw.detonate();

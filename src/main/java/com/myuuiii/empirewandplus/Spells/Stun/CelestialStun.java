@@ -17,12 +17,12 @@ public class CelestialStun extends Spell {
     private static int _slowDuration = 100;
 
     @Override
-    public int getReach() {
+    public int getMaxReach() {
         return SpellValues.STUN_REACH;
     }
 
     @Override
-    public double getCloseRange() {
+    public double getInRangeDistance() {
         return 3;
     }
 

@@ -1,13 +1,13 @@
 package com.myuuiii.empirewandplus.Spells.Pulse;
 
-import com.myuuiii.empirewandplus.Abstracts.RangedSpell;
+import com.myuuiii.empirewandplus.Abstracts.ProjectileSpell;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
 import com.myuuiii.empirewandplus.Data.SpellValues;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
-public class FirePulse extends RangedSpell {
+public class FirePulse extends ProjectileSpell {
     @Override
     public int getRangeMultiplication() {
         return 2;
@@ -34,12 +34,12 @@ public class FirePulse extends RangedSpell {
     }
 
     @Override
-    public int getReach() {
+    public int getMaxReach() {
         return SpellValues.RANGED_REACH;
     }
 
     @Override
-    public double getCloseRange() {
+    public double getInRangeDistance() {
         return 3;
     }
 

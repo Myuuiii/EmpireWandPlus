@@ -1,6 +1,6 @@
 package com.myuuiii.empirewandplus.Spells.Spark;
 
-import com.myuuiii.empirewandplus.Abstracts.FireworksSpell;
+import com.myuuiii.empirewandplus.Abstracts.SparkSpellBase;
 import com.myuuiii.empirewandplus.Data.SpellValues;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.FireworkMeta;
 
 import static com.myuuiii.empirewandplus.Extensions.getFirework;
 
-public class Spark extends FireworksSpell {
+public class Spark extends SparkSpellBase {
     @Override
     public void LaunchSpellFirework(Location loc, Player p) {
         Firework fw = getFirework(p, loc);
@@ -30,12 +30,12 @@ public class Spark extends FireworksSpell {
     }
 
     @Override
-    public int getReach() {
+    public int getMaxReach() {
         return SpellValues.SPARK_REACH;
     }
 
     @Override
-    public double getCloseRange() {
+    public double getInRangeDistance() {
         return 3;
     }
 
