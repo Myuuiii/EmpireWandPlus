@@ -73,10 +73,14 @@ public abstract class Wand {
 
             SwitchEffects(e);
 
-            List<String> spells = new ArrayList<String>();
-            if (wand instanceof EmpireWand) spells = new EmpireWand().Spells;
-            else if (wand instanceof BloodWand) spells = new BloodWand().Spells;
-            else if (wand instanceof ElementosWand) spells = new ElementosWand().Spells;
+            List<String> spells = null;
+            if (wand instanceof EmpireWand) spells = EmpireWand.Spells;
+            else if (wand instanceof BloodWand) spells = BloodWand.Spells;
+            else if (wand instanceof ElementosWand) spells = ElementosWand.Spells;
+            else {
+                p.sendMessage(ChatColor.RED + "No spell set found for this wand!");
+                return;
+            }
 
             CycleSpell(p, wandItemStack, wandMeta, spells, wand);
 
