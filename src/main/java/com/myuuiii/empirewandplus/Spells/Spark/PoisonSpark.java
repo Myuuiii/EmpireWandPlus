@@ -1,6 +1,6 @@
 package com.myuuiii.empirewandplus.Spells.Spark;
 
-import com.myuuiii.empirewandplus.Abstracts.FireworksSpell;
+import com.myuuiii.empirewandplus.Abstracts.SparkSpellBase;
 import com.myuuiii.empirewandplus.Data.SpellValues;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
@@ -17,7 +17,7 @@ import org.bukkit.potion.PotionEffectType;
 
 import static com.myuuiii.empirewandplus.Extensions.getFirework;
 
-public class PoisonSpark extends FireworksSpell {
+public class PoisonSpark extends SparkSpellBase {
 
     private static int _poisonDuration = 150;
 
