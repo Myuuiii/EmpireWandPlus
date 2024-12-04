@@ -5,7 +5,7 @@
 
 ---
 
-# Aiming it immitate the wands and spells you're used to
+# Aiming to immitate the wands and spells you're used to
 
 We don't decompile other plugins to steal their effects, everything in here is made just by looking at old footage, and trying to recreate the effects as closely as possible. This plugin is a work in progress, and I'm always looking for feedback on how to improve it.
 
