@@ -12,6 +12,8 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import javax.naming.Name;
+
 import static com.myuuiii.empirewandplus.Extensions.colorText;
 
 import java.util.ArrayList;
@@ -19,6 +21,9 @@ import java.util.List;
 
 
 public class BloodWand extends Wand {
+    
+    public final static String Identifier = "Blood";
+    
     public static List<String> Spells = new ArrayList<>() {
         {
             add(SpellNames.Spark);
@@ -26,8 +31,6 @@ public class BloodWand extends Wand {
             add(SpellNames.BloodWave);
         }
     };
-
-    public final String permissionBase = EmpireWandPlus.PermissionPrefix + "bloodwand.";
 
     @Override
     public String getDisplayName() {
@@ -51,6 +54,11 @@ public class BloodWand extends Wand {
         });
         wand.setItemMeta(wandMeta);
         return wand;
+    }
+
+    @Override
+    public String getPermissionBase() {
+        return EmpireWandPlus.PermissionPrefix + "blood.";
     }
 
     @Override

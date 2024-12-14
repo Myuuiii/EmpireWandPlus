@@ -1,5 +1,8 @@
 package com.myuuiii.empirewandplus.Commands;
 
+import com.myuuiii.empirewandplus.Wands.BloodWand;
+import com.myuuiii.empirewandplus.Wands.ElementosWand;
+import com.myuuiii.empirewandplus.Wands.EmpireWand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
@@ -15,7 +18,7 @@ public class WandCommandCompleter implements TabCompleter {
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
         if (args.length == 1) {
             return StringUtil.copyPartialMatches(args[0],
-                    Arrays.asList("Empire", "Blood", "Elementos"), new ArrayList<>());
+                    Arrays.asList(EmpireWand.Identifier, BloodWand.Identifier, ElementosWand.Identifier), new ArrayList<>());
         }
         return null;
     }

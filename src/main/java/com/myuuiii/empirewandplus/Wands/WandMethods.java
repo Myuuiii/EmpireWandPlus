@@ -36,7 +36,7 @@ public class WandMethods {
     public static void ExecuteSpellOnLeftClick(PlayerInteractEvent e, Player p, ItemStack wand) {
         if (e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK) {
             e.setCancelled(true);
-
+            
             // Retrieve the spell that is to be executed
             Spell spell = EmpireWandPlus.spellHashMap.get(wand.getItemMeta().getLore().get(0));
 

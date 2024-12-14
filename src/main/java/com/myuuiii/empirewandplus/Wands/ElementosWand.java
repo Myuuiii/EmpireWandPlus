@@ -20,6 +20,8 @@ import java.util.List;
 
 public class ElementosWand extends Wand {
 
+    public final static String Identifier = "Elementos";
+
     public static List<String> Spells = new ArrayList<>() {
         {
             add(SpellNames.Spark);
@@ -30,8 +32,6 @@ public class ElementosWand extends Wand {
             add(SpellNames.KajCloud);
         }
     };
-
-    public final String permissionBase = EmpireWandPlus.PermissionPrefix + "elementoswand.";
 
     @Override
     public String getDisplayName() {
@@ -56,6 +56,11 @@ public class ElementosWand extends Wand {
         });
         wand.setItemMeta(wandMeta);
         return wand;
+    }
+
+    @Override
+    public String getPermissionBase() {
+        return EmpireWandPlus.PermissionPrefix + "elementos.";
     }
 
     @Override

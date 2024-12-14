@@ -14,12 +14,11 @@ import com.myuuiii.empirewandplus.Wands.BloodWand;
 import com.myuuiii.empirewandplus.Wands.ElementosWand;
 import com.myuuiii.empirewandplus.Wands.EmpireWand;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Wand {
     public List<String> Spells;
-    public String permissionBase = "";
+    public String Identifier = "";
 
     public abstract String getDisplayName();
 
@@ -28,16 +27,18 @@ public abstract class Wand {
     public abstract ItemStack getItem();
 
     // Permission Names
-    public String getObtainPermissionName() {
-        return permissionBase + "obtain";
-    }
+    public abstract String getPermissionBase();
 
     public String getUsePermissionName() {
-        return permissionBase + "use";
+        return getPermissionBase() + "use";
     }
 
     public String getSwitchSpellPermissionName() {
-        return permissionBase + "switch";
+        return getPermissionBase() + "switch";
+    }
+    
+    public String getObtainPermissionName() {
+        return getPermissionBase() + "obtain";
     }
 
     public boolean checkWandHeldState(final PlayerInteractEvent playerInteractionEvent, final Wand wand) {
