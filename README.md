@@ -49,6 +49,24 @@ This plugin will always be free, and open source.
 
 ---
 
+
+# How to use
+
+## Commands
+
+You can use the `/wand` command followed by any available wand name (using the tab autocomplete menu) to obtain the given wand. Spells are automatically bound to the wand, unbinding and rebinding spells to specific wands will be available in the future.
+
+## Permissions
+
+There are a few permissions you can use to prevent certain actions from being executed by players. The format for the permissions is as follows: `<wand_base>.<permission>`.
+
+The values for `<wand_base>` are: `blood`, `empire`, `elementos`
+
+The values for `<permission>` are: `use`, `switch`, `obtain`.
+
+The `use` permission allows the wielder of the wand to cast spells using the wand. The `switch` permission allows the wielder of the wand to switch the currently active spell of a wand. The `obtain` permission allows a user to use the `/wand` command to obtain the `<wand_base>` wand.
+
+
 # Contributors & Contributing
 
 This plugin is open source, and I'm always looking for help. If you want to contribute, feel free to fork the repository, and make a pull request. Be sure to target your pull request to the `develop` branch. If you're not a developer, you can still help by reporting issues, or suggesting new features.
