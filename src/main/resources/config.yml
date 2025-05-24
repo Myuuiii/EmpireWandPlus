@@ -18,26 +18,26 @@ messages:
   # Prefix configuration for each wand type
   # These appear before messages related to specific wands
   prefix:
-    blood: "&8[&cBlood Wand&8]&r "    # Dark gray brackets with red text
-    empire: "&8[&6Empire Wand&8]&r "   # Dark gray brackets with gold text
-    elementos: "&8[&bElementos Wand&8]&r " # Dark gray brackets with aqua text
+    blood: "&8[&cBlood Wand&8]&r "
+    empire: "&8[&6Empire Wand&8]&r "
+    elementos: "&8[&bElementos Wand&8]&r "
 
   # Display names for the wands when they appear in inventory
   display-names:
-    blood: "&cBlood Wand"      # Red text
-    empire: "&6Empire Wand"     # Gold text
-    elementos: "&bElementos Wand" # Aqua text
+    blood: "&cBlood Wand"
+    empire: "&6Empire Wand"
+    elementos: "&bElementos Wand"
 
   # Error messages shown to players
   errors:
-    no-permission: "&cYou're not allowed to use that!"      # Red error message
-    inventory-full: "&cYour inventory is full!"             # Red error message
-    invalid-wand: "&cInvalid wand type!"                    # Red error message
-    no-switch-permission: "&cYou're not allowed to switch spells!" # Red error message
-    no-spell-set: "&cNo spell set found for this wand!"     # Red error message
+    no-permission: "&cYou're not allowed to use that!"
+    inventory-full: "&cYour inventory is full!"
+    invalid-wand: "&cInvalid wand type!"
+    no-switch-permission: "&cYou're not allowed to switch spells!"
+    no-spell-set: "&cNo spell set found for this wand!"
 
   # Success messages
   success:
     # {article} will be replaced with "a" or "an"
     # {wand-name} will be replaced with the wand's display name
-    wand-given: "&7You have been given {article} {wand-name}" # Gray text with variable replacement
+    wand-given: "&7You have been given {article} {wand-name}"
