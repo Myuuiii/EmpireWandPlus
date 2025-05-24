@@ -22,7 +22,9 @@ public class BloodWand extends Wand {
     public final static String Identifier = "Blood";
     
     public static List<String> Spells = new ArrayList<>();
-    static {
+
+    public static void loadSpellsFromConfig() {
+        Spells.clear();
         FileConfiguration config = com.myuuiii.empirewandplus.EmpireWandPlus._plugin.getConfig();
         List<String> configSpells = config.getStringList("wands.Blood.spells");
         if (configSpells != null && !configSpells.isEmpty()) {

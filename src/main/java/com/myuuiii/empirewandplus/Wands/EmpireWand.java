@@ -22,8 +22,9 @@ public class EmpireWand extends Wand {
     public final static String Identifier = "Empire";
 
     public static List<String> Spells = new ArrayList<>();
-    static {
-        // Try to load from config, fallback to hardcoded list
+
+    public static void loadSpellsFromConfig() {
+        Spells.clear();
         FileConfiguration config = com.myuuiii.empirewandplus.EmpireWandPlus._plugin.getConfig();
         List<String> configSpells = config.getStringList("wands.Empire.spells");
         if (configSpells != null && !configSpells.isEmpty()) {

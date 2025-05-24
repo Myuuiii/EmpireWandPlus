@@ -50,8 +50,13 @@ public final class EmpireWandPlus extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         _plugin = this;
-        MessagesManager.loadMessages(this);
         ConfigManager.loadConfig(this);
+        MessagesManager.loadMessages(this);
+
+        // Load spells for all wands after _plugin is set and config is loaded
+        com.myuuiii.empirewandplus.Wands.EmpireWand.loadSpellsFromConfig();
+        com.myuuiii.empirewandplus.Wands.BloodWand.loadSpellsFromConfig();
+        com.myuuiii.empirewandplus.Wands.ElementosWand.loadSpellsFromConfig();
 
         registerCommands();
         registerListeners(
