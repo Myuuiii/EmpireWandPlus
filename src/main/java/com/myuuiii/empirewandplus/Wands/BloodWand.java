@@ -4,7 +4,6 @@ import com.myuuiii.empirewandplus.Abstracts.Wand;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
 import com.myuuiii.empirewandplus.Data.SpellNames;
 import com.myuuiii.empirewandplus.Managers.ConfigManager;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
@@ -12,10 +11,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-
-import javax.naming.Name;
-
-import static com.myuuiii.empirewandplus.Extensions.colorText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,12 +30,12 @@ public class BloodWand extends Wand {
 
     @Override
     public String getDisplayName() {
-        return colorText(ConfigManager.getWandDisplayName("blood"));
+        return ConfigManager.getWandDisplayName("blood");
     }
 
     @Override
     public String getPrefix() {
-        return colorText(ConfigManager.getWandPrefix("blood"));
+        return ConfigManager.getWandPrefix("blood");
     }
 
     @Override

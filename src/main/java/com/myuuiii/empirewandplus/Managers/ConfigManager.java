@@ -7,6 +7,8 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.io.IOException;
 
+import static com.myuuiii.empirewandplus.Extensions.colorText;
+
 public class ConfigManager {
     private static FileConfiguration config;
     private static FileConfiguration messages;
@@ -25,26 +27,26 @@ public class ConfigManager {
     }
 
     public static String getWandCommandMessage(String key) {
-        return messages.getString("commands.wand." + key, "&cMessage not found!");
+        return colorText(messages.getString("commands.wand." + key, "&cMessage not found!"));
     }
 
     public static String getWandGivenMessage(String wandName, boolean startsWithVowel) {
         String template = messages.getString("commands.wand.given", "&7You have been given {article} {wand-name}");
         String article = startsWithVowel ? "an" : "a";
-        return template.replace("{article}", article).replace("{wand-name}", wandName);
+        return colorText(template.replace("{article}", article).replace("{wand-name}", wandName));
     }
 
     // Add other getters for messages as needed, e.g. errors, prefixes, etc.
     public static String getErrorMessage(String key) {
-        return messages.getString("errors." + key, "&cError message not found!");
+        return colorText(messages.getString("errors." + key, "&cError message not found!"));
     }
 
     public static String getWandPrefix(String wandType) {
-        return messages.getString("prefix." + wandType, "");
+        return colorText(messages.getString("prefix." + wandType, ""));
     }
 
     public static String getWandDisplayName(String wandType) {
-        return messages.getString("display-names." + wandType, "");
+        return colorText(messages.getString("display-names." + wandType, ""));
     }
 
     public static FileConfiguration getConfig() {
