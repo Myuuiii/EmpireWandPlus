@@ -1,0 +1,17 @@
+messages:
+  prefix:
+    blood: "&8[&cBlood Wand&8]&r "
+    empire: "&8[&6Empire Wand&8]&r "
+    elementos: "&8[&bElementos Wand&8]&r "
+  display-names:
+    blood: "&cBlood Wand"
+    empire: "&6Empire Wand"
+    elementos: "&bElementos Wand"
+  errors:
+    no-permission: "&cYou're not allowed to use that!"
+    inventory-full: "&cYour inventory is full!"
+    invalid-wand: "&cInvalid wand type!"
+    no-switch-permission: "&cYou're not allowed to switch spells!"
+    no-spell-set: "&cNo spell set found for this wand!"
+  success:
+    wand-given: "&7You have been given {article} {wand-name}"

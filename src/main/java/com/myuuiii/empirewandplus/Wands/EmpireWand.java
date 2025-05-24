@@ -3,6 +3,7 @@ package com.myuuiii.empirewandplus.Wands;
 import com.myuuiii.empirewandplus.Abstracts.Wand;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
 import com.myuuiii.empirewandplus.Data.SpellNames;
+import com.myuuiii.empirewandplus.Managers.ConfigManager;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -63,12 +64,12 @@ public class EmpireWand extends Wand {
 
     @Override
     public String getDisplayName() {
-        return ChatColor.GOLD + "Empire Wand";
+        return colorText(ConfigManager.getWandDisplayName("empire"));
     }
     
     @Override
     public String getPrefix() {
-        return colorText("&8[&6Empire Wand&8]&r ");
+        return colorText(ConfigManager.getWandPrefix("empire"));
     }
 
     @Override

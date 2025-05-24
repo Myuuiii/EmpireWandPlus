@@ -9,6 +9,7 @@ import com.myuuiii.empirewandplus.Listeners.EntityDamagedByEntityEvent;
 import com.myuuiii.empirewandplus.Listeners.FallDamageListener;
 import com.myuuiii.empirewandplus.Listeners.InteractionListener;
 import com.myuuiii.empirewandplus.Listeners.ProjectileListener;
+import com.myuuiii.empirewandplus.Managers.ConfigManager;
 import com.myuuiii.empirewandplus.SpellEffects.Cloud.KajCloudEffect;
 import com.myuuiii.empirewandplus.Wands.BloodWand;
 import com.myuuiii.empirewandplus.Wands.ElementosWand;
@@ -48,6 +49,7 @@ public final class EmpireWandPlus extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         _plugin = this;
+        ConfigManager.initialize(this);
 
         registerCommands();
         registerListeners(

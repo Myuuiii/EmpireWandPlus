@@ -3,6 +3,7 @@ package com.myuuiii.empirewandplus.Wands;
 import com.myuuiii.empirewandplus.Abstracts.Wand;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
 import com.myuuiii.empirewandplus.Data.SpellNames;
+import com.myuuiii.empirewandplus.Managers.ConfigManager;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -34,12 +35,12 @@ public class BloodWand extends Wand {
 
     @Override
     public String getDisplayName() {
-        return ChatColor.RED + "Blood Wand";
+        return colorText(ConfigManager.getWandDisplayName("blood"));
     }
 
     @Override
     public String getPrefix() {
-        return colorText("&8[&cBlood Wand&8]&r ");
+        return colorText(ConfigManager.getWandPrefix("blood"));
     }
 
     @Override
