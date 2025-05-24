@@ -15,6 +15,7 @@ import com.myuuiii.empirewandplus.Wands.ElementosWand;
 import com.myuuiii.empirewandplus.Wands.EmpireWand;
 
 import java.util.List;
+import com.myuuiii.empirewandplus.Managers.ConfigManager;
 
 public abstract class Wand {
     public List<String> Spells;
@@ -63,7 +64,7 @@ public abstract class Wand {
             return;
 
         if (!p.hasPermission(wand.getUsePermissionName())) {
-            p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
+            p.sendMessage(ConfigManager.getErrorMessage("no-permission"));
             return;
         }
 
@@ -71,7 +72,6 @@ public abstract class Wand {
         final ItemMeta wandMeta = wandItemStack.getItemMeta();
 
         if (IsRightClickInteraction(e)) {
-
             SwitchEffects(e);
 
             List<String> spells = null;
@@ -79,17 +79,16 @@ public abstract class Wand {
             else if (wand instanceof BloodWand) spells = BloodWand.Spells;
             else if (wand instanceof ElementosWand) spells = ElementosWand.Spells;
             else {
-                p.sendMessage(ChatColor.RED + "No spell set found for this wand!");
+            p.sendMessage(ConfigManager.getErrorMessage("no-spell-set"));
                 return;
             }
 
             if (!p.hasPermission(wand.getSwitchSpellPermissionName())) {
-                p.sendMessage(ChatColor.RED + "You're not allowed to switch spells!");
+                p.sendMessage(ConfigManager.getErrorMessage("no-switch-permission"));
                 return;
             }
-            
+        
             CycleSpell(p, wandItemStack, wandMeta, spells, wand);
-
             return;
         }
 
