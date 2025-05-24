@@ -1,7 +1,7 @@
 package com.myuuiii.empirewandplus.Commands;
 
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.Managers.ConfigManager;
+import com.myuuiii.empirewandplus.Managers.MessagesManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,36 +15,36 @@ public class WandCommand implements CommandExecutor {
         }
 
         if (args.length != 1) {
-            player.sendMessage(EmpireWandPlus.Prefix + ConfigManager.getWandCommandMessage("usage"));
+            player.sendMessage(EmpireWandPlus.Prefix + MessagesManager.getWandCommandMessage("usage"));
             return false;
         }
 
         String wandType = args[0].toLowerCase();
         if (!EmpireWandPlus.wandHashMap.containsKey(wandType)) {
-            player.sendMessage(EmpireWandPlus.Prefix + ConfigManager.getWandCommandMessage("invalid-wand"));
+            player.sendMessage(EmpireWandPlus.Prefix + MessagesManager.getWandCommandMessage("invalid-wand"));
             return false;
         }
 
         if (player.getInventory().firstEmpty() == -1) {
-            player.sendMessage(EmpireWandPlus.Prefix + ConfigManager.getWandCommandMessage("inventory-full"));
+            player.sendMessage(EmpireWandPlus.Prefix + MessagesManager.getWandCommandMessage("inventory-full"));
             return false;
         }
 
         var wand = EmpireWandPlus.wandHashMap.get(wandType);
         if (!player.hasPermission(wand.getObtainPermissionName())) {
-            player.sendMessage(EmpireWandPlus.Prefix + ConfigManager.getWandCommandMessage("no-permission"));
+            player.sendMessage(EmpireWandPlus.Prefix + MessagesManager.getWandCommandMessage("no-permission"));
             return false;
         }
 
         player.getInventory().addItem(wand.getItem());
-        
+
         boolean startsWithVowel = switch (wandType) {
             case "empire", "elementos" -> true;
             default -> false;
         };
-        
-        player.sendMessage(EmpireWandPlus.Prefix + 
-            ConfigManager.getWandGivenMessage(wand.getDisplayName(), startsWithVowel));
+
+        player.sendMessage(EmpireWandPlus.Prefix +
+                MessagesManager.getWandGivenMessage(wand.getDisplayName(), startsWithVowel));
 
         return true;
     }

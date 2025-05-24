@@ -1,9 +1,9 @@
 package com.myuuiii.empirewandplus.Wands;
 
 import com.myuuiii.empirewandplus.Abstracts.Wand;
-import com.myuuiii.empirewandplus.EmpireWandPlus;
 import com.myuuiii.empirewandplus.Data.SpellNames;
-import com.myuuiii.empirewandplus.Managers.ConfigManager;
+import com.myuuiii.empirewandplus.EmpireWandPlus;
+import com.myuuiii.empirewandplus.Managers.MessagesManager;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
@@ -61,12 +61,12 @@ public class EmpireWand extends Wand {
 
     @Override
     public String getDisplayName() {
-        return ConfigManager.getWandDisplayName("empire");
+        return MessagesManager.getWandDisplayName("empire");
     }
 
     @Override
     public String getPrefix() {
-        return ConfigManager.getWandPrefix("empire");
+        return MessagesManager.getWandPrefix("empire");
     }
 
     @Override

@@ -1,9 +1,9 @@
 package com.myuuiii.empirewandplus.Wands;
 
 import com.myuuiii.empirewandplus.Abstracts.Wand;
-import com.myuuiii.empirewandplus.EmpireWandPlus;
 import com.myuuiii.empirewandplus.Data.SpellNames;
-import com.myuuiii.empirewandplus.Managers.ConfigManager;
+import com.myuuiii.empirewandplus.EmpireWandPlus;
+import com.myuuiii.empirewandplus.Managers.MessagesManager;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
@@ -30,12 +30,12 @@ public class BloodWand extends Wand {
 
     @Override
     public String getDisplayName() {
-        return ConfigManager.getWandDisplayName("blood");
+        return MessagesManager.getWandDisplayName("blood");
     }
 
     @Override
     public String getPrefix() {
-        return ConfigManager.getWandPrefix("blood");
+        return MessagesManager.getWandPrefix("blood");
     }
 
     @Override
