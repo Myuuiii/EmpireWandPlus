@@ -16,7 +16,43 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>mc1.21.5</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <minecraft.version>1.21.5-R0.1-SNAPSHOT</minecraft.version>
+                <minecraft.short.version>1.21.5</minecraft.short.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>mc1.21.4</id>
+            <properties>
+                <minecraft.version>1.21.4-R0.1-SNAPSHOT</minecraft.version>
+                <minecraft.short.version>1.21.4</minecraft.short.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>mc1.21.3</id>
+            <properties>
+                <minecraft.version>1.21.3-R0.1-SNAPSHOT</minecraft.version>
+                <minecraft.short.version>1.21.3</minecraft.short.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>mc1.21.2</id>
+            <properties>
+                <minecraft.version>1.21.2-R0.1-SNAPSHOT</minecraft.version>
+                <minecraft.short.version>1.21.2</minecraft.short.version>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
+        <directory>target/minecraft-${minecraft.short.version}</directory>
+        <finalName>${artifactId}-${version}-mc${minecraft.short.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -39,6 +75,7 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <finalName>${project.build.finalName}-shaded</finalName>
                         </configuration>
                     </execution>
                 </executions>
@@ -67,7 +104,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.21.5-R0.1-SNAPSHOT</version>
+            <version>${minecraft.version}</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
