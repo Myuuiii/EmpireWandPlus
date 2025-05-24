@@ -1,0 +1,41 @@
+# EmpireWandPlus Configuration
+
+# Wand Spell Bindings
+wands:
+  Empire:
+    spells:
+      - Spark
+      - Empire Spark
+      - Blood Spark
+      - Poison Spark
+      - Blood Wave
+      - Poison Wave
+      - Flame Wave
+      - Empire Confuse
+      - Celestial Confuse
+      - Empire Stun
+      - Celestial Stun
+      - Capture
+      - Empire Comet
+      - Fire Comet
+      - Fire Pulse
+      - Empire Pulse
+      - Fireball
+      - Ignite
+      - Launch
+      - Leap
+      - Lightning
+      - Smite
+  Blood:
+    spells:
+      - Spark
+      - Blood Spark
+      - Blood Wave
+  Elementos:
+    spells:
+      - Spark
+      - Celestial Confuse
+      - Celestial Stun
+      - Lightning
+      - Smite
+      - Kaj Cloud
