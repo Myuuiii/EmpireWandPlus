@@ -1,46 +1,57 @@
 package com.myuuiii.empirewandplus.Managers;
 
+import com.myuuiii.empirewandplus.EmpireWandPlus;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.plugin.Plugin;
+import org.bukkit.configuration.file.YamlConfiguration;
 
-import static com.myuuiii.empirewandplus.Extensions.colorText;
+import java.io.File;
+import java.io.IOException;
 
 public class ConfigManager {
     private static FileConfiguration config;
+    private static FileConfiguration messages;
 
-    public static void initialize(Plugin plugin) {
+    public static void loadConfigs(EmpireWandPlus plugin) {
+        // Load config.yml
         plugin.saveDefaultConfig();
         config = plugin.getConfig();
-    }
 
-    public static String getWandPrefix(String wandType) {
-        return colorText(config.getString("messages.prefix." + wandType.toLowerCase(), "&8[&7Wand&8]&r "));
-    }
-
-    public static String getWandDisplayName(String wandType) {
-        return colorText(config.getString("messages.display-names." + wandType.toLowerCase(), "&7Generic Wand"));
-    }
-
-    public static String getErrorMessage(String key) {
-        return colorText(config.getString("messages.errors." + key, "&cAn error occurred"));
-    }
-
-    public static String getSuccessMessage(String key) {
-        return colorText(config.getString("messages.success." + key, "&7Operation successful"));
-    }
-
-    public static String getWandGivenMessage(String wandName, boolean startsWithVowel) {
-        String article = startsWithVowel ? "an" : "a";
-        return colorText(getSuccessMessage("wand-given")
-                .replace("{article}", article)
-                .replace("{wand-name}", wandName));
-    }
-
-    public static String getCommandMessage(String command, String key) {
-        return colorText(config.getString("messages.commands." + command + "." + key, "&cCommand message not found"));
+        // Load messages.yml
+        File messagesFile = new File(plugin.getDataFolder(), "messages.yml");
+        if (!messagesFile.exists()) {
+            plugin.saveResource("messages.yml", false);
+        }
+        messages = YamlConfiguration.loadConfiguration(messagesFile);
     }
 
     public static String getWandCommandMessage(String key) {
-        return getCommandMessage("wand", key);
+        return messages.getString("commands.wand." + key, "&cMessage not found!");
+    }
+
+    public static String getWandGivenMessage(String wandName, boolean startsWithVowel) {
+        String template = messages.getString("commands.wand.given", "&7You have been given {article} {wand-name}");
+        String article = startsWithVowel ? "an" : "a";
+        return template.replace("{article}", article).replace("{wand-name}", wandName);
+    }
+
+    // Add other getters for messages as needed, e.g. errors, prefixes, etc.
+    public static String getErrorMessage(String key) {
+        return messages.getString("errors." + key, "&cError message not found!");
+    }
+
+    public static String getWandPrefix(String wandType) {
+        return messages.getString("prefix." + wandType, "");
+    }
+
+    public static String getWandDisplayName(String wandType) {
+        return messages.getString("display-names." + wandType, "");
+    }
+
+    public static FileConfiguration getConfig() {
+        return config;
+    }
+
+    public static FileConfiguration getMessages() {
+        return messages;
     }
 }

@@ -49,7 +49,7 @@ public final class EmpireWandPlus extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         _plugin = this;
-        ConfigManager.initialize(this);
+        ConfigManager.loadConfigs(this);
 
         registerCommands();
         registerListeners(
