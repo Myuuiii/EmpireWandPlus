@@ -35,4 +35,12 @@ public class ConfigManager {
                 .replace("{article}", article)
                 .replace("{wand-name}", wandName));
     }
+
+    public static String getCommandMessage(String command, String key) {
+        return colorText(config.getString("messages.commands." + command + "." + key, "&cCommand message not found"));
+    }
+
+    public static String getWandCommandMessage(String key) {
+        return getCommandMessage("wand", key);
+    }
 }

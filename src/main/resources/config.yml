@@ -41,3 +41,23 @@ messages:
     # {article} will be replaced with "a" or "an"
     # {wand-name} will be replaced with the wand's display name
     wand-given: "&7You have been given {article} {wand-name}"
+  
+  commands:
+    wand:
+      usage: "&cUsage: /wand [wand type]"
+      invalid-wand: "&cInvalid wand type!"
+      inventory-full: "&cYour inventory is full!"
+      no-permission: "&cYou're not allowed to obtain this wand!"
+      given: "&7You have been given {article} {wand-name}"
+  
+  # Add wand type configurations
+  wands:
+    blood:
+      starts-with-vowel: false
+      type-name: "blood"
+    empire:
+      starts-with-vowel: true
+      type-name: "empire"
+    elementos:
+      starts-with-vowel: true
+      type-name: "elementos"
