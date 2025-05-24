@@ -1,18 +1,17 @@
 package com.myuuiii.empirewandplus.Wands;
 
 import com.myuuiii.empirewandplus.Abstracts.Wand;
-import com.myuuiii.empirewandplus.EmpireWandPlus;
 import com.myuuiii.empirewandplus.Data.SpellNames;
-import org.bukkit.ChatColor;
+import com.myuuiii.empirewandplus.EmpireWandPlus;
+import com.myuuiii.empirewandplus.Managers.MessagesManager;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-
-import static com.myuuiii.empirewandplus.Extensions.colorText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,53 +21,48 @@ public class EmpireWand extends Wand {
 
     public final static String Identifier = "Empire";
 
-    public static List<String> Spells = new ArrayList<>() {
-        {
-            add(SpellNames.Spark);
-            add(SpellNames.EmpireSpark);
-            add(SpellNames.BloodSpark);
-            add(SpellNames.PoisonSpark);
+    public static List<String> Spells = new ArrayList<>();
 
-            add(SpellNames.BloodWave);
-            add(SpellNames.PoisonWave);
-            add(SpellNames.FlameWave);
-
-            add(SpellNames.EmpireConfuse);
-            add(SpellNames.CelestialConfuse);
-
-            add(SpellNames.EmpireStun);
-            add(SpellNames.CelestialStun);
-
-            add(SpellNames.Capture);
-
-            add(SpellNames.EmpireComet);
-            add(SpellNames.FireComet);
-
-            add(SpellNames.FirePulse);
-            add(SpellNames.EmpirePulse);
-
-            add(SpellNames.Fireball);
-
-            add(SpellNames.Ignite);
-
-            add(SpellNames.Launch);
-
-            add(SpellNames.Leap);
-
-            add(SpellNames.Lightning);
-
-            add(SpellNames.Smite);
+    public static void loadSpellsFromConfig() {
+        Spells.clear();
+        FileConfiguration config = com.myuuiii.empirewandplus.EmpireWandPlus._plugin.getConfig();
+        List<String> configSpells = config.getStringList("wands.Empire.spells");
+        if (configSpells != null && !configSpells.isEmpty()) {
+            Spells.addAll(configSpells);
+        } else {
+            Spells.add(SpellNames.Spark);
+            Spells.add(SpellNames.EmpireSpark);
+            Spells.add(SpellNames.BloodSpark);
+            Spells.add(SpellNames.PoisonSpark);
+            Spells.add(SpellNames.BloodWave);
+            Spells.add(SpellNames.PoisonWave);
+            Spells.add(SpellNames.FlameWave);
+            Spells.add(SpellNames.EmpireConfuse);
+            Spells.add(SpellNames.CelestialConfuse);
+            Spells.add(SpellNames.EmpireStun);
+            Spells.add(SpellNames.CelestialStun);
+            Spells.add(SpellNames.Capture);
+            Spells.add(SpellNames.EmpireComet);
+            Spells.add(SpellNames.FireComet);
+            Spells.add(SpellNames.FirePulse);
+            Spells.add(SpellNames.EmpirePulse);
+            Spells.add(SpellNames.Fireball);
+            Spells.add(SpellNames.Ignite);
+            Spells.add(SpellNames.Launch);
+            Spells.add(SpellNames.Leap);
+            Spells.add(SpellNames.Lightning);
+            Spells.add(SpellNames.Smite);
         }
-    };
+    }
 
     @Override
     public String getDisplayName() {
-        return ChatColor.GOLD + "Empire Wand";
+        return MessagesManager.getWandDisplayName("empire");
     }
-    
+
     @Override
     public String getPrefix() {
-        return colorText("&8[&6Empire Wand&8]&r ");
+        return MessagesManager.getWandPrefix("empire");
     }
 
     @Override
