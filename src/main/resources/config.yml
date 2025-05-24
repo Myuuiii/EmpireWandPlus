@@ -1,17 +1,43 @@
+# EmpireWandPlus Configuration
+# Color codes can be used with the & symbol followed by a code:
+# &0 - Black          &8 - Dark Gray
+# &1 - Dark Blue      &9 - Blue
+# &2 - Dark Green     &a - Green
+# &3 - Dark Aqua      &b - Aqua
+# &4 - Dark Red       &c - Red
+# &5 - Dark Purple    &d - Light Purple
+# &6 - Gold          &e - Yellow
+# &7 - Gray          &f - White
+# 
+# Format codes:
+# &l - Bold          &n - Underline
+# &o - Italic        &m - Strikethrough
+# &k - Magic         &r - Reset
+
 messages:
+  # Prefix configuration for each wand type
+  # These appear before messages related to specific wands
   prefix:
-    blood: "&8[&cBlood Wand&8]&r "
-    empire: "&8[&6Empire Wand&8]&r "
-    elementos: "&8[&bElementos Wand&8]&r "
+    blood: "&8[&cBlood Wand&8]&r "    # Dark gray brackets with red text
+    empire: "&8[&6Empire Wand&8]&r "   # Dark gray brackets with gold text
+    elementos: "&8[&bElementos Wand&8]&r " # Dark gray brackets with aqua text
+
+  # Display names for the wands when they appear in inventory
   display-names:
-    blood: "&cBlood Wand"
-    empire: "&6Empire Wand"
-    elementos: "&bElementos Wand"
+    blood: "&cBlood Wand"      # Red text
+    empire: "&6Empire Wand"     # Gold text
+    elementos: "&bElementos Wand" # Aqua text
+
+  # Error messages shown to players
   errors:
-    no-permission: "&cYou're not allowed to use that!"
-    inventory-full: "&cYour inventory is full!"
-    invalid-wand: "&cInvalid wand type!"
-    no-switch-permission: "&cYou're not allowed to switch spells!"
-    no-spell-set: "&cNo spell set found for this wand!"
+    no-permission: "&cYou're not allowed to use that!"      # Red error message
+    inventory-full: "&cYour inventory is full!"             # Red error message
+    invalid-wand: "&cInvalid wand type!"                    # Red error message
+    no-switch-permission: "&cYou're not allowed to switch spells!" # Red error message
+    no-spell-set: "&cNo spell set found for this wand!"     # Red error message
+
+  # Success messages
   success:
-    wand-given: "&7You have been given {article} {wand-name}"
+    # {article} will be replaced with "a" or "an"
+    # {wand-name} will be replaced with the wand's display name
+    wand-given: "&7You have been given {article} {wand-name}" # Gray text with variable replacement
