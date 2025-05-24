@@ -49,7 +49,6 @@ This plugin will always be free, and open source.
 
 ---
 
-
 # How to use
 
 ## Commands
@@ -66,6 +65,25 @@ The values for `<permission>` are: `use`, `switch`, `obtain`.
 
 The `use` permission allows the wielder of the wand to cast spells using the wand. The `switch` permission allows the wielder of the wand to switch the currently active spell of a wand. The `obtain` permission allows a user to use the `/wand` command to obtain the `<wand_base>` wand.
 
+---
+
+# Configuration
+
+1. When you first run the plugin, it will automatically create a config.yml file in your plugin's folder (plugins/EmpireWandPlus/).
+2. Open config.yml with a text editor.
+3. Edit the settings as you like. These settings control how the plugin works (for example: wand spell bindings) and save the file.
+4. Reload or restart your server to apply the changes.
+5. If you delete config.yml, the plugin will make a new default one next time it loads.
+
+# Messages 
+
+1. When you first run the plugin, it will automatically create a messages.yml file in your plugin's folder (plugins/EmpireWandPlus/).
+2. Open messages.yml with a text editor.
+3. Edit the messages as you like. These messages control what players see when they use the plugin (for example: when they cast a spell, or when they try to use a spell they don't have permission for).
+4. Reload or restart your server to apply the changes.
+5. If you delete messages.yml, the plugin will make a new default one next time it loads.
+
+---
 
 # Contributors & Contributing
 

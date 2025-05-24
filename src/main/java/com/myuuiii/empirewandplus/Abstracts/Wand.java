@@ -1,20 +1,19 @@
 package com.myuuiii.empirewandplus.Abstracts;
 
-import org.bukkit.ChatColor;
+import com.myuuiii.empirewandplus.Managers.MessagesManager;
+import com.myuuiii.empirewandplus.Wands.BloodWand;
+import com.myuuiii.empirewandplus.Wands.ElementosWand;
+import com.myuuiii.empirewandplus.Wands.EmpireWand;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.List;
+
 import static com.myuuiii.empirewandplus.Wands.WandMethods.CycleSpell;
 import static com.myuuiii.empirewandplus.Wands.WandMethods.ExecuteSpellOnLeftClick;
-
-import com.myuuiii.empirewandplus.Wands.BloodWand;
-import com.myuuiii.empirewandplus.Wands.ElementosWand;
-import com.myuuiii.empirewandplus.Wands.EmpireWand;
-
-import java.util.List;
 
 public abstract class Wand {
     public List<String> Spells;
@@ -63,7 +62,7 @@ public abstract class Wand {
             return;
 
         if (!p.hasPermission(wand.getUsePermissionName())) {
-            p.sendMessage(ChatColor.RED + "You're not allowed to use that!");
+            p.sendMessage(MessagesManager.getErrorMessage("no-permission"));
             return;
         }
 
@@ -71,7 +70,6 @@ public abstract class Wand {
         final ItemMeta wandMeta = wandItemStack.getItemMeta();
 
         if (IsRightClickInteraction(e)) {
-
             SwitchEffects(e);
 
             List<String> spells = null;
@@ -79,17 +77,16 @@ public abstract class Wand {
             else if (wand instanceof BloodWand) spells = BloodWand.Spells;
             else if (wand instanceof ElementosWand) spells = ElementosWand.Spells;
             else {
-                p.sendMessage(ChatColor.RED + "No spell set found for this wand!");
+            p.sendMessage(MessagesManager.getErrorMessage("no-spell-set"));
                 return;
             }
 
             if (!p.hasPermission(wand.getSwitchSpellPermissionName())) {
-                p.sendMessage(ChatColor.RED + "You're not allowed to switch spells!");
+                p.sendMessage(MessagesManager.getErrorMessage("no-switch-permission"));
                 return;
             }
-            
+        
             CycleSpell(p, wandItemStack, wandMeta, spells, wand);
-
             return;
         }
 

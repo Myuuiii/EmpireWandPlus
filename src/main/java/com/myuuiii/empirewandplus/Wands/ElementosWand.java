@@ -1,18 +1,17 @@
 package com.myuuiii.empirewandplus.Wands;
 
 import com.myuuiii.empirewandplus.Abstracts.Wand;
-import com.myuuiii.empirewandplus.EmpireWandPlus;
 import com.myuuiii.empirewandplus.Data.SpellNames;
-import org.bukkit.ChatColor;
+import com.myuuiii.empirewandplus.EmpireWandPlus;
+import com.myuuiii.empirewandplus.Managers.MessagesManager;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-
-import static com.myuuiii.empirewandplus.Extensions.colorText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,26 +21,33 @@ public class ElementosWand extends Wand {
 
     public final static String Identifier = "Elementos";
 
-    public static List<String> Spells = new ArrayList<>() {
-        {
-            add(SpellNames.Spark);
-            add(SpellNames.CelestialConfuse);
-            add(SpellNames.CelestialStun);
-            add(SpellNames.Lightning);
-            add(SpellNames.Smite);
-            add(SpellNames.KajCloud);
+    public static List<String> Spells = new ArrayList<>();
+
+    public static void loadSpellsFromConfig() {
+        Spells.clear();
+        FileConfiguration config = com.myuuiii.empirewandplus.EmpireWandPlus._plugin.getConfig();
+        List<String> configSpells = config.getStringList("wands.Elementos.spells");
+        if (configSpells != null && !configSpells.isEmpty()) {
+            Spells.addAll(configSpells);
+        } else {
+            Spells.add(SpellNames.Spark);
+            Spells.add(SpellNames.CelestialConfuse);
+            Spells.add(SpellNames.CelestialStun);
+            Spells.add(SpellNames.Lightning);
+            Spells.add(SpellNames.Smite);
+            Spells.add(SpellNames.KajCloud);
         }
-    };
+    }
 
     @Override
     public String getDisplayName() {
-        return ChatColor.AQUA + "Elementos Wand";
+        return MessagesManager.getWandDisplayName("elementos");
     }
 
-    
+
     @Override
     public String getPrefix() {
-        return colorText("&8[&3Elementos Wand&8]&r ");
+        return MessagesManager.getWandPrefix("elementos");
     }
 
     @Override
