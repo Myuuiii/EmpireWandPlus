@@ -7,6 +7,7 @@ import com.myuuiii.empirewandplus.Managers.MessagesManager;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
@@ -20,13 +21,18 @@ public class BloodWand extends Wand {
     
     public final static String Identifier = "Blood";
     
-    public static List<String> Spells = new ArrayList<>() {
-        {
-            add(SpellNames.Spark);
-            add(SpellNames.BloodSpark);
-            add(SpellNames.BloodWave);
+    public static List<String> Spells = new ArrayList<>();
+    static {
+        FileConfiguration config = com.myuuiii.empirewandplus.EmpireWandPlus._plugin.getConfig();
+        List<String> configSpells = config.getStringList("wands.Blood.spells");
+        if (configSpells != null && !configSpells.isEmpty()) {
+            Spells.addAll(configSpells);
+        } else {
+            Spells.add(SpellNames.Spark);
+            Spells.add(SpellNames.BloodSpark);
+            Spells.add(SpellNames.BloodWave);
         }
-    };
+    }
 
     @Override
     public String getDisplayName() {

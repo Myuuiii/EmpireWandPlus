@@ -1,0 +1,26 @@
+wands:
+  Empire:
+    spells:
+      - Spark
+      - EmpireSpark
+      - BloodSpark
+      - PoisonSpark
+      - BloodWave
+      - PoisonWave
+      - FlameWave
+      - EmpireConfuse
+      - CelestialConfuse
+      - EmpireStun
+      - CelestialStun
+      - Capture
+  Blood:
+    spells:
+      - BloodSpark
+      - BloodWave
+      - BloodStun
+  Elementos:
+    spells:
+      - ElementalSpark
+      - ElementalWave
+      - ElementalStun
+
