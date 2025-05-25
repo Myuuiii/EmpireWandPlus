@@ -2,7 +2,7 @@ package com.myuuiii.empirewandplus.Spells.Cloud;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
-import com.myuuiii.empirewandplus.Data.SpellNames;
+import com.myuuiii.empirewandplus.Managers.MessagesManager;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
@@ -45,13 +45,13 @@ public class KajCloud extends Spell {
                 p.setAllowFlight(false);
             }
             SpellEntityLists.KAJ_CLOUD_PLAYERS.remove(p.getUniqueId());
-            p.sendMessage(SpellNames.KajCloud + " disabled");
+            p.sendMessage(MessagesManager.getCloudDisabledMessage(getDisplayName()));
         } else {
             if (!p.getGameMode().equals(GameMode.CREATIVE)) {
                 p.setAllowFlight(true);
             }
             SpellEntityLists.KAJ_CLOUD_PLAYERS.add(p.getUniqueId());
-            p.sendMessage(SpellNames.KajCloud + " enabled");
+            p.sendMessage(MessagesManager.getCloudEnabledMessage(getDisplayName()));
         }
     }
 }

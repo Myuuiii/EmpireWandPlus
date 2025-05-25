@@ -41,6 +41,16 @@ public class MessagesManager {
         return colorText(messages.getString("display-names." + wandType, ""));
     }
 
+    public static String getCloudEnabledMessage(String spellName) {
+        String template = messages.getString("spells.cloud.enabled", "&a{spell-name} enabled");
+        return colorText(template.replace("{spell-name}", spellName));
+    }
+    
+    public static String getCloudDisabledMessage(String spellName) {
+        String template = messages.getString("spells.cloud.disabled", "&c{spell-name} disabled");
+        return colorText(template.replace("{spell-name}", spellName));
+    }
+
     public static FileConfiguration getMessages() {
         return messages;
     }

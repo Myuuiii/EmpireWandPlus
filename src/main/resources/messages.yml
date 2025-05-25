@@ -49,6 +49,12 @@ commands:
     no-permission: "&cYou're not allowed to obtain this wand!"
     given: "&7You have been given {article} {wand-name}"
 
+# Spell-specific messages
+spells:
+  cloud:
+    enabled: "&a{spell-name} enabled"
+    disabled: "&c{spell-name} disabled"
+
 # Add wand type configurations
 wands:
   blood:
