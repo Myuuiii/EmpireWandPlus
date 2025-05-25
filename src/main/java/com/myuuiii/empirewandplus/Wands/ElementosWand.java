@@ -55,18 +55,13 @@ public class ElementosWand extends Wand {
     }
 
     @Override
-    public ItemStack getItem() {
-        ItemStack wand = new ItemStack(Material.ECHO_SHARD, 1);
-        ItemMeta wandMeta = wand.getItemMeta();
-        wandMeta.setDisplayName(getDisplayName());
-        
-        // Store the spell name in persistent data
-        PersistentDataContainer container = wandMeta.getPersistentDataContainer();
-        NamespacedKey key = new NamespacedKey(EmpireWandPlus._plugin, "current_spell");
-        container.set(key, PersistentDataType.STRING, Spells.get(0));
-        
-        wand.setItemMeta(wandMeta);
-        return wand;
+    protected Material getWandMaterial() {
+        return Material.ECHO_SHARD;
+    }
+    
+    @Override
+    protected List<String> getSpellList() {
+        return Spells;
     }
 
     @Override

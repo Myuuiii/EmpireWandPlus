@@ -21,14 +21,12 @@ import java.util.List;
 
 public class WandMethods {
 
-    private static final String SPELL_KEY = "current_spell";
-
     public static void CycleSpell(Player p, ItemStack wandItem, ItemMeta meta, List<String> spells, Wand wand) {
         String nextSpell;
         
         // Get the current spell name from meta
         PersistentDataContainer container = wandItem.getItemMeta().getPersistentDataContainer();
-        NamespacedKey key = new NamespacedKey(EmpireWandPlus._plugin, SPELL_KEY);
+        NamespacedKey key = new NamespacedKey(EmpireWandPlus._plugin, Wand.SPELL_KEY);
         
         String currentSpell = null;
         if (container.has(key, PersistentDataType.STRING)) {
@@ -80,7 +78,7 @@ public class WandMethods {
             if (meta == null) return;
             
             PersistentDataContainer container = meta.getPersistentDataContainer();
-            NamespacedKey key = new NamespacedKey(EmpireWandPlus._plugin, SPELL_KEY);
+            NamespacedKey key = new NamespacedKey(EmpireWandPlus._plugin, Wand.SPELL_KEY);
             
             if (!container.has(key, PersistentDataType.STRING)) {
                 // No spell found, notify player and return

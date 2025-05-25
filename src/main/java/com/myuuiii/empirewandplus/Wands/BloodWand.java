@@ -51,18 +51,13 @@ public class BloodWand extends Wand {
     }
 
     @Override
-    public ItemStack getItem() {
-        ItemStack wand = new ItemStack(Material.NETHER_WART, 1);
-        ItemMeta wandMeta = wand.getItemMeta();
-        wandMeta.setDisplayName(getDisplayName());
-        
-        // Store the spell name in persistent data
-        PersistentDataContainer container = wandMeta.getPersistentDataContainer();
-        NamespacedKey key = new NamespacedKey(EmpireWandPlus._plugin, "current_spell");
-        container.set(key, PersistentDataType.STRING, Spells.get(0));
-        
-        wand.setItemMeta(wandMeta);
-        return wand;
+    protected Material getWandMaterial() {
+        return Material.NETHER_WART;
+    }
+    
+    @Override
+    protected List<String> getSpellList() {
+        return Spells;
     }
 
     @Override
