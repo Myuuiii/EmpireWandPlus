@@ -52,4 +52,8 @@ public class SpellNames {
 
     // Cloud
     public static final String KajCloud = "Kaj Cloud";
+    
+    
+    // Arrow Rain
+    public static final String ArrowRain = "Arrow Rain";
 }

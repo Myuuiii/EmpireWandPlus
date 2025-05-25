@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus.Spells.Fireball;
+package com.myuuiii.empirewandplus.Spells;
 
 import com.myuuiii.empirewandplus.Abstracts.ProjectileSpell;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;

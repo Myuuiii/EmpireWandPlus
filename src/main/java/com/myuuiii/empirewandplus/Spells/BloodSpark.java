@@ -1,30 +1,31 @@
-package com.myuuiii.empirewandplus.Spells.Spark;
+package com.myuuiii.empirewandplus.Spells;
 
 import com.myuuiii.empirewandplus.Abstracts.SparkSpellBase;
 import com.myuuiii.empirewandplus.Data.SpellValues;
 import org.bukkit.Color;
 import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.meta.FireworkMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import static com.myuuiii.empirewandplus.Extensions.getFirework;
 
-public class Spark extends SparkSpellBase {
+public class BloodSpark extends SparkSpellBase {
+
+    private static final int _witherDuration = 100;
+
     @Override
     public void LaunchSpellFirework(Location loc, Player p) {
         Firework fw = getFirework(p, loc);
         FireworkMeta fwMeta = fw.getFireworkMeta();
         fwMeta.setPower(0);
-        fwMeta.addEffect(FireworkEffect.builder()
-                .withColor(Color.fromRGB(255, 255, 255))
-                .withFade(Color.fromRGB(255, 0, 0))
-                .with(FireworkEffect.Type.BURST)
-                .build()
-        );
+        fwMeta.addEffect(FireworkEffect.builder().withColor(Color.fromRGB(255, 0, 0)).withFade(Color.fromRGB(150, 0, 0)).with(FireworkEffect.Type.BURST).withFlicker().build());
         fw.setFireworkMeta(fwMeta);
         fw.detonate();
     }
@@ -36,27 +37,29 @@ public class Spark extends SparkSpellBase {
 
     @Override
     public double getInRangeDistance() {
-        return 3;
+        return 3.0;
     }
 
     @Override
     public double getDamage() {
-        return 3;
+        return 6.0;
     }
 
     @Override
     public String getConfigName() {
-        return "spark";
+        return "bloodSpark";
     }
 
     @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
         if (!(entity instanceof LivingEntity livingEntity)) return;
         livingEntity.damage(getDamage());
+        livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.WITHER, _witherDuration, 1, true, false));
     }
 
     @Override
     public void atExecutingLocation(Location loc, Player p) {
-
+        p.getWorld().playSound(loc, Sound.BLOCK_AZALEA_BREAK, 5, 0.65f);
+        p.getWorld().playSound(loc, Sound.BLOCK_AZALEA_LEAVES_BREAK, 5, 0.65f);
     }
 }

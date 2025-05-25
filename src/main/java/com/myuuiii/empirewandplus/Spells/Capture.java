@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus.Spells.Capture;
+package com.myuuiii.empirewandplus.Spells;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.EmpireWandPlus;

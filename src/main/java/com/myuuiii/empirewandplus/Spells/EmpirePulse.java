@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus.Spells.Smite;
+package com.myuuiii.empirewandplus.Spells;
 
 import com.myuuiii.empirewandplus.Abstracts.ProjectileSpell;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
@@ -7,20 +7,20 @@ import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
-public class Smite extends ProjectileSpell {
+public class EmpirePulse extends ProjectileSpell {
     @Override
     public int getRangeMultiplication() {
-        return 2;
+        return 3;
     }
 
     @Override
     public void AddProjectileToList(Entity e) {
-        SpellEntityLists.SMITE_ENTITIES.add(e);
+        SpellEntityLists.EMPIRE_PULSE_ENTITIES.add(e);
     }
 
     @Override
     public void RemoveProjectileFromList(Entity e) {
-        SpellEntityLists.SMITE_ENTITIES.remove(e);
+        SpellEntityLists.EMPIRE_PULSE_ENTITIES.remove(e);
     }
 
     @Override
@@ -40,17 +40,17 @@ public class Smite extends ProjectileSpell {
 
     @Override
     public double getInRangeDistance() {
-        return 10;
+        return 3;
     }
 
     @Override
     public double getDamage() {
-        return 19;
+        return 6;
     }
 
     @Override
     public String getConfigName() {
-        return "smite";
+        return "empirePulse";
     }
 
     @Override

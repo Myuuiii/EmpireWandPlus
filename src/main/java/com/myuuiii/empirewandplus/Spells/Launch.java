@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus.Spells.Launch;
+package com.myuuiii.empirewandplus.Spells;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import org.bukkit.Location;
@@ -9,7 +9,7 @@ import org.bukkit.util.Vector;
 
 public class Launch extends Spell {
 
-    private static double _launchHeightModifier = 1.5;
+    private static final double _launchHeightModifier = 1.5;
 
     @Override
     public int getMaxReach() {

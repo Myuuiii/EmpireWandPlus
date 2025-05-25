@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus.Spells.Wave;
+package com.myuuiii.empirewandplus.Spells;
 
 import com.myuuiii.empirewandplus.Abstracts.ProjectileSpell;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
@@ -7,33 +7,30 @@ import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
-public class BloodWave extends ProjectileSpell {
-
-    private static int _witherDuration = 100;
-
+public class FirePulse extends ProjectileSpell {
     @Override
     public int getRangeMultiplication() {
-        return 3;
+        return 2;
     }
 
     @Override
     public void AddProjectileToList(Entity e) {
-        SpellEntityLists.BLOOD_WAVE_ENTITIES.add(e);
+        SpellEntityLists.FIRE_PULSE_ENTITIES.add(e);
     }
 
     @Override
     public void RemoveProjectileFromList(Entity e) {
-        SpellEntityLists.BLOOD_WAVE_ENTITIES.remove(e);
+        SpellEntityLists.FIRE_PULSE_ENTITIES.remove(e);
     }
 
     @Override
     public void AddPlayerToList(Player p) {
-        SpellEntityLists.BLOOD_WAVE_PLAYERS.add(p.getUniqueId());
+
     }
 
     @Override
     public void RemovePlayerFromList(Player p) {
-        SpellEntityLists.BLOOD_WAVE_PLAYERS.remove(p.getUniqueId());
+
     }
 
     @Override
@@ -48,12 +45,12 @@ public class BloodWave extends ProjectileSpell {
 
     @Override
     public double getDamage() {
-        return 2;
+        return 5;
     }
 
     @Override
     public String getConfigName() {
-        return "bloodWave";
+        return "firePulse";
     }
 
     @Override

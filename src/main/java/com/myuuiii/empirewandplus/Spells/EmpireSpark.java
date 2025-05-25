@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus.Spells.Spark;
+package com.myuuiii.empirewandplus.Spells;
 
 import com.myuuiii.empirewandplus.Abstracts.SparkSpellBase;
 import com.myuuiii.empirewandplus.Data.SpellValues;
@@ -18,7 +18,7 @@ import static com.myuuiii.empirewandplus.Extensions.getFirework;
 
 public class EmpireSpark extends SparkSpellBase {
 
-    private int _blindnessDuration = 100;
+    private final int _blindnessDuration = 100;
 
     @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {

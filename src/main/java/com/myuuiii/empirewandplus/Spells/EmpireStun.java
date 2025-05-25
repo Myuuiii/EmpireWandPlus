@@ -1,7 +1,8 @@
-package com.myuuiii.empirewandplus.Spells.Stun;
+package com.myuuiii.empirewandplus.Spells;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.Data.SpellValues;
+import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
@@ -11,10 +12,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class CelestialStun extends Spell {
+public class EmpireStun extends Spell {
 
     public static int _blindnessDuration = 100;
-    private static int _slowDuration = 100;
+    private static final int _slowDuration = 100;
 
     @Override
     public int getMaxReach() {
@@ -33,7 +34,7 @@ public class CelestialStun extends Spell {
 
     @Override
     public String getConfigName() {
-        return "celestialStun";
+        return "empireStun";
     }
 
     @Override
@@ -45,11 +46,11 @@ public class CelestialStun extends Spell {
 
     @Override
     public void atExecutingLocation(Location loc, Player p) {
-        p.getWorld().spawnParticle(Particle.FIREWORK, loc, 100, 0.5, 1, 0.5, 0.5);
-        p.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME, loc, 100, 0.5, 1, 0.5, 0.1);
-        p.getWorld().spawnParticle(Particle.SNOWFLAKE, loc.add(0, 2, 0), 100, 0.5, 1, 0.5, 0);
+        p.getWorld().spawnParticle(Particle.DRAGON_BREATH, loc, 100, 0.5, 1, 0.5, 0.1);
+        p.getWorld().spawnParticle(Particle.WITCH, loc, 100, 0.5, 1, 0.5, 0.1);
+        p.getWorld().spawnParticle(Particle.DUST, loc, 75, 0.5, 1, 0.5, 3, new Particle.DustOptions(Color.fromRGB(255, 0, 233), 2));
 
-        p.getWorld().playSound(loc, Sound.ENTITY_ILLUSIONER_PREPARE_BLINDNESS, 2, 0.65f);
-        p.getWorld().playSound(loc, Sound.ITEM_TOTEM_USE, 2, 0.65f);
+        p.getWorld().playSound(loc, Sound.ENTITY_ENDERMAN_SCREAM, 5, 0.65f);
+        p.getWorld().playSound(loc, Sound.ITEM_TOTEM_USE, 5, 0.65f);
     }
 }

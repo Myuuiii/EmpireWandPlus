@@ -41,6 +41,7 @@ public class EmpireWand extends Wand {
         spells.add(SpellNames.Leap);
         spells.add(SpellNames.Lightning);
         spells.add(SpellNames.Smite);
+        spells.add(SpellNames.ArrowRain);
     }
 
     @Override

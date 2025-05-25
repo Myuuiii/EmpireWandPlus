@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus.Spells.Spark;
+package com.myuuiii.empirewandplus.Spells;
 
 import com.myuuiii.empirewandplus.Abstracts.SparkSpellBase;
 import com.myuuiii.empirewandplus.Data.SpellValues;
@@ -19,7 +19,7 @@ import static com.myuuiii.empirewandplus.Extensions.getFirework;
 
 public class PoisonSpark extends SparkSpellBase {
 
-    private static int _poisonDuration = 150;
+    private static final int _poisonDuration = 150;
 
     @Override
     public void LaunchSpellFirework(Location loc, Player p) {

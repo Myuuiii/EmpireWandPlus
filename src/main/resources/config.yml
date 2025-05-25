@@ -26,6 +26,7 @@ wands:
       - Leap
       - Lightning
       - Smite
+      - Arrow Rain
   Blood:
     spells:
       - Spark

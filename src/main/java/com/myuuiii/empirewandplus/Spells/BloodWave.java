@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus.Spells.Comet;
+package com.myuuiii.empirewandplus.Spells;
 
 import com.myuuiii.empirewandplus.Abstracts.ProjectileSpell;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
@@ -7,7 +7,10 @@ import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
-public class FireComet extends ProjectileSpell {
+public class BloodWave extends ProjectileSpell {
+
+    private static final int _witherDuration = 100;
+
     @Override
     public int getRangeMultiplication() {
         return 3;
@@ -15,22 +18,22 @@ public class FireComet extends ProjectileSpell {
 
     @Override
     public void AddProjectileToList(Entity e) {
-        SpellEntityLists.FIRE_COMET_ENTITIES.add(e);
+        SpellEntityLists.BLOOD_WAVE_ENTITIES.add(e);
     }
 
     @Override
     public void RemoveProjectileFromList(Entity e) {
-        SpellEntityLists.FIRE_COMET_ENTITIES.remove(e);
+        SpellEntityLists.BLOOD_WAVE_ENTITIES.remove(e);
     }
 
     @Override
     public void AddPlayerToList(Player p) {
-
+        SpellEntityLists.BLOOD_WAVE_PLAYERS.add(p.getUniqueId());
     }
 
     @Override
     public void RemovePlayerFromList(Player p) {
-
+        SpellEntityLists.BLOOD_WAVE_PLAYERS.remove(p.getUniqueId());
     }
 
     @Override
@@ -40,17 +43,17 @@ public class FireComet extends ProjectileSpell {
 
     @Override
     public double getInRangeDistance() {
-        return 10;
+        return 3;
     }
 
     @Override
     public double getDamage() {
-        return 6;
+        return 2;
     }
 
     @Override
     public String getConfigName() {
-        return "fireComet";
+        return "bloodWave";
     }
 
     @Override

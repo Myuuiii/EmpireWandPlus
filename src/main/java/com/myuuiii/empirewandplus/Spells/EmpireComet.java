@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus.Spells.Pulse;
+package com.myuuiii.empirewandplus.Spells;
 
 import com.myuuiii.empirewandplus.Abstracts.ProjectileSpell;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
@@ -7,7 +7,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
-public class EmpirePulse extends ProjectileSpell {
+public class EmpireComet extends ProjectileSpell {
     @Override
     public int getRangeMultiplication() {
         return 3;
@@ -15,12 +15,12 @@ public class EmpirePulse extends ProjectileSpell {
 
     @Override
     public void AddProjectileToList(Entity e) {
-        SpellEntityLists.EMPIRE_PULSE_ENTITIES.add(e);
+        SpellEntityLists.EMPIRE_COMET_ENTITIES.add(e);
     }
 
     @Override
     public void RemoveProjectileFromList(Entity e) {
-        SpellEntityLists.EMPIRE_PULSE_ENTITIES.remove(e);
+        SpellEntityLists.EMPIRE_COMET_ENTITIES.remove(e);
     }
 
     @Override
@@ -40,17 +40,17 @@ public class EmpirePulse extends ProjectileSpell {
 
     @Override
     public double getInRangeDistance() {
-        return 3;
+        return 10;
     }
 
     @Override
     public double getDamage() {
-        return 6;
+        return 8;
     }
 
     @Override
     public String getConfigName() {
-        return "empirePulse";
+        return "empireComet";
     }
 
     @Override

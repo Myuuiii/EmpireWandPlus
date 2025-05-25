@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus.Spells.Confuse;
+package com.myuuiii.empirewandplus.Spells;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.Data.SpellValues;
@@ -13,9 +13,9 @@ import org.bukkit.potion.PotionEffectType;
 
 public class EmpireConfuse extends Spell {
 
-    private static int _confusionDuration = 250;
-    private static int _blindnessDuration = 200;
-    private static int _slownessDuration = 175;
+    private static final int _confusionDuration = 250;
+    private static final int _blindnessDuration = 200;
+    private static final int _slownessDuration = 175;
 
     @Override
     public int getMaxReach() {

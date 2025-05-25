@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus.Spells.Ignite;
+package com.myuuiii.empirewandplus.Spells;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import org.bukkit.Location;
@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 public class Ignite extends Spell {
 
-    private static int _fireDuration = 150;
+    private static final int _fireDuration = 150;
 
     @Override
     public int getMaxReach() {

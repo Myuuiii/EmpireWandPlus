@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus.Spells.Confuse;
+package com.myuuiii.empirewandplus.Spells;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.Data.SpellValues;
@@ -11,15 +11,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class CelestialConfuse extends Spell {
+public class CelestialStun extends Spell {
 
-    private static int _confusionDuration = 250;
-    private static int _blindnessDuration = 200;
-    private static int _slownessDuration = 175;
+    public static int _blindnessDuration = 100;
+    private static final int _slowDuration = 100;
 
     @Override
     public int getMaxReach() {
-        return SpellValues.CONFUSE_REACH;
+        return SpellValues.STUN_REACH;
     }
 
     @Override
@@ -34,24 +33,23 @@ public class CelestialConfuse extends Spell {
 
     @Override
     public String getConfigName() {
-        return "celestialConfuse";
+        return "celestialStun";
     }
 
     @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
         if (!(entity instanceof LivingEntity livingEntity)) return;
-        livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA, _confusionDuration, 1, true, false));
+        livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, _slowDuration, 255, true, false));
         livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, _blindnessDuration, 1, true, false));
-        livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, _slownessDuration, 1, true, false));
     }
 
     @Override
     public void atExecutingLocation(Location loc, Player p) {
-        p.getWorld().spawnParticle(Particle.CLOUD, loc, 125, 1, 1, 1, 0.1);
-        p.getWorld().spawnParticle(Particle.FIREWORK, loc, 125, 1, 1, 1, 0.1);
-        p.getWorld().spawnParticle(Particle.ENCHANT, loc, 250, 1, 1, 1, 0.1);
+        p.getWorld().spawnParticle(Particle.FIREWORK, loc, 100, 0.5, 1, 0.5, 0.5);
+        p.getWorld().spawnParticle(Particle.SOUL_FIRE_FLAME, loc, 100, 0.5, 1, 0.5, 0.1);
+        p.getWorld().spawnParticle(Particle.SNOWFLAKE, loc.add(0, 2, 0), 100, 0.5, 1, 0.5, 0);
 
-        p.getWorld().playSound(loc, Sound.ENTITY_VEX_CHARGE, 2, 0.85f);
-        p.getWorld().playSound(loc, Sound.ENTITY_CREEPER_DEATH, 2, 0.85f);
+        p.getWorld().playSound(loc, Sound.ENTITY_ILLUSIONER_PREPARE_BLINDNESS, 2, 0.65f);
+        p.getWorld().playSound(loc, Sound.ITEM_TOTEM_USE, 2, 0.65f);
     }
 }

@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus.Spells.Leap;
+package com.myuuiii.empirewandplus.Spells;
 
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
@@ -10,8 +10,8 @@ import org.bukkit.entity.Player;
 
 public class Leap extends Spell {
 
-    private int velocityMultiplication = 6;
-    private int cloudParticleCount = 100;
+    private final int velocityMultiplication = 6;
+    private final int cloudParticleCount = 100;
 
     @Override
     public int getMaxReach() {

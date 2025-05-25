@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus.Spells.Lightning;
+package com.myuuiii.empirewandplus.Spells;
 
 import com.myuuiii.empirewandplus.Abstracts.ProjectileSpell;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
@@ -7,7 +7,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
-public class Lightning extends ProjectileSpell {
+public class FlameWave extends ProjectileSpell {
     @Override
     public int getRangeMultiplication() {
         return 3;
@@ -15,22 +15,22 @@ public class Lightning extends ProjectileSpell {
 
     @Override
     public void AddProjectileToList(Entity e) {
-        SpellEntityLists.LIGHTNING_ENTITIES.add(e);
+        SpellEntityLists.FLAME_WAVE_ENTITIES.add(e);
     }
 
     @Override
     public void RemoveProjectileFromList(Entity e) {
-        SpellEntityLists.LIGHTNING_ENTITIES.remove(e);
+        SpellEntityLists.FLAME_WAVE_ENTITIES.remove(e);
     }
 
     @Override
     public void AddPlayerToList(Player p) {
-
+        SpellEntityLists.FLAME_WAVE_PLAYERS.add(p.getUniqueId());
     }
 
     @Override
     public void RemovePlayerFromList(Player p) {
-
+        SpellEntityLists.FLAME_WAVE_PLAYERS.remove(p.getUniqueId());
     }
 
     @Override
@@ -40,17 +40,17 @@ public class Lightning extends ProjectileSpell {
 
     @Override
     public double getInRangeDistance() {
-        return 6;
+        return 3;
     }
 
     @Override
     public double getDamage() {
-        return 6;
+        return 4;
     }
 
     @Override
     public String getConfigName() {
-        return "lightning";
+        return "flameWave";
     }
 
     @Override

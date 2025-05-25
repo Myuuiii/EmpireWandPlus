@@ -1,4 +1,4 @@
-package com.myuuiii.empirewandplus.Spells.Comet;
+package com.myuuiii.empirewandplus.Spells;
 
 import com.myuuiii.empirewandplus.Abstracts.ProjectileSpell;
 import com.myuuiii.empirewandplus.Data.SpellEntityLists;
@@ -7,7 +7,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
-public class EmpireComet extends ProjectileSpell {
+public class FireComet extends ProjectileSpell {
     @Override
     public int getRangeMultiplication() {
         return 3;
@@ -15,12 +15,12 @@ public class EmpireComet extends ProjectileSpell {
 
     @Override
     public void AddProjectileToList(Entity e) {
-        SpellEntityLists.EMPIRE_COMET_ENTITIES.add(e);
+        SpellEntityLists.FIRE_COMET_ENTITIES.add(e);
     }
 
     @Override
     public void RemoveProjectileFromList(Entity e) {
-        SpellEntityLists.EMPIRE_COMET_ENTITIES.remove(e);
+        SpellEntityLists.FIRE_COMET_ENTITIES.remove(e);
     }
 
     @Override
@@ -45,12 +45,12 @@ public class EmpireComet extends ProjectileSpell {
 
     @Override
     public double getDamage() {
-        return 8;
+        return 6;
     }
 
     @Override
     public String getConfigName() {
-        return "empireComet";
+        return "fireComet";
     }
 
     @Override
