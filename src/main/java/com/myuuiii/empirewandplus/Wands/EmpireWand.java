@@ -2,61 +2,45 @@ package com.myuuiii.empirewandplus.Wands;
 
 import com.myuuiii.empirewandplus.Abstracts.Wand;
 import com.myuuiii.empirewandplus.Data.SpellNames;
-import com.myuuiii.empirewandplus.EmpireWandPlus;
 import com.myuuiii.empirewandplus.Managers.MessagesManager;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.persistence.PersistentDataContainer;
-import org.bukkit.persistence.PersistentDataType;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class EmpireWand extends Wand {
 
-    public final static String Identifier = "Empire";
+    @Override
+    public String getIdentifier() {
+        return "Empire";
+    }
 
-    public static List<String> Spells = new ArrayList<>();
-
-    public static void loadSpellsFromConfig() {
-        Spells.clear();
-        FileConfiguration config = com.myuuiii.empirewandplus.EmpireWandPlus._plugin.getConfig();
-        List<String> configSpells = config.getStringList("wands.Empire.spells");
-        if (configSpells != null && !configSpells.isEmpty()) {
-            Spells.addAll(configSpells);
-        } else {
-            Spells.add(SpellNames.Spark);
-            Spells.add(SpellNames.EmpireSpark);
-            Spells.add(SpellNames.BloodSpark);
-            Spells.add(SpellNames.PoisonSpark);
-            Spells.add(SpellNames.BloodWave);
-            Spells.add(SpellNames.PoisonWave);
-            Spells.add(SpellNames.FlameWave);
-            Spells.add(SpellNames.EmpireConfuse);
-            Spells.add(SpellNames.CelestialConfuse);
-            Spells.add(SpellNames.EmpireStun);
-            Spells.add(SpellNames.CelestialStun);
-            Spells.add(SpellNames.Capture);
-            Spells.add(SpellNames.EmpireComet);
-            Spells.add(SpellNames.FireComet);
-            Spells.add(SpellNames.FirePulse);
-            Spells.add(SpellNames.EmpirePulse);
-            Spells.add(SpellNames.Fireball);
-            Spells.add(SpellNames.Ignite);
-            Spells.add(SpellNames.Launch);
-            Spells.add(SpellNames.Leap);
-            Spells.add(SpellNames.Lightning);
-            Spells.add(SpellNames.Smite);
-        }
+    @Override
+    protected void addDefaultSpells() {
+        spells.add(SpellNames.Spark);
+        spells.add(SpellNames.EmpireSpark);
+        spells.add(SpellNames.BloodSpark);
+        spells.add(SpellNames.PoisonSpark);
+        spells.add(SpellNames.BloodWave);
+        spells.add(SpellNames.PoisonWave);
+        spells.add(SpellNames.FlameWave);
+        spells.add(SpellNames.EmpireConfuse);
+        spells.add(SpellNames.CelestialConfuse);
+        spells.add(SpellNames.EmpireStun);
+        spells.add(SpellNames.CelestialStun);
+        spells.add(SpellNames.Capture);
+        spells.add(SpellNames.EmpireComet);
+        spells.add(SpellNames.FireComet);
+        spells.add(SpellNames.FirePulse);
+        spells.add(SpellNames.EmpirePulse);
+        spells.add(SpellNames.Fireball);
+        spells.add(SpellNames.Ignite);
+        spells.add(SpellNames.Launch);
+        spells.add(SpellNames.Leap);
+        spells.add(SpellNames.Lightning);
+        spells.add(SpellNames.Smite);
     }
 
     @Override
@@ -72,22 +56,6 @@ public class EmpireWand extends Wand {
     @Override
     protected Material getWandMaterial() {
         return Material.BLAZE_ROD;
-    }
-    
-    @Override
-    protected List<String> getSpellList() {
-        return Spells;
-    }
-
-    @Override
-    public String getPermissionBase() {
-        return EmpireWandPlus.PermissionPrefix + "empire.";
-    }
-
-    @Override
-    public void Handle(PlayerInteractEvent e) {
-        final EmpireWand empireWand = (EmpireWand) EmpireWandPlus.wandHashMap.get("empire");
-        HandleInteraction(e, empireWand);
     }
 
     @Override

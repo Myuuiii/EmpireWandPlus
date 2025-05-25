@@ -56,9 +56,9 @@ public final class EmpireWandPlus extends JavaPlugin {
         SpellNameManager.load(this);
 
         // Load spells for all wands after _plugin is set and config is loaded
-        com.myuuiii.empirewandplus.Wands.EmpireWand.loadSpellsFromConfig();
-        com.myuuiii.empirewandplus.Wands.BloodWand.loadSpellsFromConfig();
-        com.myuuiii.empirewandplus.Wands.ElementosWand.loadSpellsFromConfig();
+        for (Wand wand : wandHashMap.values()) {
+            wand.loadSpellsFromConfig();
+        }
 
         registerCommands();
         registerListeners(

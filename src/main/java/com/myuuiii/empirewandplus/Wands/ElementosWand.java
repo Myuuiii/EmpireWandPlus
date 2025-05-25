@@ -2,52 +2,35 @@ package com.myuuiii.empirewandplus.Wands;
 
 import com.myuuiii.empirewandplus.Abstracts.Wand;
 import com.myuuiii.empirewandplus.Data.SpellNames;
-import com.myuuiii.empirewandplus.EmpireWandPlus;
 import com.myuuiii.empirewandplus.Managers.MessagesManager;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.persistence.PersistentDataContainer;
-import org.bukkit.persistence.PersistentDataType;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class ElementosWand extends Wand {
 
-    public final static String Identifier = "Elementos";
+    @Override
+    public String getIdentifier() {
+        return "Elementos";
+    }
 
-    public static List<String> Spells = new ArrayList<>();
-
-    public static void loadSpellsFromConfig() {
-        Spells.clear();
-        FileConfiguration config = com.myuuiii.empirewandplus.EmpireWandPlus._plugin.getConfig();
-        List<String> configSpells = config.getStringList("wands.Elementos.spells");
-        if (configSpells != null && !configSpells.isEmpty()) {
-            Spells.addAll(configSpells);
-        } else {
-            Spells.add(SpellNames.Spark);
-            Spells.add(SpellNames.CelestialConfuse);
-            Spells.add(SpellNames.CelestialStun);
-            Spells.add(SpellNames.Lightning);
-            Spells.add(SpellNames.Smite);
-            Spells.add(SpellNames.KajCloud);
-        }
+    @Override
+    protected void addDefaultSpells() {
+        spells.add(SpellNames.Spark);
+        spells.add(SpellNames.CelestialConfuse);
+        spells.add(SpellNames.CelestialStun);
+        spells.add(SpellNames.Lightning);
+        spells.add(SpellNames.Smite);
+        spells.add(SpellNames.KajCloud);
     }
 
     @Override
     public String getDisplayName() {
         return MessagesManager.getWandDisplayName("elementos");
     }
-
 
     @Override
     public String getPrefix() {
@@ -57,22 +40,6 @@ public class ElementosWand extends Wand {
     @Override
     protected Material getWandMaterial() {
         return Material.ECHO_SHARD;
-    }
-    
-    @Override
-    protected List<String> getSpellList() {
-        return Spells;
-    }
-
-    @Override
-    public String getPermissionBase() {
-        return EmpireWandPlus.PermissionPrefix + "elementos.";
-    }
-
-    @Override
-    public void Handle(PlayerInteractEvent e) {
-        final ElementosWand elementosWand = (ElementosWand) EmpireWandPlus.wandHashMap.get("elementos");
-        HandleInteraction(e, elementosWand);
     }
 
     @Override

@@ -2,42 +2,26 @@ package com.myuuiii.empirewandplus.Wands;
 
 import com.myuuiii.empirewandplus.Abstracts.Wand;
 import com.myuuiii.empirewandplus.Data.SpellNames;
-import com.myuuiii.empirewandplus.EmpireWandPlus;
 import com.myuuiii.empirewandplus.Managers.MessagesManager;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.persistence.PersistentDataContainer;
-import org.bukkit.persistence.PersistentDataType;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class BloodWand extends Wand {
     
-    public final static String Identifier = "Blood";
-    
-    public static List<String> Spells = new ArrayList<>();
+    @Override
+    public String getIdentifier() {
+        return "Blood";
+    }
 
-    public static void loadSpellsFromConfig() {
-        Spells.clear();
-        FileConfiguration config = com.myuuiii.empirewandplus.EmpireWandPlus._plugin.getConfig();
-        List<String> configSpells = config.getStringList("wands.Blood.spells");
-        if (configSpells != null && !configSpells.isEmpty()) {
-            Spells.addAll(configSpells);
-        } else {
-            Spells.add(SpellNames.Spark);
-            Spells.add(SpellNames.BloodSpark);
-            Spells.add(SpellNames.BloodWave);
-        }
+    @Override
+    protected void addDefaultSpells() {
+        spells.add(SpellNames.Spark);
+        spells.add(SpellNames.BloodSpark);
+        spells.add(SpellNames.BloodWave);
     }
 
     @Override
@@ -53,22 +37,6 @@ public class BloodWand extends Wand {
     @Override
     protected Material getWandMaterial() {
         return Material.NETHER_WART;
-    }
-    
-    @Override
-    protected List<String> getSpellList() {
-        return Spells;
-    }
-
-    @Override
-    public String getPermissionBase() {
-        return EmpireWandPlus.PermissionPrefix + "blood.";
-    }
-
-    @Override
-    public void Handle(PlayerInteractEvent e) {
-        final BloodWand bloodWand = (BloodWand) EmpireWandPlus.wandHashMap.get("blood");
-        HandleInteraction(e, bloodWand);
     }
 
     @Override
