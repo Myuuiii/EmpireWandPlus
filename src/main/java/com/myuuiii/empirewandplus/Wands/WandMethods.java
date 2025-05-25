@@ -3,9 +3,6 @@ package com.myuuiii.empirewandplus.Wands;
 import com.myuuiii.empirewandplus.Abstracts.Spell;
 import com.myuuiii.empirewandplus.Abstracts.Wand;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
-import com.myuuiii.empirewandplus.Extensions;
-import com.myuuiii.empirewandplus.Managers.SpellNameManager;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
@@ -16,7 +13,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class WandMethods {
@@ -44,7 +40,7 @@ public class WandMethods {
         wandItem.setItemMeta(meta);
         
         // Display the spell's friendly name to the player
-        String displayName = SpellNameManager.getDisplayName(nextSpell);
+        String displayName = EmpireWandPlus.spellHashMap.get(nextSpell).getDisplayName();
         p.sendMessage(wand.getPrefix() + displayName);
     }
     

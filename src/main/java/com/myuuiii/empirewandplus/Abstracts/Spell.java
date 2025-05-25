@@ -32,7 +32,6 @@ public abstract class Spell implements ISpell {
 
     public abstract String getConfigName();
     public String getDisplayName() {
-        // Retrieve the display name from SpellNameManager
         return SpellNameManager.getDisplayName(getConfigName());
     }
 }
