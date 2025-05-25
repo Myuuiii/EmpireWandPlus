@@ -49,6 +49,11 @@ public class Lightning extends ProjectileSpell {
     }
 
     @Override
+    public String getConfigName() {
+        return "lightning";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
 
     }

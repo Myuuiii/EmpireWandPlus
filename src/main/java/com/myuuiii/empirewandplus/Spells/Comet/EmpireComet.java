@@ -49,6 +49,11 @@ public class EmpireComet extends ProjectileSpell {
     }
 
     @Override
+    public String getConfigName() {
+        return "empireComet";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
 
     }

@@ -29,6 +29,11 @@ public class Leap extends Spell {
     }
 
     @Override
+    public String getConfigName() {
+        return "leap";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
 
     }

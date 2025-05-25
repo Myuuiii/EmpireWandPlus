@@ -59,6 +59,11 @@ public class PoisonSpark extends SparkSpellBase {
     }
 
     @Override
+    public String getConfigName() {
+        return "poisonSpark";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
         if (!(entity instanceof LivingEntity livingEntity)) return;
         livingEntity.damage(getDamage());

@@ -27,6 +27,11 @@ public class Launch extends Spell {
     }
 
     @Override
+    public String getConfigName() {
+        return "launch";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
         entity.setVelocity(new Vector(entity.getVelocity().getX(), _launchHeightModifier, entity.getVelocity().getZ()));
     }

@@ -49,6 +49,11 @@ public class FirePulse extends ProjectileSpell {
     }
 
     @Override
+    public String getConfigName() {
+        return "firePulse";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
 
     }

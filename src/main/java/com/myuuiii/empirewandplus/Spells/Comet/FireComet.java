@@ -49,6 +49,11 @@ public class FireComet extends ProjectileSpell {
     }
 
     @Override
+    public String getConfigName() {
+        return "fireComet";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
 
     }

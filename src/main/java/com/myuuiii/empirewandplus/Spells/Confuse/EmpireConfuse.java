@@ -33,6 +33,11 @@ public class EmpireConfuse extends Spell {
     }
 
     @Override
+    public String getConfigName() {
+        return "empireConfuse";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
         if (!(entity instanceof LivingEntity targetEntity)) return;
         targetEntity.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA, _confusionDuration, 1, true, false));

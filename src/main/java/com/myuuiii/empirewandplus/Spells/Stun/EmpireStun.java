@@ -33,6 +33,11 @@ public class EmpireStun extends Spell {
     }
 
     @Override
+    public String getConfigName() {
+        return "empireStun";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
         if (!(entity instanceof LivingEntity livingEntity)) return;
         livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, _slowDuration, 255, true, false));

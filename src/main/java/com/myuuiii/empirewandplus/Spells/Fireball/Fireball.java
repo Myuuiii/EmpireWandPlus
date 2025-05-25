@@ -49,6 +49,11 @@ public class Fireball extends ProjectileSpell {
     }
 
     @Override
+    public String getConfigName() {
+        return "fireball";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
 
     }

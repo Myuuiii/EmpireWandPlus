@@ -49,6 +49,11 @@ public class Smite extends ProjectileSpell {
     }
 
     @Override
+    public String getConfigName() {
+        return "smite";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
 
     }

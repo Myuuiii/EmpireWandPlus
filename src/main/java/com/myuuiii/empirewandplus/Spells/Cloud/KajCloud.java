@@ -28,6 +28,11 @@ public class KajCloud extends Spell {
     }
 
     @Override
+    public String getConfigName() {
+        return "kajCloud";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
 
     }

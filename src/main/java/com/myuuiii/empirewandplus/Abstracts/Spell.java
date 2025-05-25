@@ -9,6 +9,8 @@ import java.util.List;
 
 import static com.myuuiii.empirewandplus.Extensions.getNearbyEntities;
 
+import com.myuuiii.empirewandplus.Managers.SpellNameManager;
+
 public abstract class Spell implements ISpell {
 
     public void Execute(Location loc, Player p) {
@@ -27,4 +29,11 @@ public abstract class Spell implements ISpell {
     public abstract double getInRangeDistance();
 
     public abstract double getDamage();
+
+    public abstract String getConfigName();
+    public String getDisplayName() {
+        // Retrieve the display name from SpellNameManager
+        return SpellNameManager.getDisplayName(getConfigName());
+    }
 }
+

@@ -52,6 +52,11 @@ public class BloodWave extends ProjectileSpell {
     }
 
     @Override
+    public String getConfigName() {
+        return "bloodWave";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
 
     }

@@ -11,6 +11,7 @@ import com.myuuiii.empirewandplus.Listeners.InteractionListener;
 import com.myuuiii.empirewandplus.Listeners.ProjectileListener;
 import com.myuuiii.empirewandplus.Managers.ConfigManager;
 import com.myuuiii.empirewandplus.Managers.MessagesManager;
+import com.myuuiii.empirewandplus.Managers.SpellNameManager;
 import com.myuuiii.empirewandplus.SpellEffects.Cloud.KajCloudEffect;
 import com.myuuiii.empirewandplus.Wands.BloodWand;
 import com.myuuiii.empirewandplus.Wands.ElementosWand;
@@ -52,6 +53,7 @@ public final class EmpireWandPlus extends JavaPlugin {
         _plugin = this;
         ConfigManager.loadConfig(this);
         MessagesManager.loadMessages(this);
+        SpellNameManager.load(this);
 
         // Load spells for all wands after _plugin is set and config is loaded
         com.myuuiii.empirewandplus.Wands.EmpireWand.loadSpellsFromConfig();

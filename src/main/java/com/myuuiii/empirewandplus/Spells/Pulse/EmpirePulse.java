@@ -49,6 +49,11 @@ public class EmpirePulse extends ProjectileSpell {
     }
 
     @Override
+    public String getConfigName() {
+        return "empirePulse";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
 
     }

@@ -33,6 +33,11 @@ public class CelestialConfuse extends Spell {
     }
 
     @Override
+    public String getConfigName() {
+        return "celestialConfuse";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
         if (!(entity instanceof LivingEntity livingEntity)) return;
         livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.NAUSEA, _confusionDuration, 1, true, false));

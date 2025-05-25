@@ -8,5 +8,5 @@ public interface ISpell {
     void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer);
 
     void atExecutingLocation(Location loc, Player p);
-
+    String getConfigName();
 }

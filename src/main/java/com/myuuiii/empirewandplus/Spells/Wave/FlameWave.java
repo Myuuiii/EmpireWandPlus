@@ -49,6 +49,11 @@ public class FlameWave extends ProjectileSpell {
     }
 
     @Override
+    public String getConfigName() {
+        return "flameWave";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
 
     }

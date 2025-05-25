@@ -65,4 +65,9 @@ public class EmpireSpark extends SparkSpellBase {
     public double getDamage() {
         return 8.0;
     }
+
+    @Override
+    public String getConfigName() {
+        return "empireSpark";
+    }
 }

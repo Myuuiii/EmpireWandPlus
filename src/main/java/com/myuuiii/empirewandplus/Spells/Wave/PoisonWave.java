@@ -49,6 +49,11 @@ public class PoisonWave extends ProjectileSpell {
     }
 
     @Override
+    public String getConfigName() {
+        return "poisonWave";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
 
     }

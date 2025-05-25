@@ -28,6 +28,11 @@ public class Ignite extends Spell {
     }
 
     @Override
+    public String getConfigName() {
+        return "ignite";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
         if (!(entity instanceof LivingEntity livingEntity)) return;
         livingEntity.setFireTicks(_fireDuration);

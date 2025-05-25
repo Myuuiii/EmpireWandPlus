@@ -27,6 +27,11 @@ public class Capture extends Spell {
     }
 
     @Override
+    public String getConfigName() {
+        return "capture";
+    }
+
+    @Override
     public void forAllNearbyEntities(Entity entity, Location location, Player executingPlayer) {
         if (entity.equals(executingPlayer)) return;
         executingPlayer.addPassenger(entity);
