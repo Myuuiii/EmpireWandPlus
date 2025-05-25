@@ -4,7 +4,9 @@ import com.myuuiii.empirewandplus.Abstracts.Wand;
 import com.myuuiii.empirewandplus.Data.SpellNames;
 import com.myuuiii.empirewandplus.EmpireWandPlus;
 import com.myuuiii.empirewandplus.Managers.MessagesManager;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -12,6 +14,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,11 +74,12 @@ public class EmpireWand extends Wand {
         ItemStack wand = new ItemStack(Material.BLAZE_ROD, 1);
         ItemMeta wandMeta = wand.getItemMeta();
         wandMeta.setDisplayName(getDisplayName());
-        wandMeta.setLore(new ArrayList<>() {
-            {
-                add(Spells.get(0));
-            }
-        });
+        
+        // Store the spell name in persistent data
+        PersistentDataContainer container = wandMeta.getPersistentDataContainer();
+        NamespacedKey key = new NamespacedKey(EmpireWandPlus._plugin, "current_spell");
+        container.set(key, PersistentDataType.STRING, Spells.get(0));
+        
         wand.setItemMeta(wandMeta);
         return wand;
     }
